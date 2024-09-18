@@ -1,0 +1,12 @@
+﻿<html>
+<head>
+<script>
+window.showMenu = function(html, winobj) {
+	document.body.innerHTML = html;
+	window.parentProxy = winobj?winobj:top.sys_curr_popMMWindow;
+	//eval("window.showMenu = function(html, winobj) {document.open();document.write(html);document.close();window.parentProxy = winobj?winobj:top.sys_curr_popMMWindow;}")
+}
+</script>
+</head>
+<body></body>
+</html>

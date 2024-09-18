@@ -1,0 +1,9 @@
+﻿.sys_dbgtab8 {border-collapse:collapse;table-layout:fixed;width:100%;}  /*ie 8*/
+.sys_dbgtab8 .sys_dbtl {height:20px;width:20px;background-image:url(../../skin/default/images/dlg/rec1.png);}
+.sys_dbgtab8 .sys_dbtc {height:20px;background-image:url(../../skin/default/images/dlg/vertical.png);}
+.sys_dbgtab8 .sys_dbtr {height:20px;width:20px;background-image:url(../../skin/default/images/dlg/rec1.png); background-position:-80px 0px}
+.sys_dbgtab8 .sys_dbcl {background-image:url(../../skin/default/images/dlg/horizontal.png);}
+.sys_dbgtab8 .sys_dbcr {background-image:url(../../skin/default/images/dlg/horizontal.png);background-position:-80px 0px;}
+.sys_dbgtab8 .sys_dbbl {height:20px;background-image:url(../../skin/default/images/dlg/rec1.png); background-position:-0px -80px}
+.sys_dbgtab8 .sys_dbbc {height:20px;background-image:url(../../skin/default/images/dlg/vertical.png); background-position:-0px -80px}
+.sys_dbgtab8 .sys_dbbr {height:20px;background-image:url(../../skin/default/images/dlg/rec1.png); background-position:-80px -80px}

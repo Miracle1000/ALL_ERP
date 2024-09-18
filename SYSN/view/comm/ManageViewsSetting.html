@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>智邦国际企业管理软件</title>
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmNzcw%3d%3d&n=zlib.comm.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmRpYWxvZy5jc3M%3d&n=zlib.comm.dialog.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmNzcw%3d%3d&n=zlib.comm.leftpage.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmJpbGwuY3Nz&n=zlib.comm.bill.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5jc3M%3d&n=zlib.comm.fields.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmxpc3R2aWV3LmNzcw%3d%3d&n=zlib.comm.listview.css&ver=3194" rel="stylesheet" />
+    <script type="text/javascript" src="../../../SYSN/skin/script/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/zlib.comm.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/zlib.comm.dialog.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/zlib.comm.leftpage.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/zlib.comm.fields.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/zlib.comm.bill.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/comm/manageviews.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/zlib.comm.listview.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/zlib.comm.autocomplete.js"></script>
+    <script type="text/javascript" src="../../../SYSN/skin/script/comm/manageviews.js"></script>
+    <script type="text/javascript">
+        window.SysConfig = { "VirPath": "../../" };
+        window.UserInfo = {};
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        window.PageInitParams[0] = {
+            tag: [],
+            uistate: "add",
+            uistatetext: "添加",
+            ui: { title: "视图列设置", maxspan: 3, colswidth: "", hideonegroupbar: true, cmdbuttonalign: "firstgroup", logcanlink: "auto" },
+            cmdbuttons: [{ visible: true, cmdkey: "ManageViews.SetColumns()", shortcutkey: "0", bottomvisible: true, title: "保存", dbname: "reloadBtn" },
+                { visible: true, cmdkey: "location.reload()", shortcutkey: "0", bottomvisible: true, title: "重填", dbname: "reloadBtn" }],
+            billtype: "undefined",
+            ord: -1,
+            groups: [{
+                customfieldcontainertype: "none",
+                ui: {},
+                visible: true,
+                commandbuttons: [],
+                cmdbuttons: [],
+                fields: [{
+                    listview:
+                        {
+                            viewstate: "",
+                            showmaps: [0, 2, 3, 4],
+                            headers: [{ uitype: "none", width: 100, cansum: true, sorttype: 0, selectcellindex: 0, dindex: 0, showindex: 0, index: 0, exectitle: "字段名称", dbname: "字段名称", visible: true, display: "editable", max: 0, min: 0, dbtype: "text", nshow: true, ui: { width: 0, height: 0, x: 0, y: 0 }, title: "字段名称" },
+                                    { uitype: "none", width: 0, cansum: true, sorttype: 0, selectcellindex: 0, dindex: 1, showindex: 2, index: 1, exectitle: "DBName", dbname: "DBName", display: "hidden", max: 0, min: 0, dbtype: "text", nshow: false, ui: { width: 0, height: 0, x: 0, y: 0 }, title: "DBName" },
+                                    { uitype: "checkboxs", width: 100, align: "center", cansum: false, cansave: true, sorttype: 0, selectcellindex: 0, dindex: 2, showindex: 1, index: 2, exectitle: "是否显示", dbname: "是否显示", visible: true, display: "editable", max: 0, min: 0, dbtype: "text", nshow: true, source: { options: [{ n: "", v: "1" }], structtype: "default" }, ui: { width: 0, height: 0, x: 0, y: 0 }, title: "是否显示" },
+                                    { uitype: "intbox", width: 100, align: "center", cansum: true, cansave: true, sorttype: 0, selectcellindex: 0, dindex: 3, showindex: 2, index: 3, exectitle: "列宽(px)", dbname: "列宽(px)", visible: true, display: "editable", max: 0, min: 0, dbtype: "text", nshow: true, ui: { width: 0, height: 0, x: 0, y: 0 }, title: "列宽(px)" },
+                                    { uitype: "checkboxs", width: 100, align: "center", cansum: false, cansave: true, sorttype: 0, selectcellindex: 0, dindex: 4, showindex: 3, index: 4, exectitle: "列固定", dbname: "列固定", visible: true, display: "editable", max: 0, min: 0, dbtype: "text", nshow: true, source: { options: [{ n: "", v: "1" }], structtype: "default" }, ui: { width: 0, height: 0, x: 0, y: 0 }, title: "列固定" }],
+                            vheaders: [[{ text: "字段名称", colindex: 0, vindex: 1 }, { text: "是否显示", colindex: 2, vindex: 2 }, { text: "列宽(px)", colindex: 3, vindex: 3 }, { text: "列固定", colindex: 4, vindex: 4 }]],
+                            rows: [],
+                            currsums: [0, 0, 0, 1824, 0],
+                            allsums: [0, 0, 0, 1824, 0],
+                            page: { selpos: 0, recordcount: 12, pagesize: 1000, pageindex: 1, pagecount: 1 },
+                            ui: { rowmove: true, fixedcols: 1, editmodel: true, canadd: true, ishidebottomtoolbar: true, ishidetoptoolbar: true, border: false, lineheight: 0 }
+                        }, dbname: "Columns",
+                        visible: true,
+                        display: "editable",
+                        defvalue: "",
+                        max: 0,
+                        min: 0,
+                        uitype: "listview", dbtype: "text", nshow: true, colspan: 3, ui: { width: 0, height: 0, x: 1, y: 1 }, block: true, title: ""
+                }], title: "基本信息", dbname: "base"
+            }]
+        };
+    </script>
+    <script>
+        var fd = window.PageInitParams[0].groups[0].fields[0];
+        var hidval = $("#ColumnsTxt_0", window.opener.document).val();
+        if (!hidval) {
+            hidval = "";
+            var header = window.opener.opener.opener.Report.Data.listview.tablehead;
+            var jsondata = [];
+            for (var i in header) {
+                var json = {};
+                json.Title = header[i].title;
+                json.dbName = header[i].dbname;
+                json.isShow = "1";
+                json.cwidth = "";
+                json.gd = "";
+                jsondata.push(json);
+            }
+            hidval = JSON.stringify(jsondata);
+        }
+        var data = [];
+        if (hidval && hidval != "") {
+            var jsondata = JSON.parse(hidval);
+            for (var i in jsondata) {
+                var json = jsondata[i];
+                if (json) {
+                    var arr = [];
+                    arr.push(json.Title);
+                    arr.push(json.dbName);
+                    arr.push(json.isShow);
+                    arr.push(json.cwidth);
+                    arr.push(json.gd);
+                    data.push(arr);
+                }
+            }
+        }
+        fd.listview.rows = data;
+     </script>
+    <script type="text/javascript">
+        /*页面渲染*/
+        if (window.createPage) { window.createPage(); }
+        setTimeout(resizefuncccc, 100);
+    </script>
+</body>
+</html>

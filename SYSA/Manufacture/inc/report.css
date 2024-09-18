@@ -1,0 +1,659 @@
+﻿body{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+	font-size:12px;
+}
+a{color:#2F496E;}
+a:link {color: #2F496E;Text-Decoration:none}     /* 未访问的链接 */
+a:visited {color: #2F496E;Text-Decoration:none}
+a:hover {color: #FF0000;Text-Decoration:underline}    /* 当有鼠标悬停在链接上 */
+a:active {color: #2F496E}   /* 被选择的链接 */
+span.link{
+	color:#2F496E;
+	cursor:pointer;
+}
+td{
+	font-size:12px;
+}
+pre{
+	display:inline;
+}
+button.button {
+	border:1px solid #A5A8D4;
+	font-size:12px;
+	font-family:arial;
+	background-color:white;
+	height:20px;
+	filter:wave(strength=0,freq=1,lightstrength=5,phase=0);
+	cursor:default;
+}
+#header {
+	height:41px;/*生产-生产订单-上产进度查询-表头*/
+	width:100%;
+	margin:0px;
+	background-image:url(../../images/content_tab.png);
+	background-position-y:-1px;
+	background-repeat:no-repeat;
+	border-top:1px solid #AaBfe7;
+	border-bottom:1px solid #A7BBD7;
+}
+#headertext {
+	font-size:14px;
+	font-weight:bold;
+	margin-left:64px;/*生产-生产订单-上产进度查询-表头标题*/
+
+	font-size:14px;
+	color:#444499;
+	height:42px;
+	line-height:42px;
+}
+
+div.fixDiv{background:url(../../images/m_mpbg.gif)}
+/*实现SSTab*/
+#TabCtl_topMenu .ssTabItem_select {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+	display:block;
+	/*filter:Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+#TabCtl_topMenu .ssTabItem {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+	display:block;
+	/*Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+
+#TabCtl_topMenu .divdlgBody .ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:#dde9f9;
+	padding:0px;
+	width:17px;
+	border-top:1px solid  #cecece;
+	border-bottom:1px solid white;
+}
+#TabCtl_topMenu .divdlgBody  .ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:#dde9f9;
+	border-top:1px solid  #cecece;
+	border-right:1px solid  #cecece;
+	border-bottom:1px solid white;
+	padding-right:3px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+#TabCtl_topMenu .divdlgBody  .ssTabItem_select .TabItemSlash{
+	background-image:url(../../images/smico/divdlgSlash.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid white;
+	padding:0px;
+}
+#TabCtl_topMenu .divdlgBody .ssTabItem .TabItemSlash{
+	background-image:url(../../images/smico/bgdivbgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #cecece;
+	padding:0px;
+}
+#TabCtl_topMenu .divdlgBody  .ssTabItem .TabItemImage {
+	height:24px;
+	background-color:#dde9f9;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #cecece;
+	border-bottom:1px solid #cecece;
+}
+#TabCtl_topMenu .divdlgBody  .ssTabItem .TabItemText {
+	height:22px;
+	background-color:#dde9f9;
+	border-top:1px solid #cecece;
+	border-right:1px solid #cecece;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #cecece;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+#TabCtl_topMenu .ssTabItem_select .TabItemSlash{
+	background-image:url(../../images/smico/Slash_2.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #DDE9F9;
+	padding:0px;
+}
+
+#TabCtl_topMenu .ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:#dde9f9;
+	background-image:url(../../images/smico/bg4.jpg);
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid #DDE9F9;
+}
+
+#TabCtl_topMenu .ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:#dde9f9;
+	background-image:url(../../images/smico/bg4.jpg);
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	border-bottom:1px solid #DDE9F9;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+#TabCtl_topMenu .ssTabItem .TabItemSlash{
+	background-image:url(../../images/smico/BgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #A5A8D4;
+	padding:0px;
+}
+#TabCtl_topMenu .ssTabItem .TabItemImage {
+	height:24px;
+	background-color:#dde9f9;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid #A5A8D4;
+	background-image:url(../../images/smico/TabItemBg.bmp);
+}
+#TabCtl_topMenu .ssTabItem .TabItemText {
+	height:22px;
+	background-color:#dde9f9;
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #A5A8D4;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+	background-image:url(../../images/smico/TabItemBg.bmp);
+}
+/****/
+
+#report_tool_left{
+	float:left;
+	padding:0px;
+}
+
+#toolbar{
+	height:28px;
+	background-color:#F0F6FF;
+	background-image:url(../../images/m_table_top.jpg);
+	border-bottom:1px solid #ccccee;
+	overflow:hidden;
+}
+
+.toolitemspliter{
+	float:left;
+	width:1px;height:16px;
+	border-right:1px solid #fff;
+	background-color:#999;
+	margin-top:3px;
+}
+.toolitemspace{
+	width:2px;height:22px;
+	float:left;
+	overflow:hidden;
+}
+.toolitem{
+	width:22px;height:22px;
+	cursor:default;
+	float:left;
+	background-color:transparent;
+}
+.spliterdiv{
+	float:left;
+}
+.toolcontext {
+	width:20px;
+	height:20px;
+	margin-top:1px;
+	margin-left:1px;
+	background-color:transparent;
+}
+.toolcontext img{
+	/*margin:2px;*//*生产订单-生产订单进度查询-第二行-去掉margin*/
+	width:16px;
+	height:16px;
+	background-color:transparent;
+}
+
+.toolitem_hover{
+	width:22px;height:22px;
+	background-color:#0A246A;
+	cursor:default;float:left;
+}
+
+.toolitem_hover .toolcontext{
+	width:20px;
+	height:20px;
+	margin-top:1px;
+	margin-left:1px;
+	background-color:#B6BDD2;
+}
+
+/*填出窗口*/
+table.divForm{
+	border-top:1px solid #CCC;
+	border-left:1px solid #CCC;
+	border-bottom:1px solid #CCC;
+	border-right:1px solid #CCC;
+	background:@zbvar.tableheaderbg
+}
+div.divdlgb{
+	width:100%;
+	height:100%;
+}
+div.divdlgBody{
+	width:100%;
+	height:100%;
+	border:1px solid #cecece;
+	background-color:white;
+	padding:500px;
+	overflow:auto;
+
+	overflow-x:auto;
+	overflow-y:hidden;
+	scrollbar-3dlight-color:#ffffFF;
+	scrollbar-highlight-color:#ffffFF;
+	scrollbar-face-color:#eeeeFF;
+	scrollbar-arrow-color:#6666ff;
+	scrollbar-shadow-color:#ffffFF;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-base-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+}
+div.DisDivBgCss {
+	display:block;
+	position:fixed;
+	_position:absolute;
+	width:100%;
+	height:2000px;
+	z-index:100;
+	top:0px;
+	left:0px;
+	filter:Alpha(opacity=40);
+	-moz-opacity:0.4;  
+	-khtml-opacity: 0.4;  
+	opacity: 0.4; 
+	background-color:#CAD0E0;
+	background-image:url(../../images/login_sample_bg.jpg);
+	background-repeat:repeat-x;
+	/*IE以下模式*/
+}
+/*end 弹出窗口*/
+.rptmodel #PageTitle
+{
+	height:34px;
+	text-align:center;
+	overflow:hidden;
+	display:block;
+}
+.rptmodel {width:800px;}
+.listmodel {width:auto;}
+.listmodel #PageTitle {display:none;}
+.listmodel #PageHeader {display:none;}
+.listmodel .spaceline {display:none;}
+.listmodel #PageFooter {display:none;}
+
+#PageTitleSpan{
+	display:block;
+	font-family:宋体;
+	line-height:20px;
+	font-size:16px;
+	margin-top:8px;
+	vertical-align:middle;
+	color:#000;
+	letter-spacing:5px;
+}
+
+#Navigation{
+	height:28px;
+	background-color:#F0F6FF;
+	background-image:url(../../images/m_table_top.jpg);
+	border-bottom:1px solid #ccccee;
+	overflow:hidden;
+}
+.fixDiv {
+	position:fixed;
+	left:0px;top:0px;width:100%;;
+	_position:absolute;
+	z-index:100;
+}
+#PageBody{
+	margin:0 auto;
+	overflow:visible;
+	
+}
+select{
+	font-size:12px;
+}
+
+.listmodel #datatable{
+	position:relative;top:39px;/*生产-生产订单-上产进度查询-检索下面的table*/
+	border:1px solid #C0CCDD;
+	background-repeat:repeat-x;
+	border-collapse:collapse;
+	width:100%;
+}
+
+.rptmodel #datatable{
+	background-repeat:repeat-x;
+	border-collapse:collapse;
+	width:100%;
+}
+
+
+#datatable td{
+	font-family:宋体;
+}
+
+.listmodel #datatable th{
+	border:1px solid #C0CCDD;
+	font-weight:normal;
+	color:#2F496E;
+	padding-top:8px;/*生产-生产订单-生产订单查询-生产订单进度查询-行高*/
+	padding-bottom:8px;/*生产-生产订单-生产订单查询-生产订单进度查询-行高*/
+}
+
+.rptmodel #datatable th{
+	border:1px solid #000; color:#000;font-weight:normal;
+}
+
+tr.Head1 th{
+	height:26px;
+	font-family:arial;
+	color:#2F496E;
+}
+tr.Head2{background:url(../../images/lvx.jpg) repeat-x;}
+tr.Head2 th{
+	height:24px;
+	font-family:arial;
+	color:#2F496E;
+}
+tr.Head3 th{
+	height:16px;
+	font-family:arial;
+	color:#2F496E;
+}
+tr.Head4 th{
+	height:14px;
+	font-family:arial;
+	color:#2F496E;
+}
+tr.Head5 th{
+	height:12px;
+	font-family:arial;
+	color:#2F496E;
+}
+.DR0{
+	background-color:#fefeff;
+}
+
+.indexdcell{
+	border:1px solid #CCCCEE;
+	background-color:#F8F8FE;
+	height:24px;
+	text-align:center;
+	font-family:arial;
+	color:#2F496E;
+}
+
+.dcell {
+	border:1px solid #CCCCEE;
+	height:24px;
+	padding-left:4px;
+	padding-right:4px;
+	padding-top:8px;/*生产-生产订单-生产订单查询-生产订单进度查询-行高*/
+	padding-bottom:8px;/*生产-生产订单-生产订单查询-生产订单进度查询-行高*/
+	color:#5B7CAE;
+	overflow:hidden;
+}
+
+.rptmodel .indexdcell {border-color:#000; color:#000; background-image:url(none);}
+.rptmodel .dcell {border-color:#000; color:#000;}
+.rptmodel .dcell span.link {color:#00;}
+
+/*=========筛选框========*/
+table.lvwtoolbartable {
+	border-collapse:collapse;
+	margin-right:4px;
+}
+
+table.lvwtoolbartable button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:transparent;
+	padding:0px;
+	text-align:center;
+	margin:1px;
+}
+
+table.lvwtoolbartable td.mv{
+	background-color:#6666aa;
+}
+
+table.lvwtoolbartable td.mv button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:#dddfff;
+	padding:0px;
+	margin:1px;
+}
+
+table {
+	border-collapse:collapse;
+	margin:0px;
+}
+.spTable input.text  {
+	font-size:12px;
+	font-family:宋体;
+	border:1px solid #aaaacc;
+}
+spTable.select {
+	font-size:12px;
+	font-family:宋体;
+}
+#FieldArea {
+	background-color:#f4fafe;
+	border-bottom:1px dashed #e5e5f0;
+	height:auto;
+	overflow:visible;
+	display:block;
+	padding-top:13px;/*生产-生产订单-上产进度查询-检索*/
+	padding-bottom:13px;
+}
+
+.fldItemdiv {
+
+}
+
+.fldItemdiv .text {
+	font-size:12px;
+	font-family:arial;
+	border:1px solid #ccccee;
+	border-right:0px;
+	height:14px;
+	overflow:hidden;
+	width:80px;
+}
+
+.flditemcell {
+	padding:0px;
+}
+
+.flditemsplit{
+	border-left:1px solid #ccc;
+	width:1px;height:12px;overflow:hidden;
+	position:relative;top:-2px;
+	background-image:url(../../images/smico/bg8.gif);background-repeat:repeat-y;
+}
+
+.datesel{
+	height:18px;
+	width:18px;
+	border:1px solid #ccccee;
+	position:relative;
+	top:-1px;
+	*top:0;
+	border-left:0px;
+	background-color:white;
+	padding:0px;
+
+}
+.datesel img{
+	position:relative;
+	cursor:pointer;
+}
+div.rpt_proc{
+	border:1px solid #e0e0e0;
+	height:12px;
+	width:100%;
+	padding:0px;
+	overflow:hidden;
+	position:relative;
+}
+div.rpt_procbar {
+	background-color:#3333ff;
+	top:0px;
+	height:12px;
+	overflow:hidden;
+	filter:wave(strength=0,freq=1,lightStrength=12,phase=90);
+}
+div.rpt_procv {
+	position:absolute;
+	top:0px;
+	color:#fff;
+	left:2px;
+	padding-right:2px;
+	padding-left:2px;
+	filter:Glow(color=#333388,Strength=2)
+}
+
+span.overlink{
+	color:blue;
+	cursor:pointer;
+	Text-Decoration:underline;
+}
+div.dvt_closebar{
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-position:-16px 0px;
+	float:right;
+	margin-right:2px;
+}
+div.dvt_maxbar{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:2px;
+	background-repeat:no-repeat;
+	background-position:0px -16px;
+	overflow:hidden;
+}
+
+div.dvt_minbar{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+div.dvt_maxedbar{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-position:-16px -16px;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+
+div.dvt_closebar_out{
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-position:-16px 0px;
+	float:right;
+	margin-right:2px;
+}
+div.dvt_maxbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:2px;
+	background-position:0px -16px;
+	overflow:hidden;
+}
+
+div.dvt_minbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+div.dvt_maxedbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-position:-16px -16px;
+	overflow:hidden;
+	margin-right:2px;
+}
+/*日期弹框ui样式*/
+div#calendardiv{overflow:visible!important;}
+div#calendardiv li{height:14px;line-height:14px;cursor:default;margin:0;padding:0;text-align:center;}
+div#calendardiv li.alSelected{background:#0091ED;color:#fff;}
+div#calendardiv li.alSelected1{background:#0091ED;color:#fff;}
+div#calendardiv ul#selectList{z-index:999999;text-align:center;position:absolute;width:65px;height:280px;border:1px solid #C1C1C1;overflow:auto;float:left;background:#ffffff;color:#000;list-style:none;margin:0;padding:0;}
+div#calendardiv input#tbSelYear{border:1px solid #b6c0c9;text-align:left;outline:none;background:#ffffff;box-sizing:border-box;padding:0 0 0 4px;cursor:default;-moz-user-select:none;user-select:none;-webkit-user-select:none;-ms-user-select:none;-webkit-touch-callout: none;}
+div#calendardiv td.defaultSelected{background:#2879FF}
+div#calendardiv td.defaultSelected>span{color:#fff!important;}
+div#calendardiv td>span.spanColor{color:#fff!important;}
+div#calendardiv select#tbSelMonth{border: 1px solid #b6c0c9;outline:none;}

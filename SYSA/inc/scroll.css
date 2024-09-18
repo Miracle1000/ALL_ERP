@@ -1,0 +1,79 @@
+﻿/* CSS Document */
+.ScrollerContainer {
+  position: absolute;
+  top: 0px; left: 0px;
+}
+.ScrollbarUp {
+  position: absolute;
+  width: 10px; height: 10px;
+  background-color: #CCC;
+  font-size: 0px;
+}
+.ScrollbarTrack {
+  width: 10px; height: 320px;
+  position: absolute;
+  top: 20px;
+  background-color: #EEE;
+}
+.ScrollbarHandle {
+  position: absolute;
+  width: 10px; height: 30px;
+  background-color: #CCC;
+}
+.ScrollbarDown {
+  position: absolute;
+  top: 190px;
+  width: 10px; height: 10px;
+  background-color: #CCC;
+  font-size: 0px;
+}
+#ScrollbarContainer {
+  position: absolute;
+  top: 50px; left: 460px;
+}
+
+#left_mid {
+}
+#leftmenu1, #leftmenu2, #leftmenu3 { 
+  /* position:absolute; */
+  top: 10px; 
+  overflow: hidden;    
+  display: none;
+}
+#leftmenu1 {display: block;}
+p {
+  margin: 0; padding: 0px 20px 10px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-indent: 20px;
+  color: #777;
+}
+#Navigation {
+  position: absolute; 
+  top: 30px;
+  left: 75px;
+}
+#Navigation a {
+  margin: 5px 2px 0 0;
+  padding: 0 5px;
+  height: 20px;
+  background-color: #E4E4E4;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: #AAA;
+  text-decoration: none;
+  display: block;
+  float: left;
+  letter-spacing: 1px;
+}
+#Navigation a:hover {
+  margin-top: 0px;
+  height: 25px;
+}
+#Navigation a.current {
+  margin-top: 0px;
+  height: 25px;
+  background-color: #EEE;
+  color: #777;
+}
+

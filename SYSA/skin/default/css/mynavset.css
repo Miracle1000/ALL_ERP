@@ -1,0 +1,655 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Source Han Sans","PingFangSC", "Microsoft Yahei", "微软雅黑", "Arial","宋体";
+}
+body{
+  font-size: 14px;
+  background: #EFEFEF;
+  min-width:1200px;
+}
+html.inframe body{
+    min-width:1050px
+}
+html.inframe #comm_itembarbg{display: none;}
+input:focus{border: 1px solid #4fa1e5;outline: none;box-shadow: rgb(79 161 229) 0px 0px 2px 1px;}
+#comm_itembarbg {
+  background: #EFEFEF;
+  height: 40px;
+  min-width: 400px;
+  overflow: hidden;
+  width: 100%;
+}
+#originTips{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 6px;
+  border:1px solid #DCDCDC;
+  border-radius: 4px;
+  background: #fff;
+  white-space: nowrap;
+  box-sizing: border-box;
+  color: #000;
+}
+#originTips .arrow{
+  position: absolute;
+  border: 6px solid transparent;
+  left: 40%;
+  bottom: -12px;
+  border-top-color: #DCDCDC;
+}
+#comm_itembarICO {
+  float: left;
+  height: 100%;
+  background: #EFEFEF;
+  width: 42px;
+}
+
+#comm_itembarText {
+  float: left;
+  letter-spacing: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background:#EFEFEF;
+  height: 40px;
+  line-height: 40px;
+  color: #1445a6;
+  font-size: 14px;
+  font-weight: bold;
+  width: 200px;
+}
+
+#comm_itembarText span {
+  color: #1445a6;
+  font-size: 14px;
+  color:#000;
+}
+
+#comm_itembarText span::before{
+    content:"当前位置：";
+    color:#999;
+    font-size:14px;
+    font-weight:400;
+}
+
+#comm_itembarspc {
+  width: 64px;
+  height: 43px;
+  background: #EFEFEF;
+  float: left;
+}
+
+#comm_navSet_panle {
+  /*position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 53px;
+  bottom: 0px;*/
+  padding: 0px 10px 0px;
+  overflow:hidden;
+  position:relative;
+  box-sizing:border-box;
+}
+.inframe #comm_navSet_panle{
+    padding-left:0px;
+    min-height:600px;
+}
+#comm_navSet_panle table.navTable {
+  width: 100%;
+  height: 100%;
+}
+
+.left_block {
+  float: left;
+}
+
+#myNavSetting .titleText,.add_menu_title {
+  background: #FFF;
+  height: 43px;
+  line-height: 43px;
+  border-bottom: 1px solid #CECECE;
+  font-size: 13px;
+  padding-left: 12px;
+  color: #000;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.add_menu_title .closeMenu{
+    float:right;
+    margin-right:10px;
+    cursor:pointer;
+}
+.add_menu_title .closeMenu:hover{
+    color:red;
+}
+#navSorece,#navView {
+  width: 22%;
+  position: relative;
+  height: 100%;
+}
+
+.doubleArrow {
+  height: 100%;
+  width: 3%;
+  background: url(../images/myNavSet/double_r.png) no-repeat center;
+  min-height:0.05px; 
+  overflow: hidden;
+}
+
+#addNavs {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+span.arrowIcon {
+  display: inline-block;
+  width: 16px;
+  height: 14px;
+  background: #FFF;
+  margin-right: 4px;
+  vertical-align:-1px;
+}
+#addNavContainer{
+  position: absolute;
+  left: 0;
+  right: 0px;
+  bottom: 0px;
+  top: 53px;
+  text-align: center;
+}
+#addNavDataContainer{
+  position: absolute;
+  top: 58px;
+  left: 0px;
+  right: 0px;
+  bottom: 62px;
+  overflow: hidden;
+}
+.addNavBtn {
+  height: 60px;
+  line-height: 60px;
+  border: 1px solid #DCDCDC;
+  margin-top: -1px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: #fff;
+  display:none;
+}
+#rightScrollBar{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 34px;/*ie8下宽度小于33滚动条显示不出来*/
+  overflow: auto;
+  overflow-x:hidden;
+  display: none;
+}
+#rightScrollBar #scrollBar{width: 1px;}
+.addNavBtn button.node_add_btn{
+  margin-right:100px;
+}
+table.add_table, .model {
+    background: @zbvar.tableheaderbg;
+}
+table.add_table,.add_table_data {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+}
+table.add_table th{
+  color:#000;
+}
+table td,th{
+  border: 1px solid #DCDCDC;
+  height: 56px;
+}
+#add_table_body td{height: 56px;overflow: hidden;background:#fff;}
+#add_table_body tr:hover td{background:#E4ECF7}
+#add_table_body tr:first-child td{border-top:0px;}
+button.zb_btn,input.zb_btn{
+  color: #000;
+  height:42px ;
+  line-height: 6px;
+  border: 1px solid #DCDCDC;
+  padding: 12px 36px;
+  *padding:0px;
+  background: #EFEFEF;
+  background-size: 100% 100%;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  vertical-align:middle;
+  border-radius:4px;
+}
+.add_menu_btns button.zb_btn{padding:10px 16px;height:auto;}
+button.zb_btn:hover,input.zb_btn:hover{
+  box-shadow: 0 0 4px 1px #c3c6ec;
+  background: #fff;
+  color:#284D7E ;
+}
+#navView .model{
+  height: 56px;
+  color: #000;
+  font-size: 13px;
+  line-height: 56px;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid #DCDCDC;
+}
+input.model_role{
+  border: 1px solid #DCDCDC;
+  height: 30px;
+  line-height: 31px;
+  width: 34%;
+  text-align: center;
+  cursor: pointer;
+  vertical-align:middle;
+}
+.model input.zb_btn {
+    background: #fff;
+    padding: 8px 20px;
+    height: 31px;
+}
+.model .text{
+  font-weight: 600;
+}
+.help_explan_ico{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: -3px;
+  background:url(../../../../SYSN/skin/default/img/explan_blue.png) no-repeat center center ;
+  vertical-align: middle;
+  cursor:pointer;
+  margin-top:-4px;
+}
+.help_explan_ico:hover{
+  background:url(../../../../SYSN/skin/default/img/explan_red.png) no-repeat center center ;
+}
+#bill_help_expaln {
+    display: none;
+    border-radius: 3px;
+    border: 0px solid #c0ccdd;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    word-break: break-all;
+    white-space: normal;
+    margin: 0;
+    line-height: 20px;
+    z-index: 99999;
+}
+#bill_help_expaln_text {
+    padding: 10px 10px;
+    background: #7A7D7F;
+    background: rgba(0,0,0,0.6);
+    color: #FFF;
+    border-radius: 3px;
+}
+div.bill_help_expaln_top.up {
+    bottom: -12px;
+    top: auto;
+}
+div.bill_help_expaln_top {
+    height: 12px;
+    width: 24px;
+    padding: 0;
+    float: right;
+    position: absolute;
+    left: 0px;
+    top: -12px;
+    bottom: auto;
+    overflow: hidden;
+}
+div.bill_help_expaln_top .bill_help_expaln_close {
+    display: block;
+    float: right;
+    margin-right: 3px;
+    border: 12px solid transparent;
+    border-bottom-color: #7A7D7F;
+    border-bottom: 12px solid rgba(0,0,0,0.6);
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    position: absolute;
+    left: 0px;
+    top: -12px;
+}
+div.bill_help_expaln_top.up .bill_help_expaln_close {
+    top: 0px;
+    border-color: transparent;
+    border-top-color: #7A7D7F;
+    border-top-color: rgba(0,0,0,0.6);
+}
+/*div.bill_help_expaln_text span.alchoose,
+div.bill_help_expaln_text span.unchoose,
+div.bill_help_expaln_text span.clechoose,
+div.bill_help_expaln_text span.up,
+div.bill_help_expaln_text span.down{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+}
+div.bill_help_expaln_text span.alchoose,
+div.bill_help_expaln_text span.clechoose{
+    background-size: 12px 12px;
+}
+div.bill_help_expaln_text span.unchoose{
+    background: url(../images/myNavSet/add.png) no-repeat center;
+    background-size: 12px 12px;
+}
+
+div.bill_help_expaln_top {
+  height: 17px;
+  padding: 0px 0px 0 0;
+  float: right;
+  margin-top:-6px;
+}
+div.bill_help_expaln_top .bill_help_expaln_close {
+  display: block;
+  float: right;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  background-position: -48px 32px;
+  text-decoration: none;
+  text-align:right;
+}
+div.bill_help_expaln_top .bill_help_expaln_close:hover {
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}*/
+
+#standarNav{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 44px;
+  bottom: 0px;
+  padding-top:10px;
+  background:#FFF;
+}
+#leftMenu{
+  width:26px;
+  position: absolute;
+  left: 3px;
+  top: 10px;
+  z-index: 99;
+}
+#leftMenu li{
+  padding: 9px 7px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-bottom: 5px;
+  background: @zbvar.leftbgcolor;
+  line-height: 14px;
+  border: 1px solid @zbvar.topbgcolor;
+  color: #fff;
+}
+#leftMenu li.navActived, #leftMune li.navActived:hover {
+    background: white;
+    border: 1px solid @zbvar.topbgcolor;
+    border-bottom: 1px solid @zbvar.topbgcolor;
+    color: @zbvar.basefontcolor;
+    font-weight: 900;
+}
+#treeNav{
+  border-left: 1px solid @zbvar.topbgcolor;
+  border-right: 1px solid #DCDCDC;
+  position: absolute;
+  left: 28px;
+  right: 0px;
+  bottom: 0px;
+  top: 10px;
+  overflow: auto;
+  background: #fff;
+  display: none;
+}
+#add_menu_container{
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  padding-bottom: 20px;
+  border: 1px solid #DCDCDC;
+  text-align: center;
+  z-index:10;
+  background: #fff;
+  display: none;
+}
+input.menu_name{
+  width: 50%;
+  height: 19px;
+  padding: 0px;
+  border: 1px solid #DCDCDC;
+}
+.add_menu_content{
+  margin-bottom: 14px;
+}
+.add_menu_title{
+  height: 34px;
+  line-height: 34px;
+  background-size:100% 100%;
+  text-align: left;
+  margin-bottom: 14px;
+  overflow:hidden;
+  padding-left:10px;
+}
+.add_menu_title .arrowIcon{
+    background:#FFF;
+    width:16px;
+    height:16px;
+    vertical-align:middle;
+    margin-top:-6px;
+    display:inline-block;
+    *display:inline;
+}
+button#add_menu{
+  margin: 0 12px;
+}
+#myNavView{
+  position: absolute;
+  left: 0;
+  top: 113px;
+  right: 0;
+  bottom: 0px;
+  background: #fff;
+  border: 1px solid #DCDCDC;
+  border-top: 0;
+  overflow-y: auto;
+  padding-top: 20px;
+}
+#myNavView div.my_nav_tree_view{padding-left: 20px;}
+/*树结构样式修正*/
+#treeNav ul.tree_view span.tvw_icon.icon_n1{
+  background: url(../images/leftm/bx.gif) no-repeat center;
+}
+#treeNav ul.tree_view1>li:first-child>div.title span.tvw_icon.icon_n1{
+  background: url(../images/leftm/bx_b.gif) no-repeat center;
+}
+#treeNav ul.tree_view span.tvw_icon.icon_n1.last{
+  background: url(../images/leftm/bx_e.gif) no-repeat center;
+}
+#treeNav ul.tree_view .shink span.tvw_icon.icon_n1{
+  background:url(../images/leftm/bs.gif) no-repeat center;
+}
+#treeNav ul.tree_view1>li:first-child>div.shink span.tvw_icon.icon_n1{
+  background:url(../images/leftm/bs_b.gif) no-repeat center;
+}
+#treeNav ul.tree_view .aspectSpace.n1.tvw_l{
+  background: url(../images/leftm/tree_line30_f.gif) repeat-y center;
+}
+#treeNav ul.tree_view .shink span.tvw_icon.icon_n1.last {
+  background: url(../images/leftm/bs_e.gif) no-repeat center;
+}
+#treeNav span.add_btn,#add_table_body div.cancle,
+#add_table_body .node_up,#add_table_body .node_down{
+  background: url(../images/myNavSet/add.png) no-repeat center;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  cursor:pointer;
+}
+#treeNav span.add_btn.duihao,div.bill_help_expaln_text span.alchoose{
+  background: url(../images/myNavSet/duihao.png) no-repeat center;
+}
+#treeNav span.aspectSpace.n0.tvw_nl{display: none;}
+#treeNav .menuPanel{
+  width: 92%;
+  margin: 0 auto;
+}
+#treeNav div.title a.text{
+    vertical-align:top;
+    width:44%;
+    *width:60%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+} 
+#treeNav UL.tree_view SPAN.node_handle{*float:none}
+.menuPanel.hidden{display: none;}
+#treeNav .menuPanel .topNav{
+  height: 40px;
+  margin: 0 auto;
+  line-height: 40px;
+  text-align: center;
+  background: @zbvar.tableheaderbg;
+  color: #000;
+  margin: 10px auto 10px;
+  font-size: 14px;
+  font-weight: 800;
+  border: 1px solid @zbvar.tableheaderbg;
+}
+#myNavView ul.tree_view span.node_handle{width: auto;}
+#myNavView UL.tree_view SPAN.node_handle{*float:none;}
+#myNavView div.pTitle>input.nodeText{*margin-right:39px}
+#myNavView span.node_handle span{
+  display: inline-block;
+  margin-right: 6px;
+  height: 14px;
+  width: 14px;
+  cursor:pointer;
+  vertical-align:middle;
+}
+#myNavView input.nodeText{background: transparent;border-color: transparent;width:36%}
+html.inframe #myNavView input.nodeText{width:25%}
+#myNavView div.title:hover{background:#F2F9FF}
+#myNavView span.view{
+  background: url(../images/myNavSet/view.png) no-repeat center;
+}
+#myNavView div.pTitle>.node_handle span.view,
+#treeNav div.pTitle>.node_handle{display: none;}
+#myNavView span.up,#add_table_body .node_up,div.bill_help_expaln_text span.up{
+  background: url(../images/myNavSet/up_r.png) no-repeat center;
+}
+#myNavView span.down,#add_table_body .node_down,div.bill_help_expaln_text span.down{
+  background: url(../images/myNavSet/down_r.png) no-repeat center;
+}
+#myNavView span.del{
+  background: url(../images/myNavSet/del.png) no-repeat center;
+}
+#add_table_body div.cancle,div.bill_help_expaln_text span.clechoose{
+  background: url(../images/myNavSet/cancel.png) no-repeat center;
+}
+#add_table_body .node_up{
+  margin-right: 15px;
+}
+#checkTreeName{
+  position: absolute;
+  left: 0;
+  top: 0px;
+  height: 20px;
+  min-width: 102px;
+  max-width: 150px;
+  border:1px dashed red;
+  line-height: 20px;
+  text-align: center;
+  color: red;
+  display: none;
+  white-space: nowrap;
+  overflow: visible;
+}
+select.menuList{
+  width: 100px;
+  border: 1px solid #DCDCDC;
+  height: 20px;
+  line-height: 20px;
+}
+input.nodeTitle{
+  border: 1px solid #DCDCDC;
+  width: 80%;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+  margin: 0;
+}
+#add_table_body td.menuSelect,#add_table_body td.notnull{
+  background:#fff url(../../../../SYSN/skin/default/img/td_bg.png) no-repeat right bottom ;
+}
+td.notnull span.tipMessage,td.menuSelect span.tipMessage{
+  height:34px;
+  width:98%;
+  color: red;
+  border: 1px dashed red;
+  text-align: center;
+  line-height: 36px;
+  display:block;
+}
+#multipleModel{
+  max-height:500px;
+  border: 1px solid #DCDCDC;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #fff;
+  min-width: 90px;
+  box-sizing: border-box;
+  padding: 6px;
+  z-index:10;
+}
+#multipleModel input{
+  margin-right: 6px;
+  vertical-align: text-top;
+}
+#multipleModel li{
+  height: 22px;
+  line-height: 22px;
+}
+#mask{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display:none;
+    background:#000;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+.getInfoTips{
+    padding-top:80px;
+    text-align:center;
+    height:130px;
+    width:146px;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-top:-65px;
+    margin-left:-73px
+}
+.onRunTime{
+    width:35px;
+    height:33px;
+    margin:0px auto 10px;
+    background:url(../images/proc.gif) no-repeat center;
+}

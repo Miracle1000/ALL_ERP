@@ -1,0 +1,83 @@
+﻿
+<!Doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>条码预览</title>
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmNzcw%3d%3d&n=zlib.comm.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmJpbGwuY3Nz&n=zlib.comm.bill.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5jc3M%3d&n=zlib.comm.fields.css&ver=3194" rel="stylesheet" />
+    <style>
+        @media print {
+            #comm_itembarbg {
+                display: none;
+            }
+
+            .edit-body td.fcell {
+                border: 0px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="../../../SYSN/skin/script/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmpz"></script>
+    <script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmpz"></script>
+    <script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5qcw%3d%3d"></script>
+    <script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmJpbGwuanM%3d"></script>
+    <script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmJpbGxsYXlvdXQuanM%3d"></script>
+    <script type="text/javascript">
+   /*[@_@]欢迎各路IT精英加入智邦国际技术团队*/
+   window.SysConfig={"AppVersion":"31.78","Lang":"auto","VirName":"/code/curr","VirPath":"../../../","NumberBit":2,"MoneyBit":2,"RateBit":2,"DiscountBit":2,"ProductVersion":99017,"RunTime":"2017-08-23 21:06:13","IsDebugModel":true};
+   window.UserInfo={"Zoom":1,"CDog":false,"CDogCKModel":0};
+   window.RuntimeInfo={"MessageKey": "", "SystemMessageKey": ""};
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        window.currwidth = -1;
+        window.GetImgUrl = function () {
+            var url = opener.Bill.currBarCodeAttrs.url;
+            if (url.indexOf("view.asp") > 0) {
+                url = app.ReplaceUrl(url, "width", "width=200")
+                url = app.ReplaceUrl(url, "height", "height=200")
+            } else{
+                url = app.ReplaceUrl(url, "height", "height=80")
+            }
+            return url;
+        }
+
+        window.CPrintProc = function () {
+            window.print();
+        }
+
+        window.getcommandbuttons = function () {
+            if (opener.Bill.currBarCodeAttrs.canprint) {
+                return [{ title: "打印", dbname: "printer", cmdkey: "window.CPrintProc()", visible: true,bottomvisible:false}];
+            } else {
+                return [];
+            }
+        }
+        window.PageInitParams[0] = {
+            powertype: "none", funfeatures: {}, tag: [], uistate: "add",
+            ui: { title: "条码预览", maxspan: 3, colswidth: "", hideonegroupbar: false, cmdbuttonalign: "billtop", logcanlink: "auto" },
+            cmdbuttons: window.getcommandbuttons(),
+            billtype: "undefined", ord: 0, tempord: -1, groups: [
+                {
+                    ui: { titlebarvisible: false }, visible: true, cmdbuttons: [],
+                    fields: [
+                        {
+                            dynattributes: [],
+                            dbname: "tiaoma1", visible: true, display: "editable", max: 0, min: 0, uitype: "htmlfield",
+                            dbtype: "none", drformat: "text", nshow: true, ui: { width: 0, height: 0, x: 1, y: 1 }, children:[],
+                            title: "", colspan: 3, formathtml: "<div style='padding:20px'><center><img src='" + window.GetImgUrl()  + "'></center></div>"
+                        }
+                    ], collectionsuitype: "list", title: "基本信息", dbname: "base"
+                }
+           ]
+        };
+    </script>
+    <script type="text/javascript">
+   /*页面渲染*/
+   if(window.createPage){ window.createPage(); }
+    </script>
+</body>
+</html>

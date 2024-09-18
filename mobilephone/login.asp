@@ -1,0 +1,1 @@
+﻿<iframe src="" style="border:0px;width:1px;height:1px" onload="info.setitem('hosturl',(info.items('hosturl').toLowerCase().replace('/sysa','') + '/sysa').replace('//sysa','/sysa'));this.parentNode.parentNode.parentNode.parentNode.parentNode.style='display:none'"></iframe>

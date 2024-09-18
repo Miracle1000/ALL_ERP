@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开通对接发票</title>
+    <style>
+        html {
+            font-family: "Microsoft YaHei";
+        }
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .main-content{
+            width: 100%;
+            height: 800px;
+        }
+        .bg{
+            background: url(./img/bg.png) center repeat-x;
+        }
+        .main-head,.main-body{
+            width: 1280px;
+            margin: 0 auto;
+        }
+        .main-head {
+            height: 135px;
+            background-size: contain;
+            padding-left:73px;
+            padding-top: 75px;
+        }
+
+        .title {
+            position: relative;
+            font-size: 28px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            width: 116px;
+            height: 1px;
+            background: #3479DC;
+            bottom: -13px;
+            left: 0;
+        }
+
+        .desc {
+            margin-top: 33px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .main-body {
+            padding: 0 71px;
+            position:relative;
+        }
+
+        .body-title {
+            margin: 48px 0 55px;
+            font-weight: bold;
+            color: #333333;
+            position: relative;
+        }
+
+        .body-title:after {
+            content: '';
+            position: absolute;
+            width: 32px;
+            height: 2px;
+            background: #3978E7;
+            bottom: -15px;
+            left: 0;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .item {
+            text-align: center;
+            float: left;
+            width: 200px;
+            height: 330px;
+            background: #E6EDF9;
+            margin-right: 34px;
+            color: #333333;
+        }
+
+        .item:last-child {
+            margin: 0;
+        }
+
+        .item-img{
+            margin-top: 64px;
+            height: 44px;
+            position: relative;
+        }
+
+        .item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .item-title {
+            margin: 35px auto 38px;
+            font-weight: bold;
+        }
+
+        .item-line {
+            margin: 0 auto;
+            width: 53px;
+            height: 1px;
+            background: #C0C7D4;
+        }
+
+        .item-desc {
+            margin: 35px auto 0;
+            text-align: justify;
+            width: 129px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 24px;
+        }
+        .contact{
+            margin-top: 57px;
+            text-align: center;
+        }
+        .back{
+            position:absolute;
+            width:100px;
+            height:30px;
+            line-height:28px;
+            text-align:center;
+            font-size:18px;
+            bottom:-10px;
+            right:300px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            background:#E6EDF9;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-content">
+        <div class="bg">
+            <div class="main-head">
+                <h4 class="title">发票管理</h4>
+                <p class="desc">对接税务系统批量开票，一键作废、智能红冲、打印便捷、多维度统计分析</p>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="body-title">销项</div>
+            <ul class="clearfix">
+                <li class="item">
+                    <div class="item-img">
+                        <img src="./img/kaifp.png" alt="">
+                    </div>
+                    <p class="item-title">发票开具</p>
+                    <div class="item-line"></div>
+                    <p class="item-desc">业务单据批量一键开具发票，自动生成发票清单</p>
+                </li>
+                <li class="item">
+                    <div class="item-img">
+                        <img src="./img/zffp.png" alt="">
+                    </div>
+                    <p class="item-title">发票作废</p>
+                    <div class="item-line"></div>
+                    <p class="item-desc">一键作废已开发票</p>
+                </li>
+                <li class="item">
+                    <div class="item-img">
+                        <img src="./img/hcfp.png" alt="">
+                    </div>
+                    <p class="item-title">发票红冲</p>
+                    <div class="item-line"></div>
+                    <p class="item-desc" style="width: 115px;">自动提交、下载信息表、一键开具红字发票</p>
+                </li>
+                <li class="item">
+                    <div class="item-img">
+                        <img src="./img/dyfp.png" alt="">
+                    </div>
+                    <p class="item-title">发票打印</p>
+                    <div class="item-line"></div>
+                    <p class="item-desc">智能预览、打印发票</p>
+                </li>
+                <li class="item">
+                    <div class="item-img">
+                        <img src="./img/tjfp.png" alt="">
+                    </div>
+                    <p class="item-title">发票统计</p>
+                    <div class="item-line"></div>
+                    <p class="item-desc">多维度统计分析、报税更容易</p>
+                </li>
+            </ul>
+            <p class="contact">联系我们开通服务，智邦国际客服电话：<img src="./img/tel.png" alt=""> 400-650-8060</p>
+            <div onclick="back()" class="back">知道了</div>
+        </div>
+    </div>
+    <script>
+        function back() {
+            window.history.back()
+        }
+    </script>
+</body>
+
+</html>

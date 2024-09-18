@@ -1,0 +1,38 @@
+﻿.pop-icon {
+                
+	width: 10px;
+	height: 10px;
+	background: url(../../../../../../SYSA/images/116.png) no-repeat;
+	cursor: pointer;
+	display: block;	
+	margin: 0 auto;
+}
+
+#popDiv {
+	position: absolute;
+	z-index: 9999;
+	width: 700px;
+	display: none;
+}
+
+#popDiv .pop-close {
+	float: right;
+	cursor: pointer;
+}
+
+#popDiv a.pop-close:hover {
+	color: #cc3333;
+}
+table#content{background:#fff;border-collapse:collapse;}
+#content td{border:1px solid #c0ccdd;}
+#content tr.top td{padding-bottom:8px!important;background:url(../../../../../../sysa/images/tb_top_td_bg.gif);font-weight:bold;}
+#content3 tr.top td{background:url(../../../../../../sysa/images/tb_top_td_bg.gif) repeat-x;}
+#listWrap tr.top td{border-bottom:1px solid #c0ccdd!important;}
+table#contentFinalTable{background:url(../../../../../../sysa/images/m_table_top.jpg)}
+/*输入框选中样式*/
+input#leftpgsearchkey_sdksyscoreLeftpage_0:focus-visible{
+	outline:none;
+}
+input#leftpgsearchkey_sdksyscoreLeftpage_0:focus {
+	box-shadow: 0px 0px 2px 1px #4fa1e5;
+}

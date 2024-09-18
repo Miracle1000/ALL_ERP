@@ -1,0 +1,24 @@
+﻿<!doctype html><html><head><link href='../skin/default/css/comm.css' rel='stylesheet' type='text/css'/></head><body class='defcomm'>
+<div id='comm_itembarbg'><div id='comm_itembarICO'></div><div id='comm_itembarText'><span>导出过程出现问题</span></div>
+<div id='comm_itembarspc'></div><div id='comm_itembarright'></div></div><br><br>
+<div style='padding-left:20px;color:red;font-size:14px'>调用 Excel.Application 系统组件不成功。</div><br>
+<div style='padding-left:20px;color:#5b7cae'>请确认系统是否存在以下问题：</div>
+<ol style='padding-left:40px;'>
+<li>服务器是否已经正确安装 Office 2003 及以上版本。</li>
+<li>Excel组件权限是否设置正常。</li>
+<li>相关帮助：<a href='http://work.zbintel.com/shwz/1021254.htm' target='_blank'>组件权限设置</a>、<a href='http://work.zbintel.com/shwz/81283.htm' target='_blank'>Win2008及以上版本运行组件管理工具</a> 。</li>
+<ol>
+<script>
+if (parent!=window && parent.document.getElementById("lvw_xls_proc_bar")){
+	alert("调用 Excel.Application 系统组件不成功。\n"+
+			"请确认系统是否存在以下问题：\n"+
+			"1.服务器是否已经正确安装 Office 2003 及以上版本。\n"+
+			"2.Excel组件权限是否设置正常。\n"+
+			"相关帮助：\n"+
+			"组件权限设置:http://work.zbintel.com/shwz/1021254.htm\n" +
+			"Win2008及以上版本运行组件管理工具:http://work.zbintel.com/shwz/81283.htm"
+	);
+	parent.jQuery("#lvw_xls_proc_bar").hide();
+}
+</script>
+</body></html>

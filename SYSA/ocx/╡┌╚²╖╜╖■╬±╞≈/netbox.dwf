@@ -1,0 +1,4 @@
+OUTPUT wavserver.exe
+STARTUP main.box
+TYPE Application
+EXCLUDE netbox.dwf

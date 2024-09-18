@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+		*{margin:0px;padding: 0px;}
+		input[type='button']{
+			    color: #486D9E;
+				background: white url(../images/anybutton_bg.gif) repeat-x center bottom;
+				border: 1px solid #9FA3BC;
+				text-align: 36px;
+				cursor: pointer;
+				margin: 1px 3px;
+				padding: 0 5px;
+				font-size: 12px;
+				padding-top: 0;
+				height: 20px;
+				line-height: 18px;
+				background-size: 100% 100%;
+				transition: all 0.2s ease-in-out;
+				-moz-transition: all 0.2s ease-in-out;
+				-webkit-transition: all 0.2s ease-in-out;
+		}
+	</style>
+	<script src="../../../../SYSN/skin/script/jquery-1.12.2.min.js"></script>
+</head>
+<body>
+	<div id="map_div" style="padding:5px;background: #fafafa;position:absolute;width:720px;height:430px;">
+		<table style="width:100%;height:100%;background: #fafafa;">
+		<tr>
+			<td width="250px" height="35px" id="coordtd1"><input type=text size=25 name="searchtext" style="width:180px;height:22px;" id = "searchtext" onkeyup="onkeySearch()">
+			<input type="button" class="oldbutton anybutton2" value="检索" onclick="searchCoordinate()" >
+			<!-- <img style='width:240px;height:180px:' src='../images/coord12.png'> --></td>
+			<td height="35px"><div style="display:inline" id="setdiv"><img id="imghander" style='border:1px solid #fff;width:70px;height:70px:' src='../../../../SYSA/images/coord24.png' onclick="setPoint(this)"></div></td>
+			<td>经度 <input type=text size=10 name="newlng" id="newlng" style="width:80px;height:22px" readonly onkeydown="return false"> 纬度 <input type=text size=10 name="newlat" style="width:80px;height:22px" id="newlat" readonly onkeydown="return false">
+			</td>
+			<td align="right">
+				<div style="display:inline" id="savediv"><input type="button" class="oldbutton anybutton2" value="确定" onclick="saveCoordinate()">&nbsp;</div>
+				<input type="hidden" value="0" id="coordstype">
+				<input type="hidden" value="0" id="coordaddtrss">
+			</td>
+		</tr>
+		<tr>
+			<td id="coordtd2"><div id="coordlist" style="width:240px;height:390px;overflow-y:auto;overflow-x:hidden;">		
+			<DIV style="BORDER-BOTTOM: #999 1px solid; BORDER-LEFT: #999 1px solid; FONT: 12px arial,sans-serif; BORDER-TOP: #999 1px solid; BORDER-RIGHT: #999 1px solid;height:99%">
+				<DIV style="BACKGROUND: #fff">暂无检索结果!</DIV>
+			</DIV>
+			</div></td>
+			<td colspan=3> 
+				<div style="width:100%; height:390px;" >
+				<div id="container" style="width:100%; height:100%;"></div>
+				</div>
+			</td>
+		</tr>
+		</table>
+	</div>
+</body>
+<script language='javascript'>
+	var map = null ,local=null ,oldaddress = "" , Points = [] , P_address=[] , coordstype ,coordaddtrss , isSetPoint , clickMarker=null ;
+	function OpenMap(){
+		var div = document.getElementById("map_div");
+		isSetPoint = false;
+		//初始赋值
+		var lvw = parent.window["lvw_JsonData_KQAddress"];
+		var teidx = -1;
+		var coidx = -1
+		for (var i = 0; i < lvw.headers.length; i++) {
+		    var h = lvw.headers[i];
+		    if (h.dbname == "TextContent") { teidx = i; }
+		    if (h.dbname == "Coordinate") { coidx = i; }
+		}
+		var rows = lvw.rows;
+		lat = rows[window.currRidx][4] ? rows[window.currRidx][coidx].split(",")[0] : "";
+		lng = rows[window.currRidx][4] ? rows[window.currRidx][coidx].split(",")[1] : "";
+		document.getElementById("newlat").value = lat;
+		document.getElementById("newlng").value = lng;
+		coordaddtrss = rows[window.currRidx][teidx] || "";
+		document.getElementById("searchtext").value = coordaddtrss;
+		if(!map) { map = new BMap.Map("container"); map.addEventListener("click",hideBtn);}// 创建地图实例
+		local = new BMap.LocalSearch(map, {
+			pageCapacity:5,
+			renderOptions: {map: map, panel: "coordlist" , selectFirstResult: true,autoViewport:true},
+			onMarkersSet: function(pois){
+				Points = [];
+				P_address=[];
+				for (var i = 0; i < pois.length; i ++){
+					Points.push(pois[i].point);
+					if (pois[i].type ==BMAP_POI_TYPE_NORMAL)
+					{
+						P_address.push(pois[i].address);
+					}else{
+						P_address.push(pois[i].title);
+					}
+					
+				}
+				//地图标记点击事件
+				$("span.BMap_noprint").click(function(){
+					var indexId =  $(this).index();
+					setPointInfo(indexId);
+				})
+			},
+			onResultsHtmlSet:function(e){
+				//检索结果列表点击事件
+				var lis =e.getElementsByTagName("li");
+				for (var i = 0; i < lis.length; i ++){
+					$(lis[i]).click(function(){
+						var indexId =  $(this).index();
+						setPointInfo(indexId);
+					});
+				}
+				//隐藏详情 更多链接
+				$("#coordlist").find("a[href*='http']").hide();
+			}
+		});
+		document.getElementById("imghander").style.border="1px solid #fff";
+		isSetPoint=false;
+		map.removeEventListener("click",mapclick);
+
+		var searchtext ="";
+		//默认地图中心 
+		var initlat = 39.915;
+		var initlng = 116.404;
+		var zoom = 15;
+		if (lat=="" && lng == "")
+		{
+			searchtext = coordaddtrss.replace(/(^\s*)|(\s*$)/g, "");//去掉左右空格
+			oldaddress = searchtext;
+			document.getElementById("searchtext").value = coordaddtrss;	
+			if (searchtext.length>0){
+				$("#coordlist").html("");local.search(searchtext);
+			}else{
+				//定位当前位置	
+				var geolocation = new BMap.Geolocation();
+				geolocation.getCurrentPosition(function(r){
+					if(this.getStatus() == BMAP_STATUS_SUCCESS){
+						//var mk = new BMap.Marker(r.point);
+						//map.addOverlay(mk);
+						map.panTo(r.point);
+					}      
+				},{enableHighAccuracy: true})
+			}
+		}else{
+			initlng =lng;
+			initlat = lat;
+			var mk = new BMap.Marker(new BMap.Point(lng, lat));
+			map.addOverlay(mk);
+			zoom = 17
+			//map.panTo(point);
+		}
+		var point =new BMap.Point(initlng, initlat);
+		map.centerAndZoom(point, zoom);					// 初始化地图，设置中心点坐标和地图级别
+		map.enableScrollWheelZoom();					// 开启滚轮缩放地图
+		map.enableKeyboard();							// 开启键盘操作（方向键和小键盘区移动地图）
+		map.addControl(new BMap.NavigationControl());   // 开启地图级别操作
+		
+	}
+	
+	function setPointInfo(indexid){
+		if (Points.length>=indexid)
+		{
+			document.getElementById("newlat").value = Points[indexid].lat;
+			document.getElementById("newlng").value = Points[indexid].lng;
+			document.getElementById("searchtext").value = P_address[indexid];
+		}
+	}
+
+	function closeMap(){
+		document.getElementById("map_div").style.display="none";
+	}
+	
+	function searchCoordinate(){
+		var searchtext = document.getElementById("searchtext").value;
+		searchtext = searchtext.replace(/(^\s*)|(\s*$)/g, "");//去掉左右空格
+		if (searchtext.length>0){local.search(searchtext);}
+	}
+
+	function onkeySearch(){
+		var e = event || window.event || arguments.callee.caller.arguments[0];         
+		if(e && e.keyCode==13){ // enter 键
+			 searchCoordinate();
+		}
+	}
+	
+	function setPoint(obj){
+		try{
+			if (isSetPoint){
+				obj.style.border="1px solid #fff";
+				isSetPoint=false;
+				map.removeEventListener("click",mapclick);
+			}else{
+				obj.style.border="1px solid #000";
+				isSetPoint=true;
+				map.addEventListener("click",mapclick);
+			}
+		}catch(e){}
+	}
+
+	function hideBtn(){
+		setTimeout(function(){
+		 $("input[value=导航]").hide();
+		},1000)
+	}
+	
+	function mapclick(e){
+		var pt = e.point;
+		if (clickMarker){ map.clearOverlays();}
+		clickMarker = new BMap.Marker(pt);
+		map.addOverlay(clickMarker);
+       
+		document.getElementById("newlat").value = pt.lat;
+		document.getElementById("newlng").value = pt.lng;
+		var geoc = new BMap.Geocoder();
+		geoc.getLocation(pt, function(rs){
+			var addComp = rs.addressComponents;
+			var address = (addComp.province==addComp.city? addComp.city : addComp.province+addComp.city) +addComp.district+ addComp.street + addComp.streetNumber;
+			document.getElementById("searchtext").value = address;
+		});
+	}
+
+	function saveCoordinate(){
+		var canclose = true;
+		var lat = document.getElementById("newlat").value;	
+		var lng = document.getElementById("newlng").value;
+		var address = document.getElementById("searchtext").value;
+		if (lat == "" || lng == "" ){
+			alert("请设置客户地址经纬度");return;
+		}
+		if(address == ""){
+			alert("请设置客户地址");return;
+		}
+		var lvw = parent.window["lvw_JsonData_KQAddress"];
+		var teidx = -1;
+		var coidx = -1
+		for (var i = 0; i < lvw.headers.length; i++) {
+		    var h = lvw.headers[i];
+		    if (h.dbname == "TextContent") { teidx = i; }
+		    if (h.dbname == "Coordinate") { coidx = i; }
+		}
+		var rows = lvw.rows;
+		if(rows[window.currRidx][0] != "\1\1\1NewRowSign\1\1\1"){
+		    parent.__lvw_je_updateCellValue("KQAddress", window.currRidx, teidx, address);
+		    parent.__lvw_je_updateCellValue("KQAddress", window.currRidx, coidx, lat + "," + lng);
+		}
+		parent.app.closeWindow('MapWindow',true);
+	}
+</script>
+<script>
+	var getRequest = function(name){
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]); return "";
+	}
+	window.currRidx = getRequest("rowindex");
+	var script = document.createElement("script");  
+	script.src = "http://api.map.baidu.com/api?v=2.0&ak=LfGdXDPYrseQPmslbBpxdSPh&callback=OpenMap";
+	document.body.appendChild(script);  
+</script>
+</html>

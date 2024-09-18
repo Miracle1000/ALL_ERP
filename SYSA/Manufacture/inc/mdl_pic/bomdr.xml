@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Title>物料清单导入示例</Title>
+  <Author>bihua</Author>
+  <LastAuthor>bihua</LastAuthor>
+  <Created>2011-07-22T09:35:09Z</Created>
+  <LastSaved>2011-07-26T11:40:27Z</LastSaved>
+  <Company>智邦国际</Company>
+  <Version>11.5606</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10800</WindowHeight>
+  <WindowWidth>18180</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>120</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Center"/>
+   <Borders/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="12"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s21">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="9"/>
+  </Style>
+  <Style ss:ID="s22">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="9"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s23">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="9"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s24">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="9"/>
+  </Style>
+  <Style ss:ID="s25">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="9"/>
+  </Style>
+  <Style ss:ID="s27">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="宋体" x:CharSet="134" ss:Size="9"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="导入示例">
+  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s21" ss:DefaultColumnWidth="54"
+   ss:DefaultRowHeight="21.75">
+   <Column ss:Index="7" ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="53.25"/>
+   <Column ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="62.25"/>
+   <Column ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="72"/>
+   <Column ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="66"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s22"><Data ss:Type="String">深度</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">物品编码</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">物品名称</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">型号</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">单位</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">单套数量</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">存货位置</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">BOM角色</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">制造流程</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">产品损耗率</Data></Cell>
+    <Cell ss:StyleID="s23"><Data ss:Type="String">是否委外</Data></Cell>
+    <Cell ss:StyleID="s22"><Data ss:Type="String">安全库存</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0001</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A产品</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">产品</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">工艺流程A</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.01</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">否</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">10</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0002</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-A半成品</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">产品</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">工艺流程A-A</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">5.0000000000000001E-3</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">否</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0003</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-A-1物料</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">物料</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.01</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0004</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-A-2物料</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">物料</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.01</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">22</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0005</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-B物料</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">物料</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.01</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0006</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-C半成品</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">产品</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">工艺流程A-B</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">否</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0007</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-C-1物料</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">物料</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.01</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0008</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-C-2物料</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">物料</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.01</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s24"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">CP0009</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A-C-A半成品</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">xx</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">个</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">A仓库</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">产品</Data></Cell>
+    <Cell ss:StyleID="s25"/>
+    <Cell ss:StyleID="s25"><Data ss:Type="Number">0.02</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">是</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">4</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>1</TopRowBottomPane>
+   <ActivePane>2</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>13</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

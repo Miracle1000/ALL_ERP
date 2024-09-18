@@ -1,0 +1,89 @@
+﻿<HTML>
+<HEAD>
+<META content="text/html; charset=UTF-8" http-equiv=Content-Type>
+<title>字幕设置</title>
+<style>
+BODY {PADDING:5PX}
+TD,BODY,SELECT,P,INPUT {FONT-SIZE:9PT}
+</style><Script Language=JavaScript src="dialog.proxy.js"></script>
+
+<script language="JavaScript" src="dialog.js"></script>
+
+<script language=javascript>
+var sAction = "INSERT";
+var sTitle = "插入";
+var sel = dialogArguments.eWebEditor.document.selection.createRange();
+sel.type = dialogArguments.eWebEditor.document.selection.type;
+
+var el;
+var sText = "";
+var sBehavior = "";
+
+if (sel.type=="Control") {
+	if (sel.item(0).tagName=="MARQUEE"){
+		sAction = "MODI";
+		sTitle = "修改";
+		el = sel.item(0);
+		sBehavior = el.behavior;
+		sText = el.innerHTML;
+	}
+}
+
+// 单选的点击事件
+function check(){
+	sBehavior = event.srcElement.value;
+}
+
+// 初始值
+function InitDocument() {
+	d_text.value = (sText?sText:"");
+	switch (sBehavior) {
+	case "scroll":
+		document.all("d_behavior")[0].checked = true;
+		break;
+	case "slide":
+		document.all("d_behavior")[1].checked = true;
+		break;
+	default:
+		sBehavior = "alternate";
+		document.all("d_behavior")[2].checked = true;
+		break;
+	}
+
+}
+</script>
+
+
+<SCRIPT language=JavaScript>
+function Ok_onclick(){
+	sText = d_text.value;
+	if (sAction == "MODI") {
+		el.behavior = sBehavior;
+		el.innerHTML = sText;
+	}else{
+		dialogArguments.insertHTML("<marquee behavior='"+sBehavior+"'>"+sText+"</marquee>");
+	}
+	window.returnValue = null;
+	window.close();
+}
+</script>
+</HEAD>
+
+<body onload="InitDocument()">
+
+<table border=0 cellpadding=0 cellspacing=0 align=center>
+<tr><td>
+	<FIELDSET align=left>
+	<table border=0 cellspacing=5 cellpadding=0>
+	<tr valign=middle><td>文本:&nbsp;</td><td><input type=text id="d_text" style='width:270px' value=""></td></tr>
+	<tr valign=middle><td>表现:&nbsp;</td><td><input onclick="check()" type="radio" name="d_behavior" value="scroll"> 滚动条 <input onclick="check()" type="radio" name="d_behavior" value="slide"> 幻灯片 <input onclick="check()" type="radio" name="d_behavior" value="alternate"> 交替</td></tr>
+	</table>
+	</FIELDSET>
+
+</td></tr>
+<tr><td height=10></td></tr>
+<tr><td align=right><input type=button onclick='Ok_onclick()' value='  确定  ' id=Ok>&nbsp;&nbsp;<input type=button value='  取消  ' onclick="window.close();"></td></tr>
+</table>
+
+</body>
+</html>

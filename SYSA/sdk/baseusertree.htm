@@ -1,0 +1,235 @@
+﻿<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmNzcw%3d%3d&n=zlib.comm.css&ver=3194" rel="stylesheet"/>
+<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmNzcw%3d%3d&n=zlib.comm.leftpage.css&ver=3194" rel="stylesheet"/>
+<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmJpbGwuY3Nz&n=zlib.comm.bill.css&ver=3194" rel="stylesheet"/>
+<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5jc3M%3d&n=zlib.comm.fields.css&ver=3194" rel="stylesheet"/>
+<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLnRyZWV2aWV3LmNzcw%3d%3d&n=zlib.comm.treeview.css&ver=3194" rel="stylesheet"/>
+<script type="text/javascript" src="../../SYSN/skin/script/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmpz"></script>
+<script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmpz"></script>
+<script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5qcw%3d%3d"></script>
+<script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmJpbGwuanM%3d"></script>
+<script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLmJpbGxsYXlvdXQuanM%3d"></script>
+    <script type="text/javascript" src="../../WebSource.ashx?f=emxpYi5jb21tLnRyZWV2aWV3Lmpz"></script>
+<script type="text/javascript">
+   window.SysConfig={"VirPath":"../../"};
+   window.UserInfo={};
+</script>
+<style>
+	#bill_bottomdiv {display:none} 
+	#gatetreebody td.fcell {border-width:0px;}
+	html {overflow:hidden;}
+	body, html{width:100%;height:100%}
+	body {overflow:visible;}
+	#gatetreebody a{color:#000;}
+	#editbody{width:100%!important}
+</style>
+</head>
+<body id='gatetreebody'>
+<script type="text/javascript">
+        window.PageInitParams[0]={tag:[],uistate:"add",uistatetext:"添加",ui:{title:"测试",maxspan:1,colswidth:"",hideonegroupbar:true,hidetitlebar:true,cmdbuttonalign:"firstgroup"},cmdbuttons:[],billtype:"",ord:-1,groups:[{commandbuttons:[],cmdbuttons:[],fields:[{tree:{},structvalues:["","",""],geteuitype:"checkbox",dbname:"g",visible:true,display:"editable",defvalue:"",max:0,min:0,uitype:"gatestree",dbtype:"varchar",nshow:true,ui:{x:1,y:1,width:0},title:""}],title:"基本信息",dbname:"base"}]};
+</script>
+<script>
+	function setNodesCountV(nds) {
+		for(var i=0; i<nds.length; i++){
+			nds[i].nodescount = nds[i].nodes.length;
+			if(nds[i].nodescount>0) {
+				setNodesCountV(nds[i].nodes);
+			}
+		}
+	}
+
+	window.onTreeNodeClick = function(target){
+		if(parent && parent.onBaseGateTreeNodeClick) { 
+			parent.onBaseGateTreeNodeClick(target);
+		}
+		var cknodes = window.TreeView.GetCheckedNodes(window.jtvw);
+		if(!cknodes) {return;}
+		var orgs = [], w1 = [], w2=[], w3=[]
+		var orgstxt = [], w1txt = [], w2txt=[], w3txt=[]
+		for (var i=0; i < cknodes.length ; i++ )
+		{
+			var n = cknodes[i];
+			switch(n.wsign) {
+				case 3:  w3.push(n.value);  w3txt.push(n.text); break;
+				case 2:  w2.push(n.value); orgs.push(n.value);  w2txt.push(n.text);  orgstxt.push(n.text); break;
+				case 1:  w1.push(n.value); orgs.push(n.value);  w1txt.push(n.text);  orgstxt.push(n.text);  break;
+				case 0:  orgs.push(n.value); orgstxt.push(n.text); break;
+			}
+		}
+		var ibox = parent.document.getElementById(window.treeparentsignid + "_orgs");
+		if(ibox) { ibox.value = orgs.join(",");  ibox.checked = true;  ibox.setAttribute("text", orgstxt.join(" ")); }
+		ibox = parent.document.getElementById(window.treeparentsignid + "_w1");
+		if(ibox) { ibox.value = w1.join(",");  ibox.checked = true;  ibox.setAttribute("text", w1txt.join(" ")); }
+		ibox = parent.document.getElementById(window.treeparentsignid + "_w2");
+		if(ibox) { ibox.value = w2.join(",");   ibox.checked = true;  ibox.setAttribute("text", w2txt.join(" ")); }
+		ibox = parent.document.getElementById(window.treeparentsignid + "_w3");
+		if(ibox) { 
+			var v = ibox.value;
+			if(w3.length==0 && ibox.type=="radio" ) {  return; }
+			ibox.value = w3.join(",");
+			ibox.checked = true;  
+			ibox.setAttribute("text", w3txt.join(" ")); 
+			if(v.length==0 && w3.length>0 && ibox.type=="radio" ) { $(ibox).click();  }  //处理调用者在外部挂click事件的情况，进行触发
+			var pf = parent.document.getElementById(window.treeparentsignid);
+			var cev = pf.getAttribute("changeEvent");
+			if(cev && (cev + "").indexOf("Tiggerfirst:")>=0) {
+				window.firstSameRadioClick=1;
+				cev = (cev + "").replace("Tiggerfirst:",""); //第一次也触发
+			}
+			if( ibox.type=="radio" &&  v==w3 && window.firstSameRadioClick!=1) { window.firstSameRadioClick=1; return;}
+			window.firstSameRadioClick=1;
+			if(cev)  {  try{ parent.eval("var nodedom=document.getElementById('" +  window.treeparentsignid + "_w3'); var node={'value':nodedom.value,'text':nodedom.getAttribute('text')};" + cev);  } catch(eex){}}
+        }
+        
+        if (parent.window.BillExtSN&&parent.window.BillExtSN.Refresh&&!parent.window.BillExtSN.NoRefresh) { parent.window.BillExtSN.Refresh(); }
+
+	}
+	
+	window.onTreeNodeUpdate =  function() {
+		window.onTreeNodeClick(null, null);
+	} 
+
+	window.treeparentsignid = "";
+	window.inithandle = function() {
+		var htmlids = window.location.href.split("?")[1];
+		if(!htmlids) {return;}
+		htmlids = htmlids.split("&");
+		var htmlid  = "";
+		var checktype = "";
+		for(var i = 0; i<htmlids.length; i++) {
+			if(htmlids[i].indexOf("checktype=")==0) {
+				checktype = htmlids[i].replace("checktype=","");
+			}
+			if(htmlids[i].indexOf("signid=")==0) {
+				htmlid = htmlids[i].replace("signid=","");
+			}
+		}
+		if (htmlid == "") { return; }
+		if (htmlid.indexOf("#") >= 0) { htmlid = htmlid.split('#')[0]}//搜狗ie模式下会有搜狗的注入代码给iframe添加name并在其地址后添加"#name"
+		window.treeparentsignid  = htmlid;
+		var piframe = parent.document.getElementById(htmlid);
+		if(!piframe) {return;}
+		var json = piframe.getAttribute("json");
+		json = json.replace(/\&\#34\;/g,"\"");
+		json = json.replace(/\&\#60\;/g,"<");
+		json = json.replace(/\&\#62\;/g,">");
+		json = json.replace(/\&\#38\;/g,"&");
+		try{
+			window.jtvw = eval("(" + json + ")");
+		} catch(ex) {
+			document.write(ex.message + "<hr>" + json);
+		}
+		window.jtvw.onclick = window.onTreeNodeClick;
+		var  fd = window.PageInitParams[0].groups[0].fields[0];
+		window.jtvw.uimodel="usertreemodel"
+		fd.tree=window.jtvw;
+		if(checktype=="radio") {
+			fd.geteuitype = "radio";
+		}
+		if(parent && parent.onBaseUserTreeInit) {
+			parent.onBaseUserTreeInit(fd, window.jtvw);
+		}
+		setNodesCountV(window.jtvw.nodes);
+		if(checktype!="radio") {
+			window.checkedcount = 0;
+			AutoCheckedParentNode(jtvw.nodes);
+			if(window.checkedcount==1 && jtvw.nodes[0].checked){
+				jtvw.nodes[0].checked = 0;  //如果只有根节点独自默认选中，则去掉这种状态	
+			}
+		}
+	}
+	
+	function AutoCheckedParentNode(nodes) {
+		var checked = true;
+		for (var i = 0; i<nodes.length ; i++ )
+		{
+			var nd = nodes[i];
+			if(nd.nodescount>0 && nd.checked==0) {
+				nd.checked = AutoCheckedParentNode(nd.nodes);
+			}
+			checked = checked && (nd.checked==1); 
+			window.checkedcount = window.checkedcount + (checked?1:0);
+		}
+		return checked?1:0;
+	}
+
+	window.inithandle();
+	setTimeout(function(){  window.onTreeNodeClick(); },100);
+	window.frmcurrSizeHeight = 0;
+	window.frmcurrSizeWidth= 0;
+	window.sizeizzzzzz = 0;
+	window.resizefuncccc = function(){
+		var ibox = parent.document.getElementById(window.treeparentsignid + "_w3");
+		var iframebox = parent.document.getElementById(window.treeparentsignid );
+		if(ibox && !ibox.checked) { window.TreeView.CheckAll(window.jtvw, false);  }  //处理调用者在外部修改checked属性的情况
+		try{
+			var ebody = $ID("editbody");
+			var currw = ebody.offsetWidth;
+			var currh= ebody.offsetHeight;
+			if( (currw!=window.frmcurrSizeWidth ||  currh!=window.frmcurrSizeHeight) && currw>0) {
+				window.frmcurrSizeWidth = currw;
+				window.frmcurrSizeHeight = currh;
+				if(	window.sizeselfing==1) { return; }
+				window.sizeselfing = 1;
+				try{ iframebox.style.height =  (currh*1+ 1) + "px"; } catch(exx){}
+				setTimeout("window.sizeselfing=0",10);
+			}
+			if(currw==0 ) {
+				if(app.getIEVer()==5 && iframebox.offsetWidth > 5) {
+					iframebox.style.height = (iframebox.offsetHeight*1 + 1) + "px";
+					setTimeout(window.resizefuncccc, 100);
+				}
+			}
+		} catch(exct){}
+	};
+	if(window.treeparentsignid!="") {
+		setInterval(resizefuncccc,3000);
+		$(document).bind("click",resizefuncccc);
+		$(window).bind("resize",resizefuncccc);
+		$(document).bind("mousedown",resizefuncccc);
+	};
+	
+	(function (){
+		var win = parent.window;
+		var doc = win.document;
+		win.UserTreeBase = new Object();
+		win.UserTreeBase.CheckAll = function(signname) {
+			var  box = doc.getElementsByName(signname)[0];
+			var signids = box.id.split("_");
+			doc.getElementById(signids[0]).contentWindow.UserTreeCheckAll();
+		}
+		win.UserTreeBase.CheckXOR = function(signname) {
+			var  box = doc.getElementsByName(signname)[0];
+			var signids = box.id.split("_");
+			doc.getElementById(signids[0]).contentWindow.UserTreeCheckXOR();
+		}
+	})();
+	
+
+	window.UserTreeCheckAll = function() {
+		window.TreeView.CheckAll(window.jtvw);
+	}
+
+	window.UserTreeCheckXOR = function() {
+		window.TreeView.CheckXOR(window.jtvw);
+	}
+	
+	var w3box = parent.document.getElementById(window.treeparentsignid + "_w3");
+	if(w3box) {
+		$(w3box.form).bind("reset",function(){
+			window.location.reload();
+		});
+	}
+</script>
+<script type="text/javascript">
+   /*页面渲染*/
+   if(window.createPage){ window.createPage(); }
+   	setTimeout(resizefuncccc,100);
+</script>
+</script>
+</body>
+</html>

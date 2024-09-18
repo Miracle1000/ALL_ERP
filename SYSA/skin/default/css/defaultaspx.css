@@ -1,0 +1,196 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0px;
+    height: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#borderFramediv {
+    width: 0px;
+    overflow: hidden;
+    background-color: #3085cb;
+    height: 100%;
+    z-index: 100;
+    cursor: col-resize;
+}
+
+#borderFramedivbg {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    display: none;
+}
+
+#spliterimg {
+    cursor: pointer;
+    top: 40%;
+    position: absolute;
+    z-index: 110;
+}
+
+.disselect, .disselect * {
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+iframe.childremenu0 {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    height: 1px;
+    width: 1px;
+}
+
+iframe.childremenu1 {
+    position: static;
+    height: 100%;
+    width: 200px;
+}
+/*弹层面板样式*/
+div#navPanelMask {
+    position: fixed;
+    left: 230px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 999;
+}
+
+div#navPanel {
+    position: absolute;
+    width: 734px;
+    /*max-width:718px;*/
+    max-height: 600px;
+    left: 0px;
+    top: 0px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ccc;
+    padding: 20px 6px 15px 20px;
+    box-sizing: border-box;
+    font-size: 0px;
+    z-index: 9999999999;
+    border-radius: 6px;
+    /*transition:top 0.3s;*/
+}
+
+div#navPanel h1 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #000;
+    padding: 20px 0px 12px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E5E5E5;
+    display: inline-block;
+    padding-right: 6px;
+    margin: 0px;
+    cursor: default;
+    font-family: "Source Han Sans","PingFangSC", "Microsoft Yahei", "微软雅黑", "Arial","宋体";
+}
+
+div#navPanel div.billList a.bills {
+    display: inline-block;
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    /*max-width:172px;*/
+    width: 172px;
+    text-align: left;
+    line-height: 28px;
+    height: 28px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: "Source Han Sans","PingFangSC", "Microsoft Yahei", "微软雅黑", "Arial","宋体";
+}
+
+div#navPanel div.billList {
+    margin: 9px 0px 0px;
+}
+
+div#navPanel div.billList a:hover {
+    color: @zbvar.leftbgcolor;
+}
+
+div#navPanel div#panelColseIcon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 14px;
+    height: 14px;
+    background: url(../../../../SYSA/skin/default/images/MoZihometop/content/close.png) no-repeat;
+    overflow: hidden;
+}
+
+div#navPanel div#panelColseIcon:hover {
+    background-position: 0px -16px;
+}
+
+div.noNavInfo {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+#navPanelLayer1 {
+    max-height: 558px !important;
+}
+
+@media screen and (max-width:1440px) {
+    div#navPanel {
+        max-height: 530px;
+    }
+
+    div#navPanelLayer1 {
+        max-height: 480px !important;
+    }
+}
+/**导航折叠图标*/
+#expandIcon {
+    width: 20px;
+    height: 26px;
+    opacity: 0.58;
+    position: absolute;
+    left: 92px;
+    top: 0px;
+    background: #114893 url(../../../../SYSA/skin/default/images/leftNav/open.png) no-repeat center center;
+    display: none;
+    cursor: pointer;
+}
+
+#expandIcon:hover {
+    opacity: 0.8;
+}
+
+#mleftbody {
+    transition: width 0.3s;
+}

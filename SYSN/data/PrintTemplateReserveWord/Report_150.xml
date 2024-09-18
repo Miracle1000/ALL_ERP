@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--凭证打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="150" DBViewName="P_VoucherTemplateData" DBDetailViewName="P_VoucherDetailTemplateData" >
+  <Items Title="公共字段">
+    <Items Title="凭证基本信息">
+      <Column Name="凭证字" dbName="cte_word" Description="凭证字" LocationType="All"/>
+      <Column Name="凭证号" dbName="cte_number" Description="凭证号" LocationType="All"/>
+      <Column Name="凭证日期" dbName="cte_date" Description="凭证日期" LocationType="All"/>
+      <Column Name="本位币" dbName="sd_currency" Description="本位币" LocationType="All"/>
+      <Column Name="制单人" dbName="sle_system" Description="制单人" LocationType="All"/>
+      <Column Name="审核人" dbName="the_reviewer" Description="审核人" LocationType="All"/>
+      <Column Name="记账人" dbName="book_keeper" Description="记账人" LocationType="All"/>
+      <Column Name="制单人组织架构" dbName="sem_zzjg" Description="制单人组织架构" LocationType="All"/>
+      <Column Name="审核人组织架构" dbName="rer_zzjg" Description="审核人组织架构" LocationType="All"/>
+      <Column Name="记账人组织架构" dbName="ker_zzjg" Description="记账人组织架构" LocationType="All"/>
+      <Column Name="凭证状态" dbName="cte_status" Description="凭证状态" LocationType="All"/>
+      <Column Name="制单人联系电话" dbName="sem_phone" Description="制单人联系电话" LocationType="All"/>
+      <Column Name="审核人联系电话" dbName="rer_phone" Description="审核人联系电话" LocationType="All"/>
+      <Column Name="记账人联系电话" dbName="ker_phone" Description="记账人联系电话" LocationType="All"/>
+      <Column Name="添加时间" dbName="cte_sf" Description="添加时间" LocationType="All"/>
+      <Column Name="附单据张数" dbName="cte_num" Description="附单据张数" LocationType="All"/>
+    </Items>
+    <Items Title="关联单据">
+      <Column Name="单据主题" dbName="zb_company" Description="单据主题" LocationType="All" />
+      <Column Name="单据编号" dbName="zb_code" Description="单据编号" LocationType="All" />
+      <Column Name="状态" dbName="zb_address" Description="状态" LocationType="All" />
+      <Column Name="添加人" dbName="zb_zip" Description="添加人" LocationType="All" />
+      <Column Name="添加日期" dbName="zb_kphone" Description="添加日期" LocationType="All" />
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表头表尾字段">
+    <Items Title="合计信息">
+      <Column Name="借方金额合计" dbName="SUM_PAGE([debit_money])" Description="借方金额合计" LocationType="All" IsFunction="true" TableName="#vouchermx#" />
+      <Column Name="借方金额合计" dbName="SUM_ALL([debit_money])" Description="借方金额合计" LocationType="All" IsFunction="true" TableName="#vouchermx#" />
+      <Column Name="贷方金额合计" dbName="SUM_PAGE([credit_money])" Description="贷方金额合计" LocationType="All" IsFunction="true" TableName="#vouchermx#" />
+      <Column Name="贷方金额合计" dbName="SUM_ALL([credit_money])" Description="贷方金额合计" LocationType="All" IsFunction="true" TableName="#vouchermx#" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="凭证分录信息">
+      <Column Name="序号" dbName="sal_number" Description="序号" LocationType="Detail" OrderNum="true" TableName="#vouchermx#" />
+      <Column Name="科目代码" dbName="cse_number" Description="科目代码" LocationType="Detail" GroupBy="true" TableName="#vouchermx#" />
+      <Column Name="科目名称" dbName="cse_name" Description="科目名称" LocationType="Detail" GroupBy="true" TableName="#vouchermx#" />
+      <Column Name="摘要" dbName="this_paper" Description="摘要" LocationType="Detail" GroupBy="true" TableName="#vouchermx#" />
+      <Column Name="借方金额" dbName="debit_money" Description="借方金额" LocationType="Detail" SumaryCalculate="true" TableName="#vouchermx#" />
+      <Column Name="贷方金额" dbName="credit_money" Description="贷方金额" LocationType="Detail" SumaryCalculate="true" TableName="#vouchermx#" />
+      <Column Name="汇率" dbName="ecge_rate" Description="汇率" LocationType="Detail" GroupBy="true" TableName="#vouchermx#" />
+      <Column Name="原币币种" dbName="for_currency" Description="原币币种" LocationType="Detail" GroupBy="true" TableName="#vouchermx#" />
+      <Column Name="原币金额" dbName="for_money" Description="原币金额" LocationType="Detail" SumaryCalculate="true" TableName="#vouchermx#" />
+      <Column Name="现金流量项目" dbName="cash_flow" Description="现金流量项目" LocationType="Detail" GroupBy="true" TableName="#vouchermx#" />
+      <Column Name="辅助核算" dbName="f_compulations" Description="辅助核算" LocationType="Detail" GroupBy="true" TableName="#vouchermx#" />
+    </Items>
+  </Items>
+</Report>

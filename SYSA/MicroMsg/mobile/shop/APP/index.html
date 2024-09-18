@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>首页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/commen.css" />
+    <link rel="stylesheet" href="css/index.css?2" />
+</head>
+<body>
+	<!--加载页面-->
+	<div id="loadDiv" style="background: #fff;height: 100%;width: 100%;position: fixed;z-index: 9999;">	
+		<img src="img/load.gif" style="display: block;margin: 80px auto; width: 30px;">
+	</div>
+	<div id="searchDiv" class="container" style=" display:none;height: 100%;">
+		<ul class="row">
+			<li class="col-xs-2 hd-back text-center"> <img src="img/back.png" id="indexback" style="margin-left:6px"/>  </li>
+			<li class="col-xs-8 text-center" id="a-ser-li">
+				<span class="glyphicon glyphicon-search"></span>
+				<input type="text" id="al-search">
+				<span class="speak"></span>
+			</li>
+			<li class="col-xs-2 text-center" id="search">
+				<p  style="font-size: 1.2rem;padding-right: 0.5rem;">搜索</p>
+			</li>
+		</ul>
+	</div>
+	<!--头部-->
+	<header class="container">
+		<ul class="row">
+			<li class="col-xs-2 hd-back text-center"><img src="img/brush.png" id="sweep" style="width: 2.2rem;"></li>
+			<li class="col-xs-8 text-center search-li">
+				<span class="glyphicon glyphicon-search"></span>
+				<input type="text" class="search-input" id="showSearch">
+				<span class="speak"></span>
+			</li>
+			<li class="col-xs-2 text-center right-btn">
+				<p id="search2" style="font-size: 1.2rem;">搜索</p>
+			</li>
+		</ul>
+	</header>
+      <!--banner-->
+      <div class="container-fluid" style="padding: 0;margin: 0;height: 18rem;overflow: hidden;">
+	      <div class="carousel slide" id="carousel" data-ride="carousel">
+	        <ul  class="carousel-inner">
+	   			<li class="item active">
+			    </li>
+	        </ul>
+	        <ol class="carousel-indicators"> 
+	      		 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			</ol>
+	      </div>
+	 </div>
+	
+	 <!--list-->
+	<div id="main"> 
+	 <div class="container goodlist"> 
+	 	
+	 </div> 
+	 </div>
+	 <!--底部-->
+	 <footer class="footer">
+	 	<ul>
+	 		<li class="Link" data-src="index.html">
+	 			<figure>
+	 				<img src="img/f1.png">
+	 				<figcaption>首页</figcaption>
+	 			</figure>
+	 		</li>
+	 		<li data-src="classfity.html">
+	 			<figure>
+	 				<img src="img/f02.png">
+	 				<figcaption>分类</figcaption>
+	 			</figure>
+	 		</li>
+	 		<li data-src="car.html?222">
+	 			<figure  class="pst">
+	 				<img src="img/f03.png">
+	 				<figcaption><span class="carNum">0</span>购物车</figcaption>
+	 			</figure>
+	 		</a></li>
+	 		<li data-src="my.html">
+	 			<figure>
+	 				<img src="img/f04.png">
+	 				<figcaption>我的</figcaption>
+	 			</figure>
+	 		</li>
+	 	</ul>
+	 </footer>
+	 <script type="text/javascript" src="../GlobalSettings.asp"></script>
+	 <script type="text/javascript" src="../../../../inc/formatnumber.js"></script>
+	 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	 <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+	 <script type="text/javascript" src="../../js/jweixin-1.0.0.js"></script>
+	 <script type="text/javascript" src="js/global.js?201602180015" ></script>
+	 <script type="text/javascript" src="js/commen.js"></script>
+	 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	 <script type="text/javascript" src="js/sweep.js?201602180006"></script>
+	 <script type="text/javascript" src="js/index.js"></script>
+	 <script type="text/javascript" src="js/AutoCompleteExt.js"></script>
+     <script>//谭.结尾标签.防止微信篡改标签出错</script>
+</body>
+</html>

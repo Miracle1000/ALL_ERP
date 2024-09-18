@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--付款打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="44009" DBViewName="P_GetpayoutPrintData" DBDetailViewName="P_GetpayoutDetailPrintData" >
+  <Items Title="公共字段">
+    <Items Title="基本信息">
+      <Column Name="单据主题" dbName="po_title" Description="单据主题" LocationType="All"/>
+      <Column Name="单据编号" dbName="po_order1" Description="单据编号" LocationType="All"/>
+      <Column Name="单据分类" dbName="po_sort" Description="单据分类" LocationType="All"/>
+      <Column Name="单据总额" dbName="po_money" Description="单据总额" LocationType="All"/>
+      <Column Name="计划付款额" dbName="po_pay_money" Description="计划付款额" LocationType="All"/>
+      <Column Name="实际付款额" dbName="po_pay_money1" Description="实际付款额" LocationType="All"/>
+      <Column Name="剩余应付" dbName="po_pay_money2" Description="剩余应付" LocationType="All"/>
+    </Items>
+    <Items Title="关联供应商">
+      <Column Name="供应商名称" dbName="gys_title" Description="供应商名称" LocationType="All" />
+      <Column Name="供应商编号" dbName="gys_bh" Description="供应商编号" LocationType="All"  />
+      <Column Name="供应商电话" dbName="gys_tel" Description="供应商电话" LocationType="All"  />
+      <Column Name="供应商传真" dbName="gys_fax" Description="供应商传真" LocationType="All" />
+      <Column Name="供应商地址" dbName="gys_address" Description="供应商地址" LocationType="All" />
+      <Column Name="供应商邮箱" dbName="gys_email" Description="供应商邮箱" LocationType="All" />
+      <Column Name="供应商邮编" dbName="gys_zip" Description="供应商邮编" LocationType="All" />
+      <Column Name="供应商网址" dbName="gys_web" Description="供应商网址" LocationType="All" />
+      <Column Name="注册资本" dbName="gys_reg" Description="注册资本" LocationType="All" />
+      <Column Name="法人代表" dbName="gys_person" Description="法人代表" LocationType="All" />
+      <Column Name="开户银行1" dbName="bank_num1" Description="开户银行1" LocationType="All" />
+      <Column Name="开户名称1" dbName="bank_name1" Description="开户名称1" LocationType="All" />
+      <Column Name="银行行号1" dbName="bank_num2" Description="银行行号1" LocationType="All" />
+      <Column Name="银行账户1" dbName="bank_Account1" Description="银行账户1" LocationType="All" />
+      <Column Name="税号1" dbName="bank_tax1" Description="税号1" LocationType="All" />
+      <Column Name="地址1" dbName="bank_address1" Description="地址1" LocationType="All" />
+      <Column Name="电话1" dbName="bank_tel1" Description="电话1" LocationType="All" />
+      <Column Name="开户银行2" dbName="bank_num3" Description="开户银行2" LocationType="All" />
+      <Column Name="开户名称2" dbName="bank_name2" Description="开户名称2" LocationType="All" />
+      <Column Name="银行行号2" dbName="bank_num4" Description="银行行号2" LocationType="All" />
+      <Column Name="银行账户2" dbName="bank_Account2" Description="银行账户2" LocationType="All" />
+      <Column Name="税号2" dbName="bank_tax2" Description="税号2" LocationType="All" />
+      <Column Name="地址2" dbName="bank_address2" Description="地址2" LocationType="All" />
+      <Column Name="电话2" dbName="bank_tel2" Description="电话2" LocationType="All" />
+      <Column Name="联系人姓名/对方代表" dbName="person_name" Description="联系人姓名/对方代表" LocationType="All" />
+      <Column Name="联系人手机" dbName="person_mobile" Description="联系人手机" LocationType="All" />
+      <Column Name="联系人电话" dbName="person_phone" Description="联系人电话" LocationType="All" />
+      <Column Name="联系人传真" dbName="person_fax" Description="联系人传真" LocationType="All" />
+      <Column Name="联系人QQ" dbName="person_qq" Description="联系人QQ" LocationType="All" />
+    </Items>
+    <Items Title="采购人员">
+      <Column Name="采购人姓名" dbName="po_name" Description="采购人姓名" LocationType="All" />
+      <Column Name="采购人电话" dbName="po_phone" Description="采购人电话" LocationType="All" />
+      <Column Name="采购人传真" dbName="po_fax" Description="采购人传真" LocationType="All" />
+      <Column Name="采购人手机" dbName="po_mobile" Description="采购人手机" LocationType="All" />
+      <Column Name="采购人邮件" dbName="po_email" Description="采购人邮件" LocationType="All" />
+      <Column Name="采购人部门" dbName="po_branch" Description="采购人部门" LocationType="All" />
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="付款明细">
+      <Column Name="序号" dbName="sortnum_pay" Description="序号" LocationType="Detail" OrderNum="true" TableName="#payout#" />
+      <Column Name="币种" dbName="zb_bz" Description="币种" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="付款状态" dbName="zb_fkstatus" Description="付款状态" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="添加日期" dbName="zb_tjdate" Description="添加日期" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="计划付款金额" dbName="zb_plpayment" Description="计划付款金额" LocationType="Detail" SumaryCalculate="true" TableName="#payout#" />
+      <Column Name="应付日期" dbName="zb_fkdate" Description="应付日期" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="申请人员" dbName="zb_applicant" Description="申请人员" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="实际付款金额" dbName="zb_acpayment" Description="实际付款金额" LocationType="Detail" SumaryCalculate="true" TableName="#payout#" />
+      <Column Name="实付日期" dbName="zb_shdate" Description="实付日期" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="付款人员" dbName="zb_fkperson" Description="付款人员" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="付款方式" dbName="zb_fktype" Description="付款方式" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="付款账户" dbName="zb_Bank" Description="付款账户" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="收款账号" dbName="zb_Account" Description="收款账号" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="优惠金额" dbName="zb_yhmoney" Description="优惠金额" LocationType="Detail" SumaryCalculate="true" TableName="#payout#" />
+      <Column Name="备注" dbName="zb_intro" Description="备注" LocationType="Detail" GroupBy="true" TableName="#payout#" />
+      <Column Name="审批状态" dbName="sp_state" Description="审批状态" LocationType="Detail"  GroupBy="true" TableName="#payout#" />
+      <Column Name="当前审批人" dbName="po_spperson" Description="当前审批人" LocationType="Detail"  GroupBy="true" TableName="#payout#" />
+    </Items>
+    <Items Title="关联产品">
+      <Column Name="序号" dbName="sortnum_pro" Description="序号" LocationType="Detail" OrderNum="true" TableName="#payoutProduct#" />
+      <Column Name="产品名称" dbName="pro_name" Description="产品名称" LocationType="Detail" GroupBy="true" TableName="#payoutProduct#" />
+      <Column Name="产品编号" dbName="pro_order1" Description="产品编号" LocationType="Detail" GroupBy="true" TableName="#payoutProduct#" />
+      <Column Name="产品型号" dbName="pro_type" Description="产品型号" LocationType="Detail" GroupBy="true" TableName="#payoutProduct#" />
+      <Column Name="产品分类" dbName="pro_sort1" Description="产品分类" LocationType="Detail" GroupBy="true" TableName="#payoutProduct#" />
+      <Column Name="产品分类（全路径）" dbName="pro_sort2" Description="产品分类（全路径）" LocationType="Detail"  GroupBy="true" TableName="#payoutProduct#" />
+      <Column Name="单位" dbName="pro_unit" Description="单位" LocationType="Detail" GroupBy="true" TableName="#payoutProduct#" />
+      <Column Name="数量" dbName="pro_num" Description="数量" LocationType="Detail" SumaryCalculate="true" TableName="#payoutProduct#" />
+      <Column Name="已付款金额" dbName="pro_money" Description="已付款金额" LocationType="Detail" SumaryCalculate="true" TableName="#payoutProduct#" />
+    </Items>
+    <Items Title="审批记录">
+      <Column Name="审批单据序号" dbName="approveID" Description="审批单据序号" LocationType="Detail" OrderNum="true" TableName="#approve#" />
+      <Column Name="审批时间" dbName="approve_date" Description="审批时间" LocationType="Detail" GroupBy="true" TableName="#approve#" />
+      <Column Name="审批阶段" dbName="approve_stage" Description="审批阶段" LocationType="Detail" GroupBy="true" TableName="#approve#" />
+      <Column Name="审批人员" dbName="approver" Description="审批人员" LocationType="Detail" GroupBy="true" TableName="#approve#" />
+      <Column Name="审批结果" dbName="approve_result" Description="审批结果" LocationType="Detail" GroupBy="true" TableName="#approve#" />
+      <Column Name="审批意见" dbName="approve_opinion" Description="审批意见" LocationType="Detail" GroupBy="true" TableName="#approve#" />
+    </Items>
+  </Items>
+</Report>

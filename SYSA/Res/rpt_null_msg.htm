@@ -1,0 +1,37 @@
+﻿<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body bgcolor='#f2f2fa'>
+<style>
+	span.rmk{color:#008800;}
+</style>
+<pre>
+
+<h3 style='color:red'>  提示您：ReportCls对象还未初始化。</h3>
+
+ 说明：调用ReportCls类，需要实现onReportInit事件与app_oncreate事件。
+
+ 实例如下：
+
+
+<div style='font-size:12px;border:1px solid #ccc;background-color:white;margin-left:5px'> 
+   <span class='rmk'>&lt;!--#include file="../sdk/reportcls.asp"--&gt;</span>
+   &lt;%
+	<span class='rmk'>'初始化报表基础配置</span>
+	<span class='rmk'>'rpt：是reportcls对象, state：加载类型，0=初始化加载， 1=回调加载</span>
+	<span style='color:blue'>sub</span> onReportInit(<span style='color:blue'>byval</span> rpt, <span style='color:blue'>byval</span>  state)
+		<span class='rmk'>'此处添加您的代码, 例如
+		'rpt.title = "xxx报表"
+		'rpt.sql = "xxx"
+		'............</span>
+	<span style='color:blue'>end sub</span>
+	
+	<span class='rmk'>'初始化表格列、数据格式等配置</span>
+	<span class='rmk'>'lvw：报表的listview子对象</span>
+	<span style='color:blue'>sub</span> app_oncreate(<span style='color:blue'>byval</span> lvw)
+		<span class='rmk'>'此处添加您的代码, 例如
+		'lvw.currsum = true '开启当前页求和
+		'lvw.currsum = true '开启所有页求和
+		'lvw.headers(1).dbtype = "number" '设置第一列格式为数字
+		'......</span>
+	<span style='color:blue'>end sub</span>
+   %&gt;
+</div>
+</pre></body></html>

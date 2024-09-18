@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--合同打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<!--ValueType : 表示默认的数据类型 -->
+<Report PrintID="11001" DBViewName="P_ContractTemplateData" DBDetailViewName="P_ContractDetailTemplateData" >
+  <Items Title="公共字段">
+    <Items Title="基本信息">
+      <Column Name="合同主题" dbName="zb_ht_title" Description="合同主题" LocationType="All"/>
+      <Column Name="合同编号" dbName="zb_order1_code" Description="合同编号" LocationType="All"/>
+      <Column Name="合同分类" dbName="zb_ht_sort" Description="合同分类" LocationType="All"/>
+      <Column Name="合同状态" dbName="zb_htzt" Description="合同状态" LocationType="All"/>
+      <Column Name="签订日期" dbName="zb_date1" Description="签订日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="开始日期" dbName="zb_startdate" Description="开始日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="终止日期" dbName="zb_ehddate" Description="终止日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="自定义字段1" dbName="zb_zdy1" Description="自定义字段1" LocationType="All"/>
+      <Column Name="自定义字段2" dbName="zb_zdy2" Description="自定义字段2" LocationType="All"/>
+      <Column Name="合同概要" dbName="zb_intro" Description="合同概要" LocationType="All" IsHtml="true"/>
+      <Column Name="审批状态" dbName="zb_spstatus" Description="审批状态" LocationType="All"/>
+      <Column Name="当前审批人" dbName="peson_lastsp" Description="当前审批人" LocationType="All"/>
+      <Column Name="执行状态" dbName="zb_zxstatus" Description="执行状态" LocationType="All"/>
+      <Column Name="出库状态" dbName="zb_ckstatus" Description="出库状态" LocationType="All"/>
+      <Column Name="发货状态" dbName="zb_fhstatus" Description="发货状态" LocationType="All"/>
+      <Column Name="票据类型" dbName="zb_invoice" Description="票据类型" LocationType="All"/>
+      <Column Name="税率" dbName="zb_tax" Description="税率" LocationType="All" ValueType="number||"/>
+      <Column Name="合同类型" dbName="zb_httype" Description="合同类型" LocationType="All"/>
+      <Column Name="币种" dbName="zb_ht_bz" Description="币种" LocationType="All"/>
+      <Column Name="合同总额" dbName="pro_money1" Description="合同总额" LocationType="All" ValueType="number||"/>
+      <Column Name="合同编号一维码" dbName="Bar_code_zb_order1" Description="合同编号一维码" LocationType="All"/>
+      <Column Name="销售人姓名" dbName="sales_name" Description="销售人姓名" LocationType="All"/>
+      <Column Name="销售人电话" dbName="sales_phone" Description="销售人电话" LocationType="All"/>
+      <Column Name="销售人传真" dbName="sales_fax" Description="销售人传真" LocationType="All"/>
+      <Column Name="销售人手机" dbName="sales_mobile" Description="销售人手机" LocationType="All"/>
+      <Column Name="销售人邮件" dbName="sales_email" Description="销售人邮件" LocationType="All"/>
+      <Column Name="销售人部门" dbName="sales_branch" Description="销售人部门" LocationType="All"/>
+      <Column Name="我方代表" dbName="zb_wfperson" Description="我方代表" LocationType="All"/>
+      <Column Name="添加人员" dbName="zb_tjperson" Description="添加人员" LocationType="All"/>
+      <Column Name="添加时间" dbName="zb_tjtime" Description="添加时间" LocationType="All" ValueType="time|HH:mm:ss" />
+      <Column Name="添加日期" dbName="zb_tjdate" Description="添加日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="优惠金额" dbName="pro_yhmoney1" Description="优惠金额" LocationType="All" ValueType="number||" />
+      <Column Name="优惠后总额" dbName="pro_allmoney1" Description="优惠后总额" LocationType="All" ValueType="number||" />
+      <Column Name="到账金额" dbName="pro_payable" Description="到账金额" LocationType="All" ValueType="number||" />
+      <Column Name="打印日期" dbName="zb_date" Description="打印日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="打印时间" dbName="zb_datetime" Description="打印时间" LocationType="All" ValueType="time|HH:mm:ss" />
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" ValueType="date|yyyy-MM-dd" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" ValueType="time|HH:mm:ss" />
+    </Items>
+    <Items Title="收货地址">
+      <Column Name="收货人" dbName="consignee_name1" Description="收货人" LocationType="All"/>
+      <Column Name="固定电话" dbName="consignee_phone1" Description="固定电话" LocationType="All"/>
+      <Column Name="手机" dbName="consignee_mobie1" Description="手机" LocationType="All"/>
+      <Column Name="所在区域" dbName="consignee_area" Description="所在区域" LocationType="All"/>
+      <Column Name="详细地址" dbName="consignee_address1" Description="详细地址" LocationType="All"/>
+      <Column Name="邮编" dbName="consignee_code" Description="邮编" LocationType="All"/>
+    </Items>
+    <Items Title="关联联系人">
+      <Column Name="联系人姓名" dbName="zb_person" Description="联系人姓名" LocationType="All"/>
+      <Column Name="联系人电话" dbName="zb_phone" Description="联系人电话" LocationType="All"/>
+      <Column Name="联系人传真" dbName="zb_fax" Description="联系人传真" LocationType="All"/>
+      <Column Name="联系人手机" dbName="zb_mobile" Description="联系人手机" LocationType="All"/>
+      <Column Name="联系人邮件" dbName="zb_email" Description="联系人邮件" LocationType="All"/>
+      <Column Name="联系人qq" dbName="zb_qq" Description="联系人qq" LocationType="All"/>
+      <Column Name="联系人微信" dbName="zb_WeChat" Description="联系人微信" LocationType="All"/>
+      <Column Name="联系人所在部门" dbName="zb_Department" Description="联系人所在部门" LocationType="All"/>
+      <Column Name="联系人职位" dbName="zb_Position" Description="联系人职位" LocationType="All"/>
+    </Items>
+    <Items Title="关联客户">
+      <Column Name="客户名称" dbName="zb_company" Description="客户名称" LocationType="All"/>
+      <Column Name="拼音码" dbName="Py_code" Description="拼音码" LocationType="All"/>
+      <Column Name="客户编号" dbName="zb_code" Description="客户编号" LocationType="All"/>
+      <Column Name="客户来源" dbName="zb_ly" Description="客户来源" LocationType="All"/>
+      <Column Name="客户办公电话" dbName="zb_kphone" Description="客户办公电话" LocationType="All"/>
+      <Column Name="客户传真" dbName="zb_kfax" Description="客户传真" LocationType="All"/>
+      <Column Name="客户邮箱" dbName="zb_kh_email" Description="客户邮箱" LocationType="All"/>
+      <Column Name="客户地址" dbName="zb_address" Description="客户地址" LocationType="All"/>
+      <Column Name="联系人职位" dbName="zb_zip" Description="客户邮编" LocationType="All"/>
+      <Column Name="开户银行1" dbName="kh_bank1" Description="开户银行1" LocationType="All"/>
+      <Column Name="开户名称1" dbName="kh_bank2" Description="开户名称1" LocationType="All"/>
+      <Column Name="银行行号1" dbName="kh_bank3" Description="银行行号1" LocationType="All"/>
+      <Column Name="银行账户1" dbName="kh_bank4" Description="银行账户1" LocationType="All"/>
+      <Column Name="税号1" dbName="kh_bank5" Description="税号1" LocationType="All"/>
+      <Column Name="地址1" dbName="kh_bank6" Description="地址1" LocationType="All"/>
+      <Column Name="电话1" dbName="kh_bank7" Description="电话1" LocationType="All"/>
+      <Column Name="开户银行2" dbName="kh_bank8" Description="开户银行2" LocationType="All"/>
+      <Column Name="开户名称2" dbName="kh_bank9" Description="开户名称2" LocationType="All"/>
+      <Column Name="银行行号2" dbName="kh_bank10" Description="银行行号2" LocationType="All"/>
+      <Column Name="银行账户2" dbName="kh_bank11" Description="银行账户2" LocationType="All"/>
+      <Column Name="税号2" dbName="kh_bank12" Description="税号2" LocationType="All"/>
+      <Column Name="地址2" dbName="kh_bank13" Description="地址2" LocationType="All"/>
+      <Column Name="电话2" dbName="kh_bank14" Description="电话2" LocationType="All"/>
+      <Column Name="客户自定义5" dbName="zb_cuszdy5" Description="客户自定义5" LocationType="All"/>
+      <Column Name="账期" dbName="zb_zdays" Description="账期" LocationType="All"/>
+      <Column Name="结算日期" dbName="zb_jsdate" Description="结算日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+    </Items>
+    <Items Title="扩展自定义" Extended="5">
+      <Column Name="Contract_Extended_#ID" dbName="Contract_Extended_" Description="扩展自定义" LocationType="All"/>
+    </Items>
+    <Items Title="签章">
+      <Column Name="电子签章" Type="Seal" Description="电子签章" LocationType="All" />
+    </Items>
+  </Items>
+  <Items Title="表头表尾字段">
+    <Items Title="合计小计">
+      <Column Name="合同数量小计" dbName="SUM_PAGE([ht_num])" Description="数量小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="合同数量合计" dbName="SUM_ALL([ht_num])" Description="数量合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="已出库数量小计" dbName="SUM_PAGE([kuout_num])" Description="已出库数量小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="已出库数量合计" dbName="SUM_ALL([kuout_num])" Description="已出库数量合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="已发货数量小计" dbName="SUM_PAGE([send_num])" Description="已发货数量小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="已发货数量合计" dbName="SUM_ALL([send_num])" Description="已发货数量合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="退货数量小计" dbName="SUM_PAGE([return_num])" Description="退货数量小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="退货数量合计" dbName="SUM_ALL([return_num])" Description="退货数量合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="明细优惠金额小计" dbName="SUM_PAGE([pro_favorable])" Description="明细优惠金额小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="明细优惠金额合计" dbName="SUM_ALL([pro_favorable])" Description="明细优惠金额合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="积分小计" dbName="SUM_PAGE([pro_jf])" Description="积分小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="积分合计" dbName="SUM_ALL([pro_jf])" Description="积分合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税总价小计" dbName="SUM_PAGE([pro_price_ws1])" Description="未税总价小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税总价合计" dbName="SUM_ALL([pro_price_ws1])" Description="未税总价合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税折后总价小计" dbName="SUM_PAGE([pro_price_zh1])" Description="未税折后总价小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税折后总价合计" dbName="SUM_ALL([pro_price_zh1])" Description="未税折后总价合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="含税总价小计" dbName="SUM_PAGE([pro_price_hs1])" Description="含税总价小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="含税总价合计" dbName="SUM_ALL([pro_price_hs1])" Description="含税总价合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="产品总价小计" dbName="SUM_PAGE([pro_price_zj])" Description="产品总价小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="产品总价合计" dbName="SUM_ALL([pro_price_zj])" Description="产品总价合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="折扣金额小计（未税）" dbName="SUM_PAGE([pro_discount])" Description="折扣金额小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="折扣金额合计（未税）" dbName="SUM_ALL([pro_discount])" Description="折扣金额合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="折扣金额小计（含税）" dbName="SUM_PAGE([pro_discounts])" Description="折扣金额小计（未税）" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="折扣金额合计（含税）" dbName="SUM_ALL([pro_discounts])" Description="折扣金额合计（含税）" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="税额小计" dbName="SUM_PAGE([pro_tax])" Description="税额小计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="税额合计" dbName="SUM_ALL([pro_tax])" Description="税额合计" LocationType="All" IsFunction="true" TableName="#ContractProduct#" ValueType="number||" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="产品明细" ListType="1" ListDBName="ht_" TableName="#ContractProduct#">
+      <Column Name="序号" dbName="sortnum" Description="序号" LocationType="Detail" OrderNum="true" TableName="#ContractProduct#" />
+      <Column Name="产品图片100px" dbName="pro_img_100" Description="产品图片100px" Type="Image" LocationType="Detail" TableName="#ContractProduct#" />
+      <Column Name="产品图片200px" dbName="pro_img_200" Description="产品图片200px" Type="Image" LocationType="Detail" TableName="#ContractProduct#" />
+      <Column Name="产品图片300px" dbName="pro_img_300" Description="产品图片300px" Type="Image" LocationType="Detail" TableName="#ContractProduct#" />
+      <Column Name="产品图片自定义" dbName="pro_img_size" Description="产品图片自定义" Type="Image" LocationType="Detail" TableName="#ContractProduct#" />
+      <Column Name="产品名称" dbName="pro_name" Description="产品名称" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="产品编号" dbName="pro_order1" Description="产品编号" LocationType="Detail" GroupBy="true" TableName="#ContractProduct#" IsEnableDepth="true" />
+      <Column Name="产品型号" dbName="pro_type" Description="产品型号" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="产品说明" dbName="pro_instructions" Description="产品说明" LocationType="Detail" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="产品参数" dbName="pro_parameter" Description="产品参数" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="产品分类" dbName="pro_sort1" Description="产品分类" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="产品分类(全路径)" dbName="pro_sort2" Description="产品分类(全路径)" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="图片与附件" dbName="pro_accessoryfj" Description="图片与附件" LocationType="Detail" TableName="#ContractProduct#" IsHtml="true"/>
+      <Column Name="产品条形码（图文）" dbName="Bar_code_pro" Description="产品条形码（图文）" Type="Image" LocationType="Detail" TableName="#ContractProduct#" />
+      <Column Name="产品条形码（数字）" dbName="pro_bars" Description="产品条形码（数字）" LocationType="Detail" TableName="#ContractProduct#" />
+      <Column Name="单位" dbName="pro_unit" Description="单位" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="单位属性" dbName="pro_unit_attr" Description="单位属性" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="单位属性(横向)" dbName="pro_unit_h_attr" Description="单位属性(横向)" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="产品属性(汇总)" dbName="ProductAttr" Description="产品属性(汇总)" Type="ProductAttr" LocationType="Detail" SumaryCalculate="true" TableName="#ContractProduct#" />
+      <Column Name="产品属性1" dbName="ProductAttr1" Description="产品属性1" Type="ProductAttr" LocationType="Detail" SumaryCalculate="true" TableName="#ContractProduct#" />
+      <Column Name="产品属性2" dbName="ProductAttr2" Description="产品属性2" Type="ProductAttr" LocationType="Detail" SumaryCalculate="true" TableName="#ContractProduct#" />
+      <Column Name="合同数量" dbName="ht_num" Description="合同数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="已出库数量" dbName="kuout_num" Description="已出库数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="已发货数量" dbName="send_num" Description="已发货数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="退货数量" dbName="return_num" Description="退货数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税单价" dbName="pro_price_ws" Description="未税单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="折扣" dbName="pro_zk" Description="折扣" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税折后单价" dbName="pro_price_zh" Description="未税折后单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="含税单价" dbName="pro_price_hs" Description="含税单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="含税折后单价" dbName="pro_price_hszh" Description="含税折后单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="发票类型" dbName="Invoice_type" Description="发票类型" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="税率" dbName="pro_sl" Description="税率" LocationType="Detail" GroupBy="true" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税总价" dbName="pro_price_ws1" Description="未税总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="未税折后总价" dbName="pro_price_zh1" Description="未税折后总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="税额" dbName="pro_tax" Description="税额" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="含税总价" dbName="pro_price_hs1" Description="含税总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="含税折后总价" dbName="pro_price_hszh1" Description="含税折后总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="明细优惠金额" dbName="pro_favorable" Description="明细优惠金额" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="产品总价" dbName="pro_price_zj" Description="产品总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="建议进价" dbName="pro_price_cb" Description="建议进价" LocationType="Detail"  GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="建议总价" dbName="pro_price_cb1" Description="建议总价" LocationType="Detail"  SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="折扣金额（未税）" dbName="pro_discount" Description="折扣金额（未税）" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="折扣金额（含税）" dbName="pro_discounts" Description="折扣金额（含税）" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="币种" dbName="pro_bz" Description="币种" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="交货日期" dbName="delivery_date" Description="交货日期" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="date|yyyy-MM-dd" />
+      <Column Name="备注" dbName="pro_allintro" Description="备注" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+      <Column Name="积分" dbName="pro_jf" Description="积分" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" TableName="#ContractProduct#" ValueType="number||" />
+      <Column Name="仓库" dbName="warehouse" Description="仓库" LocationType="Detail" GroupBy="true" IsEnableDepth="true" TableName="#ContractProduct#" />
+    </Items>
+    <Items Title="审批记录">
+      <Column Name="审批时间" dbName="approve_date" Description="审批时间" LocationType="All" TableName="#ContractApproval#" />
+      <Column Name="审批阶段" dbName="approve_stage" Description="审批阶段" LocationType="All" TableName="#ContractApproval#" />
+      <Column Name="审批人" dbName="approver" Description="审批人" LocationType="All" TableName="#ContractApproval#" />
+      <Column Name="审批结果" dbName="approve_result" Description="审批结果" LocationType="All" TableName="#ContractApproval#" />
+      <Column Name="审批意见" dbName="approve_opinion" Description="审批意见" LocationType="All" TableName="#ContractApproval#" />
+    </Items>
+    <Items Title="收款记录">
+      <Column Name="序号" dbName="zb_cs" Description="序号" LocationType="All" TableName="#ContractReceivables#" />
+      <Column Name="回款金额" dbName="zb_hkmoney" Description="回款金额" LocationType="All" TableName="#ContractReceivables#" ValueType="number||" />
+      <Column Name="应收日期" dbName="zb_hkdate" Description="应收日期" LocationType="All" TableName="#ContractReceivables#" ValueType="date|yyyy-MM-dd" />
+      <Column Name="收款状态" dbName="zb_hkstatus" Description="收款状态" LocationType="All" TableName="#ContractReceivables#" />
+      <Column Name="收款账户" dbName="zb_Bank" Description="收款账户" LocationType="All" TableName="#ContractReceivables#" />
+      <Column Name="收款账号" dbName="zb_Account" Description="收款账号" LocationType="All" TableName="#ContractReceivables#" />
+      <Column Name="底单日期" dbName="zb_dddate" Description="底单日期" LocationType="All" TableName="#ContractReceivables#" ValueType="date|yyyy-MM-dd" />
+      <Column Name="收款方式" dbName="zb_hktype" Description="收款方式" LocationType="All" TableName="#ContractReceivables#" />
+      <Column Name="收款人员" dbName="zb_hkperson" Description="收款人员" LocationType="All" TableName="#ContractReceivables#" />
+      <Column Name="实收日期" dbName="zb_shdate" Description="实收日期" LocationType="All" TableName="#ContractReceivables#" ValueType="date|yyyy-MM-dd" />
+      <Column Name="期数" dbName="zb_qs" Description="期数" LocationType="All" TableName="#ContractReceivables#" ValueType="number||" />
+      <Column Name="分期金额" dbName="zb_fqmoney" Description="分期金额" LocationType="All" TableName="#ContractReceivables#" ValueType="number||" />
+    </Items>
+  </Items>
+</Report>

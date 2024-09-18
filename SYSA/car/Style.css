@@ -1,0 +1,68 @@
+﻿/* CSS Document */
+body {
+	margin-top: 0px;
+}
+img{
+border:0}
+.style1 {color: #0066FF}
+.redDiv{
+width:12px;
+height:12px;
+background-color:#990033;
+vertical-align:middle;
+float:left;
+margin-right:2px;
+}
+.greenDiv{
+width:12px;
+height:12px;
+background-color:#00CC66;
+vertical-align:middle;
+float:left;
+margin-right:2px;
+}
+.origenDiv{
+width:12px;
+height:12px;
+background-color:#FFCC00;
+vertical-align:middle;
+float:left;
+margin-right:2px;
+}
+.red1{
+background-color:#990033;
+}
+.green{
+background-color:#00CC66;
+}
+.origen{
+background-color:#FFCC00;
+}
+.ctext
+{
+width:70px;
+height:18px;
+border:#999999 solid 1px;
+}
+.showdiv{
+position:absolute;
+background-color:#FFFFFF;
+width:200px;
+border:1px solid #C0CCDD;
+display:none;
+text-align:center;
+z-index:1000;
+padding:2px;
+overflow-y:auto;
+}
+.submitdiv{
+display:none;
+padding-top:300px;
+position:absolute;
+top:0%;left:0%;
+width:100%;height:100%;
+background-color:black;
+text-align:center;
+z-index:1001;
+-moz-opacity:0.5;opacity:.50;filter: alpha(opacity=50);
+}

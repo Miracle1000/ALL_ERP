@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RndCodeImage.aspx.cs" Inherits="ZBIntel.ERP.Mobile.RndCodeImage" %>

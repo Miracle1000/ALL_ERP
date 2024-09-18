@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "zbintelSVR", "zbintelSVR.exe", "{8A5C0C69-66CB-4E08-B605-9B1F3574EEB7}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = F:\VSS2005_1029\ZBIntel.ERP\source\ZBIntel.ERP.Web\message\clientSVR\zbintelSVR.exe
+		RemoteMachine = LLZ-0C6KMT4AKUH
+		StartingDirectory = F:\VSS2005_1029\ZBIntel.ERP\source\ZBIntel.ERP.Web\message\clientSVR
+		Environment = 默认值
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A5C0C69-66CB-4E08-B605-9B1F3574EEB7}.Debug|x86.ActiveCfg = Debug|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

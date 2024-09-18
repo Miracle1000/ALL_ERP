@@ -1,0 +1,996 @@
+@charset "utf-8";
+html{
+	font-size: 100px;
+}
+body{
+	background: #F5F5F5;
+}
+/*去除type=number的上下箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+.marks{
+	display:inline-block;
+	width:12px;
+	height:12px;
+	line-height: 12px;
+	border-radius:50%;
+	color:#F15352;
+	background:#fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin-right:5px;
+}
+.newAddressFix{
+	position: fixed;
+	bottom: 0rem;
+	left: 0;
+}
+.center{
+	-webkit-transform:  translateY(-50%);
+	-moz-transform:  translateY(-50%);
+	-ms-transform:  translateY(-50%);
+	-o-transform:  translateY(-50%);
+	transform:  translateY(-50%);
+}
+header.container,#detailsListDiv,#logisticsListDiv .container{
+	background:rgba(227,227,227,.8);
+	width: 100%;
+	height: 53px;
+	line-height: 53px;
+	font-size: 16px;
+}
+
+header.container a{
+	font-size: 16px;
+}
+#back,#exitDetail,#exitLogistics,#billback,#orderAllback,#addressBack,#billback{
+	width:12px;
+	padding-top: 15px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;	
+}
+
+.edit{
+	right: 0.1rem;
+	top: 50%;
+	color: #333;
+	-webkit-transform:  translateY(-50%);
+	-moz-transform:  translateY(-50%);
+	-ms-transform:  translateY(-50%);
+	-o-transform:  translateY(-50%);
+	transform:  translateY(-50%);
+}
+.order_info{
+	background: #FFFAF4;
+	font-size: 0.16rem;
+	margin-top: 0;
+}
+.order_info p{
+	padding-top: 0.05rem;
+	width: 100%;
+}
+.orderGoodsInfo{
+	display: block;
+	white-space: nowrap;
+	text-align:left;
+	font-size:14px;
+	width:100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #000;
+}
+.orderGoodsInfo2{
+	color: #000;
+	display: block;
+	width:100%;
+	font-size:14px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient: vertical;
+	height: 0.52rem;
+	margin-bottom: 6px;
+	}
+.countAll{
+	font-size:13px;
+}
+.ordergoodsP{
+	float: left;
+	width:15%;
+	color: #F15352;
+	font-size:15px;
+	text-align:center;
+}
+.order_to{
+	right: 0.1rem;
+	top: 50%;
+}
+.order_info P{
+	padding-left: 0.1rem;	
+	padding-right: 0.1rem;
+}
+.order_info P .glyphicon{
+	color: #999;
+}
+.line{
+	display:block;height: 3px;width: 100%;background: url(../img/line.png) repeat-x; background-size: 64px 3px;
+}
+.sendTime{
+	color: #000;
+	font-size: 12px;
+	background: #fff;
+	margin-top: 10px;
+	padding-left: 0.1rem;
+	border-bottom: 1px solid #ccc;
+}
+#sendDate1{
+	background: url(../img/timeImg.png) no-repeat right center;
+	background-size: 20px 20px;
+	display: block;
+	margin: 5px auto;
+	border: none;
+	padding: 5px;
+	width: 90%;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius:5px ;
+}
+.sendTime ul{
+	overflow: hidden;
+	clear: both;
+}
+.sendTime ul li{
+	float: left;
+	color: #646869;
+}
+.timeLi{
+	width: 60%;
+}
+.clearTime{
+	color: #646869;
+	margin: 5px auto;
+	width: 7%;
+	font-size: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px;
+	text-align: center;
+	background: #F5F9FA;
+}
+.clearTime img{
+	width: 16px;
+	padding-right: 5px;
+	padding-bottom: 2px;
+}
+
+.order_info P.address{
+	color: #000;
+	padding-bottom: 0.1rem;
+}
+.order_dl1{
+	clear: both;
+	overflow: hidden;
+	padding: 0.1rem;
+}
+.order_dl1 dt{
+	width: 25%;
+	float: left;
+	height: 0.9rem;
+	display: inline-block;
+	text-align: center;
+	overflow: hidden;
+}
+.order_dl1 dd{
+	padding-left: 0.1rem;
+	width: 74%;
+	float: left;
+	display: inline-block;
+}
+.order_dl1 dt img{
+	width: 100%;
+}
+.order_txt{
+	width: 90%;
+	margin: 0 4%;
+	height: 0.4rem;
+	border: 1px solid #999;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 0.16rem;
+	padding-left: 10px;
+}
+.orderList{
+	padding: 0.1rem;
+}
+.order_goods{
+	background: #fff;
+	font-size: 0.16rem;
+	line-height: 1.5;
+}
+.order_phone{
+	width: 20%;
+}
+.bill{
+	background: #fff;
+	line-height: 0.5rem;
+	margin: 0rem 0;
+	padding:0 0.1rem;
+	font-size: 0.16rem;
+	cursor: pointer;
+	color: #646869;
+}
+.billKinds{
+	color: #000;
+}
+.order_goods1{
+	border-bottom:1px solid #dedede;
+}
+.sayAbout{
+	margin-bottom: 0.2rem;
+	padding:1px;
+}
+.order_price{
+	background: #fff;
+	margin-top: 10px;
+	border-bottom: 1px solid #dedede;
+	font-size: 13px;
+}
+.order_price li{
+	padding: 0.1rem 0;
+}
+.order_lia{
+	width: 55%;
+	display: block;
+	float: left;
+	padding-left: 2%;
+	color: #646869;
+	padding-bottom: 12px;
+}
+.order_lib{
+	display: block;
+	float: right;
+	padding-right: 0.2rem;
+}
+footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	clear: both;
+	overflow: hidden;
+	z-index: 99;
+	font-size: 0.16rem;
+}
+footer a{
+	font-size: 15px;
+	width: 50%;
+	display: block;
+	float: left;
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+}
+.factPrice{
+	background: #333;
+	color: #fff;
+}
+.factPrice span{
+	color: #fff;
+}
+.checkOrder{
+	background: #F15352;
+	color: #fff;
+}
+.timea{
+	cursor: pointer;
+	background: #fff;
+	padding: 0.2rem 0.1rem;
+	margin: 0.1rem 0;
+	display: block;
+	border-bottom: 1px solid #dedede;
+	font-size: 0.16rem;
+}
+footer a:hover,
+footer a:active {
+  color: #fff;
+  text-decoration: none;
+}
+.order_number{
+	display: inline-block;
+	margin-top: 0.3rem;
+	margin-right: 1%;
+}
+.bill_kinds{
+	text-align: left;
+	margin-left: 0.5rem;
+	font-size: 0.16rem;
+}
+.bill_kinds b{
+	font-size: 0.18rem;
+}
+.bill_kinds li{
+	margin: 0.15rem 0 0 0;
+	clear: both;
+}
+.billClasify span label{
+	padding-bottom: 0.15rem;
+}    
+.bill_ok{
+	background: #F15352;
+	border-radius: 0.1rem;
+	padding: 0.1rem 0.2rem;
+	color: #fff;
+	width: 70%;
+	display: block;
+	text-align: center;
+	font-size: 0.18rem;
+	margin:  0 auto;
+	cursor: pointer;
+}
+.glyphicon-chevron-right{
+	color: #646869 !important;
+}
+.billin{
+	overflow: hidden;
+	width: 1.2rem;
+	height: 40px;
+	text-align: right;
+	padding-right: 0.1rem;
+}
+.billin:after{
+	display: inline-block;
+	content: '';
+	overflow: hidden;
+	width: 100%;
+	height: 0;
+}
+		
+.oneBill li{
+	width: 90%;
+	margin: 0rem auto;
+	clear: both;
+	overflow: hidden;
+}
+.oneBill li span{
+	width: 30%;
+	display: block;
+}
+..oneBill li input{
+	width: 60%;
+}
+.allAddress{
+	font-size: 0.18rem;
+	border: 1px dashed #dedede;
+	padding: 0.2rem 0.1rem;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 0.2rem;
+}
+.allAddress .glyphicon{
+	font-size: 0.26rem;
+	margin-top: 0.1rem;
+	margin-left: 0.3rem;
+}
+.username{
+	width: 20%;
+	padding-right: 0.1rem;
+}
+.username span{
+	display:block;
+}
+.userInfo{
+	width: 60%;
+}
+.userInfo span{
+	display: block;
+}
+.userEdit{
+	width: 20%;
+}
+.setName{
+	padding: 0.03rem;
+	text-align: center;
+}
+.setOne{
+	padding: 0.03rem;
+	color: #fff;
+	cursor: pointer;
+	background: #F15352;
+	border-radius: 0.1rem;
+	text-align: center;
+}
+.removeOne{
+	padding: 0.03rem;
+	color: #fff;
+	cursor: pointer;
+	background: #999;
+	border-radius: 0.1rem;
+	text-align: center;
+}
+.newAddress{
+	display: block;
+	outline: none;
+	border: none;
+	width: 80%;
+	margin: 0 auto;
+	background: #F15352;
+	color: #fff;
+	text-align: center;
+	padding: 0.1rem 0;
+}
+.guarantee{
+	width: 80%;
+	margin: 0.5rem auto;
+}
+.payInput{
+	width: 80%;
+	margin: 0.2rem auto;
+}
+.payInput span{
+	width: 30%;
+	display: block;
+}
+.payInput input{
+	width: 100%;
+	height: 0.3rem;
+	border-radius: 10px;
+	
+}
+.payInput1{
+	background: #F15352;
+	text-align: center;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	border-radius: 10px;
+}
+.payInput1 a{
+	color: #fff;
+	font-size: 0.16rem;
+}
+.checkWay{
+	margin: 0 auto 10px;
+	padding-bottom: 10px;
+	clear: both;
+	overflow: hidden;
+	font-size: 0.16rem;
+	text-align: center;
+}
+.nullorder{
+	padding: 0.1rem;
+}
+.checkWay li{
+	float: left;
+	width: 49%;
+}
+.checkWay :first-child{
+	text-align: right;
+}
+.checkWay :last-child{
+	text-align: left;
+}
+.checkWay span{
+	border: 1px solid #ccc;
+	display: inline-block;
+	text-align: center;
+	color: #333;
+	text-align: center !important;
+	padding: 0.09rem 0.35rem;
+	background: #fff;
+	margin:0 15px;
+}
+.checkWay span.activeWay{
+	color: #000;
+	font-weight: bold;
+	background: url(../img/success.png) no-repeat 5% center ;
+	background-size: 15px;
+	/*background: #FF4444;*/
+}
+.checkW{
+	font-size: 0.18rem;
+}
+.checkW li{
+	padding:0.1rem 0.2rem;
+}
+.checkW a img{
+	width: 0.5rem;
+}
+.checkW a{
+	width: 20%;
+}
+.checkW span{
+	width: 50%;
+}
+.checkW input{
+	width: 20%;
+	float: right;
+}
+.ok1{
+	height: 0.4rem;
+	background: #F15352;
+	color: #fff;
+	display: block;
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 0.4rem;
+	margin-top: 1.5rem;
+	border-radius: 10px;
+	font-size: 0.16rem;
+}
+.checkWay span{
+	border-radius: 5px;
+}
+.acturePrice{
+	margin: 0.2rem 0 0.2rem 0.2rem;
+	font-size: 0.18rem;
+}
+.orderNumber{
+	font-size: 0.2rem;
+	margin: 0.2rem;
+}
+.orderAddress{
+	font-size: 0.16rem;
+	padding: 0.2rem;
+}
+.orderUser{
+	display: inline-block;
+	margin-right: 0.3rem;
+}
+.orderUser img{
+	width: 25%;
+}
+.orderPhone{
+	display: inline-block;
+}
+.orderPhone img{
+	width: 15%;
+}
+.orderAdd{
+	padding-top: 0.2rem;
+}
+.bg1{
+	background: url(../img/bg.png);
+	background-size: 64px 3px;
+	height: 3px;
+	display: block;
+}
+.orderGoods{
+	border-bottom: 1px dashed #999;
+	padding: 0.2rem 0;
+}
+.orderDetailWay,.orderTime{
+	font-size: 0.16rem;
+}
+.orderDetailWay{
+	border-bottom: 1px dashed #999;
+	padding: 0.2rem 0;
+}
+.orderDetailWay li{
+	padding: 0.1rem 0.2rem;
+}
+.orderDetailWay li span{
+	float: right;
+	margin-right: 0.2rem;
+}
+.orderTime{
+	margin-top: 0.2rem;
+	margin-right: 0.2rem;
+}
+.search{
+  background: #f5f5f5;
+  padding: 10px 5px;
+}
+.orderN{
+	font-size: 0.16rem;
+}
+.orderDet,.orderOne{
+	background: #fff;
+	overflow: hidden;
+	margin: 0.1rem;
+	padding: 0.1rem;
+	font-size: 0.16rem;
+	border-radius: 10px;
+	position: relative;
+}
+.finish{
+	position: absolute;
+	width: 20%;
+	top: 7%;
+	right: 3%;
+	display: none;
+}
+.orderDet dl{
+	overflow: hidden;
+}
+.orderDet dt{
+	width: 12%;
+}
+.orderDet dd{
+	padding-top: 0.2rem;
+}
+.orderDet dt img{
+	width: 100%;
+}
+.letPay{
+	padding: 0.1rem 0.2rem;
+	background: #F15352;
+	color: #fff;
+	font-size: 0.16rem;
+	border-radius: 6px;
+	cursor: pointer;
+}
+.wordOrder1{
+	padding-top: 0.13rem;
+	float: left;
+}
+.wordOrder2{
+	color: #F15352;
+	font-weight: bold;
+	font-size: 0.18rem;
+}
+.frame{
+	width: 80%;
+	border: 1px solid #999;
+	margin: 0 auto;
+	text-align: center;
+	position: fixed;
+	left: 50%;
+	bottom: 30%;
+	background: #fff;
+	padding: 0.2rem 0;
+	border-radius: 10px;
+	display: none;
+	-webkit-transform:  translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.headerH{
+	font-size: 16px;
+	padding-left: 0.3rem;
+    padding-top: 0.3rem;
+}
+#orderBillDiv{
+	position: absolute;
+	padding-bottom:20px;
+	top:0;
+	left:0;
+	width: 100%;
+	min-height: 99%;
+	z-index:9999;
+	background: #fff;
+	display: none;    
+	overflow: hidden;
+    background: rgb(255, 255, 255);
+    overflow-y: auto;
+}
+.frame h2{
+	font-size: 0.20rem;
+}
+.frame a{
+	display: block;
+	padding: 0.1rem 0;
+	background: #F15352;
+	color: #fff;
+	width: 80%;
+	font-size: 0.18rem;
+	margin: 0 auto;
+	margin-top: 0.2rem;	
+	border-radius: 5px;
+	cursor: pointer;
+}
+.orderOne img{
+	width: 12%;
+	margin-right: 0.2rem;
+}
+.orderGoodsImg {
+	margin-top: 0.1rem;
+}
+.taxErro{
+	position: absolute;
+	color: #fff;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(241,81,82,0.6);
+	font-size: 11px;
+	line-height: 2;
+	text-align: center;
+	z-index: 9999;
+	}
+#msgTig{
+	background: rgba(241,81,82,0.6);
+	color:#fff;text-align: center;
+	display: none;
+}
+.phoneError,.phoneError2{
+	padding-left: 0.5rem;
+	color: #F15352;
+}
+.sendDate{
+	height: 0.3rem;
+}
+.orderGroup{
+	overflow: hidden;
+}
+.orderGroup ul li{
+	float: left;
+	padding: 0.05rem 0.05rem;
+}
+
+.addressNull{
+	padding: 0.2rem;
+	font-size: 0.18rem;
+	display: block;
+	text-align: center;
+}
+.addressNull .glyphiona{
+	top: 37%;
+	right: 0.1rem;
+	font-size: 0.16rem;
+}
+.getTime{
+	font-size: 0.18rem;
+}
+.glyphiconb{
+	font-size: 0.18rem;
+}
+.overf{
+	display: block;
+	width: 70%;
+	line-height: 2;
+	padding-left: 0.1rem;
+	text-align: right;
+}
+.orderAllNum{
+	font-size: 10px;
+}
+#loadMore{
+	text-align: center;
+	color: #999;
+	font-size: 12px;
+}
+.orderAllGoods{
+	border-bottom: 1px solid #ccc;
+}
+.orderAll{
+	border: 1px #00BFFF dashed;
+	padding:0.1rem;
+	margin:0.1rem;
+	overflow:hidden;
+	z-index:999999;
+}
+.orderAllOver{
+	background: url(../img/over.png) no-repeat  95% 30%;
+	background-size: 25%;
+}
+.goods{
+	padding-top: 0.2rem;
+}
+.price{
+	color: #F15352;
+	font-size: 15px;
+}
+.hdid,.hdidStatus{
+	padding:0.1rem 0;
+}
+.txt1{
+	width: 60%;
+	height:25px;
+	border:1px solid #aaa;
+}
+.orderG,.order_price,.checkWay{
+	border-bottom: 	1px solid #dedede;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+.orderG {
+	overflow: hidden;
+	clear: both;
+	padding-left: 0.1rem;
+	margin-top: 10px;
+}
+#main{
+	height: 80%;
+	overflow: hidden;
+	overflow-y: auto;
+	padding-bottom: 80px;
+}
+.orderG li{
+	float: left;
+}
+.orderG li.goodsLi{
+	text-align: center;
+	width:1rem;
+	height: 1rem;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	margin-right: 0.1rem;
+	margin-top: 0.1rem;
+	margin-bottom: 0.1rem;
+}
+.orderG li img{
+	height: 100%;
+}
+/*确认收货*/
+#payDiv{
+	position: fixed;
+	z-index:99999;
+	height: 100%;
+	width: 100%;
+	background:rgba(0,0,0,0.7);
+	font-size: 0.18rem;
+	top:0px;left:0px;
+}
+#payDiv div{
+	margin:1.2rem auto;
+	text-align: center;
+	width: 3.2rem;
+	background: #fff;
+	padding: 0.2rem;
+}
+#payDiv div .btnGroups{
+	padding: 0.4rem 0.3rem 0 0.3rem;
+}
+
+/*订单详细情况页面*/
+.orderDetails{
+	background: #fff;
+	font-size: 13px;
+	line-height: 2;
+	padding: 10px;
+}
+.orderDetails h5{
+	width: 100%;
+	text-align: center;
+	padding: 5px 0;
+	border-bottom: 1px solid #C4E3F3;
+}
+.orderDetails li { clear: both;overflow: hidden;width: 100%;}
+/*.orderDetails li span,.haveAddr span,#haveAddr span{
+	display: inline-block;
+	line-height: 2;
+}*/
+.receiver,.photoImg{
+	line-height: 2;
+	display: block;
+}
+.receiver{
+	float: left;
+	width: 66%;
+	vertical-align: top;
+}
+.photoImg{
+	float: right;
+	width: 34%;
+}
+.haveAddr,#haveAddr{
+	clear:both;overflow:hidden;
+}
+ .orderDetails li span i.phoneI,.haveAddr span i.phoneI,#haveAddr span i.phoneI{
+ 	font-style: normal;
+ 	display: inline-block;
+	height: 0.21rem;
+	width: 0.13rem;
+	background:url(../img/phoneImg.png) no-repeat center center;
+	background-size: 100%;
+	vertical-align: middle;
+	margin-right: 0.1rem;
+	margin-top: -0.05rem;
+}
+.orderDetails li span i.userI,.haveAddr span i.userI,#haveAddr span i.userI{
+	font-style: normal;
+	display: inline-block;
+	height: 0.2rem;
+	width: 0.2rem;
+	background:url(../img/userImg.png) no-repeat center center;
+	background-size: 100%;
+	vertical-align: middle;
+	margin-right: 0.1rem;
+}
+.msgleft{
+	display: block;
+	text-align: left;width:24%;color:#646869;float:left;
+}
+.msgRight{
+	display: block;
+	float: right;
+	text-align: right;
+	width:76%;
+}
+.oneNum{
+	color: #848689;
+}
+/*收货地址*/
+#addressList{
+	font-size: 13px;
+	line-height: 2.5;
+	}
+#addressList .noAddr{
+	text-align: center;
+	font-size: 13px;
+	margin-top: 0.12rem;
+	}
+.noPlus{
+	font-weight: bold;
+	font-style: normal;
+}
+#addressList ul{
+	padding: 0.03rem;
+	margin: 0.1rem;
+	border: 1px dashed #31B0D5;
+	border-radius: 0.08rem;
+	}
+
+#addressList ul .addrLi{
+	border-top: 1px solid #bfbfbf;
+}
+#addressList ul .addrLi .defaultBtn{
+	background: #bfbfbf;
+	color: #999;
+	border-radius: 5px;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	display: inline-block;
+	width: 0.9rem;
+
+}
+#addressList ul .addrLi .default{
+	background: #F15352;
+	color: #fff;
+}
+.glyphicon-trash,.glyphicon-edit{
+	padding:0 0.03rem ;
+	font-size: 13px;
+	color: #F15352;
+}
+.col-xs-4.editDiv{
+	padding-right: 0 !important;
+}
+.editWords{
+	color: #666;
+	font-size: 12px;
+	font-style: normal;
+}
+/*订单详情*/
+#detailsListDiv,#logisticsListDiv{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+	left: 0;
+	top: 0;
+	background: #fff;
+	z-index: 9999;
+	display: none;
+}
+
+@media screen and (min-width:768px ) and (max-width:1200px) {
+	html{
+	    font-size: 150px;
+	}
+}
+@media screen and (min-width:375px ) and (max-width:414px) {
+	html{
+		font-size: 90px;
+	}
+}
+@media screen and (max-width:375px ) and (min-width:320px) {
+	html{
+		font-size: 78px;
+	}
+}
+
+@media screen and (max-width: 320px) and (min-width:375px){
+	html{
+	  font-size: 66px;
+	}
+}

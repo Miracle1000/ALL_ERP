@@ -1,0 +1,26 @@
+﻿window.__PHelp = {
+"barcodetype":  ("<table style='border-collapse:collapse;line-height:15px;'><tr><td valign=top>①</td><td>CODE128——是对128个字符进行标准化的多级别编码，分为CODE128A、CODE128B、CODE128C三类，CODE128是根据数据内容自动选择CODEA\B\C其中一类，以最短的方式编码条码图形。<br>" +
+	"例：Abc123</td></tr>" +
+	"<tr><td valign=top>②　</td><td>CODE128A——仅包含‘数字’和‘大写字母’。<br>" +
+	"例：ABC123</td></tr>" +
+	"<tr><td valign=top>③　</td><td>CODE128B——包含‘数字’和‘大、小写字母’。<br>" +
+	"例：Abc123</td></tr>" +
+	"<tr><td valign=top>④　</td><td>CODE128C——仅包含从‘00—99’的100个“两位”数字编码组合构成。<br>" +
+	"例：12345678</td></tr>" +
+	"<tr><td valign=top>⑤　</td><td>CODE39——包含26位英文字母，0-9数字，以及空格、—、.、$、/、+、%、*。<br>" +
+	"例：*S1000034*</td></tr>" +
+	"<tr><td valign=top>⑥　</td><td>EAN13——简称物品编码，主要应用于超市和其他零售业，是标准版编码，由13位数字组成。<br>" +
+	"例：6901234567892</td></tr>" +
+	"<tr><td valign=top>⑦　</td><td>EAN8——简称物品编码，主要应用于超市和其他零售业，是缩短板编码，由8位数字组成。<br>" +
+	"例：69025761</td></tr>" +
+	"<tr><td valign=top>⑧　</td><td>ISBN——又称国际标准书号，是专门为识别图书等文献而设计的国际编号，由13位数字组成。<br>" +
+	"例：9787111494133</td></tr>" +
+	"<tr><td valign=top>⑨　</td><td>UPCA——是美国制定的一种商品条码，主要用于美国和加拿大地区，适用于通用商品。<br>" +
+	"例：049000011340</td></tr>" +
+	"<tr><td valign=top>⑩　</td><td>UPCE——是美国制定的一种商品条码，主要用于美国和加拿大地区，为缩短码，只用于国别码为0的商品。<br>" +
+	"例：04252614</td></tr>" +
+	"<tr><td valign=top style='font-family:微软雅黑'>⑪　</td><td>Codabar——又称库德巴码，可表示数字0 - 9，字符（-、：、/、. 、+、$）还有只能用作起始/终止符的A/B/C/D四个字符；主要用于医疗卫生、图书情报、物资等领域数字和字母信息的自动识别，常用于仓库、血库和快递包裹中。<br>" +
+	"例：3117013206375</td></tr>" +
+	"<tr><td valign=top style='font-family:微软雅黑'>⑫　</td><td>ITF14——用于仓储单元的标识，又称外箱条码。<br>" +
+	"例：10614141999993</td></tr></table>")
+};

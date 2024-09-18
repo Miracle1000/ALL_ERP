@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>系统流程图</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      font-size:18px;
+      color: #333;
+      font-family: "微软雅黑";
+    }
+    .sysflowchart img{
+      width: 100%;
+    }
+    .flowSummary{
+      padding-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .otherFlowBtn,.warmTips1{
+      padding-left: 1%;
+    }
+    .otherFlowBtn.Btn2,.warmTips2{
+      padding-left: 5%;
+    }
+    .warmTips{
+        margin-top:10px;
+        color:gray;
+    }
+    .otherFlowBtn span{
+      color: #456ab7;
+      letter-spacing: 1px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .otherFlowBtn span:hover{
+      text-decoration: underline;
+    }
+    .flowSort{
+        text-align:center;
+    }
+    .flowTitle{
+        font-size:24px;
+        font-weight:bold;
+        text-align:center;
+        margin:20px auto;
+        width:656px;
+    }
+    @media screen and (max-width: 1530px) {
+      body * {
+            font-size: 17px;
+        }
+    }
+    @media screen and (max-width:1440px) {
+      body *  {
+            font-size: 16px;
+        }
+    }
+    @media screen and (max-width:1340px) {
+      body *  {
+            font-size: 15px;
+        }
+    }
+    @media screen and (max-width:1280px) {
+      body *  {
+            font-size: 14px;
+        }
+    }
+    @media screen and (max-width:1180px) {
+      body *  {
+            font-size: 13px;
+        }
+    }
+  </style>
+</head>
+<body>
+
+</body>
+<script src="../../skin/script/jquery-1.12.2.min.js"></script>
+<script>
+function getIEVer () 
+{
+    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+    var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+    if (isIE) {
+        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+        reIE.test(userAgent);
+        var fIEVersion = parseFloat(RegExp["$1"]);
+        if (fIEVersion == 7) {
+            return 7;
+        } else if (fIEVersion == 8) {
+            return 8;
+        } else if (fIEVersion == 9) {
+            return 9;
+        } else if (fIEVersion == 10) {
+            return 10;
+        } else {
+            return 6;//IE版本<=7
+        }
+    } else {
+        return 100;//不是ie浏览器或者IE10以上
+    }
+};
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
+function creatSumHtml(t)
+{
+  var imgcontain = getIEVer() > 8 ? "<embed src=\"../../../SYSA/images/flow/" + (t == 1 ? "sys_flowp" : "sys_flow") + ".svg\" style=\"display: block; width: 100%;\"/>" : "<img src=\"../../../SYSA/images/flow/" + (t == 1 ? "sys_flowp" : "sys_flow") + ".png\" alt=\"\">\n"
+  var warmtips = "<div class='warmTips warmTips" + t + "'>温馨提示: " + (t == 1 ? "此系统流程图是基于ERP（生产版）按照企业通用的各角色进行绘制。" :"此系统流程图是基于ERP（销售版）按照企业通用的各角色进行绘制。")+"</div>";
+  var dat = "  <div class=\"flowSummary\">\n" +
+        "    <div class=\"sysflowchart\">\n" +
+              imgcontain +
+        "    </div>\n" +
+      "    <div class=\"otherFlowBtn Btn" + t + "\">其他业务流程图:<span class=\"flow\" type=\"" + (t == 1 ? "sale" : "unp_sale") + "\">销售流程图</span><span class=\"flow\" type=\"" + (t == 1 ? "purchase" : "unp_purchase") + "\">采购流程图</span>" + (t == 1 ? "<span class=\"flow\"  type=\"product\">生产流程图</span>" : "") + "<span class=\"flow\" type=\"" + (t == 1 ? "finance" :"unp_finance")+"\">财务流程图</span>"+"</div>\n" +
+              warmtips+
+        "  </div>\n" 
+  return dat;
+}
+function creatSortImg(t,title){
+  var dat=        
+          "  <div class=\"flowSort\">\n" +
+          "<div class=\"flowTitle\">"+title+"</div>"+
+          "    <img src=\"../../../SYSA/images/flow/"+t+(".png")+"\" alt=\"\">\n" +
+          "  </div>\n";
+  $("body").html(dat)
+}
+var type=getQueryVariable("type");
+if(type){
+    switch (type) {
+        case "sale":
+        case "unp_sale":
+            creatSortImg(type, "销售流程图"); break
+        case "purchase":
+        case "unp_purchase":
+            creatSortImg(type, "采购流程图"); break
+        case "finance":
+        case "unp_finance":
+            creatSortImg(type, "财务流程图"); break
+        case "product":
+            creatSortImg(type, "生产流程图"); break
+      default:
+      var url=window.location.href;
+      window.location.href=url.split("?")[0];
+      break;
+  }
+}else{
+  $.ajax({
+    url:"../../json/comm/Home.ashx?actionName=GetFlowType",
+    type:"GET",
+    success:function(res){
+      if(res  && res != "0"){
+        $("body").html(creatSumHtml(res))
+      }
+    }
+  })
+}
+
+$(document).on("click",".flow",function(){
+    var type = this.getAttribute("type");
+    var l = (window.screen.width - 1000) / 2;
+    var h = (window.screen.height - 870) / 2-20;
+    window.open("?type="+type,"chartbox","height=870,width=1000,left="+l+",top="+h+",z-look=yes,status=no,toolbar=no,menubar=no,location=no,resizable=yes,scrollbars=yes");
+})
+</script>
+</html>

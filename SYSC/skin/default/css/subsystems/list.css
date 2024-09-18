@@ -1,0 +1,172 @@
+﻿#topHeaderBar {
+	margin:10px;
+	height:45px;
+	background-color:white;
+}
+div.siteTongjiItem {
+	margin: 20px 1px 30px 1px;
+	width: 350px;
+	padding: 0px 0px;
+	background-color: #fff;
+	line-height: 24px;
+	border-radius: 6px;
+	box-shadow: #ccced3 0px 5px 25px;
+	box-sizing:border-box; overflow:hidden;
+}
+
+div.siteTongjiItem div.subtit {
+	height:67px; font:  normal 20px 微软雅黑;
+	text-align:left; box-sizing:border-box;
+	line-height:67px; overflow:hidden;
+	color:white; padding: 0px 0px 0px 38px;
+	background-image:url(../../images/p19.png);
+	background-repeat:no-repeat;
+	background-position: 20px  center;
+}
+
+div.siteTongjiItem.t1 div.subtit { background-color: #697ed4;}
+div.siteTongjiItem.t2 div.subtit { background-color: #4e99D7;}
+div.siteTongjiItem.t3 div.subtit { background-color: #D88C66;}
+
+ div.subtit div.addnewbtn {  
+	 float:right; width:90px;height:33px; border:1px solid white;
+	 font-size:15px;font-family: 微软雅黑;line-height:33px;overflow:hidden;color:white;
+	 padding:0px; margin:17px  20px;border-radius:20px;text-align:center;cursor:pointer;
+ }
+ 
+  div.subtit div.addnewbtn.fptype1 {
+	background: transparent url(../../images/p16.png) no-repeat right;
+	background-position: 60px center;
+	box-sizing:border-box;
+	padding-right:10px;
+}
+
+div.siteTongjiItem  div.subcontent { 
+	height: 143px;
+	box-sizing:border-box;
+	padding:0px;
+}
+
+div.subicobg {
+	float:left;width:120px; height:100%;
+}
+
+div.subicobg div.subico {
+	width:72px;height:72px;
+	float:right;margin-top:37px;
+	background-position:center center;
+	background-repeat:no-repeat;
+}
+
+div.t1 div.subico { background-image: url(../../images/zongshujuliang.png); }
+div.t2 div.subico { background-image: url(../../images/distribution.png); }
+div.t3 div.subico { background-image: url(../../images/loudou.png); }
+
+div.subnum {
+	float:left;
+	margin-left:34px;
+	margin-top:38px;
+	height:70px;
+	width:147px;
+	overflow:hidden;
+	line-height:70px;
+	border-radius:10px;
+}
+
+
+div.siteTongjiItem span.num{font-size:40px; font-weight:bold; font-family:微软雅黑;  display:inline-block;  transform: scale(0.75,1);}
+div.siteTongjiItem span.lb    {border:0px solid red;position:relative;top:-3px;left:2px;}
+
+div.siteTongjiItem.t1 div.subnum {	background-color:#e0e6f9;}
+div.siteTongjiItem.t2 div.subnum {	background-color:#deedfb;}
+div.siteTongjiItem.t3 div.subnum {	background-color:#fcefe8;}
+div.siteTongjiItem.t1 span.num { color:#203CAA; }
+div.siteTongjiItem.t2 span.num { color:#005EAC; }
+div.siteTongjiItem.t3 span.num { color:#a6572d; }
+div.siteTongjiItem.t1 span.lb { color:#203CAA; }
+div.siteTongjiItem.t2 span.lb { color:#005EAC; }
+div.siteTongjiItem.t3 span.lb { color:#a6572d; }
+
+#poslabel {
+	float:left;line-height:45px;padding:0px;padding-left:60px;
+	font-family:微软雅黑,黑体;font-size:16px;color:#333;
+	background:white url(../../images/p12.png) no-repeat;
+	background-position:  18px  center;
+}
+
+#editbody td.fcell {border-width:0px;}
+#editbody td.fcell tr {background-color:transparent;}
+#bill_bottomdiv {display:none}
+
+#lvw_sitelist * { font-family:微软雅黑;  font-size:12px}
+#lvw_sitelist td div, #lvw_sitelist span, #lvw_sitelist td  { color:#333; }
+#lvw_sitelist th div  { color:#fff; }
+#lvw_sitelist {
+	overflow:hidden;
+	box-shadow: #ccced3 0px 5px 25px;
+	margin:26px 20px;
+	border:0px solid #ccc;
+}
+
+#lvw_tablebg_sitelist {
+	border:0px;
+}
+
+#lvw_sitelist .lvwheader {
+	background-image:none;
+	background-color:#4e99D7;
+	color:#fff; font-weight:normal;
+	 font-size:14px; 
+	 border-color:#6eb9e7;   height:50px;
+	 text-shadow:0px 0px 6px #1e4967;
+}
+
+#lvw_sitelist .lvw_index {color:#333; }
+
+#lvw_sitelist .lvw_cell ,  #lvw_sitelist .lvw_cell {
+	color:#333;  line-height:16px; padding:0px;
+}
+
+#lvw_sitelist .lvw_cell a {
+		line-height:16px;
+		color:#203CAA;
+}
+
+#lvw_sitelist .lvw_cell a:hover {
+	color:red;
+}
+
+#lvw_sitelist .lvw_cell, #lvw_sitelist .lvw_index,  #lvw_sitelist .lvw_cell a {
+	 height:50px; border-color:#e0e9f3;
+}
+
+#linkmeMaskdivbg {
+	display:block;
+	position:fixed;_position:absolute;
+	left:0px;top:0px; width:100%; height:100%;
+}
+
+#linkMeContentDiv {
+	background-color:transparent;
+	position:absolute;
+	width:260px; height:140px;
+}
+
+#lvw_dbtable_sitelist span.joinstatusok, 
+#lvw_dbtable_sitelist  span.joinstatusfail {
+	color:white;
+	display:inline-block;
+	padding:2px;
+	margin-left:2px;
+}
+
+#lvw_dbtable_sitelist  span.joinstatusok {
+	background-color:#00aa00;
+	border-radius:2px;
+	cursor:default;
+}
+#lvw_dbtable_sitelist  span.joinstatusfail {
+	background-color:red;
+	border-radius:2px;
+	cursor:pointer;
+}

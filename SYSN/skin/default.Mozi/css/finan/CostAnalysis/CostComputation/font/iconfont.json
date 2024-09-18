@@ -1,0 +1,44 @@
+{
+  "id": "2386167",
+  "name": "提示符号",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11931033",
+      "name": "时间 历史记录 计时 钟表 线性",
+      "font_class": "shijianlishijilujishizhongbiaoxianxing",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "17318754",
+      "name": "进入",
+      "font_class": "jinru",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "1240939",
+      "name": "警告",
+      "font_class": "jinggao",
+      "unicode": "e810",
+      "unicode_decimal": 59408
+    },
+    {
+      "icon_id": "3961308",
+      "name": "对号",
+      "font_class": "duihao",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "4035819",
+      "name": "错号",
+      "font_class": "right-copy",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    }
+  ]
+}

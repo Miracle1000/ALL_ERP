@@ -1,0 +1,79 @@
+﻿html{
+	border:1px inset;
+}
+li.tvw_item {
+	list-style-type:none;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+	width:100%;
+	line-height:16px;
+	color:#2F496E;
+}
+ul.tvw_child{
+	margin-left:6px;
+	margin-left:-13px\9;
+	+margin-left:6px;
+	_margin-left:6px;  /*IE兼容性写法*/
+	background-color:white;
+	text-indent:0px;
+}
+ul.treeview ul{
+	margin-left:0px;
+	padding-left:15px;
+	list-style-type:none;
+}
+#dlgtit{
+    background-image:url(../../images/smico/seldlgtopbg2.gif);
+
+	color:#333399;
+	height:43px;cursor:default;
+	font-weight:bold;font-size:12px;font-family:微软雅黑;
+	line-height:39px;
+}
+#dlgtit_l{
+	width:25px;float:left;
+	background-image:url(../../images/smico/seldlgtopbg1.gif);
+	height:43px;
+}
+#dlgtit_r{
+	height:39;
+	width:12px;
+	float:right;
+	
+	background-position-x:0px;
+	background-position-y:-40px;
+}
+.leftMenu {
+	 position:absolute;
+	 width:218px;
+	 bottom:0px;
+	 top:158px;
+	 left:0px;
+	 right:0px;
+	 overflow:auto;
+	 border:1px solid #ccc;
+	 padding-top:5px;
+	 _height:expression(document.body.offsetHeight-70);
+	 background:#FFF;
+}
+#RightListDiv{
+	position:absolute;
+	left:228px;
+	right:3px;
+	top:3px;
+	bottom:3px;
+	_width:expression(document.body.offsetWidth-230);
+}
+#spliter{
+	position:absolute;
+	left:233px;
+	width:5px;
+	top:3px;
+	bottom:3px;
+	cursor:E-resize;
+	z-index:1000;
+	_height:100%;
+}
+.tableListPos{top:64px;}
+div.leftPageExpandBgPd{background:#EFEFEF;}

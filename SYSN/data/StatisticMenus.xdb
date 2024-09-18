@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<StatisticMenus>
+	<Page1>
+		<groups name="综合" ginx="0">
+			<group name="工作台" power="({1001}|{12001}|{3000}|{6000}|{15000}|{17002}|{17003}|{17008}|{23001}|{24001}|{25002}|{25001}|{26001}|{27000})+[44,4]">
+				<item type="controltable"/>
+			</group>
+			<group name="现金流" power="{19000}">
+				<item type="moneychart" power="[11,19]+[11,5]"/>
+			</group>
+			<group name="现金银行"  power="{19000}+[11,19]">
+				<item type="link" title="银行账户汇总" url="/SYSA/tongji/bank1.asp" power="[11,11]"/>
+				<item type="link" title="现金银行走势" url="/SYSA/tongji/bank2.asp?frmn=1" power="[11,11]"/>
+				<item type="link" title="现金流量走势" url="/SYSA/tongji/cash_d.asp?frmn=1" power="[11,5]"/>
+				<item type="link" title="收入明细" url="/SYSA/tongji/incash_d.asp?frmn=1" power="[11,5]"/>
+				<item type="link" title="支出明细" url="/SYSA/tongji/outcash_d.asp?frmn=1" power="[11,5]"/>
+			</group>
+			<group name="销售目标">
+				<item type="link" title="客户跟进目标对比" url="/SYSA/china2/mReportSearch.asp?id=8" power="{1000}+{12000}+{12001}+[1,19]"/>
+				<item type="link" title="销售业绩每月对比" url="/SYSA/china2/mReportSearch.asp?id=9" power="{7000}+([5,19]|[7,19])"/>
+			</group>
+			<group name="销售业绩" power="({6000}|{7000})+[5,19]+[5,11]">
+				<item type="link" title="挑战记录" url="/SYSA/tongji/bbzj2.asp"/>
+				<item type="link" title="龙虎榜" url="/SYSA/tongji/bbzj1.asp?frmn=1"/>
+				<item type="link" title="部门业绩对比" url="/SYSA/tongji/bbdd1_w.asp?frmn=1"/>
+				<item type="link" title="小组业绩对比" url="/SYSA/tongji/bbdd2_w.asp?frmn=1"/>
+				<item type="link" title="人员业绩对比" url="/SYSA/tongji/bbdd3_w.asp?frmn=1"/>
+			</group>
+			<group name="费用中心" power="{27000}+[6,19]+[6,11]">
+				<item type="link" title="费用分类分布" url="/SYSA/tongji/fy4.asp?t=1"/>
+				<item type="link" title="人员分布" url="/SYSA/tongji/fy1.asp?frmn=1"/>
+				<item type="link" title="费用走势" url="/SYSA/tongji/fy5.asp?frmn=1"/>
+				<item type="link" title="费用汇总表" url="/SYSA/pay/fy1.asp"/>
+			</group>
+			<group name="退货分析">
+				<item type="link" title="退货金额走势" url="/SYSA/tongji/th10_m.asp?frmn=1" power="{8000}+[41,19]+[41,11]"/>
+				<item type="link" title="客户退货排行" url="/SYSA/tongji/kh_jx4_2.asp" power="{8000}+[41,19]+[41,11]"/>
+				<item type="link" title="供应商退款排行" url="/SYSA/tongji/cgtk_gys.asp" power="{1002}+[26,19]+[26,11]+{25002}+[76,19]"/>
+			</group>
+			<group name="销售毛利">
+				<item type="link" title="管理驾驶舱" url="/SYSA/china2/main.asp?index=2" power="[44,4]"/>
+				<!--<item type="link" title="销售人员利润表" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_SaleMan.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>-->
+				<!--<item type="link" title="客户利润表" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Customer.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>-->
+				<item type="link" title="销售利润统计" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Contract.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>
+				<item type="link" title="产品利润" url="/SYSN/view/statistics/sale/product/ProductProfitSummary.ashx" power="({6000}|{7000})+{11000}+{13000}+[21,19]+[44,19]+[44,8]+{15000}"/>
+				<item type="link" title="供应商利润" url="/SYSA/tongji/company_profits.asp" power="{11000}+{1002}+[26,19]+[44,19]+[44,8]"/>
+				<item type="link" title="采购利润" url="/SYSA/tongji/caigou_profits.asp" power="{11000}+[44,8]+[44,19]+{15000}+[22,19]+{1002}+[26,19]"/>
+		      </group>
+			<group name="财务报表" power="{19500}+[13,19]+[13,24]">
+				<item type="code" value="FinanceReport"/>
+			</group>
+			<group name="售后服务">
+				<item type="link" title="维修单数量分析" url="/SYSA/tongji/RepairChart3.asp" power="{71000}+[45,19]+[45,11]"/>
+				<item type="link" title="售后服务走势" url="/SYSA/tongji/sh10.asp?frmn=1" power="{9000}+[42,19]+[42,11]"/>
+			</group>
+		</groups>
+		<groups name="人员" ginx="1">
+			<group name="客户分布" power="({1000}|{1001})+[1,19]+[1,11]">
+				<item type="link" title="数量人员分布" url="/SYSA/tongji/kh3.asp?frmn=1"/>
+				<item type="link" title="新增客户分布" url="/SYSA/report/index.asp?id=-2"/>
+				<item type="link" title="领用客户分布" url="/SYSA/report/index.asp?id=-3"/>
+				<item type="link" title="跟进人员分布" url="/SYSN/view/statistics/sale/customer/CustomerFollowup/PersonnelComparison.ashx"/>
+				<item type="link" title="跟进客户分布" url="/SYSA/report/index.asp?id=-4"/>
+				<item type="link" title="回收客户分布" url="/SYSA/report/index.asp?id=-5"/>
+			</group>
+			<group name="销售业绩"  power="({6000}|{7000})+[5,19]+[5,11]">
+				<item type="link" title="挑战记录" url="/SYSA/tongji/bbzj2.asp"/>
+				<item type="link" title="龙虎榜" url="/SYSA/tongji/bbzj1.asp?frmn=1"/>
+				<item type="link" title="部门业绩对比" url="/SYSA/tongji/bbdd1_w.asp?frmn=1"/>
+				<item type="link" title="小组业绩对比" url="/SYSA/tongji/bbdd2_w.asp?frmn=1"/>
+				<item type="link" title="人员业绩对比" url="/SYSA/tongji/bbdd3_w.asp?frmn=1"/>
+				<item type="link" title="合同数量人员对比" url="/SYSN/view/statistics/sale/contract/PersonnelDistribution.ashx?datatype=0"/>
+				<item type="link" title="合同金额人员对比" url="/SYSN/view/statistics/sale/contract/PersonnelDistribution.ashx?datatype=1"/>
+				<item type="link" title="销售出库业绩分析表" url="/SYSA/tongji/sale_ckyj_hz.asp" power="{1000}+[1,19]+{13000}+[21,19]+{17002}+[31,19]+{17003}+[32,19]"/>
+			</group>
+			<group name="收款分析" power="{23000}+[7,11]+[7,19]">
+				<item type="link" title="应收账款人员分布" url="/SYSA/tongji/sk_ys3.asp?frmn=1" />
+				<item type="link" title="底单到账人员分布" url="/SYSA/tongji/sk_dd3.asp?frmn=1" />
+				<item type="link" title="实际到账人员分布" url="/SYSA/tongji/sk_dz3.asp?frmn=1" />
+				<item type="link" title="收款开票汇总表" url="/SYSA/contract/planall_hk.asp" power="{23001}"/>
+			</group>
+			<group name="开票分析" power="{23000}+[7001,11]+[7001,19]">
+				<item type="link" title="待开发票人员分布" url="/SYSA/tongji/sk_dk3.asp?frmn=1"/>
+				<item type="link" title="已开发票人员分布" url="/SYSA/tongji/sk_yk3.asp?frmn=1"/>
+				<item type="link" title="实开发票明细表" url="/SYSN/view/finan/InvoiceManage/MakeOutInvoice/MakeOutInvoiceDetailsList.ashx"/>
+      </group>
+      <group name="退货分析" power="{8000}+[41,11]+[41,19]">
+        <item type="link" title="退货数量人员分布" url="/SYSN/view/statistics/sale/contract/PersonnelDistributionTH.ashx?datatype=0"/>
+        <item type="link" title="退货金额人员分布" url="/SYSN/view/statistics/sale/contract/PersonnelDistributionTH.ashx?datatype=1"/>
+      </group>
+      <group name="费用分析" power="{27000}+[6,11]+[6,19]">
+        <item type="link" title="费用申请人员分布" url="/SYSA/tongji/fy3.asp?frmn=1?k5=5&#38;search=1" />
+        <item type="link" title="费用使用人员分布" url="/SYSA/tongji/fy1.asp?frmn=1&#38;k2=2&#38;search=1" />
+        <item type="link" title="费用报销人员分布" url="/SYSA/tongji/fy1.asp?frmn=1&#38;k1=1&#38;search=1"/>
+        <item type="link" title="费用借款人员分布" url="/SYSA/tongji/fy1.asp?frmn=1&#38;k4=4&#38;search=1"/>
+        <item type="link" title="费用返还人员分布" url="/SYSA/tongji/fy1.asp?frmn=1&#38;k3=3&#38;search=1"/>
+      </group>
+      <group name="利润分析">
+        <item type="link" title="管理驾驶舱" url="/SYSA/china2/main.asp?index=2" power="{11000}+[44,19]+[44,4]"/>
+        <!--<item type="link" title="人员利润表" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_SaleMan.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>-->
+        <!--<item type="link" title="客户利润表" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Customer.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>-->
+        <item type="link" title="销售利润统计" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Contract.ashx"  power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>
+        <item type="link" title="产品利润分析" url="/SYSN/view/statistics/sale/product/ProductProfitSummary.ashx" power="{13000}+{15000}+({6000}|{7000})+(({1000}+[1,19])|({1002}+[26,19]))+{11000}+[44,19]+[44,8]" target="_blank"/>
+        <item type="link" title="供应商利润分析" url="/SYSA/tongji/company_profits.asp" power="{11000}+[44,19]+[44,8]+{1002}+[26,19]" />
+        <item type="link" title="采购利润分析" url="/SYSA/tongji/caigou_profits.asp" power="{11000}+[44,19]+[44,8]+{1002}+[26,19]+{15000}+[22,19]" />
+      </group>
+      <group name="提成分析" power="[44,3]+{23000}+{7000}">
+        <item type="link" title="核算待发提成" url="/SYSA/tongji/tc_1.asp" />
+        <item type="link" title="已发提成统计" url="/SYSA/tongji/tc_2.asp" />
+      </group>
+    </groups>
+    <groups name="客户"  ginx="2">
+      <group name="客户数量" power="({1000}|{1001})+[1,11]+[1,19]">
+        <item type="link" title="人员对比" url="/SYSN/view/statistics/sale/customer/CustomerNumber/PersonnelComparison.ashx?frmn=1" />
+        <item type="code" value="CustomContrast"/>
+        <item type="link" title="新增客户走势" url="/SYSA/tongji/kh10.asp?frmn=1"/>
+        <item type="link" title="领用客户对比" url="/SYSA/report/index.asp?id=-2" />
+        <item type="link" title="批量领用统计" url="/SYSA/tongji/kh_ly.asp"/>
+      </group>
+      <group name="客户跟进"  power="[1,11]+[1,19]">
+        <item type="link" title="人员对比" url="/SYSN/view/statistics/sale/customer/CustomerFollowup/PersonnelComparison.ashx" power="{12001}|{12002}|{12003}|{12004}|{12006}|{12007}|{12008}|{12010}" />
+        <item type="link" title="跟进走势" url="/SYSA/tongji/kh_gj4.asp?frmn=1" power="{12001}|{12002}|{12003}|{12004}|{12006}|{12007}|{12008}|{12010}" />
+        <item type="link" title="跟进客户对比" url="/SYSA/china2/mReportSearch.asp?id=8" power="{201103}+{1000}" />
+        <item type="link" title="跟进客户分布" url="/SYSA/report/index.asp?id=-4" power="{201103}+{1000}" />
+        <item type="link" title="回收客户分布" url="/SYSA/report/index.asp?id=-5" power="{201103}+{1000}" />
+        <item type="link" title="跟进次数排行" url="/SYSA/tongji/kh_jx5.asp" power="{12001}|{12002}|{12003}|{12004}|{12006}|{12007}|{12008}|{12010}" />
+        <item type="link" title="客户积分排行" url="/SYSA/tongji/kh_jf1.asp" power="{7000}+[5,19]+{1000}" />
+      </group>
+      <group name="客户购买" power="">
+        <item type="link" title="客户购买汇总" url="/SYSA/tongji/hz5.asp" power="{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]" />
+        <item type="link" title="客户购买明细" url="/SYSA/tongji/hz7.asp" power="{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]" />
+        <item type="link" title="客户购买产品汇总" url="/SYSA/tongji/hz6.asp" power="{13000}+[21,19]+{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]" />
+        <item type="link" title="客户购买价格分析" url="/SYSA/tongji/hz8.asp" power="{13000}+[21,19]+{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]" />
+        <item type="link" title="客户销售机会分析" url="/SYSA/tongji/market_compare.asp" power="{13000}+[21,19]+{1000}+[1,19]+({6000}|{7000})+[5,19]+{17002}+[31,19]+{17003}+[32,19]" />
+        <item type="link" title="客户购买总额排行" url="/SYSA/tongji/kh_jx1.asp" power="{13000}+[21,19]+{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]" />
+        <item type="link" title="客户合同对账表" url="/SYSN/view/statistics/sale/contract/CustomerContractStatement.ashx" power="{1000}+[1,19]+({6000}|{7000})+[5,19]+{13000}+[21,19]" />
+      </group>
+      <group name="客户出库" power="{1000}+{17000}+{17003}+[32,11]+[32,19]+{13000}">
+        <item type="link" title="出库汇总表" url="/SYSA/tongji/hzkc3_ckhz.asp" />
+        <item type="link" title="出库明细表" url="/SYSN/view/store/kuout/Detaillist.ashx" />
+        <item type="link" title="客户产品出库对比" url="/SYSN/view/statistics/sale/customer/ProductKuoutContrast.ashx" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+(({17003}+[32,19]+[32,11])|({17002}+[31,19]))" />
+      </group>
+      <group name="客户发货" power="{1000}+{17008}+{13000}+[33,11]+[33,19]">
+        <item type="link" title="未发货明细表" url="/SYSA/tongji/UnSendList.asp" />
+        <item type="link" title="已发货明细表" url="/SYSA/tongji/hzkc6.asp" />
+      </group>
+      <group name="客户收款" power="{1000}+{23001}+[7,11]+[7,19]">
+        <item type="link" title="应收账款列表" url="/SYSA/money/planall2.asp?A=1" />
+        <item type="link" title="实收账款列表" url="/SYSN/view/finan/payback/PayBackSureList.ashx" />
+      </group>
+      <group name="客户开票"  power="{1000}+{23000}+[7001,11]+[7001,19]">
+        <item type="link" title="应开发票列表" url="/SYSA/money/paybackInvoice_List.asp" />
+        <item type="link" title="实开发票列表" url="/SYSN/view/finan/InvoiceManage/MakeOutInvoice/MakeOutInvoiceList.ashx" />
+        <item type="code"  value="piaojulaiyuan" title="发票来源对账表" url="/SYSA/money2/planallPJLY.asp" power="{219100}" />
+      </group>
+      <group name="客户退货" power="{1000}+{8000}+[41,11]+[41,19]">
+        <item type="link" title="客户退货排行" url="/SYSA/tongji/kh_jx4_2.asp" />
+        <item type="link" title="客户退货明细表" url="/SYSA/contractth/report_contractth_list.asp"/>
+      </group>
+      <group name="客户退款" power="{1000}+{25001}+[9,11]+[9,19]">
+        <item type="link" title="退款汇总表" url="/SYSA/money3/planall_hk.asp" />
+        <item type="link" title="销售退款列表" url="/SYSA/money3/planall2.asp" />
+      </group>
+      <group name="客户费用" power="{1000}+{27000}+[6,11]+[6,19]">
+        <item type="link" title="客户费用统计" url="/SYSA/pay/fy1.asp" />
+        <item type="link" title="客户费用排行" url="/SYSA/pay/fy4.asp" />
+      </group>
+      <group name="客户利润" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])">
+        <!--<item type="link" title="客户利润总额排行" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Customer.ashx" />-->
+        <item type="link" title="客户利润率排行" url="/SYSA/tongji/kh_jx8.asp" />
+      </group>
+      <group name="客户售后" power="">
+        <item type="link" title="客户满意度分析" url="/SYSA/tongji/sale_manyi.asp" power="{9002}+[94,11]+[94,19]+{1000}+[1,19]" />
+      </group>
+    </groups>
+    <groups name="产品" ginx="3">
+      <group name="产品销售" power="{13000}+[21,11]+[21,19]">
+        <item type="link" title="金额人员分布" url="/SYSA/tongji/cp1_m.asp?frmn=1" power="({6000}|{7000})" />
+        <item type="link" title="金额区域分布" url="/SYSA/tongji/cp4_m.asp" power="({6000}|{7000})" />
+        <item type="link" title="金额行业分布" url="/SYSA/tongji/cp5_m.asp" power="({6000}|{7000})" />
+        <item type="code" value="productzdymoney" power="({6000}|{7000})"/>
+        <item type="link" title="金额走势分析" url="/SYSA/tongji/cp6_m.asp?frmn=1" power="({6000}|{7000})" />
+        <item type="link" title="数量人员分布" url="/SYSA/tongji/cp1.asp?frmn=1" power="({6000}|{7000})" />
+        <item type="link" title="数量区域分布" url="/SYSA/tongji/cp4.asp" power="({6000}|{7000})" />
+        <item type="link" title="数量行业分布" url="/SYSA/tongji/cp5.asp" power="({6000}|{7000})" />
+        <item type="code" value="productzdynumber" power="({6000}|{7000})" />
+        <item type="link" title="数量走势分析" url="/SYSA/tongji/cp6.asp?frmn=1" power="({6000}|{7000})" />
+        <item type="link" title="产品销售明细表" url="/SYSN/view/statistics/sale/product/ProductSaleDetail.ashx" power="{1000}+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]" />
+        <item type="link" title="产品出库汇总表" url="/SYSA/tongji/hzkc3_ckhz.asp" power="{17003}+[32,11]+[32,19]" />
+        <item type="link" title="产品出库明细表" url="/SYSN/view/store/kuout/Detaillist.ashx" power="{17003}+[32,11]+[32,19]" />
+        <item type="link" title="未发货明细表" url="/SYSA/tongji/UnSendList.asp" power="{17008}+[33,11]+[33,19]" />
+        <item type="link" title="已发货明细表" url="/SYSA/tongji/hzkc6.asp" power="{17008}+[33,11]+[33,19]" />
+        <item type="link" title="产品销售出库分析" url="/SYSA/tongji/hz9.asp" power="{17003}+[32,19]+({6000}|{7000})" />
+      </group>
+      <group name="产品采购" power="{13000}">
+        <item type="link" title="采购明细表（按采购）" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0" power="{15000}+[22,11]+[22,19]" />
+        <item type="link" title="采购明细表（按产品）" url="/SYSN/view/sales/product/productPurchase.ashx?sort=1" power="{15000}+[22,11]+[22,19]" />
+        <item type="link" title="采购明细表（按供应商）" url="/SYSN/view/sales/product/productPurchase.ashx?sort=2" power="{15000}+[22,11]+[22,19]" />
+        <item type="link" title="产品入库汇总表" url="/SYSA/tongji/hzkc2_rkhz.asp?D=1" power="{17002}+[31,11]+[31,19]" />
+        <item type="link" title="产品入库明细表" url="/SYSA/tongji/hzkc2.asp?D=1" power="{17002}+[31,11]+[31,19]" />
+        <item type="link" title="产品采购预测表" url="/SYSA/caigou/Predict.asp" power="{215101}+{14000}+{15000}+[25,19]" />
+      </group>
+      <group name="产品退货" power="{13000}+[22,11]+[22,19]+{8000}+[41,19]">
+        <item type="link" title="销售退货明细表" url="/SYSA/contractth/report_contractth_list.asp" />
+      </group>
+      <group name="产品利润" power="{13000}+[21,19]+[44,8]+{11000}+[44,19]+{15000}+({6000}|{7000})">
+        <item type="link" title="产品利润汇总表" url="/SYSN/view/statistics/sale/product/ProductProfitSummary.ashx" />
+        <item type="link" title="产品利润明细表" url="/SYSN/view/statistics/sale/product/ProductProfitDetail.ashx" power="{13000}+[21,19]+[44,8]+{11000}+[44,19]+{15000}+({6000}|{7000})"/>
+      </group>
+      <group name="产品库存" power="[23,11]">
+        <item type="link" title="产品库存汇总表" url="/SYSN/view/store/inventory/InventorySummary.ashx" power="{13000}+{17001}+[23,19]"/>
+        <item type="link" title="产品库存明细表" url="/SYSN/view/store/inventory/InventoryDetails.ashx" power="{13000}+{17001}+[23,19]"/>
+        <item type="link" title="库存变动汇总表" url="/SYSA/tongji/hzkc3_hz.asp" power="{13000}+{17001}+[23,19]"/>
+        <item type="link" title="库存变动明细表" url="/SYSA/tongji/hzkc3_hz2.asp" power="{13000}+{17001}+[23,19]"/>
+        <item type="link" title="产品分类库存变动表" url="/SYSA/tongji/hzkc3_hz3.asp" power="{17001}+{217100}+[23,19]" />
+      </group>
+      <group name="畅/滞销分析">
+        <item type="link" title="产品周转率汇总表" url="/SYSA/tongji/hzkc_zzhz.asp" power="{17000}+[23,19]+[23,11]+{17002}+{17003}+{13000}+[21,19]" />
+        <item type="link" title="产品周转率明细表" url="/SYSA/tongji/hzkc_zzmx.asp" power="{17000}+[23,19]+[23,11]+{17002}+{17003}+{13000}+[21,19]" />
+        <item type="link" title="库龄分析表" url="/SYSN/view/store/kuwarn/kuAgeAnalyze.ashx" power="{17000}+[23,19]+[23,11]+{17002}+{17003}+{13000}+[21,19]" />
+        <item type="link" title="产品采购预测表" url="/SYSA/caigou/Predict.asp" power="{215101}+{14000}+[25,19]+{15000}+{13000}" />
+      </group>
+      <group name="产品追踪" power="{13000}+{17001}+{15000}+{17002}+{17003}+({6000}|{7000})+[21,19]+[23,11]">
+        <item type="link" title="产品采购销售追踪表" url="/SYSN/view/statistics/sale/product/ProductTrackDetail.ashx"  power="{13000}+[21,19]+[23,11]+{15000}+{17001}+{17002}+{17003}+({6000}|{7000})+[23,19]"/>
+      </group>
+      <group name="产品售后" power="{71000}">
+        <item type="link" title="受理产品每月走势" url="/SYSA/tongji/RepairChart2.asp" power="[45,11]+[45,19]" />
+        <item type="link" title="受理产品明细表" url="/SYSA/repair/planlist.asp" power="[45,11]+[45,19]" />
+      </group>
+    </groups>
+    <groups name="供应商" ginx="4">
+      <group name="供应商数量" power="{1002}+[26,19]+[26,11]">
+        <item type="link" title="人员分布" url="/SYSN/view/statistics/sale/customer/CustomerNumber/PersonnelComparison.ashx?frmn=1&amp;sort3=2" />
+        <item type="link" title="区域分布" url="/SYSA/tongji/kh9.asp?sort3=2" />
+        <item type="link" title="数量走势分析" url="/SYSA/tongji/kh10.asp?sort3=2&amp;frmn=1" />
+      </group>
+      <group name="供应商资质" power="{1002}+{201201}+[26,19]">
+        <item type="link" title="待审批资质供应商" url="/SYSA/qualifications/planall.asp?sort=2&amp;remind=148" />
+        <item type="link" title="即将资质到期供应商" url="/SYSA/qualifications/planall.asp?sort=5&amp;remind=66" />
+      </group>
+      <group name="供应商供货">
+        <item type="link" title="供应商供货汇总表" url="/SYSA/tongji/company_gather.asp"  power="{15000}+{1002}+[26,11]+[26,19]+[22,19]" />
+        <item type="link" title="供应商供货明细表" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0"  power="{15000}+{1002}+[26,11]+[26,19]+[22,19]"/>
+        <item type="link" title="产品采购销售一览表"  url="/SYSN/view/statistics/sale/product/ProductTrackDetail.ashx" power="{13000}+[21,19]+[23,11]+{15000}+{17001}+{17002}+{17003}+({6000}|{7000})+[23,19]"/>
+      </group>
+      <group name="供应商质检" power="{15000}+{215102}+[28,1]+[28,11]">
+        <item type="link" title="供应商质检明细表" url="/SYSA/caigouQC/planall.asp" />
+      </group>
+      <group name="供应商入库" power="{17002}+[31,19]+[31,11]" >
+        <item type="link" title="供应商到货提醒" url="/SYSA/caigou/planlist.asp" power="{15000}"/>
+        <item type="link" title="供应商入库汇总表" url="/SYSA/tongji/hzkc2_rkhz.asp"/>
+        <item type="link" title="供应商入库明细表" url="/SYSA/tongji/hzkc2.asp"/>
+      </group>
+      <group name="供应商付款" power="{24000}+[8,19]">
+        <item type="link" title="应付账款汇总表" url="/SYSA/money2/planall_hk.asp" power="{24001}+[8,11]" />
+        <item type="link" title="应付账款列表" url="/SYSN/view/finan/payout/payoutlist.ashx" power="{24001}+[8,11]" />
+        <item type="link" title="供应商预付款统计分析" url="/SYSA/money2/gysyfk.asp" power="{24002}+[8,11]" />
+      </group>
+      <group name="供应商收票" power="{24000}+[8001,19]">
+        <item type="link" title="应收发票列表" url="/SYSN/view/finan/payout/Payoutinvoice_list.ashx?invoice=0" />
+        <item type="link" title="实收发票列表" url="/SYSN/view/finan/InvoiceManage/ReceivedInvoice/ReceivedInvoiceList.ashx" />
+      </group>
+      <group name="供应商退货" power="[26,11]+{1002}+[26,19]+{25002}+[76,19]">
+        <item type="link" title="供应商退货排行" url="/SYSA/tongji/cgtk_gys.asp"/>
+      </group>
+      <group name="供应商退款" power="{25002}+[76,11]">
+        <item type="link" title="退款汇总表" url="/SYSA/money4/planall2_hz.asp"/>
+      </group>
+      <group name="供应商利润" power="[44,8]+{1002}+[26,19]+{11000}+[44,19]">
+        <item type="link" title="供应商利润汇总表" url="/SYSA/tongji/company_profits.asp"/>
+        <item type="link" title="采购利润明细表" url="/SYSA/tongji/caigou_profits.asp" power="{11000}+[44,8]+[44,19]+{15000}+[22,19]+{1002}+[26,19]"/>
+      </group>
+      <group name="供应商库存" power="[23,11]">
+        <item type="link" title="产品库存汇总查看" url="/SYSN/view/store/inventory/InventorySummary.ashx" power="{13000}+{17001}+[23,19]"/>
+        <item type="link" title="产品库存明细查看" url="/SYSN/view/store/inventory/InventoryDetails.ashx" power="{13000}+{17001}+[23,19]"/>
+      </group>
+      <group name="供应商销售">
+        <item type="link" title="供应商出库明细查询"  url="/SYSN/view/store/kuout/Detaillist.ashx" power="{17003}+[32,11]+[32,19]+({6000}|{7000})" />
+        <item type="link" title="供应商发货明细查询"  url="/SYSA/tongji/hzkc6.asp" power="{17008}+[33,11]+[33,19]+({6000}|{7000})" />
+      </group>
+      <group name="质量追踪">
+        <item type="link" title="产品采购销售追踪表" url="/SYSN/view/statistics/sale/product/ProductTrackDetail.ashx" power="{13000}+[21,19]+[23,11]+{15000}+{17001}+{17002}+{17003}+({6000}|{7000})+[23,19]"/>
+      </group>
+    </groups>
+  </Page1>
+
+  <Page2>
+    <groups name="销售栏目统计">
+      <group name="客户数量统计" power="({1000}|{1001})+[1,11]+[1,19]">
+        <item type="link" title="客户人员对比" url="/SYSN/view/statistics/sale/customer/CustomerNumber/PersonnelComparison.ashx?frmn=1"/>
+        <item type="code" value="CustomContrast"/>
+        <item type="link" title="新增客户走势" url="/SYSA/tongji/kh10.asp?frmn=1"/>
+        <item type="link" title="领用客户分布" url="/SYSA/report/index.asp?id=-3"/>
+        <item type="link" title="回收客户分布" url="/SYSA/report/index.asp?id=-5" power="{201103}"/>
+        <item type="link" title="跟进客户分布" url="/SYSA/report/index.asp?id=-4" power="{201103}"/>
+      </group>
+      <group name="客户跟进统计" power="({12001}|{12002}|{12003}|{12004}|{12006}|{12007}|{12008}|{120010})+[1,11]+[1,19]">
+        <item type="link" title="人员对比" url="/SYSN/view/statistics/sale/customer/CustomerFollowup/PersonnelComparison.ashx"/>
+        <item type="link" title="跟进客户走势" url="/SYSA/tongji/kh_gj4.asp?frmn=1"/>
+        <item type="link" title="跟进客户对比" url="/SYSA/report/index.asp?id=-4" power="{201103}+{1000}"/>
+        <item type="link" title="跟进次数排行" url="/SYSA/tongji/kh_jx5.asp" power="([1,11])+([1,19]|[2,19]|[3,19]|[4,19]|[5,19]|[22,19]|[41,19]|[42,19])"/>
+      </group>
+      <group name="客户联系人统计" power="{2000}+[2,19]+[2,11]">
+        <item type="link" title="联系人区域分布" url="/SYSA/tongji/lxr1.asp"/>
+        <item type="link" title="联系人行业分布" url="/SYSA/tongji/lxr2.asp"/>
+        <item type="link" title="性别分布" url="/SYSA/tongji/lxr3.asp"/>
+      </group>
+      <group name="客户绩效统计">
+        <item type="link" title="跟进次数排行" url="/SYSA/tongji/kh_jx5.asp" power="({12001}|{12002}|{12003}|{12004}|{12006}|{12007}|{12008}|{120010})+[1,11]"/>
+        <item type="link" title="客户积分排行" url="/SYSA/tongji/kh_jf1.asp" power="{1000}+[1,11]+[1,19]+{7000}+[5,19]"/>
+        <item type="link" title="客户满意度分析" url="/SYSA/tongji/sale_manyi.asp" power="{1000}+[1,19]+{9002}+[94,11]+[94,19]"/>
+        <item type="link" title="客户购买汇总" url="/SYSA/tongji/hz5.asp" power="{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="客户购买明细" url="/SYSA/tongji/hz7.asp" power="{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="合同购买汇总" url="/SYSN/view/statistics/sale/contract/CustomerContractStatement.ashx" power="{13000}+[21,19]+{1000}+[1,19]+({6000}|{7000})+[5,11]+[5,19]"/>
+        <item type="link" title="客户购买产品汇总" url="/SYSA/tongji/hz6.asp" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="客户购买产品明细" url="/SYSN/view/statistics/sale/product/ProductSaleDetail.ashx" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="客户购买总额排行" url="/SYSA/tongji/kh_jx1.asp" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="客户购买价格分析" url="/SYSA/tongji/hz8.asp" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="市场机会对比分析" url="/SYSA/tongji/market_compare.asp" power="{1000}+{13000}+({6000}|{7000})+{17002}+{17003}+[1,11]+[1,19]+[21,19]+[5,19]+[31,19]+[32,19]"/>
+        <item type="link" title="客户产品出库对比" url="/SYSN/view/statistics/sale/customer/ProductKuoutContrast.ashx" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+(({17003}+[32,19]+[32,11])|({17002}+[31,19]))"/>
+        <item type="link" title="客户退货排行" url="/SYSA/tongji/kh_jx4_2.asp" power="{8000}+[41,19]+[41,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+        <item type="link" title="客户退货明细表" url="/SYSA/contractth/report_contractth_list.asp" power="{8000}+[41,19]+[41,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+        <item type="link" title="客户费用排行" url="/SYSA/pay/fy4.asp" power="{1000}+[1,11]+[1,19]+{27000}+[6,19]"/>
+        <!--<item type="link" title="客户利润排行" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Customer.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>-->
+        <item type="link" title="客户利润率排行" url="/SYSA/tongji/kh_jx8.asp" power="{1000}+[1,19]+{11000}+[44,19]+[44,8]"/>
+        <item type="link" title="销售利润统计" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Contract.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>
+        <!--<item type="link" title="人员利润汇总" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_SaleMan.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>-->
+        <item type="link" title="客户预收款统计" url="/SYSA/money/khyfk.asp" power="{23002}+[7,19]+[7,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+        <item type="link" title="客户对账单" url="/SYSN/view/finan/payback/CustomStateMent.ashx" power="{23000}+[7,19]+[7,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+      </group>
+      <group name="项目数量统计分析" power="{3000}+[3,19]+[3,11]">
+        <item type="link" title="项目数量人员分布" url="/SYSN/view/statistics/sale/project/PersonnelDistribution.ashx?datatype=0"/>
+        <item type="link" title="项目数量状态分布" url="/SYSA/tongji/jh4.asp"/>
+        <item type="link" title="项目数量阶段分布" url="/SYSA/tongji/jh5.asp"/>
+        <item type="link" title="项目数量来源分布" url="/SYSA/tongji/jh6.asp"/>
+        <item type="link" title="项目数量区域分布" url="/SYSA/tongji/jh7.asp"/>
+        <item type="link" title="项目数量分类分布" url="/SYSA/tongji/jh8.asp"/>
+        <item type="link" title="项目数量走势" url="/SYSA/tongji/jh10.asp?frmn=1"/>
+      </group>
+      <group name="项目金额统计分析" power="{3000}+[3,19]+[3,11]">
+        <item type="link" title="项目金额人员分布" url="/SYSN/view/statistics/sale/project/PersonnelDistribution.ashx?datatype=1"/>
+        <item type="link" title="项目金额状态分布" url="/SYSA/tongji/jh4_m.asp"/>
+        <item type="link" title="项目金额阶段分布" url="/SYSA/tongji/jh5_m.asp"/>
+        <item type="link" title="项目金额来源分布" url="/SYSA/tongji/jh6_m.asp"/>
+        <item type="link" title="项目金额区域分布" url="/SYSA/tongji/jh7_m.asp"/>
+        <item type="link" title="项目金额分类分布" url="/SYSA/tongji/jh8_m.asp"/>
+        <item type="link" title="项目金额走势" url="/SYSA/tongji/jh10_m.asp?frmn=1"/>
+        <item type="link" title="项目费用统计分析" url="/SYSA/pay/fy8.asp" power="{27000}+[6,19]+[6,11]+{3000}+[3,19]"/>
+        <item type="link" title="项目工时统计分析" url="/SYSN/view/statistics/sale/project/ProjectHourStatistics.ashx?stype=xm" power="{3000}+[3,19]+[3,11]"/>
+        <item type="link" title="项目人员工时分析" url="/SYSN/view/statistics/sale/project/ProjectHourStatistics.ashx?stype=ry" power="{3000}+[3,19]+[3,11]"/>
+      </group>
+      <group name="合同数量统计分析" power="({6000}|{7000})+[5,19]+[5,11]">
+        <item type="link" title="合同数量人员分布" url="/SYSN/view/statistics/sale/contract/PersonnelDistribution.ashx?datatype=0"/>
+        <item type="link" title="合同数量状态分布" url="/SYSA/tongji/ht4.asp"/>
+        <item type="link" title="合同数量分类分布" url="/SYSA/tongji/ht5.asp"/>
+        <item type="link" title="合同数量区域分布" url="/SYSA/tongji/ht7.asp"/>
+        <item type="link" title="合同数量行业分布" url="/SYSA/tongji/ht8.asp"/>
+        <item type="link" title="合同数量走势" url="/SYSA/tongji/ht10.asp?frmn=1"/>
+      </group>
+      <group name="合同金额统计分析" power="({6000}|{7000})+[5,19]+[5,11]">
+        <item type="link" title="合同金额人员分布" url="/SYSN/view/statistics/sale/contract/PersonnelDistribution.ashx?datatype=1"/>
+        <item type="link" title="合同金额状态分布" url="/SYSA/tongji/ht4_m.asp"/>
+        <item type="link" title="合同金额分类分布" url="/SYSA/tongji/ht5_m.asp"/>
+        <item type="link" title="合同金额区域分布" url="/SYSA/tongji/ht7_m.asp"/>
+        <item type="link" title="合同金额行业分布" url="/SYSA/tongji/ht8_m.asp"/>
+        <item type="link" title="合同金额走势" url="/SYSA/tongji/ht10_m.asp?frmn=1"/>
+      </group>
+      <group name="合同数据汇总">
+        <item type="link" title="龙虎榜" url="/SYSA/tongji/bbzj1.asp?frmn=1" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="挑战记录" url="/SYSA/tongji/bbzj2.asp" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="部门业绩对比" url="/SYSA/tongji/bbdd1_w.asp?frmn=1" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="小组业绩对比" url="/SYSA/tongji/bbdd2_w.asp?frmn=1" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="人员业绩对比" url="/SYSA/tongji/bbdd3_w.asp?frmn=1" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="客户购买汇总表" url="/SYSA/tongji/hz5.asp" power="{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="客户合同购买汇总" url="/SYSN/view/statistics/sale/contract/CustomerContractStatement.ashx" power="{1000}+[1,19]+({6000}|{7000})+[5,11]+[5,19]+{13000}+[21,19]"/>
+        <item type="link" title="客户购买产品明细" url="/SYSN/view/statistics/sale/product/ProductSaleDetail.ashx" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="人员出库业绩分析" url="/SYSA/tongji/sale_ckyj_hz.asp" power="{1000}+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]+[5,11]+{17002}+[31,19]+{17003}+[32,19]"/>
+        <item type="link" title="合同费用明细表" url="/SYSA/pay/fy6.asp" power="{27000}+({6000}|{7000})+[6,19]+[6,11]+[5,19]"/>
+        <item type="link" title="人员利润汇总" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_SaleMan.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>
+        <item type="link" title="销售利润统计" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Contract.ashx" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])"/>
+        <item type="link" title="客户合同对账表" url="/SYSN/view/statistics/sale/contract/CustomerContractStatement.ashx" power="{1000}+[1,19]+({6000}|{7000})+[5,19]+{13000}+[21,19]"/>
+        <item type="link" title="客户对账单" url="/SYSN/view/finan/payback/CustomStateMent.ashx" power="{23000}+[7,19]+[7,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+      </group>
+      <group name="退货数量统计分析" power="{8000}+[41,19]+[41,11]">
+        <item type="link" title="退货数量人员分布" url="/SYSN/view/statistics/sale/contract/PersonnelDistributionTH.ashx?datatype=0"/>
+        <item type="link" title="退货数量状态分布" url="/SYSA/tongji/th4.asp"/>
+        <item type="link" title="退货数量分类分布" url="/SYSA/tongji/th5.asp"/>
+        <item type="link" title="退货数量区域分布" url="/SYSA/tongji/th7.asp"/>
+        <item type="link" title="退货数量行业分布" url="/SYSA/tongji/th8.asp"/>
+        <item type="link" title="退货数量走势" url="/SYSA/tongji/th10.asp?frmn=1"/>
+        <item type="link" title="客户退货排行" url="/SYSA/tongji/kh_jx4_2.asp"/>
+      </group>
+      <group name="退货金额统计分析" power="{8000}+[41,19]+[41,11]">
+        <item type="link" title="退货金额人员分布" url="/SYSN/view/statistics/sale/contract/PersonnelDistributionTH.ashx?datatype=1"/>
+        <item type="link" title="退货金额状态分布" url="/SYSA/tongji/th4_m.asp"/>
+        <item type="link" title="退货金额分类分布" url="/SYSA/tongji/th5_m.asp"/>
+        <item type="link" title="退货金额区域分布" url="/SYSA/tongji/th7_m.asp"/>
+        <item type="link" title="退货金额行业分布" url="/SYSA/tongji/th8_m.asp"/>
+        <item type="link" title="退货金额走势" url="/SYSA/tongji/th10_m.asp?frmn=1"/>
+      </group>
+      <group name="售后统计分析" power="">
+        <item type="link" title="人员对比" url="/SYSA/tongji/sh1.asp?frmn=1" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="分类对比" url="/SYSA/tongji/sh4.asp" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="处理结果分布" url="/SYSA/tongji/sh5.asp" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="紧急程度分布" url="/SYSA/tongji/sh6.asp" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="处理方式分布" url="/SYSA/tongji/sh7.asp" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="区域分布" url="/SYSA/tongji/sh8.asp" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="行业分布" url="/SYSA/tongji/sh9.asp" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="售后数量走势" url="/SYSA/tongji/sh10.asp?frmn=1" power="{9000}+[42,19]+[42,11]"/>
+        <item type="link" title="售后费用统计分析" url="/SYSA/pay/fy5.asp" power="{27000}+[6,19]+[6,11]+{9000}+[42,19]"/>
+        <item type="link" title="回访方式分布" url="/SYSA/tongji/sale_type.asp" power="{9002}+[94,11]"/>
+        <item type="link" title="回访状态分布" url="/SYSA/tongji/sale_person_status.asp" power="{9002}+[94,11]"/>
+        <item type="link" title="客户满意度分析" url="/SYSA/tongji/sale_manyi.asp" power="{1000}+[1,19]+{9002}+[94,11]+[94,19]"/>
+      </group>
+      <group name="售后维修统计分析" power="{71000}+[45,19]+[45,11]">
+        <item type="link" title="接待方式分析" url="/SYSA/tongji/RepairChart1.asp"/>
+        <item type="link" title="受理单数量分析" url="/SYSA/tongji/RepairChart2.asp"/>
+        <item type="link" title="维修单数量分析" url="/SYSA/tongji/RepairChart3.asp"/>
+        <item type="link" title="受理产品分析" url="/SYSA/tongji/RepairChart4.asp"/>
+      </group>
+      <group name="产品销售数量统计" power="{13000}+[21,19]+[21,11]+({6000}|{7000})">
+        <item type="link" title="产品销售数量人员对比" url="/SYSA/tongji/cp1.asp?frmn=1"/>
+        <item type="link" title="产品销售数量区域分布" url="/SYSA/tongji/cp4.asp"/>
+        <item type="link" title="产品销售数量行业分布" url="/SYSA/tongji/cp5.asp"/>
+        <item type="link" title="产品数量走势" url="/SYSA/tongji/cp6.asp?frmn=1"/>
+        <item type="code" value="productzdynumber"/>
+      </group>
+      <group name="产品销售金额统计" power="{13000}+[21,19]+[21,11]+({6000}|{7000})">
+        <item type="link" title="产品销售金额人员对比" url="/SYSA/tongji/cp1_m.asp?frmn=1"/>
+        <item type="link" title="产品销售金额区域分布" url="/SYSA/tongji/cp4_m.asp"/>
+        <item type="link" title="产品销售金额行业分布" url="/SYSA/tongji/cp5_m.asp"/>
+        <item type="link" title="产品金额走势" url="/SYSA/tongji/cp6_m.asp?frmn=1"/>
+        <item type="code" value="productzdymoney"/>
+      </group>
+      <group name="产品数据汇总" power="{13000}+[21,19]">
+        <item type="link" title="产品销售明细表" url="/SYSN/view/statistics/sale/product/ProductSaleDetail.ashx" power="{1000}+[1,19]+{13000}+[21,19]+[21,11]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="产品采购明细表" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0" power="{13000}+[21,19]+[21,11]+{15000}+[22,19]"/>
+        <item type="link" title="产品退货明细表" url="/SYSA/contractth/report_contractth_list.asp" power="{13000}+[21,19]+[21,11]+{8000}+[41,19]"/>
+        <item type="link" title="产品采购销售追踪" url="/SYSN/view/statistics/sale/product/ProductTrackDetail.ashx" power="{13000}+[21,19]+[23,11]+{15000}+{17001}+{17002}+{17003}+({6000}|{7000})+[23,19]"/>
+        <item type="link" title="畅销滞销品汇总分析" url="/SYSA/tongji/hzkc_zzhz.asp" power="{13000}+[21,19]+[23,13]+{17000}+[23,19]+{17002}+{17003}"/>
+        <item type="link" title="畅销滞销品明细分析" url="/SYSA/tongji/hzkc_zzmx.asp" power="{13000}+[21,19]+[23,13]+{17000}+[23,19]+{17002}+{17003}"/>
+        <item type="link" title="产品利润汇总表" url="/SYSN/view/statistics/sale/product/ProductProfitSummary.ashx" power="{13000}+[21,19]+[44,8]+{11000}+[44,19]+{15000}+({6000}|{7000})"/>
+        <item type="link" title="产品利润明细表" url="/SYSN/view/statistics/sale/product/ProductProfitDetail.ashx" power="{13000}+[21,19]+[44,8]+{11000}+[44,19]+{15000}+({6000}|{7000})"/>
+        <item type="link" title="产品库存汇总表" url="/SYSN/view/store/inventory/InventorySummary.ashx" power="{13000}+[23,11]+{17001}+[23,19]"/>
+        <item type="link" title="产品库存明细表" url="/SYSN/view/store/inventory/InventoryDetails.ashx" power="{13000}+[23,11]+{17001}+[23,19]"/>
+        <item type="link" title="库存变动汇总表" url="/SYSA/tongji/hzkc3_hz.asp" power="{13000}+[23,11]+{17001}+[23,19]"/>
+        <item type="link" title="库存变动明细表" url="/SYSA/tongji/hzkc3_hz2.asp" power="{13000}+[23,11]+{17001}+[23,19]"/>
+        <item type="link" title="产品出库业绩对比" url="/SYSA/tongji/hz9.asp" power="{13000}+[21,19]+[21,11]+{17003}+[32,19]+({6000}|{7000})"/>
+      </group>
+    </groups>
+    <groups name="营销栏目统计">
+      <group name="微信统计分析" power="{75000}+[108,19]+[108,11]">
+        <item type="link" title="分析工作台" url="/SYSA/MicroMsg/MMsgWorkingBench.asp"/>
+        <item type="link" title="走势统计分析" url="/SYSA/MicroMsg/MUserAnalyse.asp"/>
+      </group>
+      <group name="电话统计分析" power="{32000}+[74,19]+[74,11]">
+        <item type="link" title="电话数量人员对比" url="/SYSA/tongji/ld1.asp?frmn=1"/>
+        <item type="link" title="电话数量走势" url="/SYSA/tongji/ld4.asp?frmn=1"/>
+        <item type="link" title="电话统计汇总" url="/SYSA/tongji/hzld.asp"/>
+      </group>
+      <group name="短信统计分析" power="{100000}+[67,19]+[67,11]">
+        <item type="link" title="短信数量人员对比" url="/SYSA/tongji/SMS1.asp?frmn=1"/>
+        <item type="link" title="短信数量走势" url="/SYSA/tongji/SMS4.asp?frmn=1"/>
+        <item type="link" title="短信统计汇总" url="/SYSA/tongji/hzSMS.asp"/>
+      </group>
+      <group name="邮件统计分析" power="{28004}+[77,19]+[77,11]">
+        <item type="link" title="邮件数量人员对比" url="/SYSA/tongji/email1.asp?frmn=1"/>
+        <item type="link" title="邮件数量走势" url="/SYSA/tongji/email4.asp?frmn=1"/>
+        <item type="link" title="邮件统计汇总" url="/SYSA/tongji/hzemail.asp"/>
+      </group>
+    </groups>
+    <groups name="采购栏目统计">
+      <group name="供应商数量统计" power="{1002}+[26,19]+[26,11]">
+        <item type="link" title="供应商数量人员分布对比" url="/SYSN/view/statistics/sale/customer/CustomerNumber/PersonnelComparison.ashx?frmn=1&amp;sort3=2"/>
+        <item type="link" title="供应商数量区域分布" url="/SYSA/tongji/kh9.asp?sort3=2"/>
+        <item type="link" title="供应商数量行业分布" url="/SYSA/tongji/kh7.asp?sort3=2"/>
+        <item type="link" title="供应商数量走势" url="/SYSA/tongji/kh10.asp?sort3=2&amp;frmn=1"/>
+      </group>
+      <group name="供应商联系人统计" power="{1002}+[26,19]+[26,11]">
+        <item type="link" title="供应商联系人区域分布" url="/SYSA/tongji/lxr1.asp?s3=2"/>
+        <item type="link" title="供应商联系人行业分布" url="/SYSA/tongji/lxr2.asp?s3=2"/>
+        <item type="link" title="供货商联系人性别分布" url="/SYSA/tongji/lxr3.asp?s3=2"/>
+      </group>
+      <group name="供应商绩效统计" power="{1002}+[26,19]">
+        <item type="link" title="供应商供货汇总表" url="/SYSA/tongji/company_gather.asp" power="[26,11]+{15000}+[22,19]"/>
+        <item type="link" title="供应商供货明细表" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0" power="[26,11]+{15000}+[22,19]"/>
+        <item type="link" title="采购供货汇总表" url="/SYSA/tongji/caigou_gather.asp" power="[26,11]+{15000}+[22,19]"/>
+        <item type="link" title="采购供货明细表" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0" power="[26,11]+{15000}+[22,19]"/>
+        <item type="link" title="供应商退款排行" url="/SYSA/tongji/cgtk_gys.asp" power="[26,11]+{25002}+[76,19]"/>
+        <item type="link" title="供应商费用统计分析" url="/SYSA/pay/fy14.asp" power="{27000}+[6,11]+[6,19]+{1002}"/>
+        <item type="link" title="供应商利润表" url="/SYSA/tongji/company_profits.asp" power="{11000}+[44,8]+[44,19]"/>
+        <item type="link" title="采购利润明细表" url="/SYSA/tongji/caigou_profits.asp" power="{11000}+[44,8]+[44,19]+{15000}+[22,19]"/>
+      </group>
+      <group name="采购数量统计" power="{15000}+[22,19]+[22,11]">
+        <item type="link" title="采购数量入库分布" url="/SYSA/tongji/cg4.asp"/>
+        <item type="link" title="采购数量分类分布" url="/SYSA/tongji/cg5.asp"/>
+        <item type="link" title="采购数量区域分布" url="/SYSA/tongji/cg7.asp"/>
+        <item type="link" title="采购数量行业分布" url="/SYSA/tongji/cg8.asp"/>
+        <item type="link" title="采购数量签订走势" url="/SYSA/tongji/cg10.asp?frmn=1"/>
+      </group>
+      <group name="采购金额统计" power="{15000}+[22,19]+[22,11]">
+        <item type="link" title="采购金额入库分布" url="/SYSA/tongji/cg4_m.asp"/>
+        <item type="link" title="采购金额分类分布" url="/SYSA/tongji/cg5_m.asp"/>
+        <item type="link" title="采购金额区域分布" url="/SYSA/tongji/cg7_m.asp"/>
+        <item type="link" title="采购金额行业分布" url="/SYSA/tongji/cg8_m.asp"/>
+        <item type="link" title="采购金额走势" url="/SYSA/tongji/cg10_m.asp?frmn=1"/>
+      </group>
+      <group name="采购数据汇总" power="">
+        <item type="link" title="采购供货汇总表" url="/SYSA/tongji/caigou_gather.asp" power="{15000}+[22,19]+[22,11]"/>
+        <item type="link" title="采购供货明细表" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0" power="{15000}+[22,19]+[22,11]"/>
+        <item type="link" title="采购利润明细表" url="/SYSA/tongji/caigou_profits.asp" power="{11000}+[44,8]+[44,19]+{15000}+[22,19]+{1002}+[26,19]"/>
+        <item type="link" title="采购入库汇总表" url="/SYSA/tongji/hzkc2_rkhz.asp?D=1" power="{17002}+[31,19]+{15000}+[22,19]"/>
+        <item type="link" title="采购入库明细表" url="/SYSA/tongji/hzkc2.asp?D=1" power="{17002}+[31,19]+{15000}+[22,19]"/>
+        <item type="link" title="供应商采购对账表" url="/SYSN/view/statistics/store/purchase/SupplierPurSoa.ashx" power="{15000}+[22,19]"/>
+        <item type="link" title="供应商对账单" url="/SYSN/view/finan/payout/SupplierStateMent.ashx" power="{15000}+[8,19]+[8,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+      </group>
+      <group name="采购退货数量统计" power="{16000}+[75,19]+[75,11]">
+        <item type="link" title="采购退货数量人员分布" url="/SYSA/tongji/cgth1.asp?frmn=1"/>
+        <item type="link" title="采购退货数量状态分布" url="/SYSA/tongji/cgth4.asp"/>
+        <item type="link" title="采购退货数量分类分布" url="/SYSA/tongji/cgth5.asp"/>
+        <item type="link" title="采购退货数量区域分布" url="/SYSA/tongji/cgth7.asp"/>
+        <item type="link" title="采购退货数量行业分布" url="/SYSA/tongji/cgth8.asp"/>
+        <item type="link" title="采购退货数量走势" url="/SYSA/tongji/cgth10.asp?frmn=1"/>
+      </group>
+      <group name="采购退货金额统计" power="{16000}+[75,19]+[75,11]">
+        <item type="link" title="采购退货金额人员分布" url="/SYSA/tongji/cgth1_m.asp?frmn=1"/>
+        <item type="link" title="采购退货金额状态分布" url="/SYSA/tongji/cgth4_m.asp"/>
+        <item type="link" title="采购退货金额分类分布" url="/SYSA/tongji/cgth5_m.asp"/>
+        <item type="link" title="采购退货金额区域分布" url="/SYSA/tongji/cgth7_m.asp"/>
+        <item type="link" title="采购退货金额行业分布" url="/SYSA/tongji/cgth8_m.asp"/>
+        <item type="link" title="采购退货金额走势" url="/SYSA/tongji/cgth10_m.asp?frmn=1"/>
+      </group>
+      <group name="来料质检统计分析" power="{15000}+{215102}+[75,19]">
+        <item type="link" title="供应商供货质量统计分析" url="/SYSA/tongji/SuppQCcount.asp"/>
+        <item type="link" title="产品质检项统计分析" url="/SYSA/tongji/ProdQCcount.asp"/>
+      </group>
+    </groups>
+    <groups name="库存栏目统计">
+      <group name="库存统计分析">
+        <item type="link" title="库存汇总表" url="/SYSN/view/store/inventory/InventorySummary.ashx" power="{17001}+[23,19]+[23,11]"/>
+        <item type="link" title="库存明细表" url="/SYSN/view/store/inventory/InventoryDetails.ashx" power="{17001}+[23,19]+[23,11]"/>
+        <item type="link" title="库存变动汇总表" url="/SYSA/tongji/hzkc3_hz.asp" power="{17001}+[23,19]+[23,11]"/>
+        <item type="link" title="库存变动明细表" url="/SYSA/tongji/hzkc3_hz2.asp" power="{17001}+[23,19]+[23,11]"/>
+        <item type="link" title="产品分类库存变动" url="/SYSA/tongji/hzkc3_hz3.asp" power="{217100}+[23,19]+[23,11]"/>
+        <item type="link" title="产品出库业绩对比" url="/SYSA/tongji/hz9.asp" power="{13000}+[21,19]+[21,11]+{17003}+[32,19]+({6000}|{7000})"/>
+        <item type="link" title="入库汇总表" url="/SYSA/tongji/hzkc2_rkhz.asp" power="{17002}+[31,19]+[31,11]"/>
+        <item type="link" title="入库明细表" url="/SYSA/tongji/hzkc2.asp" power="{17002}+[31,19]+[31,11]"/>
+        <item type="link" title="出库汇总表" url="/SYSA/tongji/hzkc3_ckhz.asp" power="{17003}+[32,19]+[32,11]"/>
+        <item type="link" title="出库明细表" url="/SYSN/view/store/kuout/Detaillist.ashx" power="{17003}+[32,19]+[32,11]"/>
+        <item type="link" title="调拨明细表" url="/SYSA/tongji/hzkc5.asp" power="{17004}+[36,19]+[36,11]"/>
+        <item type="link" title="借货明细表" url="/SYSA/tongji/hzkc12.asp" power="{17006}+[37,19]+[37,11]"/>
+        <item type="link" title="盘点明细表" url="/SYSA/tongji/hzkc4.asp" power="{17005}+[35,19]+[35,11]"/>
+        <item type="link" title="未发货明细表" url="/SYSA/tongji/UnSendList.asp" power="{17008}+[33,19]+[33,11]"/>
+        <item type="link" title="已发货明细表" url="/SYSA/tongji/hzkc6.asp" power="{17008}+[33,19]+[33,11]"/>
+        <item type="link" title="预警中产品" url="/SYSA/store/aleat.asp" power="{17000}+[23,19]+[23,13]"/>
+        <item type="link" title="产品周转率汇总表" url="/SYSA/tongji/hzkc_zzhz.asp" power="{17000}+[23,19]+[23,11]"/>
+        <item type="link" title="产品周转率明细表" url="/SYSA/tongji/hzkc_zzmx.asp" power="{17000}+[23,19]+[23,11]"/>
+        <item type="link" title="库龄分析表" url="/SYSN/view/store/kuwarn/kuAgeAnalyze.ashx" power="{17000}+[23,19]+[23,11]"/>
+        <item type="link" title="客户产品出库对比" url="/SYSN/view/statistics/sale/customer/ProductKuoutContrast.ashx" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+(({17003}+[32,19]+[32,11])|({17002}+[31,19]))"/>
+      </group>
+      <group name="发货统计分析" power="{17008}+[33,19]+[33,11]">
+        <item type="link" title="未发货明细表" url="/SYSA/tongji/UnSendList.asp"/>
+        <item type="link" title="已发货明细表" url="/SYSA/tongji/hzkc6.asp"/>
+        <item type="link" title="发货费用统计分析" url="/SYSA/pay/fy12.asp" power="{27000}+[6,11]+[6,19]"/>
+      </group>
+    </groups>
+    <groups name="生产栏目统计" power="{35000}|{18000}">
+      <group name="订单统计分析（老版）"  code="OldManuOrderControl">
+        <item type="link" title="订单进度汇总查询" url="/SYSA/manufacture/inc/report.asp?reportid=1" power="{35000}+[51,19]+[51,20]"/>
+        <item type="link" title="订单进度明细查询" url="/SYSA/manufacture/inc/report.asp?reportid=1" power="{35000}+[51,19]+[51,20]"/>
+        <item type="link" title="工序进度看板" url="/SYSA/ProceProgres/procboard.asp" power="{35000}+[5031,19]+[5031,17]"/>
+        <item type="link" title="计件工资明细表" url="/SYSA/HrWages/pieceWageReportForms.asp" power="{35000}+[5031,19]+[5031,14]"/>
+        <item type="link" title="生产进度明细表" url="/SYSN/view/produce/manufactureplanprocess.ashx" power="{35000}+[50,19]+[50,14]"/>
+        <item type="link" title="合同生产进度查询" url="/SYSN/view/produce/contractprocess.ashx" power="{35000}+[50,19]+[50,14]"/>
+        <item type="link" title="派工进度明细表" url="/SYSN/view/produce/scheduledetail.ashx?billtype=1" power="{35000}+[51,20]+[54,19]"/>
+        <item type="link" title="委外进度明细表" url="/SYSN/view/produce/scheduledetail.ashx?billtype=3" power="{35000}+[51,20]+[5025,19]"/>
+        <item type="link" title="返工进度明细表" url="/SYSN/view/produce/scheduledetail.ashx?billtype=2" power="{35000}+[51,20]+[62,19]"/>
+        <item type="link" title="成本核算明细表" url="/SYSN/view/produce/costaccounting.ashx" power="{35000}+[5035,19]+[5035,17]"/>
+      </group>
+      <group name="进度追踪" power="{18000}">
+        <item type="link" title="订单进度追踪表" url="/SYSN/view/produceV2/ManuOrders/ManuOrdersTrackingReport.ashx" power="{18500}+[51,11]" checkPower="1"/>
+        <item type="link" title="派工进度追踪表" url="/SYSN/view/produceV2/WorkAssign/WorkAssignsTrackingReport.ashx" power="[54,39]"  checkPower="1"/>
+        <item type="link" title="整单委外进度追踪表" url="/SYSN/view/produceV2/ProcedureProgres/OutSourceProgres.ashx" power="[5025,11]" checkPower="1"/>
+        <item type="link" title="工序委外进度追踪表" url="/SYSN/view/ProduceV2/OutProcedure/OutProcedureTrackingReport.ashx" power="[5026,11]"  checkPower="1"/>
+      </group>
+      <group name="物料跟进" power="{18900}">
+        <item type="link" title="缺料追踪表" url="/SYSN/view/produceV2/Material/LackMaterialReport.ashx" power="[57,11]" checkPower="1"/>
+        <item type="link" title="物料领用追踪表" url="/SYSN/view/produceV2/Material/MaterialReport.ashx" power="[57,11]" checkPower="1"/>
+        <item type="link" title="废料数量对比分析" url="/SYSN/view/statistics/produceV2/WasteCountAnalysis.ashx?frmn=1"  power="[57,11]" checkPower="1"/>
+        <item type="link" title="废料原因对比分析" url="/SYSN/view/statistics/produceV2/WasteReasonAnalysis.ashx?" power="[57,11]"  checkPower="1"/>
+        <item type="link" title="废料明细表" url="/SYSN/view/produceV2/Material/AbolishMaterialReport.ashx" power="[57,11]"  checkPower="1"/>
+      </group>
+      <group name="次品率分析" power="{18700}">
+        <item type="link" title="产品不合格率对比" url="/SYSN/view/statistics/produceV2/ProductUncertContrast.ashx" power="[58,11]|[5027,11]" checkPower="1"/>
+        <item type="link" title="产品不合格率走势" url="/SYSN/view/statistics/produceV2/QTProductTrend.ashx?frmn=1" power="[58,11]|[5027,11]" checkPower="1"/>
+        <item type="link" title="工序不合格率分析" url="/SYSN/view/statistics/produceV2/ProcedureNoQualified.ashx" power="[5031,11]" checkPower="1"/>
+        <item type="link" title="委外不合格率分析" url="/SYSN/view/statistics/produceV2/ProductUncertAnalyze.ashx"  power="[5027,11]" checkPower="1"/>
+        <item type="link" title="生产质检汇总表" url="/SYSN/view/statistics/produceV2/QualiyTestGather.ashx" power="([58,11]|[5027,11])" checkPower="1"/>
+      </group>
+      <group name="计件工资统计" power="({18900}|{218910})+[60,19]">
+        <item type="link" title="计件工资人员分布" url="/SYSN/view/statistics/produceV2/CountPayWorker.ashx" power="[60,11]" checkPower="1"/>
+        <item type="link" title="计件工资走势" url="/SYSN/view/statistics/produceV2/CountPayTrend.ashx?frmn=1" power="[60,11]"  checkPower="1"/>
+        <item type="link" title="计件工资明细表" url="/SYSN/view/produceV2/CountPay/CountPayDetail.ashx" power="[60,11]"  checkPower="1"/>
+      </group>
+    </groups>
+    <groups name="财务栏目统计" power="{36000}">
+      <group name="现金银行统计" power="{19000}+[11,19]+[11,11]">
+        <item type="link" title="各账号余额统计" url="/SYSA/tongji/bank1.asp"/>
+        <item type="link" title="现金银行走势" url="/SYSA/tongji/bank2.asp?frmn=1"/>
+      </group>
+      <group name="现金流量分析" power="{19000}+[11,19]+[11,5]">
+        <item type="link" title="现金流量走势分析" url="/SYSA/tongji/cash_d.asp?frmn=1"/>
+        <item type="link" title="收入明细表" url="/SYSA/tongji/incash_d.asp?frmn=1"/>
+        <item type="link" title="支出明细表" url="/SYSA/tongji/outcash_d.asp?frmn=1"/>
+        <item type="link" title="收支明细表" url="/SYSA/tongji/inoutcash.asp"/>
+      </group>
+      <group name="财务总账分析" power="{19500}+[13,19]+[13,24]">
+        <item type="code" value="FinanceReport"/>
+      </group>
+      <group name="应收账款统计" power="{23000}+[7,19]+[7,11]">
+        <item type="link" title="人员分布" url="/SYSA/tongji/sk_ys1.asp?frmn=1"/>
+        <item type="link" title="应收账款走势" url="/SYSA/tongji/sk_ys4.asp?frmn=1"/>
+      </group>
+      <!--<group name="底单到账统计" power="{23000}+[7,19]+[7,11]">
+        <item type="link" title="人员分布" url="/SYSA/tongji/sk_dd1.asp?frmn=1"/>
+        <item type="link" title="底单到账走势" url="/SYSA/tongji/sk_dd4.asp?frmn=1"/>
+      </group>-->
+      <group name="实际到账统计" power="{23000}+[7,19]+[7,11]">
+        <item type="link" title="人员分布" url="/SYSA/tongji/sk_dz1.asp?frmn=1"/>
+        <item type="link" title="实际到账走势" url="/SYSA/tongji/sk_dz4.asp?frmn=1"/>
+        <item type="link" title="到账收款分布" url="/SYSA/tongji/sk_dz8.asp"/>
+      </group>
+      <group name="待开发票统计" power="{23000}+[7,19]+[7,11]">
+        <item type="link" title="人员分布" url="/SYSA/tongji/sk_dk1.asp?frmn=1"/>
+        <item type="link" title="待开发票走势" url="/SYSA/tongji/sk_dk4.asp?frmn=1"/>
+      </group>
+      <group name="已开发票统计"  >
+        <item type="link" title="人员分布" url="/SYSA/tongji/sk_yk1.asp?frmn=1" power="{23000}+[7,19]+[7,11]"/>
+        <item type="link" title="已开发票走势" url="/SYSA/tongji/sk_yk4.asp?frmn=1" power="{23000}+[7001,19]+[7001,11]"/>
+      </group>
+      <group name="收款开票统计分析">
+        <item type="link" title="收款开票汇总表" url="/SYSA/contract/planall_hk.asp" power="{23000}+[7,19]+[7,11]"/>
+        <item type="link" title="客户预收款统计" url="/SYSA/money/khyfk.asp" power="{23002}+[7,11]"/>
+        <item type="link" title="客户对账表" url="/SYSN/view/finan/payback/CustomStateMent.ashx" power="{23000}+[7,19]+[7,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+        <item type="link" title="实开发票明细表" url="/SYSN/view/finan/InvoiceManage/MakeOutInvoice/MakeOutInvoiceDetailsList.ashx " power="{23000}+[7001,19]+[7001,11]"/>
+			</group>
+			<group name="付款统计分析" >
+				<item type="link" title="应付账款走势" url="/SYSA/tongji/fk_yf1.asp?frmn=1" power="{24000}+[8,19]+[8,11]"/>
+				<item type="link" title="已付账款走势" url="/SYSA/tongji/fk_yif1.asp?frmn=1" power="{24000}+[8,19]+[8,11]"/>
+				<item type="link" title="待收发票走势" url="/SYSA/tongji/fk_dk1.asp?frmn=1" power="{24000}+[8001,19]+[8001,11]"/>
+				<item type="link" title="已收发票走势" url="/SYSA/tongji/fk_yk1.asp?frmn=1" power="{24000}+[8001,19]+[8001,11]"/>
+			</group>
+			<group name="付款收票统计分析">
+				<item type="link" title="付款收票汇总表" url="/SYSA/money2/planall_hk.asp" power="{24000}+[8,19]+[8,11]"/>
+				<item type="link" title="实收发票明细表" url="/SYSN/view/finan/InvoiceManage/ReceivedInvoice/ReceivedInvoiceDetailsList.ashx" power="{24000}+[8001,19]+[8001,11]"/>
+			</group>
+			<group name="销售退款统计分析" power="{25001}+[9,19]+[9,11]">
+				<item type="link" title="销售应退账款人员分布" url="/SYSA/tongji/tk_yt1.asp?frmn=1"/>
+				<item type="link" title="销售应退账款走势" url="/SYSA/tongji/tk_yt4.asp?frmn=1"/>
+				<item type="link" title="销售已退账款人员分布" url="/SYSA/tongji/tk_st1.asp?frmn=1"/>
+				<item type="link" title="销售已退账款走势" url="/SYSA/tongji/tk_st4.asp?frmn=1"/>
+				<item type="link" title="销售退款汇总表" url="/SYSA/money3/planall_hk.asp"/>
+			</group>
+			<group name="采购退款统计分析" power="{25002}+[76,19]+[76,11]">
+				<item type="link" title="采购应退账款人员分布" url="/SYSA/tongji/cgtk_yt1.asp?frmn=1"/>
+				<item type="link" title="采购应退账款走势" url="/SYSA/tongji/cgtk_yt4.asp?frmn=1"/>
+				<item type="link" title="采购已退账款人员分布" url="/SYSA/tongji/cgtk_st1.asp?frmn=1"/>
+				<item type="link" title="采购已退账款走势" url="/SYSA/tongji/cgtk_st4.asp?frmn=1"/>
+				<item type="link" title="采购退款汇总表" url="/SYSA/money4/planall2_hz.asp"/>
+			</group>
+			<group name="工资统计分析（财务）" power="{26000}+[10,19]+[10,11]">
+				<item type="link" title="工资人员分布" url="/SYSA/tongji/gz1.asp?frmn=1"/>
+				<item type="link" title="工资走势" url="/SYSA/tongji/gz4.asp?frmn=1"/>
+				<item type="link" title="计件工资人员分布" url="/SYSA/tongji/gz_jj1.asp?frmn=1"/>
+				<item type="link" title="计件工资每月走势" url="/SYSA/tongji/gz_jj4.asp?frmn=1"/>
+			</group>
+      <group name="库存成本分析" power="[5035,19]">
+        <item type="link" title="产品库存成本列表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostList.ashx" power="{17001}+[5035,11]" checkPower="1"/>
+        <item type="link" title="库存成本变动汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostChangeSummary.ashx" power="{17002}+{17003}+[5035,11]"  checkPower="1"/>
+        <item type="link" title="库存成本变动明细表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostChangeDetails.ashx" power="{17002}+{17003}+[5035,11]"  checkPower="1"/>
+        <item type="link" title="入库成本明细表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostKuinDetails.ashx" power="{17002}+[5035,11]"  checkPower="1"/>
+        <item type="link" title="出库成本明细表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostKuoutDetails.ashx" power="{17003}+[5035,11]"  checkPower="1"/>
+      </group>
+      <group name="生产成本分析" power="{18500}+[5035,19]">
+        <item type="link" title="产品成本汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductedSummaryList.ashx" power="[5035,11]" checkPower="1"/>
+        <item type="link" title="产品成本还原表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductCostRecoveryList.ashx" power="[5035,11]"  checkPower="1"/>
+        <item type="link" title="在产品成本汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductingSummaryList.ashx" power="[5035,11]"  checkPower="1"/>
+        <item type="link" title="剩余物料成本表" url="/SYSN/view/finan/CostAnalysis/CostReport/SurplusMaterielList.ashx" power="[5035,11]"  checkPower="1"/>
+        <item type="link" title="车间成本分析表" url="/SYSN/view/finan/CostAnalysis/CostReport/WorkshopCostList.ashx" power="[5035,11]"  checkPower="1"/>
+      </group>
+			<group name="费用统计分析" power="{27000}+[6,19]+[6,11]">
+				<item type="link" title="费用人员分布" url="/SYSA/tongji/fy1.asp?frmn=1"/>
+				<item type="link" title="费用分类" url="/SYSA/tongji/fy4.asp?t=1"/>
+				<item type="link" title="费用走势" url="/SYSA/tongji/fy5.asp?frmn=1"/>
+			</group>
+			<group name="费用统计报表" power="{27000}+[6,19]+[6,11]">
+				<item type="link" title="费用汇总表" url="/SYSA/pay/fy1.asp"/>
+				<item type="link" title="项目费用明细表" url="/SYSA/pay/fy8.asp" power="{3000}+[3,19]"/>
+				<item type="link" title="合同费用明细表" url="/SYSA/pay/fy6.asp" power="({6000}|{7000})+[5,19]"/>
+				<item type="link" title="售后费用明细表" url="/SYSA/pay/fy5.asp" power="{9000}+[42,19]"/>
+				<item type="link" title="客户费用明细表" url="/SYSA/pay/fy4.asp" power="{1000}+[1,19]"/>
+				<item type="link" title="供应商费用明细表" url="/SYSA/pay/fy14.asp" power="{27000}+[6,11]+[6,19]+{1002}+[26,19]"/>
+				<item type="link" title="采购费用明细表" url="/SYSA/pay/fy10.asp" power="{15000}+[22,19]"/>
+				<item type="link" title="发货费用明细表" url="/SYSA/pay/fy12.asp" power="{17008}+[33,19]"/>
+				<item type="link" title="费用申请明细表" url="/SYSA/pay/paysqdet.asp"/>
+				<item type="link" title="费用使用明细表" url="/SYSA/pay/paydet.asp"/>
+				<item type="link" title="费用报销明细表" url="/SYSA/pay/paybxdet.asp"/>
+			</group>
+		</groups>
+		<groups name="人资栏目统计" power="{39000}">
+			<group name="招聘统计分析" power="{39005}+[85,19]+[85,11]">
+				<item type="link" title="招聘完成比例" url="/SYSA/hrm/hzResume.asp"/>
+				<item type="link" title="岗位招聘完成比例" url="/SYSA/hrm/hzPostion.asp"/>
+		  </group>
+			<group name="培训统计分析" power="{39006}+[84,19]+[84,11]">
+				<item type="link" title="员工培训完成率" url="/SYSA/hrm/hzTrain.asp"/>
+		  </group>
+			<group name="考勤统计分析" power="{39001}+[80,19]">
+				<item type="link" title="考勤工作台" url="/SYSN/view/attendance/analysis/kaoqin.html" power="[80,19]+[80,11]"/>
+				<item type="link" title="考勤汇总表" url="/SYSN/view/attendance/statistics/RecordSummary.ashx" power="[80,19]+[80,1]+[80,11]"/>
+                <item type="link" title="出勤率分析" url="/SYSN/view/attendance/analysis/RecordAnalysis.ashx?pageType=0" power="[80,11]"/>
+                <item type="link" title="加班分析" url="/SYSN/view/attendance/analysis/RecordAnalysis.ashx?pageType=2" power="[80,11]"/>
+                <item type="link" title="请假分析" url="/SYSN/view/attendance/analysis/RecordAnalysis.ashx?pageType=1" power="[80,11]"/>
+                <item type="link" title="外勤分析" url="/SYSN/view/attendance/analysis/RecordAnalysis.ashx?pageType=3" power="[80,11]"/>
+                <item type="link" title="迟到早退旷工分析" url="/SYSN/view/attendance/analysis/RecordAnalysis.ashx?pageType=4" power="[80,11]"/>
+		  </group>
+			<group name="工资统计分析（人资）" power="{39002}+[10,19]+[10,11]">
+				<item type="link" title="工资人员分布" url="/SYSA/tongji/hrgz1.asp?frmn=1"/>
+				<item type="link" title="工资走势" url="/SYSA/tongji/hrgz4.asp?frmn=1"/>
+			</group>
+			<group name="离职率报表" power="{39007}+[89,19]+[89,11]">
+				<item type="link" title="员工离职比例" url="/SYSA/hrm/hzPersonLeave.asp"/>
+		  </group>
+		</groups>
+	</Page2>
+
+  <PageMozi>
+
+    <groups name="业绩分析">
+      <group name="客户" >
+        <item type="link" title="客户购买汇总表" url="/SYSA/tongji/hz5.asp" power="{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="客户购买明细表" url="/SYSA/tongji/hz7.asp" power="{1000}+[1,11]+[1,19]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="客户产品出库业绩对比" url="/SYSN/view/statistics/sale/customer/ProductKuoutContrast.ashx" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+(({17003}+[32,19]+[32,11])|({17002}+[31,19]))"/>
+        <item type="link" title="客户购买总额排行" url="/SYSA/tongji/kh_jx1.asp" power="{1000}+[1,11]+[1,19]+{13000}+[21,19]+({6000}|{7000})+[5,19]"/>
+      </group>
+      <group name="人员" power="({6000}|{7000})+[5,19]+[5,11]" >
+        <item type="link" title="部门业绩对比" url="/SYSA/tongji/bbdd1_w.asp?frmn=1" />
+        <item type="link" title="小组业绩对比" url="/SYSA/tongji/bbdd2_w.asp?frmn=1" />
+        <item type="link" title="人员业绩对比" url="/SYSA/tongji/bbdd3_w.asp?frmn=1" />
+        <item type="link" title="合同金额人员分布" url="/SYSN/view/statistics/sale/contract/PersonnelDistribution.ashx?datatype=1" />
+      </group>
+      <group name="合同" >
+        <item type="link" title="合同金额分类分布" url="/SYSA/tongji/ht5_m.asp" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="合同金额区域分布" url="/SYSA/tongji/ht7_m.asp" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="合同金额行业分布" url="/SYSA/tongji/ht8_m.asp" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="合同金额走势" url="/SYSA/tongji/ht10_m.asp?frmn=1" power="({6000}|{7000})+[5,19]+[5,11]"/>
+        <item type="link" title="合同销售明细表" url="/SYSN/view/statistics/sale/product/ProductSaleDetail.ashx" power="{1000}+[1,19]+{13000}+[21,19]+[21,11]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="退货金额分类分布" url="/SYSA/tongji/th5_m.asp" power="{8000}+[41,19]+[41,11]"/>
+        <item type="link" title="退货金额区域分布" url="/SYSA/tongji/th7_m.asp" power="{8000}+[41,19]+[41,11]"/>
+        <item type="link" title="退货金额行业分布" url="/SYSA/tongji/th8_m.asp" power="{8000}+[41,19]+[41,11]"/>
+        <item type="link" title="退货金额走势" url="/SYSA/tongji/th10_m.asp?frmn=1" power="{8000}+[41,19]+[41,11]"/>
+        <item type="link" title="客户退货排行" url="/SYSA/tongji/kh_jx4_2.asp" power="{8000}+[41,19]+[41,11]+(({1000}+[1,19])|({1002}+[26,19]))"/>
+
+      </group>
+      <group name="产品"  >
+        <item type="link" title="产品销售区域分布" url="/SYSA/tongji/cp4_m.asp" power="{13000}+[21,19]+[21,11]+({6000}|{7000})" />
+        <item type="link" title="产品销售行业分布" url="/SYSA/tongji/cp5_m.asp" power="{13000}+[21,19]+[21,11]+({6000}|{7000})" />
+        <item type="link" title="产品销售金额走势" url="/SYSA/tongji/cp6_m.asp?frmn=1" power="{13000}+[21,19]+[21,11]+({6000}|{7000})"/>
+        <item type="link" title="产品销售明细表" url="/SYSN/view/statistics/sale/product/ProductSaleDetail.ashx" power="{1000}+[1,19]+{13000}+[21,19]+[21,11]+({6000}|{7000})+[5,19]"/>
+        <item type="link" title="产品退货明细表" url="/SYSA/contractth/report_contractth_list.asp" power="{13000}+[21,19]+[21,11]+{8000}+[41,19]"/>
+      </group>
+    </groups>
+
+    <groups name="收入分析">
+        <group name="收款" >
+          <item type="link" title="应收账款走势" url="/SYSA/tongji/sk_ys4.asp?frmn=1" power="{23000}+[7,19]+[7,11]"/>
+          <item type="link" title="实际到账走势" url="/SYSA/tongji/sk_dz4.asp?frmn=1" power="{23000}+[7,19]+[7,11]"/>
+          <item type="link" title="销售应退账款走势" url="/SYSA/tongji/tk_yt4.asp?frmn=1" power="{25001}+[9,19]+[9,11]"/>
+          <item type="link" title="已退账款走势" url="/SYSA/tongji/tk_st4.asp?frmn=1" power="{25001}+[9,19]+[9,11]"/>
+          <item type="link" title="收入明细表" url="/SYSA/tongji/incash_d.asp?frmn=1" power="{19000}+[11,19]+[11,5]"/>
+        </group>
+        <group name="付款"  >
+          <item type="link" title="应付账款走势" url="/SYSA/tongji/fk_yf1.asp?frmn=1" power="{24000}+[8,19]+[8,11]"/>
+          <item type="link" title="已付账款走势" url="/SYSA/tongji/fk_yif1.asp?frmn=1" power="{24000}+[8,19]+[8,11]"/>
+          <item type="link" title="采购应退账款走势" url="/SYSA/tongji/cgtk_yt4.asp?frmn=1" power="{25002}+[76,19]+[76,11]"/>
+          <item type="link" title="采购已退账款走势" url="/SYSA/tongji/cgtk_st4.asp?frmn=1" power="{25002}+[76,19]+[76,11]"/>
+          <item type="link" title="支出明细表" url="/SYSA/tongji/outcash_d.asp?frmn=1"  power="{19000}+[11,19]+[11,5]"/>
+        </group>
+     
+      </groups>
+    <groups name="成本分析">
+      <group name="采购成本" power="[26,11]+{15000}+[22,19]">
+        <item type="link" title="供应商供货汇总表" url="/SYSA/tongji/company_gather.asp"   power="{15000}+{1002}+[26,11]+[26,19]+[22,19]"/>
+        <item type="link" title="供应商供货明细表" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0"  power="{15000}+{1002}+[26,11]+[26,19]+[22,19]"/>
+        <item type="link" title="采购供货汇总表" url="/SYSA/tongji/caigou_gather.asp" />
+        <item type="link" title="采购供货明细表" url="/SYSN/view/sales/product/productPurchase.ashx?sort=0" />
+      </group>
+      <group name="库存成本" power="[5035,19]">
+        <item type="link" title="库存成本列表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductedSummaryList.ashx" power="{17001}+[5035,11]" checkPower="1"/>
+        <item type="link" title="库存成本变动汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostChangeSummary.ashx" power="{17002}+{17003}+[5035,11]"  checkPower="1"/>
+        <item type="link" title="库存成本变动明细表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostChangeDetails.ashx" power="{17002}+{17003}+[5035,11]"  checkPower="1"/>
+        <item type="link" title="入库成本明细表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostKuinDetails.ashx" power="{17002}+[5035,11]"  checkPower="1"/>
+        <item type="link" title="出库成本明细表" url="/SYSN/view/finan/CostAnalysis/CostReport/InventoryCostKuoutDetails.ashx" power="{17003}+[5035,11]"  checkPower="1"/>
+      </group>
+      <group name="生产成本" power="{18500}+[5035,19]">
+        <item type="link" title="产品成本汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductedSummaryList.ashx" power="[5035,11]" checkPower="1"/>
+        <item type="link" title="在产品成本汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductingSummaryList.ashx" power="[5035,11]"  checkPower="1"/>
+        <item type="link" title="剩余物料成本表" url="/SYSN/view/finan/CostAnalysis/CostReport/SurplusMaterielList.ashx" power="[5035,11]"  checkPower="1"/>
+        <item type="link" title="车间成本分析表" url="/SYSN/view/finan/CostAnalysis/CostReport/WorkshopCostList.ashx" power="[5035,11]"  checkPower="1"/>
+      </group>
+      <group name="工资成本" power="{26000}+[10,19]+[10,11]">
+        <item type="link" title="工资人员分布" url="/SYSA/tongji/gz1.asp?frmn=1"/>
+        <item type="link" title="工资走势" url="/SYSA/tongji/gz4.asp?frmn=1"/>
+      
+      </group>
+      <group name="费用成本" power="{27000}+[6,19]+[6,11]">
+        <item type="link" title="费用人员走势" url="/SYSA/tongji/fy1.asp?frmn=1"/>
+        <item type="link" title="费用分类分布" url="/SYSA/tongji/fy4.asp?t=1"/>
+        <item type="link" title="费用走势" url="/SYSA/tongji/fy5.asp?frmn=1"/>
+        <item type="link" title="费用使用明细表" url="/SYSA/pay/paydet.asp"/>
+        <item type="link" title="费用报销明细表" url="/SYSA/pay/paybxdet.asp"/>
+        <item type="link" title="客户费用明细表" url="/SYSA/pay/fy4.asp" power="{1000}+[1,19]"/>
+        <item type="link" title="项目费用明细表" url="/SYSA/pay/fy8.asp" power="{3000}+[3,19]"/>
+        <item type="link" title="合同费用明细表" url="/SYSA/pay/fy6.asp" power="({6000}|{7000})+[5,19]"/>
+        <item type="link" title="供应商费用明细表" url="/SYSA/pay/fy14.asp" power="{27000}+[6,11]+[6,19]+{1002}+[26,19]"/>
+        <item type="link" title="采购费用明细表" url="/SYSA/pay/fy10.asp" power="{15000}+[22,19]"/>
+        <item type="link" title="发货费用明细表" url="/SYSA/pay/fy12.asp" power="{17008}+[33,19]"/>
+        <item type="link" title="售后费用明细表" url="/SYSA/pay/fy5.asp" power="{9000}+[42,19]"/>
+
+      </group>
+    </groups>
+    <groups name="利润分析">
+      <group name="销售利润" power="(({6000}|{7000})+[5,11]+{17003}+[32,11])|({11000}+[44,8])">
+        <item type="link" title="销售毛利分析（按客户）" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Customer.ashx" />
+        <item type="link" title="销售毛利分析（按合同）" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_Contract.ashx" />
+        <item type="link" title="销售毛利分析（按人员)" url="/SYSN/view/statistics/sale/contract/SalesProfitDetails_SaleMan.ashx" />
+      </group>
+      <group name="产品利润" power="{13000}+[21,19]+[44,8]+{11000}+[44,19]+{15000}+({6000}|{7000})" >
+        <item type="link" title="产品利润汇总表" url="/SYSN/view/statistics/sale/product/ProductProfitSummary.ashx" />
+        <item type="link" title="产品利润明细表" url="/SYSN/view/statistics/sale/product/ProductProfitDetail.ashx" />
+       
+      </group>
+      <group name="供应商利润" power="{1002}+[26,19]" >
+        <item type="link" title="供应商利润汇总表" url="/SYSA/tongji/company_profits.asp" power="{11000}+[44,8]+[44,19]"/>
+        <item type="link" title="采购利润明细表" url="/SYSA/tongji/caigou_profits.asp" power="{11000}+[44,8]+[44,19]+{15000}+[22,19]"/>
+       
+
+      </group>
+      <group name="总账报表" power="{19500}+[13,19]+[13,24]">
+        <item type="code" value="FinanceReport"/>
+      </group>
+    </groups>
+   
+  </PageMozi>
+  
+</StatisticMenus>

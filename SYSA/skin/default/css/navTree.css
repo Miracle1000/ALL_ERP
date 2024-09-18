@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  /* line-height: 28px; */
+}
+
+ul,
+li {
+  list-style: none;
+  overflow: visible;
+}
+div.my_nav_tree_view{
+  padding-left: 10px;
+}
+ul.tree_view li{
+  line-height: 28px;
+  text-align: left;
+}
+ul.tree_view div.title{
+  margin-top: -6px;
+  white-space: nowrap;
+}
+ul.tree_view a.text{
+  display: inline-block;
+  line-height: 29px;
+  color: #000;
+  cursor: pointer;
+}
+ul.tree_view span.tvw_icon {
+  display: inline-block;
+  width: 20px;
+  height: 29px;
+  background: url(../images/leftm/expd.gif) no-repeat center;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+ul.tree_view span.tvw_icon.icon_n0{
+  background: url(../images/leftm/bx.gif) no-repeat center;
+}
+ul.tree_view span.tvw_icon.icon_n0.first{
+  background: url(../images/leftm/bx_b.gif) no-repeat center;
+}
+ul.tree_view span.tvw_icon.icon_n0.first.last{
+  background: url(../images/leftm/bx_o.gif) no-repeat center;
+}
+ul.tree_view span.tvw_icon.icon_n0.last{
+  background: url(../images/leftm/bx_e.gif) no-repeat center;
+}
+ul.tree_view .shink span.tvw_icon.icon_n0{
+  background:url(../images/leftm/bs.gif) no-repeat center;
+}
+ul.tree_view .shink span.tvw_icon.icon_n0.first{
+  background:url(../images/leftm/bs_b.gif) no-repeat center;
+}
+ul.tree_view .shink span.tvw_icon.icon_n0.last{
+  background: url(../images/leftm/bs_e.gif) no-repeat center;
+}
+ul.tree_view .shink span.tvw_icon.icon_n0.first.last{
+  background: url(../images/leftm/bs_o.gif) no-repeat center;
+}
+ul.tree_view span.tvw_icon.last{
+  background: url(../images/leftm/expd_e.gif) no-repeat center;
+}
+ul.tree_view .title span.tvw_icon.leaf{
+  background: url(../images/leftm/tree_line40.gif) no-repeat center;
+}
+ul.tree_view .shink span.tvw_icon{
+  background: url(../images/leftm/exps.gif) no-repeat center;
+}
+ul.tree_view .shink span.tvw_icon.last{
+  background: url(../images/leftm/exps_e.gif) no-repeat center;
+}
+ul.tree_view .aspectSpace {
+  height: 29px;
+  vertical-align: middle;
+  background: url(../images/leftm/tree_line30.gif) repeat-y center;
+  display:inline-block;
+  width:20px
+}
+ul.tree_view .aspectSpace.n0.tvw_l{
+  background: url(../images/leftm/tree_line30_f.gif) repeat-y center;
+}
+ul.tree_view .aspectSpace.tvw_nl{
+  background: #fff;
+}
+ul.tree_view span.tvw_icon.leaf.last{
+  background: url(../images/leftm/tree_line20.gif) no-repeat center;
+}
+ul.hidden{display: none;}
+ul.tree_view a.text{color: #000;text-decoration:none;font-family: "Source Han Sans","PingFangSC", "Microsoft Yahei", "微软雅黑", "Arial","宋体";font-weight: 100;cursor: pointer;}
+ul.tree_view a.text:hover{text-decoration: underline;}
+ul.tree_view a.tvw_pnode_open{font-weight: 600;color: #345593;}
+ul.tree_view a.tvw_pnode_close{font-weight: 500;color: #000;}
+ul.tree_view span.node_handle{
+  float:right;
+  clear:both;
+  width:14px;
+  height:14px;
+  margin-right: 10px;
+}
+input.nodeText{border: 1px solid #fff;height: 20px;line-height: 1;width: 100px;*line-height:21px;}
+input.nodeText:focus{border: 1px solid #4fa1e5;outline: none;box-shadow: 0px 0px 2px 0px #4fa1e5;}

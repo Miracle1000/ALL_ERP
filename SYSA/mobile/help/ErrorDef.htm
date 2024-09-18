@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>系统错误号定义</title>
+    <style>
+        td,th{font-size:12px;font-family:宋体;border:1px solid #888899;line-height:16px;}
+        td.en {text-align:center;}
+    </style>
+</head>
+<body>
+<div style='margin:0 auto;width:800px'>
+<center><h2>ResultData错误定义</h2></center>
+<br>
+<div style='background-color:#f8f8f8;border:1px solid #aaa;padding:10px'>
+<div style='font-size:12px;color:red;line-height:20px'>(说明：错误号在100以上一般是具体业务处理错误, 另外除了正常超时引发凭证失效外，更新dll文件也会引发凭证失效。)</div>
+<table border=0 cellpadding=5 cellspacing=0 style='border-collapse:collapse;width:100%;background-color:#eee'>
+    <tr><th style='width:100px'>错误号</th><th>错误描述</th></tr>
+    <tr><td class='en'>0</td><td>正常，无错误</td></tr>
+	<tr><td class='en'>1</td><td>无法识别移动设备号。</td></tr>
+    <tr><td class='en'>2</td><td>该账号无法在当前移动设备上使用。</td></tr>
+	<tr><td class='en'>3</td><td>凭证无效</td></tr>
+	<tr><td class='en'>4</td><td>凭证不合法，无法重新登录。</td></tr>
+	<tr><td class='en'>5</td><td>验证码错误，请重新输入</td></tr>
+	<tr><td class='en'>6</td><td>用户账号被冻结</td></tr>
+    <tr><td class='en'>7</td><td>IP已经更换</td></tr>
+    <tr><td class='en'>8</td><td>被踢下线</td></tr>
+    <tr><td class='en'>9</td><td>访问超时</td></tr>
+    <tr><td class='en'>10</td><td>凭证状态正常</td></tr>
+    <tr><td class='en'>11</td><td>设备号失效</td></tr>
+    <tr><td class='en'>12</td><td>未知凭证错误</td></tr>
+	<tr><td class='en'>13</td><td>密码错误，请重新输入</td></tr>
+    <tr><td class='en'>14</td><td>用户名错误，请重新输入</td></tr>
+    <tr><td class='en'>101</td><td>Sale.OptionsValues：未知的请求项</td></tr>
+    <tr><td class='en'>102</td><td>Custom.GetDetails：加载单据信息失败，详情错误见返回的ErrText信息</td></tr>
+    <tr><td class='en'>103</td><td>Custom.InitCustomAdd：客户添加初始化，详情错误见返回的ErrText信息</td></tr>
+    <tr><td class='en'>104</td><td>BillPage.doSave：客户保存数据解析失败，详情错误见返回的ErrText信息</td></tr>
+    <tr><td class='en'>105</td><td>BillPage.doSave：加载单据信息失败，详情错误见返回的ErrText信息</td></tr>
+    <tr><td class='en'>106</td><td>Search. GetSearchData：检索类型无效或意外错误，详情错误见返回的ErrText信息</td></tr>
+    <tr><td class='en'>107</td><td>Search. GetGatesList：为获取到相关组织架构信息，详情错误见返回的ErrText信息</td></tr>
+    <tr><td class='en'>108</td><td>contract.GetDetails：加载单据信息失败，详情错误见返回的ErrText信息</td></tr>
+</table>
+</div>
+</div>
+</body>
+</html>

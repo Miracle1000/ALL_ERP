@@ -1,0 +1,160 @@
+﻿
+
+html, body {
+    background-color: #000 !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom:10px
+}
+/*全屏div*/
+#Body_div {
+    background-color: black;
+    border-collapse: collapse;
+    /*height:auto!important;*/
+}
+
+/*内容div*/
+#Content_div {
+    height: 100%;
+    margin: 0 23px;
+    background-color: #111e38;
+    padding-bottom:10px
+}
+
+/*包含日期区域的div*/
+#Top_DateArea_div {
+    width: auto;
+    height: auto;
+    border: 1px solid #c0ccdc;
+    border-bottom: none;
+    text-align: center;
+}
+
+/*页面刷新设置区域*/
+#Top_SettingArea {
+    margin-left: 20px;
+    float: left;
+    border-bottom: none;
+    line-height: 39px;
+    color:white;
+    font-weight:bold;
+}
+
+/*日期区域*/
+#Top_DateArea {
+    height: 38px;
+    margin-left: auto;
+    width: 350px;
+    border-bottom: none;
+    line-height: 39px;
+}
+
+
+
+#WCInfo_tb {
+    width: auto;
+    height: 48px;
+    border: 1px solid #c0ccdc;
+    border-bottom: none;
+    font-weight: bold;
+}
+
+
+/*表格*/
+table {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#WCInfo_tb span {
+    border: 1px solid #c0ccdc;
+    border-top: none;
+    border-right: none;
+    font-size: 13px;
+    color: #00ff8e;
+}
+
+#Main_tb th, #Main_tb td {
+    border: 1px solid #c0ccdc;
+}
+
+#Main_tr {
+    border-bottom: 1px solid #c0ccdc;
+}
+
+.span_cla {
+    text-align: center;
+    display: inline-block;
+    width: 49.9%;
+    height: 48px;
+    line-height: 48px;
+}
+
+
+#content_div_3 {
+    border-collapse: collapse;
+    width: 500px;
+    height: auto;
+    background-color: #111e38;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+}
+
+.content {
+    color: #00ff8e;
+    height: 48px;
+    line-height: 48px;
+    width: 250px;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #c0ccdc;
+    *float: left;
+    *width: 249px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+.border_span {
+    font-weight: bold;
+    color: white;
+    width: 150px;
+    height: 48px;
+    line-height: 48px;
+    display: inline-block;
+    border-right: 1px solid #c0ccdc;
+    text-align: center;
+}
+
+.data_span {
+    font-weight: bold;
+    color: #00ff8e;
+    width: 348px;
+    height: 48px;
+    line-height: 48px;
+    display: inline-block;
+    text-align: center;
+    *width: 347px;
+}
+
+#WC_div {
+    font-weight: bold;
+    color: #00ff8e;
+    height: 48px;
+    line-height: 48px;
+    border: 1px solid #c0ccdc;
+    border-top: none;
+}
+
+.div_ss {
+    width: 500px;
+    border: 1px solid #c0ccdc;
+    border-top: none;
+    *width: 498px;
+}

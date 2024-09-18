@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智邦国际企业管理软件</title>
+  <link rel="stylesheet" href="../skin/default/css/mynavset.css?v=2022522">
+  <link rel="stylesheet" href="../skin/default/css/navTree.css?v=2022522">
+</head>
+<script src="../inc/jQuery-1.7.2.min.js"></script>
+<script src="../skin/default/js/navTree.js?v=2022522"></script>
+<script>
+    getRequestParamVal("isTitleHide") ? document.documentElement.className = "inframe" : false;
+</script>
+<body>
+  <div id="myNavSetting">
+    <div id="comm_itembarbg">
+      <div id="comm_itembarICO"></div>
+      <div id="comm_itembarText" style="width:208px;"><span>常用功能设置</span></div>
+      <div id="comm_itembarspc"></div>
+    </div>
+    <div id="comm_navSet_panle">
+      <!-- 标准导航 -->
+      <div id="navSorece" class="left_block">
+        <div class="titleText">
+          标准导航
+          <span class="help_explan_ico" onmouseover="my_navSeting.showHelpExplan(this)" text="①加入常用功能 <span class='alchoose'></span> ，未加入显示 <span class='unchoose'></span>。"></span>
+        </div>
+        <div id="standarNav">
+          <ul id="leftMenu"></ul>
+          <div id="treeNav"></div>
+        </div>
+      </div>
+      <div class="doubleArrow left_block"></div>
+      <!-- 添加 -->
+      <div id="addNavs" class="left_block">
+        <div class="titleText">
+          <span class="arrowIcon"></span>添加常用功能
+          <!--<span class="help_explan_ico" onclick="my_navSeting.showHelpExplan(this)" text="作用：主要是对当前要加入我的导航数据添加；<br/>①支持一次性添加多个目录下导航，手动选择匹配目录，支持批量选择；<br/>②支持对导航名称自定义别名，最大长度50个字；<br/>③如果选择错误可通过 <span class='clechoose' style='background-size:12px 12px'></span> 进行取消；<br/>④可通过 <span class='up'></span> <span class='down'></span> 箭头进行移动导航上下位置。"></span>-->
+        </div>
+        <div id="addNavContainer">
+          <table class="add_table" id="add_table_head">
+            <tr>
+              <th>取消</th>
+              <th>
+                <select name="" id="Ztl_MenuList" class="menuList" onchange="changeMenu(this.value)">
+                  <!-- <option value="">默认目录</option> -->
+                </select>
+              </th>
+              <th>名称</th>
+              <th>移动</th>
+            </tr>
+          </table>
+          <div id="addNavDataContainer">
+            <table id="add_table_body" class="add_table_data" onmousewheel="resetTablePos()">
+            </table>
+            <div id="rightScrollBar" onscroll="resetTablePos(this)"><div id="scrollBar"></div></div>
+          </div>
+          <div class="addNavBtn">
+            <button class="node_add_btn zb_btn" onclick="addMyMenuView()">加入常用功能</button>
+            <button class="node_clean_btn zb_btn" onclick="cleanAll()">全部清除</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="doubleArrow left_block"></div>
+      <!-- 视图 -->
+      <div id="navView" class="left_block">
+        <div class="titleText"><span class="arrowIcon"></span>常用功能
+          <!--<span class="help_explan_ico" onclick="my_navSeting.showHelpExplan(this)" text="作用：主要展示和编辑已有我的导航内容；<br/>①通过页面右上角添加新目录；<br/>②通过引用模板快速设置我的导航；<br/>③可对我的导航目录名称进行修改、删除和移动位置；<br/>④可对我的导航的导航进行查看原名、修改、取消和移动位置。<br/>"></span>--></div>
+        <div class="model">
+          <span class="text">引用模板:</span>
+          <input class="model_role" type="text" readonly onfocus="this.blur()" value="所有角色">
+          <input type="button" class="addMenu zb_btn" onclick="addMune(this)" value="添加目录">
+        </div>
+         <div id="mask"></div>
+        <div id="add_menu_container">
+          <div class="add_menu_title"><span class="arrowIcon"></span>添加目录<span class="closeMenu">×</span></div>
+          <div class="add_menu_content">
+            <span class="text">目录名称:</span>
+            <input id="addMuneText" class="menu_name" type="text">
+            <span style="color: red;">*</span>
+          </div>
+          <div class="add_menu_btns">
+            <button id="save_menu" class="zb_btn" onclick="addMuneSave()">保存</button>
+            <button id="add_menu" class="zb_btn"  onclick="addMuneSave(1)">新增</button>
+            <button id="reset_menu" class="zb_btn" onclick="addMuneClean()">重填</button>
+          </div>
+        </div>
+        <div id="myNavView">
+
+        </div>
+        <div id='multipleModel' style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+  <span id="originTips" style="display: none;"><span id="originName"></span><span class="arrow"></span></span>
+  <span id="checkTreeName" onclick="hideCheckTips(this)">不允许为空</span>
+  <div class='getInfoTips'><div class='onRunTime'></div>数据正在加载中...</div>
+</body>
+<script src="../skin/default/js/json2.js"></script>
+<script src="../skin/default/js/myNavSetting.js"></script>
+<script>
+    var uizoom = top.uizoom ? top.uizoom : 1;
+    if ((top == window || (top.app && top.app.IeVer >= 100)) && uizoom != 1) {
+        $("body").css({ "position": "relative", "zoom": uizoom })
+    }
+  $.ajax({
+    url:"../../SYSN/json/comm/MyMenuApi.ashx?actionName=GetMyMenuPageJsonString",
+    dataType:"text",
+    success:function(res){
+      window.DataSource=eval("("+res+")");
+      $(".getInfoTips").css("display","none")
+      my_navSeting.creatNavAndTree()
+    }
+  })
+</script>
+</html>

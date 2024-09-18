@@ -1,0 +1,92 @@
+﻿.tree{
+	font-size:12px;
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	cursor:pointer;
+}
+
+.tree-folder{
+	width:auto;
+	height:auto;
+	display:block;
+	background:transparent;
+}
+
+.tree-folder-closed{
+	background-image: url(../images/folder1.gif);
+	background-repeat: no-repeat;
+	height: auto;
+	left: 32px;
+	padding-left: 32px;
+	cursor: pointer;
+}
+
+.tree-folder-open{
+	background-image: url(../images/folder2.gif);
+	background-repeat: no-repeat;
+	height: auto;
+	left: 32px;
+	padding-left: 32px;
+	cursor: pointer;
+}
+
+.tree-lastfolder-closed{
+	background-image: url(../images/folder3.gif);
+	background-repeat: no-repeat;
+	height: auto;
+	left: 32px;
+	padding-left: 32px;
+	cursor: pointer;
+}
+
+.tree-lastfolder-open{
+	background-image: url(../images/folder4.gif);
+	background-repeat: no-repeat;
+	height: auto;
+	left: 32px;
+	padding-left: 32px;
+	cursor: pointer;
+}
+
+.tree-leaf-nodes{
+	padding-left: 20px;
+	background-image: url(../images/list.gif);
+	background-repeat: repeat-y;
+}
+
+.tree-lastleaf-nodes{
+	padding-left: 20px;
+	background-repeat: repeat-y;
+}
+
+.tree-loading{
+	background:url('themes/default/images/tree_loading.gif') no-repeat;
+}
+
+.tree-pagebar{vertical-align:center;font-size:14px}
+.tree-pagebar-page-box{width:23px;border:1px solid gray;text-align:right;height:16px;font-size:12px;padding-top:0px;padding-bottom:0px;line-height:16px}
+
+.tree-pagebar-first-btn{cursor:pointer;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_1.png') center no-repeat; display:inline-block; vertical-align: middle;}
+.tree-pagebar-prev-btn{cursor:pointer;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_2.png')center  no-repeat; display:inline-block; vertical-align: middle;}
+.tree-pagebar-next-btn{cursor:pointer;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_3.png') center no-repeat; display:inline-block; vertical-align: middle;}
+.tree-pagebar-last-btn{cursor:pointer;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_4.png') center no-repeat; display:inline-block; vertical-align: middle;}
+
+.tree-pagebar-first-btn-disabled{cursor:default;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_1.png') center no-repeat; display:inline-block; vertical-align: middle;}
+.tree-pagebar-prev-btn-disabled{cursor:default;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_2.png') center no-repeat; display:inline-block; vertical-align: middle;}
+.tree-pagebar-next-btn-disabled{cursor:default;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_3.png') center no-repeat; display:inline-block; vertical-align: middle;}
+.tree-pagebar-last-btn-disabled{cursor:default;width:16px;height:16px;background:url('../skin/default/images/ico16/lvwbar_4.png') center no-repeat; display:inline-block; vertical-align: middle;}
+
+.tree a{color:#000;}
+
+.pro-menu-wrap {
+	 width: 223px; /*库存-出库-直接出库-添加明细-树宽度不够 */  
+	box-sizing:border-box;
+    overflow: auto;
+    scrollbar-highlight-color:#fff;scrollbar-face-color:#f0f0ff;scrollbar-arrow-color:#c0c0e8;scrollbar-shadow-color:#d0d0e8;scrollbar-darkshadow-color: #fff;
+    scrollbar-base-color:#ffffff;scrollbar-track-color:#fff;padding-top: 5px;
+    padding-left: 5px;
+    border-right: 1px solid #c0ccdd;
+    border-bottom: 1px solid #c0ccdd;
+    border-left: 1px solid #c0ccdd;
+}

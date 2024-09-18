@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<script type="text/javascript" src="../js/commscript.ashx"></script>
+		<script src="../js/comm.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="titlehead"></div>
+		<script>
+			var idFrom=window.location.href;
+			var id=getRequest("ord");
+			if(idFrom.indexOf("http:")>-1){
+				document.write("<scri" + "pt src=\"http://work.zbintel.com/help_a/dbpageutf8.asp?ord="+ id +"&sn=87f468788f927878ba6c39a7dbea1d96&ver=3176(bate)\"></sc" + "ript>")
+			}else{
+			    document.write("<scri" + "pt src=\"https://www.zbintel.com/help_a/dbpageutf8.asp?ord=" + id + "&sn=87f468788f927878ba6c39a7dbea1d96&ver=3176(bate)\"></sc" + "ript>")
+			}
+		</script>
+		<script>
+		var iframe_height=0, ii = 0, p_offtop = 0
+		function TestPageSize(){
+			iframe_height=document.body.scrollHeight;
+			if(p_offtop!=iframe_height){
+				if(iframe_height<1650){
+					window.parent.document.getElementById("iframe_src").style.height = 1500 + "px";
+					window.parent.document.getElementById("cont_height").style.height = 1650 + "px";
+				}else{
+					window.parent.document.getElementById("iframe_src").style.height = iframe_height+100+"px";
+					window.parent.document.getElementById("cont_height").style.height = iframe_height+250+"px";
+				}
+				p_offtop = iframe_height;
+			}else{
+				window.parent.document.getElementById("cbottom").style.visibility = "visible"; 
+			}
+			ii++;
+			if(ii<10) {
+				setTimeout(TestPageSize,200);
+			}
+		}
+		setTimeout(TestPageSize,200);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,450 @@
+﻿@charset "utf-8";
+/*去除上下箭头*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+body,html{
+	background: #F5F5F5;
+}
+header.container{
+	font-size: 16px;
+	background:rgba(227,227,227,.8);
+	width: 100%;
+	height: 53px;
+	line-height: 53px;
+	border-bottom: 1px solid #ccc;
+}
+header .row li.right-btn{
+	height: 3rem;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+header .row li.right-btn img{
+	width: 2rem;
+	padding-bottom: 0.3rem;
+}
+
+#back,#indexback,#addrback,#wordsback{
+	width:12px;
+	padding-top: 15px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;	
+}
+/********头像******/
+.pic{
+	height: 9.5rem;
+	background: #F15352;
+}
+#username{
+	font-size: 14px;
+	color: #fff;
+}
+.pic figure{
+	padding-top: 0.5rem;
+	width:10rem;
+	height: 6rem;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+}
+.pic div{
+	margin: 0 auto;
+	width:7rem;
+	height: 7rem;
+	overflow: hidden;
+	border-radius: 50%;
+}
+.pic div img{
+	width: 100%;
+}
+#mySetting{
+	width: 1rem;
+	position: absolute;
+	right:5% ;
+	top:40%;
+	border-bottom:1px solid #ccc ;
+}
+
+.divConmenCss{
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 15px 0 8px 0;
+	font-size: 14px;
+}
+.status{
+	overflow: hidden;
+	clear: both;
+	width: 60%;
+	margin: 0 auto;
+}
+.status li{
+	float: left;
+	display: block;
+	width: 33%;
+}
+.status li figcaption{
+	padding: 0 0;
+}
+.status li img{
+	height: 3rem;
+}
+.setting,.order{
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+	font-size: 14px;
+	padding:10px 0 10px 15px;	
+	border-bottom: 1px solid #ccc;
+	border-top:1px solid #ccc ;
+	clear: both;
+	overflow: hidden;
+}
+
+.order .listImg{
+	width: 1.2rem;
+	padding-bottom: 0.2rem;
+}
+.order .mpreImg{
+	width: 0.7rem;
+	vertical-align: middle;
+	padding-bottom: 0.2rem;
+}
+#instructionsDiv{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(255,255,255);
+	font-size: 14px;
+	line-height: 1.5;
+	text-align: center;
+}
+.words{
+	padding: 10px;
+	text-align: center;
+	color: #000;
+}
+.setting img{
+	width: 1.2rem;
+	padding-bottom: 0.2rem;
+}
+.text-indent{
+	text-indent: 2em;
+	padding: 0.8rem 0;	
+}
+.boeder-btm{
+	border-bottom: 1px solid #ccc;
+}
+.rtMore{
+	width: 0.8rem;
+	margin-right: 1rem;
+	padding-top: 0.8rem;
+}
+/*************地址弹框 alert************/
+.alert{
+	position: fixed;
+	display: none;
+	width:100%;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+	z-index: 999;
+}
+#telForm{
+	border-radius:0.8rem ; 
+	margin: 6rem auto;
+	padding: 2rem;
+	height: 15rem;
+	width: 80%;
+	border: 1px solid #ccc;
+	background: #F3F3F3;
+}
+
+.number{  
+	position: absolute;
+	transform: translate(3.5rem,0.2rem);
+	-webkit-transform:translate(3.5rem,0.2rem);
+    display: block;
+    height: 1.7rem;
+	width: 1.7rem;
+	line-height: 1.7rem;
+	background:#F15352;
+	font-size: 1rem;
+    text-align: center;
+    background: #F15352;
+    color: #fff;
+    border-radius: 50%;
+}
+/**********地址列表*********/
+#addressList{
+	font-size: 13px;
+	line-height: 2.5;
+}
+#addressList .noAddr{
+	text-align: center;
+	font-size: 13px;
+	margin-top: 12rem;
+}
+#addressList ul{
+	padding: 0.3rem;
+	margin: 0.5rem;
+	border: 1px dashed #31B0D5;
+	border-radius: 1rem;
+}
+#addressList ul .addrLi{
+	border-top: 1px solid #bfbfbf;
+}
+#addressList ul .addrLi .defaultBtn{
+	background: #bfbfbf;
+	color: #fff;
+	border-radius: 0.6rem;
+	height: 2rem;
+	line-height: 2rem;
+	margin-top: 0.5rem;
+	display: block;
+	width: 6rem;
+}
+#addressList ul .addrLi .default{
+	background: #F15352;
+	color: #fff;
+}
+.glyphicon-trash,.glyphicon-edit{
+	padding:0 0.3rem ;
+	font-size: 16px;
+	color: #F15352;
+}
+.col-xs-4.editDiv{
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+.editWords{
+	color: #666;
+	font-size: 12px;
+	font-style: normal !important;    
+}
+/*.orderDetails li span,.haveAddr span{
+	display: inline-block;
+	width: 49%;
+	line-height: 2;
+}*/
+.receiver,.photoImg{
+	line-height: 2;
+	display: block;
+}
+.receiver{
+	float: left;
+	width: 66%;
+	vertical-align: top;
+}
+.photoImg{
+	float: right;
+	width: 34%;
+}
+.haveAddr{
+	padding-left: 15px;
+	padding-right: 10px;
+}
+ .orderDetails li span i.phoneI,.haveAddr span i.phoneI{
+ 	font-style: normal;
+    display: inline-block;
+    height: 1.8rem;
+    width: 0.8rem;
+    background: url(../img/phoneImg.png) no-repeat center center;
+    background-size: 100%;
+    vertical-align: middle;
+    margin-right: 0.1rem;
+    margin-top: -0.35rem;
+}
+.orderDetails li span i.userI,.haveAddr span i.userI{
+	font-style: normal;
+	display: inline-block;
+	height: 1.1rem;
+	width: 1.1rem;
+	background:url(../img/userImg.png) no-repeat center center;
+	background-size: 100%;
+	vertical-align: middle;
+	margin-right: 0.1rem;
+	margin-top: -0.3rem;
+}
+#address{
+	height: auto !important ;
+	border: none;
+}
+/*********新增收货地址********/
+.submit{
+	font-size: 16px;
+	display: block;
+	border: none;
+	height: 3.5rem;
+	width: 80%;
+	margin: 0 auto 20px auto;
+	border-radius:5px ;
+	text-align: center;
+	color: #fff;
+	background: #F15352;
+}
+.newAddressFix{
+	position: fixed;
+	bottom: 0rem;
+	left: 0;
+}
+.erroTg{
+	position: absolute;
+	padding:0.1rem 5rem;
+	color: #fff;
+	background: rgba(241,81,82,0.6);
+	height: 1.4rem;
+	font-size: 12px;
+	line-height: 1.4rem;
+	text-align: left;
+	display: none;
+}
+.telerroTg{
+	position: absolute;
+	padding:0.1rem 0rem;
+	color: #fff;
+	background: rgba(241,81,82,0.6);
+	height: 2rem;
+	font-size: 12px;
+	line-height: 1.4rem;
+	text-align: center;
+	display: none;
+	width:18.7rem;
+	margin-left: 15px;
+}
+/******账户管理*****/
+#edit{
+	font-size: 14px;
+}
+#info ul li{
+	font-size: 13px;
+	padding: 2rem 0;
+}
+#editInfo{
+	display: none;
+}
+#editInfo ul li{
+	font-size: 13px;
+	padding: 2rem 0;
+	height: 3rem;
+	line-height: 3rem;
+}
+#editInfo ul li input[type="radio"]{
+	line-height: 1rem;
+	height: 1rem;
+}
+#editInfo ul li input{
+	width: 50%;
+	line-height:  2.5rem;
+	height: 2.5rem;
+	border: 1px solid #ccc;
+}
+#editInfo ul li input.sex{
+	width: 10%;
+}
+.btn-success{
+	width: 80%;
+	display: block;
+	background: #F15352;
+	outline: none;
+	border: none;
+	margin: 2rem auto;
+}
+#canEditInfo li{
+	height: 6rem;
+	line-height: 6rem;
+}
+
+#canEditInfo li div.errorTig{
+	position: absolute;
+	bottom: -2rem;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	z-index: 99;
+	color: #fff;
+	background: rgba(241,81,82,0.6);
+	height: 1.4rem;
+	line-height: 1.4rem;
+	display: none;
+	font-size: 12px;
+}
+#addrForm{
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+}
+#addrForm .form-group{
+	position: relative;
+}
+#addrForm .editErroTg,#addrForm .erroTg{
+	position: absolute;
+	bottom: -1.1rem;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	z-index: 99;
+	background: rgba(241,81,82,0.6);
+	color: #fff;
+	font-size: 12px;
+	display: none;
+}
+/*****底部******/
+.footer{
+	position: fixed;
+	bottom:0;
+	height: 60px;
+	width: 100%;
+	background: #333;
+	width: 100%;
+	z-index: 33;
+}
+.footer ul{
+	display:flex;
+	width: 100%;
+	height: 100%;
+}
+.footer ul li{
+	padding: 0.5rem 0 0 0;
+	width: 25%;
+	-webkit-flex: 1;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 15px;
+}
+.carNum{
+	position: absolute;
+	top:0rem;
+	right:2.0rem ;
+	display: block;
+    height: 1.7rem;
+	width: 1.7rem;
+	line-height: 1.7rem;
+	background:#F15352;
+	font-size: 1rem;
+    text-align: center;
+    background: #F15352;
+    color: #fff;
+    border-radius: 50%;
+	display:none;
+}
+
+.footer a:hover{
+	color: #F15352;
+	text-decoration: none;
+}
+.footer li.Link{
+	background: linear-gradient(to bottom,#161616,#333);
+	color:#F15352;
+}
+.footer ul li img{
+	width: 30%;
+}
+.footer figcaption{
+	padding: 0.5rem 0;
+}

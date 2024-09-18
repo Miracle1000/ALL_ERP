@@ -1,0 +1,1 @@
+﻿<IFRAME name="I3" SRC="pay2_1.asp" height="610" width="100%" scrolling="yes"  border="0" frameborder="0"></IFRAME>

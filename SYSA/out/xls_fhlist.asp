@@ -1,0 +1,2518 @@
+﻿<%@ language=VBScript %>
+<%
+	ZBRLibDLLNameSN = "ZBRLib3205"
+	Set zblog = server.createobject(ZBRLibDLLNameSN & ".ZBSysLog")
+	zblog.init me
+'ZBRLibDLLNameSN = "ZBRLib3205"
+	Function EnCrypt(m)
+		Dim bc : Set bc = server.createobject(ZBRLibDLLNameSN & ".Base64Class")
+		EnCrypt = bc.EnCrypt(m & "") : Set bc = nothing
+	end function
+	Function DeCrypt(m)
+		Dim bc : Set bc = server.createobject(ZBRLibDLLNameSN & ".Base64Class")
+		DeCrypt = bc.DeCrypt(m & "") : Set bc = nothing
+	end function
+	Function pwurl(ByVal theNumber)
+		If isnumeric(theNumber)=False Then pwurl = "" : Exit Function
+		If LCase(typename(Sdk))<>"commclass" Then
+			Dim sdktmp :Set sdktmp = server.createobject(ZBRLibDLLNameSN & ".CommClass")
+			pwurl = sdktmp.VBL.EncodeNum(CLng(theNumber), server)
+			Set sdktmp = Nothing
+		else
+			pwurl = ZBRuntime.Sdk.VBL.EncodeNum(CLng(theNumber), server)
+		end if
+	end function
+	Function deurl(theNumber)
+		If Len(theNumber&"") > 0 Then
+			If InStr(theNumber,"%")>0 Then
+				Dim b64 : Set b64 = server.createobject(ZBRLibDLLNameSN & ".Base64Class")
+				theNumber = b64.UrlDecodeByUtf8(theNumber)
+				Set b64 = nothing
+			end if
+			Dim v : v = ZBRuntime.Sdk.VBL.DecodeNum(theNumber & "") & ""
+			if v ="" Or isnumeric(v) = False then
+				deurl="-1"
+			else
+				deurl=v
+			end if
+		end if
+	end function
+	call ProxyUserCheck()
+	function IsNumeric(byval v)
+		dim r :  r = ""
+		if len(v & "")=0 then IsNumeric = false : exit function
+		on error resume next
+		r  = replace((v & ""),",","")*1
+		IsNumeric = len(r & "") >0
+	end function
+	function zbcdbl(byval v)
+		if len(v & "") = 0 or IsNumeric(v & "")=False then  zbcdbl = 0 : exit function
+		zbcdbl = cdbl(v)
+	end function
+	If Application("dis_sql_safe_check") = "" Then
+		If comSqlSafeCheck = False Then
+			if instr(lcase(request.ServerVariables("URL")),"checkin2.asp") > 0 Then
+				Response.clear
+			end if
+			Response.end
+		end if
+	end if
+	Sub ShowErrorMsg(ByVal title, ByVal code, ByVal errmsg)
+		Dim c : On Error Resume Next
+		Set c = server.createobject(ZBRLibDLLNameSN & ".CommClass")
+		Dim vp : vp = ""
+		vp = c.getvirpath
+		Response.clear
+		If InStr(lcase(code),"<script>") > 0 Then
+			Response.write Replace(code, "@virpath", vp)
+		else
+			Response.write "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/><title>系统信息</title><style>.r{color:red}</style><link href='" & vp & "inc/cskt.css' rel='stylesheet' "&_
+			"type='text/css'/></head><body><table width='100%'  border='0' align='center' cellpadding='0' cellspacing='0' bgcolor='#FFFFFF'><tr><td width='100%' valign='top'>" &_
+			"<table width='100%' border='0' cellpadding='0' cellspacing='0' background='" & vp & "images/m_mpbg.gif'>" &_
+			"<tr><td class='place'>" & title & "</td><td>&nbsp;</td><td align='right'>&nbsp;</td><td width='3'><img src='" & vp & "images/m_mpr.gif' width='3' height='32' /></td></tr></table></td></tr>" &_
+			"<tr><td style='border-top:1px solid #c0ccdd'><div style='padding:20px;line-height:24px'>"
+			Response.write Replace(code, "@virpath", vp)
+			If Len(errmsg) > 0 Then
+				Response.write "<div id='errordiv' style='background-color:#f2f2f2;color:blue;font-family:arial,宋体;margin:10px auto;text-align:center;border:1px dotted #ccc;padding:10px;width:50%;display:none'>异常描述：" & errmsg & "</div>"
+			end if
+			Response.write "</td></td></tr></table><table width='100%' cellspacing='0' style='border-top:1px solid #c0ccdd'><tr><td class='page'>&nbsp;</td></tr></table><script>function showerror(){var box=document.getElementById(""errordiv"").style;box.display=box.display==""none""?""block"":""none""}</script></body></html>"
+		end if
+		Response.end
+		Set c = nothing
+	end sub
+	Sub InitSysRuntimeVar
+		Set ZBRuntime = server.createobject(ZBRLibDLLNameSN & ".Library")
+		If ZBRuntime.SplitVersion <3173 Then Response.write "<br><br><br><br><center style='color:red;font-size:12px'>系统提示：运行库组件版本不正确。</center>" : Response.end
+		if ZBRuntime.loadOK=False  Then
+			Set sdk = server.createobject(ZBRLibDLLNameSN & ".CommClass")
+			Call ZBRuntime.setDefLCID(Session)
+			sdk.init me
+		else
+			If InStr(lcase(request.ServerVariables("URL")),"index2.asp") = 0 Then
+				ShowErrorMsg "","<script>top.window.location.href ='@virpathindex2.asp?id2=8'</script>",""
+			else
+				ShowErrorMsg  "系统加载失败", "<center style='color:red'>系统运行组件未获取到正确的签名信息.</center>",""
+			end if
+		end if
+	end sub
+	function comSqlSafeCheck
+		dim disCheckUrl , disSqlCheck , i
+		disCheckUrl = "contract/moban_dy.asp|contract/moban_dy2.asp|email/creatAttach.asp"
+		disCheckUrl = split(disCheckUrl,"|")
+		for i = 0 to ubound( disCheckUrl )
+			if instr(lcase(request.ServerVariables("URL")),disCheckUrl(i)) > 0 Then
+				comSqlSafeCheck = true
+				exit function
+			end if
+		next
+		Dim fromurl : fromurl = Replace(Request.ServerVariables("Http_Referer"),"""","\""")
+		dim keydatas,keylist,Sql_Post,ii, SqlKeys,hsQ
+		keydatas = "'|exec |insert |select |delete |update |truncate |execute |shell |union |drop |create |<script|alert |confirm |eval "
+		SqlKeys = Array( vbtab,  vbcr,  vblf,  "(",  "--", "/*")
+		keylist = split(keydatas,"|")
+		Dim n1,  n2,  n3
+		If Request.QueryString<>"" Then
+			For Each qname In Request.QueryString
+				n1 = Request.QueryString(qname)
+				For ii=0 To Ubound(keylist)
+					n2 = keylist(ii)
+					hsQ = instr(lcase(n1),lcase(n2))>0
+					For  n3 = 0 To ubound(SqlKeys)
+						If hsQ = True Then  Exit for
+						hsQ  =  instr(lcase(n1), lcase(Replace(n2 &""," ", SqlKeys(n3))))>0
+					next
+					if  hsQ  Then
+						Response.clear
+						response.charset="UTF-8"
+						Response.write "<script>alert('请不要使用非法字符(A)！');if(this.parent && this.parent!=this && this.parent.location.href==""" & fromurl & """){}else{history.back(-1)}</Script>"
+						comSqlSafeCheck = false
+						exit function
+					end if
+				next
+			next
+		end if
+		If InStr(lcase(request.servervariables("CONTENT_TYPE") & ""),lcase("multipart/form-data"))=0  then
+			If Request.Form<>"" Then
+				For Each postname In Request.Form
+					n1 = Request.Form(postname)
+					For ii=0 To Ubound(keylist)
+						n2 = keylist(ii)
+						if len(n1&"")>1 then
+							hsQ = instr(lcase(n1&""),lcase(n2&""))>0
+						else
+							hsQ =false
+						end if
+						For  n3 = 0 To ubound(SqlKeys)
+							If hsQ = True Then  Exit for
+							hsQ  =  instr(lcase(n1), lcase(Replace(n2 &""," ", SqlKeys(n3))))>0
+						next
+						if  hsQ  Then
+							Response.clear
+							response.charset="UTF-8"
+							Response.write "<script>alert('请不要使用非法字符(B)');if(this.parent && this.parent!=this && this.parent.location.href==""" & fromurl & """){}else{history.back(-1)}</Script>"
+							comSqlSafeCheck = false
+							exit function
+						end if
+					next
+				next
+			end if
+		end if
+		comSqlSafeCheck = true
+	end function
+	public ZBRuntime, Sdk
+	Call InitSysRuntimeVar
+	Class ExcelCollocation
+		Public Function Create()
+			on error resume next
+			Set m_xlsobj_app  = Server.CreateObject("Excel.Application")
+			If Err.number <> 0 Then
+				Response.clear
+				Response.write sdk.Res.html("msg_excel_err")
+				conn.close : cn.close : Response.end
+			end if
+		end function
+		Private Sub Class_Terminate()
+			on error resume next
+			If LCase(typename(conn)) = "connection" Then conn.close : Set conn = nothing
+			if LCase(typename(m_xlsobj_app)) = "application" Then
+				Dim fs , fp : fp = server.mappath("../out/outerror_tmp_" & session("personzbintel2007") & ".xls")
+				Set fs = server.createobject("Scripting.FileSystemObject")
+				If Not fs Is Nothing then
+					If fs.FileExists(fp) Then fs.DeleteFile fp  , true
+					If Not fs.FileExists(fp) Then m_xlsobj_app.Worksheets(1).SaveAs fp
+					m_xlsobj_app.Quit
+					Set m_xlsobj_app = Nothing : Set fs = nothing
+				end if
+			end if
+		end sub
+	End Class
+	Dim ec_obj , m_xlsobj_app
+	Set ec_obj = New ExcelCollocation
+	Function GetExcelApplication
+		Call ec_obj.Create()
+		Set GetExcelApplication = m_xlsobj_app
+	end function
+	Function ClientClosedExit
+		If response.isClientconnected = false Then
+			Err.raise 4908, "xlscc.asp", "客户端已经断开，触发Clientconnected判断机制，抛出常规性错误。"
+		else
+			ClientClosedExit = true
+		end if
+	end function
+	Function JmgToUrl(url)
+		If InStr(url,"?") > 0 Then
+			url = url & "&asize=" & Abs(Len(request.form & request.querystring) > 0) & "&u=" &  server.htmlencode(LCase(request.servervariables("url")))
+		end if
+		Response.redirect url
+	end function
+	Function checkSuperDog(ByVal cnobj, ByVal vPath , ByVal ismobile)
+		on error resume next
+		Dim redirectURL , message
+		redirectURL = "" : message = ""
+		Dim tb_vcsc, DogApp, rs, dllpathmd5
+		tb_vcsc = ""
+		dllpathmd5 = ZBRuntime.DLLPath_MD5
+		If Len(dllpathmd5) > 0 Then
+			dllpathmd5 = " where  vpath='" & dllpathmd5 & "'"
+		end if
+		Err.clear
+		If cnobj.Execute("select count(1) where EXISTS(SELECT id FROM dbo.SysObjects WHERE ID = object_id(N'M_content') AND OBJECTPROPERTY(ID, 'IsTable') = 1)")(0) > 0 Then
+			If cnobj.Execute("select 1 from syscolumns where id = OBJECT_ID(N'[dbo].[M_content]') and name='vpath'").EOF Then
+				cnobj.Execute "ALTER TABLE dbo.M_content ADD vpath varchar(50) NULL"
+			end if
+			Set rs = cnobj.Execute("select top 1 vcsc from M_content " & dllpathmd5)
+			If Not rs.EOF Then tb_vcsc = rs(0)
+			rs.close
+		end if
+		If tb_vcsc = "" Then
+			redirectURL = vPath & "manager/setactive.asp?msg=本地注册凭证失效"
+			message = "本地注册凭证失效"
+		else
+			tb_vcsc = StrReverse(Left(tb_vcsc, 9)) & StrReverse(Right(tb_vcsc, 23))
+			tb_vcsc = Mid(tb_vcsc, 6, 16)
+			If ZBRuntime.MC(61000) Then
+				Set DogApp = server.CreateObject("SuperDog.DogApplication")
+				If Err.Number <> 0 Then
+					redirectURL = vPath & "check_log.asp?status=1" '"1.创建SuperDog组件失败,请注册: regsvr32 dog_com_windows.dll"
+					message = getJmgStatus(1)
+				else
+					If (Nothing Is DogApp) Then
+						redirectURL = vPath & "check_log.asp?status=1" '"1.创建SuperDog组件失败,请注册: regsvr32 dog_com_windows.dll"
+						message = getJmgStatus(1)
+					else
+						If Err.Number <> 0 Then
+							redirectURL = vPath & "check_log.asp?status=1" '"1.创建SuperDog组件失败,请注册: regsvr32 dog_com_windows.dll"
+							message = getJmgStatus(1)
+						else
+							Dim FeatuerID, Dog
+							Set FeatuerID = DogApp.Feature(1)
+							Set Dog = DogApp.Dog(FeatuerID)
+							Dim scope
+							scope = "<?xml version=""1.0"" encoding=""UTF-8"" ?><dogscope><license_manager hostname =""localhost"" /></dogscope>"
+'Dim scope
+							Dim VendorCode1, VendorCode2, VendorCode3
+							VendorCode1 ="rZIi6W3U5qKtIUZNTjSSgnhned/2ai8+E0R0NBzKbAJXC54ZGmWT6KxwW27xD1AAqNSGgkqq2vLKZw8H58QaVhSY09qxrACJswOaYydxdLtPynyrGcpOvvXgQQBtnQTdsn/aJD+SIcGRu+E0tXpExTbE5bblEy2H97Lo8uwTEM/vYCtheUo6wug5xulAxI71tRUorfpngzn"
+'Dim VendorCode1, VendorCode2, VendorCode3
+							VendorCode3 = "KzclLlNKmiU9pTIkRRyUqlzFtcEnhEjwamZxKCqp1ppaom0A5X72DEDnSMBg0rdCayaxJh/VrqtRv2Wujjx5acac1r+N7aaCjNiUer5X7ZExbWWIcRNxxwgFLZNALO5FliaHyopyWg4RQTbGGyZKdZ3RfiZJdfJLu0PApMQN+8ersyK2m7LMSY8eZc83D1vTX8BoZWY/HXvOsju2M039UnKUU+v00tdeT5/xhB3fNe6RSjcZXa/ZofLDQzHOj/2xRIAGISJ0JtQivr5jsgOQuhjJk9PthL5eFzYL+pYA0zdMIP5C42Go7MgAZSPLwMiEIOuyIeLep9ZR5iRcBl1fVyVjyaCVrn9Qt+Glcpj0lziam3SsGnl1WdXxM6yEc0nmmVrr0DSA=="
+'Dim VendorCode1, VendorCode2, VendorCode3
+							VendorCode2 = "Yi4m7PAjeQ4n7FGAPxnO63MrESMHczwVh9uod/MbrU7RYOiM90y6Cu9lNBpibp1LDERxDWctlxBEldMry6QLEG705q6ie6aQncWu9evLTsmkMsw4PDWoowCwyW431Wzc/+8EAk6gLkA2m6Jkf+Qooqu5Q5UQlJvDa8BQZqU7Lx2ZRqI3RGW7APIqWGFk1Bdrvedg16+zHL6/J9V7b5+KBAq9cAreJhcLN8WZ1yID1RZ5gDqSDu25Yajso92uXyN+M65WmMatEPxD4pZbUPRTxGrCRghIYzzWjpWRbg1ZVyyOT4RJpgu/9dF1UqooTD+jrT/VA121EYPt2FyMMYtVINiUH1LumPukUPH2s0D6Lk8UhNEvckutzCZtZ+ipswOzEac"
+'Dim VendorCode1, VendorCode2, VendorCode3
+							Dim status, DogFile
+							status = Dog.LoginScope(VendorCode1 & VendorCode2 & VendorCode3, scope)
+							If Not Dog.IsLoggedIn Then
+								redirectURL = vPath & "check_log.asp?status=" & status
+								message = getJmgStatus(status)
+							else
+								Set DogFile = Dog.GetFile(65524)
+								If IsNull(DogFile) Then
+									redirectURL = vPath & "check_log.asp?status=111" '"111.获取superDog空间内容失败"
+									message = getJmgStatus(111)
+								else
+									Dim Size: Set Size = DogFile.FileSize
+									If Size.status <> 0 Then
+										redirectURL = vPath & "check_log.asp?status=" & Size.status
+										message = getJmgStatus(Size.status)
+									else
+										Dim superDog_text : superDog_text = Trim(Replace(Replace(DogFile.ReadString,vbcr,""),vblf,""))
+										If LCase(superDog_text) <> REMD5(LCase(tb_vcsc)) Then
+											redirectURL = vPath & "check_log.asp?status=1000" '"1000.SuperDog硬件与该系统不匹配"
+											message = getJmgStatus(1000)
+										end if
+									end if
+								end if
+								If Len(redirectURL)>0 Then Dog.Logout
+							end if
+						end if
+					end if
+				end if
+				Set DogApp = Nothing
+			end if
+		end if
+		On Error GoTo 0
+		If ismobile = True Then
+			If Len(message)>0 Then
+				app.mobile.document.body.CreateModel("message","").Text = message
+				Call App.mobile.flush
+				Response.end
+			end if
+		else
+			If Len(redirectURL)>0 Then
+'Call retrieveSys(vPath)
+'Call JmgToUrl(redirectURL)
+			end if
+		end if
+	end function
+	Function REMD5(str)
+		Dim tStr, s, i
+		If Trim(str) = "" Or IsNull(str) Then Exit Function
+		For i = 1 To Len(str)
+			s = Mid(str, i, 1)
+			Select Case s:
+			Case "0": s = "f"
+			Case "1": s = "e"
+			Case "2": s = "d"
+			Case "3": s = "c"
+			Case "4": s = "b"
+			Case "5": s = "a"
+			Case "6": s = "9"
+			Case "7": s = "8"
+			Case "8": s = "7"
+			Case "9": s = "6"
+			Case "a": s = "5"
+			Case "b": s = "4"
+			Case "c": s = "3"
+			Case "d": s = "2"
+			Case "e": s = "1"
+			Case "f": s = "0"
+			End Select
+			tStr = tStr & s
+		next
+		REMD5 = tStr
+	end function
+	Function retrieveSys(ByVal vPath)
+		on error resume next
+		application.contents.removeall
+		Session.Abandon
+	end function
+	Function getJmgStatus(ByVal status)
+		Dim s : s = ""
+		Select Case status
+		Case 1:
+		s = "错误号0001，创建服务器加密锁组件失败，请尝试通过注册命令“regsvr32 dog_com_windows.dll”解决该问题。"
+		Case 7:
+		s = "错误号0007，未找到服务器加密锁。"
+		Case 30:
+		s = "错误号0030，签名验证失败。"
+		Case 31:
+		s = "错误号0031，特征不可用。"
+		Case 50:
+		s = "错误号0050，不能找到与范围匹配的特征。"
+		Case 111:
+		s = "错误号0111，获取服务器加密锁内容失败。"
+		Case 400
+		s = "错误号0400，未找到API的动态库，请确认DLL是否正确的安装在System32或目录中。"
+		Case 1000:
+		s = "错误号1000，服务器加密锁与该系统不匹配。"
+		Case else
+		s = status & ".访问服务器错误。"
+		End Select
+		getJmgStatus = s
+	end function
+	sub ProxyUserCheck()
+		on error resume next
+		dim rs , sessionid, sdk, cnn
+'if len(Application("_ZBM_Lib_Cache") & "") = 0 then
+'Dim z : Set z = server.createobject(ZBRLibDLLNameSN & ".Library")
+'z.GetLibrary "ZBIntel2013CheckBitString"
+'end if
+		if len(session("personzbintel2007") & "") > 0  and len(session("adminokzbintel") & "")>0 then
+			exit sub
+		end if
+		sessionid = request.Cookies("ASP.NET_SessionId")
+		if len(sessionid & "") = 0 then exit sub
+		Set sdk = server.createobject(ZBRLibDLLNameSN & ".CommClass")
+		sdk.TryReloadUserByRedis
+		if len(session("personzbintel2007") & "") > 0  and len(session("adminokzbintel") & "")>0 then
+			set sdk = nothing
+			exit sub
+		end if
+		set cnn = server.CreateObject("adodb.connection")
+		cnn.Open sdk.database.ConnectionText
+		set rs = cnn.execute("select uid from UniqueLogin where  abs(datediff(n, LastActiveTime, getdate()))<15 and status='1' and sessionId='" &  replace(sessionid,"'","") & "'")
+		if rs.eof = false then
+			session("personzbintel2007") = rs(0).value
+			session("adminokzbintel")="true2006chen"
+		end if
+		rs.close
+		set rs = nothing
+		cnn.Close
+		set cnn = nothing
+		err.Clear
+	end sub
+	Sub TryLoadSysInfo
+		if  len(application("sys.info.configindex") & "")=0 then
+			Dim z : Set z = server.createobject(ZBRLibDLLNameSN & ".Library")
+			call z.LoadDBSysInfo
+			set z = nothing
+		end if
+	end sub
+	call TryLoadSysInfo
+	Const XUNJIA_SIZE = 100
+	Function GetAjaxRequest
+		Dim s : GetAjaxRequest = false
+		For Each s In Request.ServerVariables
+			If s = "HTTP_A_S_T_ISAJAX" Then GetAjaxRequest = True : Exit function
+		next
+	end function
+	sub ConflictProcHandle
+		If isAjaxRequest Then Exit Sub
+		Err.clear
+		on error resume next
+		if len(request.form & "") > 0 Then
+			If Err.number = 0 Then Exit Sub
+		end if
+		If Err.number <> 0 Then
+			On Error GoTo 0
+			sdk.showmsg "提示信息", "<div style='padding:20px;color:red'>由于您提交到服务器的数据量可能过大，导致页面无法打开，请联系系统管理员，调整站点IIS相关配置解决该问题。</div>"
+			conn.close
+			Response.end
+		end if
+		Dim exiturl : exiturl = Split("planall,content,telhy,tongji",",")
+		Dim i, url : url = geturl()
+		For i= 0 To ubound(exiturl)
+			If InStr(1, url, exiturl(i), 1)>0 Then Exit sub
+		next
+		on error resume next
+		Dim cftManger: Set cftManger = Nothing
+		Set cftManger = server.createobject(ZBRLibDLLNameSN & ".ConflictManger")
+		If cftManger Is Nothing Then Err.clear: Exit Sub
+		If IsObject(sdk) = False Then
+			Set sdk = server.createobject(ZBRLibDLLNameSN & ".CommClass")
+			sdk.init me
+		end if
+		If cftManger.ConflictProc(sdk) = False then
+			Set cftManger = nothing
+			call db_close : Response.end
+		else
+			ConflictPageUrllist = cftManger.ConflictPageUrllist
+		end if
+		Set cftManger = nothing
+	end sub
+	function GetConnectionText()
+		Dim txt : txt = Application("_sys_connection")
+		if len(txt) = 0 Then txt = sdk.database.ConnectionText
+		server_1 = Application("_sys_sql_svr")
+		sql_1 = Application("_sys_sql_db")
+		user_1 = Application("_sys_db_user")
+		pw_1 = Application("_sys_db_pass")
+		getConnectionText = txt
+	end function
+	function GetHttpType
+		dim loginurl
+		loginurl = session("clientloginurl")
+		if instr(1, loginurl, "https://", 1)>0 then
+			GetHttpType = "https"
+		else
+			GetHttpType = "http"
+		end if
+	end function
+	sub Response_redirect(url)
+		on error resume next
+		conn.close
+		Response.redirect url
+		call db_close : Response.end
+	end sub
+	function GetHl(ByVal bz, ByVal dvalue)
+		If isdate(dvalue) = False Then GetHl = 1: Exit function
+		GetHl = sdk.setup.Gethl(CStr(bz), CDate(dvalue))
+	end function
+	sub close_list(args)
+		on error resume next
+		call add_logs (args)
+		conn.close:set conn=Nothing
+		dim s : s = right("00" & action1,2)
+		dim isbill, isreport
+		if s="添加" or s="修改" or s="详情" then
+			isbill = true
+			isreport = false
+		else
+			if typename(page_count)<>"Empty" then
+				isreport = true
+				isbill = false
+			end if
+		end if
+		if isbill then Response.write "<script>window.RegBillUISkin();</script>"
+		if isreport then Response.write "<script>window.RegReportUISkin();</script>"
+	end sub
+	sub db_close()
+		on error resume next
+		If typename(conn) <> "Empty" And typename(conn) <> "Nothing" then
+			conn.close:Set conn = Nothing
+		end if
+	end sub
+	function FormatnumberSub(x1,x2,x3)
+		if x1<>"" and x2<>"" then
+			FormatnumberSub=Formatnumber(x1,x2,x3)
+		else
+			FormatnumberSub=""
+		end if
+	end function
+	function colorWork(ByVal s)
+		s=replace(s,"潜在客户","<font class='greenFont'>潜在客户</font>")
+		s=replace(s,"重点客户","<font class='redFont'>重点客户</font>")
+		s=replace(s,"老客户","<font class='orgFont'>老客户</font>")
+		s=replace(s,"初次接触","<font class='greenFont1'>初次接触</font>")
+		s=replace(s,"多次接触","<font class='greenFont2'>多次接触</font>")
+		colorWork=s
+	end function
+	function Format_Time(s_Time, n_Flag)
+		Select Case n_Flag
+		Case 1: Format_Time = sdk.VBL.Format(s_Time, "yyyy-MM-dd hh:nn:ss")
+'Select Case n_Flag
+		Case 2: Format_Time = sdk.VBL.Format(s_Time, "yyyy-MM-dd")
+'Select Case n_Flag
+		Case 3: Format_Time = sdk.VBL.Format(s_Time, "hh:nn:ss")
+		Case 4: Format_Time = sdk.VBL.Format(s_Time, "yyyy年MM月dd日")
+		Case 5: Format_Time = sdk.VBL.Format(s_Time, "yyyyMMdd")
+		Case 6: Format_Time = sdk.VBL.Format(s_Time, "yyyyMMddhhnnss")
+		End Select
+	end function
+	sub CreateSqlConnection
+		Set conn = server.CreateObject("adodb.connection")
+		conn.commandtimeout=1200
+		conn.open getConnectionText()
+		sdk.InitRegDBOK
+		If Application("__nosqlcahace")="1" Then conn.execute "DBCC DROPCLEANBUFFERS"
+		conn.CursorLocation = 3
+		conn.execute "SET ANSI_WARNINGS OFF"
+		if err.number<>0 then
+			Response.write "<script>top.location=""" & GetVirPath & "index4.asp?msg=" & server.urlencode(Err.description) & """;</script>"
+			Call db_close() : Response.end()
+		end if
+	end sub
+	Sub SqlLockSniffer()
+		Dim url , uid
+		url = request.servervariables("url")
+		If Len(url) > 150 Then url = Left(url,150)
+		url = Replace(url, "'","''")
+		uid = sdk.user & ""
+		If Len(uid) = 0 Or isnumeric(uid) =  False Then  uid = 0
+		conn.Execute "exec sp_killlock 1 ,0,'" & url & "'," & uid
+	end sub
+	sub error(message)
+		Response.write "<script>alert('" & Replace(message & "","'","\'") & "');history.back();window.close();</script>"
+		call db_close : Response.end
+	end sub
+	function ReturnUrl()
+		ReturnUrl=replace( split(geturl() & "?","?")(1) ,"%20","")
+	end function
+	function iif(byval cv,byval ov1,byval ov2)
+		if cv then iif=ov1 : exit function
+		iif=ov2
+	end function
+	function CNull(ByVal value, ByVal rpv1, ByVal rpv2)
+		if value & "" = rpv1 & "" Then CNull = rpv2 : Exit function
+		CNull = value
+	end function
+	Function GetStringLen(Str)
+		on error resume next
+		Dim Wd,I,Size
+		Size = conn.execute("select DATALENGTH('"& Str &"') as r")(0)
+		if err.number > 0 then Size = len(Str)
+		GetStringLen = Size
+	end function
+	function ShowSignImage(ByVal catename, ByVal cateid, ByVal billdate)
+		If catename&""="" Then catename = ""
+		If cateid&""="" Then cateid = 0
+		If billdate&""="" Then billdate = Date
+		cateid = CLng(cateid)
+		ShowSignImage = ZBRuntime.SDK.DHL.ShowSignImage(cateid, billdate, catename, Application, request, Server,  conn)
+	end function
+	Function GetIdentity(ByVal tableName,ByVal fieldName,ByVal addPerson,ByVal connStr)
+		Dim r : r = sdk.setup.GetIdentity(tableName,fieldName,addPerson)
+		if r = 0 then err.raise 908, "GetIdentity", sdk.LastError
+		GetIdentity = r
+	end function
+	Function strSubtraction(strOri, strComb, strSplit) '从集合中剔除一个元素, 如：strSubtraction("a,b,c","b",",")="a,c"
+		Dim f_str : f_str = Replace(strSplit&strOri&strSplit, strSplit&strComb&strSplit, strSplit)
+		If Left(f_str, Len(strSplit)) = strSplit Then f_str = Right(f_str, Len(f_str) - Len(strSplit))
+'Dim f_str : f_str = Replace(strSplit&strOri&strSplit, strSplit&strComb&strSplit, strSplit)
+		If Right(f_str, Len(strSplit)) = strSplit Then f_str = Left(f_str, Len(f_str) - Len(strSplit))
+'Dim f_str : f_str = Replace(strSplit&strOri&strSplit, strSplit&strComb&strSplit, strSplit)
+		strSubtraction = f_str
+	end function
+	Sub clearBHTempRec(bhConfigId,dbconn)
+		dbconn.execute "delete BHTempTable where configId="&bhConfigId&" and addCate=" & sdk.user
+	end sub
+	dim  LongRequestObj
+	Set LongRequestObj = nothing
+	Function LongRequest(byval urlparams)
+		Dim longurlid : longurlid = CLng("0" & request.querystring("__sys_LongUrlParamsID"))
+		Dim vvvv  :  vvvv = request.querystring(urlparams)
+		If Len(vvvv) >0  Then LongRequest = vvvv : Exit Function
+		If LongRequestObj Is Nothing Then
+			Dim rs   :  Set rs = conn.execute("select ParamsData from erp_sys_UrlBigParamCaches where ID=" & longurlid )
+			If rs.eof = False Then
+				Dim json  :   json   = rs(0).value & ""
+				If Len(json) > 0 Then
+					Dim p :  Set p = server.createobject("MSScriptControl.ScriptControl")
+					p.Language = "jscript"
+					set  LongRequestObj = p.Eval("(" & json & ")")
+					Set p = Nothing
+				end if
+			end if
+			rs.close
+			set rs = nothing
+		end if
+		If Not LongRequestObj Is Nothing Then
+			Dim o
+			For Each o in LongRequestObj
+				If LCase(o.n) = LCase(urlparams) Then
+					LongRequest = o.v
+				end if
+			next
+		end if
+	end function
+	function  CreatefilterSqlLongRquest(byval filtersql)
+		dim uid , rs, b64, SrcSign
+		SrcSign = request.ServerVariables("URL")
+		set b64 =  sdk.base64
+		uid = session("personzbintel2007")
+		conn.execute "delete erp_sys_UrlBigParamCaches where userid=" & uid &" and SrcSign='"& SrcSign &"'"
+		set rs = server.CreateObject("adodb.recordset")
+		rs.Open "select * from erp_sys_UrlBigParamCaches where ID<0",  conn, 1,  3
+		rs.AddNew
+		rs.Fields("userid").value = uid
+		rs.Fields("indate").value = now
+		rs.Fields("SrcSign").value = SrcSign
+		rs.Fields("ParamsData").value =  "[{n:""afv_existssql"",v:""urlencode.utf8:" & Server.URLEncode(filtersql) & """}]"
+		rs.update
+		CreatefilterSqlLongRquest = rs("id").value
+		rs.close
+		set rs = nothing
+	end function
+	Function shortKey
+		dim urls , p , i, mshortKey : mshortKey = ""
+		urls = replace(request.ServerVariables("PATH_TRANSLATED"),server.mappath(sysCurrPath),"")
+		urls = split(urls ,"\")
+		for i = 1 to ubound(urls) - 1
+'urls = split(urls ,"\")
+			p = p & left(urls(i),1) & right(urls(i),1) & "_"
+		next
+		mshortKey = p & replace(replace(urls(ubound(urls)),".asp","",1,-1,1),".","")
+'p = p & left(urls(i),1) & right(urls(i),1) & "_"
+		shortKey = mshortKey
+	end  Function
+	Sub addDefaultScript()
+		Response.write "<script type=""text/javascript"" src=""" & sysCurrPath & "Script/" & shortKey & ".js""></script>"
+	end sub
+	sub InitSystemVars
+		hl_dot = sdk.info.hlNumber
+		num1_dot = sdk.Info.floatNumber
+		num_dot_xs = sdk.Info.moneyNumber
+		CommPrice_dot_num = sdk.Info.CommPriceDotNum
+		SalesPrice_dot_num = sdk.Info.SalesPriceDotNum
+		StorePrice_dot_num = sdk.Info.StorePriceDotNum
+		FinancePrice_dot_num = sdk.Info.FinancePriceDotNum
+		title_xtjm = sdk.Info.title
+		num_timeout = sdk.Info.TimeoutNumber
+		num_cpmx_yl = sdk.info.MaxLinesNumber
+		discount_dot_num = sdk.Info.DiscountNumber
+		discount_max_value = sdk.Info.MaxDiscountValue
+		percentWithDot=sdk.getSqlValue("select num1 from setjm3 where ord=20171221", 2)
+		session.timeout=num_timeout
+	end sub
+	function getint(v): getint = sdk.TryNumber(v,0) : end function
+	function getip: getip = sdk.vbl.getip(request): end function
+	function getvirpath: getvirpath = sdk.getvirpath: end function
+	function geturl: geturl = sdk.vbl.geturl(request): end function
+	function browser: browser = sdk.vbl.getbrowser(request): end function
+	function getattr(k): getattr = sdk.setup.attributes(k & ""): end function
+	function setattr(k,nv): sdk.setup.attributes(k & "") = nv & "": end function
+	function operationsystem: operationsystem = sdk.vbl.getos(request): end function
+	function getkulastid(k_id): getkulastid = sdk.setup.getkulastid(k_id): end function
+	function htmlarea(strcontent)
+		htmlarea=Replace(sdk.setup.htmlarea(strcontent), "<tr>","<tr style='background-color:transparent'>",1,1)
+'function htmlarea(strcontent)
+	end function
+	function acccanmodify(urd): acccanmodify=sdk.setup.acccanmodify(clng(urd)) : end function
+	function getcanminus(byval bankid): getcanminus=sdk.setup.getcanminus(clng(bankid)): end function
+	function conver(tmpvalue): conver=replace(trim(tmpvalue & ""),"'","''"): end function
+	function isallowhandle(ByVal cid,ctime,typ): If cid&""="" Then cid=0 : End If : isallowhandle=sdk.setup.isallowhandle(CLng(cid),ctime,CLng(typ)) : end function
+	function checkpurview(alls, items): checkpurview = sdk.setup.checkpurview(alls & "", items & "") : end function
+	function forwardparams(exs,xtype):forwardparams=sdk.setup.forwardparams(exs&"",clng(xtype),server,request): end function
+	sub add_logs(byval args): call sdk.setup.add_logs(application, session, request, server, args, action1): end sub
+	function GetERPVersion: GetERPVersion=clng("0" & Replace(split(sdk.info.version & "","(")(0), ".", "")) : end function
+	Function FormatInput(str)
+		If Len(str&"") = 0 Then Exit Function
+		Dim temp : temp = Replace(str,"""","&quot;") : FormatInput = temp
+	end function
+	Function GetSetJm3Value(keysign,  nullvalue)
+		If isnumeric(nullvalue) And Len(nullvalue & "")>0 then
+			GetSetJm3Value = sdk.setup.GetSetjm3(keysign, nullvalue)
+		else
+			GetSetJm3Value = sdk.setup.GetSetjm3Text(keysign, CLng("0" & nullvalue) )
+		end if
+	end function
+	Function GetPowerValue(ByRef qxopenv, ByRef qxintrov, ByVal sort1,  ByVal sort2)
+		Dim rs : set rs= conn.execute("select qx_open,qx_intro from power  where ord="&session("personzbintel2007")&" and sort1=" & sort1 & " and sort2=" & sort2 & "")
+		if rs.eof  Then     qxopenv=0  :  qxintrov="-222" :   rs.close :  Exit Function
+		qxopenv = rs("qx_open").value : qxintrov=rs("qx_intro").value
+		rs.close  : set rs=nothing
+	end function
+	function CNumberList(byval listvalue)
+		dim r, i , n :  r = ""
+		listvalue = split(replace(listvalue & ""," ",""), ",")
+		for i = 0 to ubound(listvalue)
+			n = listvalue(i)
+			if len(n)>0 and isnumeric(n) then
+				if len(r)>0 then r = r & ","
+				r = r & n
+			end if
+		next
+		CNumberList = r
+	end function
+	function GetUserIdsByOrgsID(byval w1)
+		dim sql , ids
+		ids = ""
+		sql = "select x.id  from orgs_parts x inner join (" & _
+		"  select fullids from orgs_parts  where '," + replace(w1, " ","") + ",%'  like '%,' + cast(ID as varchar(12)) + ',%'" & _
+		") y on charindex(y.fullids+',',  x.fullids+',')=1"
+		set rs = conn.execute(sql)
+		while rs.eof = false
+			if len(ids)>0 then ids =  ids & ","
+			ids = ids & rs(0).value
+			rs.movenext
+		wend
+		rs.close
+		if len(ids) = 0 then ids = "-1"
+		ids = ids & rs(0).value
+		ids = "select ord from gate where orgsid in ("& ids &")"
+		GetUserIdsByOrgsID = ids
+	end function
+	Class regExistsFilesProxy
+		Public cn, conn
+		public function init
+			Set cn = server.CreateObject("adodb.connection")
+			cn.open Application("_sys_connection")
+			Set conn = cn
+			Set init = Server.createobject(ZBRLibDLLNameSN & ".commClass")
+			init.init me
+		end function
+		Public Sub cls
+			cn.close
+			Set cn = Nothing
+			Set conn = Nothing
+			Set sdk = nothing
+		end sub
+	End Class
+	Sub writeCommHeaderJScript
+		Dim szmx: szmx = sdk.Attributes("uizoom")
+		If szmx="" Then szmx = "1"
+		Response.write "" & vbcrlf & "<script type=""text/javascript"">" & vbcrlf & "        var getIEVer = function () {" & vbcrlf & "            var browser = navigator.appName;" & vbcrlf & "                if(window.ActiveXObject && top.document.compatMode==""BackCompat"") {return 5;}" & vbcrlf & "             var b_version = navigator.appVersion;" & vbcrlf & "             var version = b_version.split("";"");" & vbcrlf & "               if(document.documentMode && isNaN(document.documentMode)==false) { return document.documentMode; }" & vbcrlf & "              if (window.ActiveXObject) {" & vbcrlf & "                     var v = version[1].replace(/[ ]/g, """");" & vbcrlf & "                   if (v == ""MSIE10.0"") {return 10;}" & vbcrlf & "                        if (v == ""MSIE9.0"") {return 9;}" & vbcrlf & "                   if (v == ""MSIE8.0"") {return 8;}" & vbcrlf & "                   if (v == ""MSIE7.0"") {return 7;}" & vbcrlf & "                   if (v == ""MSIE6.0"") {return 6;}" & vbcrlf & "                   if (v == ""MSIE5.0"") {return 5;" & vbcrlf & "                    } else {return 11}" & vbcrlf & "         }" & vbcrlf & "               else {" & vbcrlf & "                  return 100;" & vbcrlf & "             }" & vbcrlf & "       };" & vbcrlf & "      try{ document.getElementsByTagName(""html"")[0].className = ""IE"" + getIEVer() ; } catch(exa){}" & vbcrlf & "        window.uizoom = "
+'If szmx="" Then szmx = "1"
+		Response.write szmx
+		Response.write ";" & vbcrlf & "    if( (top==window ||  (top.app && top.app.IeVer>=100) ) && uizoom!=1){document.write(""<style>body{position:relative;zoom:"" + window.uizoom + ""}</style>"");}" & vbcrlf & "  window.sysConfig = {BrandIndex:"""
+'Response.write szmx
+		Response.write application("sys.info.configindex")
+		Response.write """, floatnumber:"
+		Response.write num1_dot
+		Response.write ",moneynumber:"
+		Response.write num_dot_xs
+		Response.write ",CommPriceDotNum:"
+		Response.write CommPrice_dot_num
+		Response.write ",SalesPriceDotNum:"
+		Response.write SalesPrice_dot_num
+		Response.write ",StorePriceDotNum:"
+		Response.write StorePrice_dot_num
+		Response.write ",FinancePriceDotNum:"
+		Response.write FinancePrice_dot_num
+		Response.write ",discountMaxLimit:"
+		Response.write DISCOUNT_MAX_VALUE
+		Response.write ",discountDotNum:"
+		Response.write DISCOUNT_DOT_NUM
+		Response.write ",hlDotNum:"
+		Response.write hl_dot
+		Response.write ",percentDotNum:"
+		Response.write percentWithDot
+		Response.write "};" & vbcrlf & "   window.sysCurrPath = """
+		Response.write sysCurrPath
+		Response.write """;" & vbcrlf & "        window.currUser = """
+		Response.write sdk.user
+		Response.write """;" & vbcrlf & "        window.SessionId ="""
+		Response.write session("SessionID")
+		Response.write """;" & vbcrlf & "        window.nowTime = """
+		Response.write now()
+		Response.write """;" & vbcrlf & "        window.nowDate = """
+		Response.write date()
+		Response.write """;" & vbcrlf & "        window.syssoftversion = """
+		Response.write Application("__sys_soft_ver")
+		Response.write """" & vbcrlf & " window.currForm = """
+		if len(request.form) < 1000 then Response.write replace(request.form,"""","\""")
+		Response.write """;" & vbcrlf & "        window.currQueryString = """
+		Response.write replace(replace(request.querystring,"\","\\"),"""","\""")
+		Response.write """;" & vbcrlf & "        window.ConflictPageUrllist = """
+		Response.write ConflictPageUrllist
+		Response.write """; //冲突的页面" & vbcrlf & "   "
+		Dim PATH_INFO : PATH_INFO = Request.ServerVariables("PATH_INFO")
+		if instr(1,PATH_INFO,"/tongji/",1)>0 or instr(1,PATH_INFO,"/out/",1)>0 then
+			Response.write "" & vbcrlf & "     window.isGatherListPage=1;" & vbcrlf & "      "
+		end if
+		Response.write "" & vbcrlf & "     document.title="""
+		Response.write replace(title_xtjm,"""","\""")
+		Response.write """" & vbcrlf & "</script>" & vbcrlf & ""
+	end sub
+	Function IsNetProduce()
+		Dim jm2017112116 : jm2017112116 = GetSetJm3Value(2017112116, 0)
+		if ZBRuntime.MC(35000) = False  And ZBRuntime.MC(18100)=false Then
+			jm2017112116 = -1
+'if ZBRuntime.MC(35000) = False  And ZBRuntime.MC(18100)=false Then
+		else
+			If ZBRuntime.MC(35000) = False Then
+				jm2017112116 = 0
+			ElseIf  ZBRuntime.MC(18100)=false and ZBRuntime.MC(18600)=false Then
+				jm2017112116 = 1
+			end if
+		end if
+		IsNetProduce = jm2017112116
+	end function
+	Response.Charset="UTF-8"
+'IsNetProduce = jm2017112116
+	Response.ExpiresAbsolute = Now() - 1
+'IsNetProduce = jm2017112116
+	Response.Expires = 0
+	Response.CacheControl = "no-cache"
+'Response.Expires = 0
+	Response.AddHeader "Pragma", "No-Cache"
+'Response.Expires = 0
+	Dim sysCurrPath : sysCurrPath = SDK.GetVirPath
+	Dim conn, server_1, user_1, pw_1, sql_1, ConflictPageUrllist, title_xtjm, hl_dot,percentWithDot, IsAjaxRequest
+	Dim num1_dot,num_dot_xs,num_timeout,num_cpmx_yl,discount_max_value,discount_dot_num,CommPrice_dot_num,SalesPrice_dot_num,StorePrice_dot_num,FinancePrice_dot_num
+	IsAjaxRequest = GetAjaxRequest()
+	Call ConflictProcHandle
+	Call CreateSqlConnection
+	If sdk.Setup.UserLoginCheck = False Then
+		Response.end
+	else
+		if conn.Execute("select 1 from gate with(nolock) where del=1 and ord=" & CLng("0" & session("personzbintel2007")) ).eof then
+			Response.write "<script>alert(""账号已经删除或冻结，请重新登录！"");top.location.href ='" & sdk.GetVirPath & "index2.asp';</script>"
+		end if
+	end if
+	Call checkSuperDog(conn, "../", False)
+	Call InitSystemVars
+	If Len(Application("systemstate")&"")>0 Then
+		If Application("systemstate")="2" And Application("systemlockid")<>sdk.user Then
+			Response.write "<script>alert(""系统维护中，请稍后再试！""); </script>"
+			call db_close : Response.end
+		end if
+	end if
+	set rs2t=server.CreateObject("adodb.recordset")
+	sql2t="select sort1,qx_open,w1,w2,w3 from power2  where cateid="&session("personzbintel2007")&" and sort1 in(1,2,3,4) and qx_open=1"
+	rs2t.open sql2t,conn,1,1
+	While rs2t.eof = False
+		zzjg_open_1_1=rs2t("qx_open") : zzjg_sort1=rs2t("sort1")
+		zzjg_w1_list=rs2t("w1")
+		zzjg_w2_list=rs2t("w2")
+		zzjg_w3_list=rs2t("w3")
+		If zzjg_open_1_1&"" = "1" Then
+			If Trim(replace(zzjg_w1_list&"",",",""))="" Or Trim(replace(zzjg_w2_list&"",",",""))="" Or Trim(replace(zzjg_w3_list&"",",",""))="" Then
+				If Trim(replace(zzjg_w1_list&"",",","")) = "" Then zzjg_w1_list = "-222"
+				If Trim(replace(zzjg_w2_list&"",",","")) = "" Then zzjg_w2_list = "-222"
+				If Trim(replace(zzjg_w3_list&"",",","")) = "" Then zzjg_w3_list = "-222"
+				conn.execute("update power2 set w1='"& zzjg_w1_list &"', w2='"& zzjg_w2_list &"', w3='"& zzjg_w3_list &"'  where cateid="&session("personzbintel2007")&" and sort1="& zzjg_sort1)
+			end if
+		end if
+		rs2t.movenext
+	wend
+	rs2t.close
+	set rs2t=Nothing
+	Dim tp: tp=0
+	set rs2t=server.CreateObject("adodb.recordset")
+	sql2t="select qx_open from power where ord="& sdk.user &" and sort1=74 and sort2=12"
+	rs2t.open sql2t,conn,1,1
+	if not rs2t.eof Then tp = 1-Abs(rs2t("qx_open")=0)
+'rs2t.open sql2t,conn,1,1
+	rs2t.close
+	set rs2t=nothing
+	session("sys_userlastvistime") = now()
+	If HasSysTongJiJoinPage & "" = "1" Then Call DoSysTongJiJoinPageProc(0)
+	If IsAjaxRequest=False Then
+		dim bigsystemtype : bigsystemtype = ""
+		if application("sys.info.configindex")  = "3" then
+			bigsystemtype = ".mozi"
+		end if
+		Response.write "<!Doctype html><html>" & vbcrlf & "<head>" & vbcrlf & "<meta http-equiv=""X-UA-Compatible"" content =""IE=edge,chrome=1"">" & vbcrlf & "<meta name=""vs_targetSchema"" content=""http://schemas.microsoft.com/intellisense/ie5""/>" & vbcrlf & "<meta http-equiv=""Content-Type"" content=""text/html;charset=UTF-8"">" & vbcrlf & "<meta name=""format-detection"" content=""telephone=no"">" & vbcrlf & ""
+'bigsystemtype = ".mozi"
+		call WriteCommHeaderJScript
+		Response.write "" & vbcrlf & "<script type=""text/javascript"" src='"
+		Response.write sysCurrPath
+		Response.write "inc/dateid.js?ver="
+		Response.write Application("sys.info.jsver")
+		Response.write "'></script>" & vbcrlf & "<script type=""text/javascript"" src='"
+		Response.write sysCurrPath
+		Response.write "inc/setup.js?ver="
+		Response.write Application("sys.info.jsver")
+		Response.write "'></script>" & vbcrlf & "<script type=""text/javascript"" src="""
+		Response.write sysCurrPath
+		Response.write "inc/jQuery-1.7.2.min.js?ver="
+		Response.write sysCurrPath
+		Response.write Application("sys.info.jsver")
+		Response.write """></script>" & vbcrlf & ""
+		Response.write "" & vbcrlf & "<script type=""text/javascript"" src="""
+		Response.write sysCurrPath
+		Response.write "inc/UiSkinV3179"
+		Response.write bigsystemtype
+		Response.write ".js?ver="
+		Response.write Application("sys.info.jsver")
+		Response.write """></script>" & vbcrlf & "<script type=""text/javascript"" src="""
+		Response.write sysCurrPath
+		Response.write "Script/inc_setup.js?ver="
+		Response.write Application("sys.info.jsver")
+		Response.write """></script>" & vbcrlf & ""
+		If request.querystring("__fReclst")="1" Then
+			Response.write "<style>input.anybutton, input.anybutton2 {display:none} </style>"
+			Response.write "<script defer src='" & sysCurrPath & "back/autohidecontentbtn.js?ver=" & Application("sys.info.jsver") & "'></script>"
+		end if
+		Response.write "<script type=""text/javascript"" src=""" & sysCurrPath & "inc/jquery-autobh.js?ver=" & Application("sys.info.jsver") & """></script>" & vbcrlf
+		Response.write "</head>"
+	end if
+	dim AppDataVersion : AppDataVersion= Application("sys.info.jsver")
+	AppDataVersion = split(AppDataVersion&".",".")(0)
+	if AppDataVersion&""="" then AppDataVersion = "3100"
+	if len(AppDataVersion)>4 then  AppDataVersion = left(AppDataVersion, 4)
+	Response.write "" & vbcrlf & "<noscript></noscript>"
+	
+	ZBRLibDLLNameSN = "ZBRLib3205"
+	function isInteger(para)
+		dim str
+		dim l,i
+		if isNUll(para) then
+			isInteger=false
+			exit function
+		end if
+		str=cstr(para)
+		if trim(str)="" then
+			isInteger=false
+			exit function
+		end if
+		l=len(str)
+		for i=1 to l
+			if mid(str,i,1)>"9" or mid(str,i,1)<"0" then
+				isInteger=false
+				exit function
+			end if
+		next
+		isInteger=true
+		if err.number<>0 then err.clear
+	end function
+	function IsValidEmail(email)
+		dim names, name, i, c
+		IsValidEmail = true
+		names = Split(email, "@")
+		if UBound(names) <> 1 then
+			IsValidEmail = false
+			exit function
+		end if
+		for each name in names
+			if Len(name) <= 0 then
+				IsValidEmail = false
+				exit function
+			end if
+			for i = 1 to Len(name)
+				c = Lcase(Mid(name, i, 1))
+				if InStr("abcdefghijklmnopqrstuvwxyz_-.", c) <= 0 and not IsNumeric(c) then
+					c = Lcase(Mid(name, i, 1))
+					IsValidEmail = false
+					exit function
+				end if
+			next
+			if Left(name, 1) = "." or Right(name, 1) = "." then
+				IsValidEmail = false
+				exit function
+			end if
+		next
+		if InStr(names(1), ".") <= 0 then
+			IsValidEmail = false
+			exit function
+		end if
+		i = Len(names(1)) - InStrRev(names(1), ".")
+		exit function
+		if i <> 2 and i <> 3 then
+			IsValidEmail = false
+			exit function
+		end if
+		if InStr(email, "..") > 0 then
+			IsValidEmail = false
+		end if
+	end function
+	Function HTMLEncode(fString)
+		if not isnull(fString) Then
+			fString = replace(fString, ">", "&gt;")
+			fString = replace(fString, "<", "&lt;")
+			fString = Replace(fString, CHR(32), "&nbsp;")
+			fString = Replace(fString, CHR(34), "&quot;")
+			fString = Replace(fString, CHR(39), "&#39;")
+			fString = Replace(fString, CHR(13) & CHR(10), "<br>")
+			fString = Replace(fString, CHR(13), "<br>")
+			fString = Replace(fString, CHR(10), "<br>")
+			HTMLEncode = fString
+		end if
+	end function
+	Function HTMLDecode(fString)
+		if not isnull(fString) Then
+			fString = replace(fString, "&gt;", ">")
+			fString = replace(fString, "&lt;", "<")
+			fString = Replace(fString, "&nbsp;",CHR(32))
+			fString = Replace(fString, "&quot;",CHR(34))
+			fString = Replace(fString, "&#39;",CHR(39))
+			fString = Replace(fString, "<br>",CHR(13) & CHR(10))
+			fString = Replace(fString, "<br>",CHR(13))
+			fString = Replace(fString, "<br>",CHR(10))
+			HTMLDecode = fString
+		end if
+	end function
+	
+	Function GetW3Core(ByVal strW1,ByVal strW2, ByVal strW3, ByVal deltype)
+		dim rs, orgsid, sql
+		If Len(strW3) > 0 And strW3<>"0" then
+			If InStr(1,strW3,"select",1) > 0 Then
+				GetW3Core = strW3
+				Exit function
+			end if
+			strW3 = Replace(strW3 & "", " ", "")
+			strW3 = Replace(strW3, ",,", ",")
+			strW3 = Replace(Replace("?" & strW3 & "?", "?,", ""),",?","")
+			strW3 = Replace(strW3,"?","")
+			If strW3 = "" Then strW3 = "0"
+			GetW3Core=strW3
+			Exit function
+		else
+			if len(strW2) > 0 And strW2<>"0" Then
+				sql = "select ord from gate where orgsid in ("& strW2 &") or ('"& strW1&"'='999999999' and orgsid=0)"
+			else
+				if len(strW1) > 0 And strW1<>"0" Then
+					strW3 = ""
+					orgsid =  Replace(("," & Replace(strW1 & "," & strW2, " ", ",")  & ","), ",0,",",")
+					dim ids :ids = ""
+					sql = "select x.id  from orgs_parts x inner join (" & _
+					"   select fullids from orgs_parts  where '," + replace(orgsid, " ","") + ",%'  like '%,' + cast(ID as varchar(12)) + ',%'" & _
+					") y on charindex(y.fullids+',',  x.fullids+'," & _
+					"set rs = conn.execute(sql)"
+					while rs.eof = false
+						if len(ids)>0 then ids =  ids & ","
+						ids = ids & rs(0).value
+						rs.movenext
+					wend
+					rs.close
+					if len(ids) = 0 then ids = "-1"
+					ids = ids & rs(0).value
+					if strW1&""="" then strW1 = 0
+					if instr(strW1,"-")>0 then ids = replace(strW1,"-","")
+'if strW1&""="" then strW1 = 0
+					sql = "select ord from gate where orgsid in ("& ids &") or ('"& strW1 &"'='999999999' and orgsid=0)"
+				else
+					GetW3Core = "0"
+					Exit function
+				end if
+			end if
+		end if
+		set rs = conn.execute(sql)
+		While rs.eof= False
+			If Len(strW3)>0 Then  strW3 = strW3 & ","
+			strW3 = strW3 & rs(0).value
+			rs.movenext
+		wend
+		rs.close
+		if strW1&""="999999999" then
+			If Len(strW3)>0 Then strW3 = strW3 & ","
+			strW3 = strW3 & "0"
+		end if
+		GetW3Core=strW3
+	end function
+	function getW3(ByVal strW1,ByVal strW2, ByVal strW3)
+		getW3=GetW3Core(strW1, strW2, strW3, "1")
+	end function
+	function getLimitedW3(strw3,stype,sort1,sort2,cid)
+		dim i,sql
+		if (stype<>1 and stype<>2) or not isnumeric(sort1) or not isnumeric(sort2) or not isnumeric(cid) then
+			Response.write "参数错误"
+			call db_close : Response.end
+		end if
+		Dim fw1,fw2,fw3,pw3,qx_open,tmpW3,tmp,rs
+		fw1=replace(request("w1")," ","")
+		fw2=replace(request("w2")," ","")
+		fw3=replace(request("w3")," ","")
+		if fw3<>"" and fw3<>"0" and (fw1="" or fw1="0") and (fw2="" or fw2="0") and isnumeric(fw3) and instr(fw3,",")<=0 then
+			getLimitedW3=strw3
+		else
+			if strw3="-1" or strw3="0" Or strw3&""="" then
+				getLimitedW3=strw3
+				getLimitedW3=strW3
+			else
+				if stype=1 then
+					sql="select qx_open,qx_intro from power where sort1="&sort1&" and sort2="&sort2&" and ord="& cid
+				elseif stype=2 then
+					sql="select qx_open,w3 from power2 where sort1="&sort1&" and cateid="& cid
+				end if
+				set rs=conn.execute(sql)
+				if not rs.eof then
+					qx_open=rs(0)
+					pw3=replace(rs(1)," ","")
+				else
+					qx_open=0
+					pw3=""
+				end if
+				rs.close
+				if qx_open="1" then
+					tmp=split(strw3,",")
+					tmpW3=""
+					for i=0 to ubound(tmp)
+						if instr(1,","&pw3&",",","&tmp(i)&",")>0 then
+							if tmpW3="" then
+								tmpW3=tmp(i)
+							else
+								tmpW3=tmpW3&","&tmp(i)
+							end if
+						end if
+					next
+					if ((fw1<>"" And fw1<>"0") or (fw2<>"" And fw2<>"0") or (fw3<>"" And fw3<>"0")) and replace(replace(tmpW3," ",""),"0","")="" then tmpW3="-1"
+					tmpW3=tmpW3&","&tmp(i)
+					getLimitedW3=tmpW3
+				elseif qx_open="0" then
+					getLimitedW3="-1"
+'elseif qx_open="0" then
+				elseif qx_open="3" then
+					getLimitedW3=strw3
+				end if
+			end if
+		end if
+	end function
+	function getW1W2(strW3)
+		dim rtnW1,rtnW2,frs,fsql, strW3s
+		rtnW1=""
+		rtnW2=""
+		If InStr(strW3,"|") >0 Then strW3s = Split(strW3, "|"):   strW3 = strW3s(ubound(strW3s))
+		strW3 = Replace(","&Trim(strW3)&",",",0,",",")
+		If Left(strW3,1)="," Then strW3=Right(strW3,Len(strW3)-1)
+		strW3 = Replace(","&Trim(strW3)&",",",0,",",")
+		If right(strW3,1)="," Then strW3=left(strW3,Len(strW3)-1)
+		strW3 = Replace(","&Trim(strW3)&",",",0,",",")
+		if strW3<>"" Then
+			fsql="select distinct sorce from gate where charindex(','+cast(ord as varchar(10))+',',',"&strW3&",')>0 and sorce>=0"
+'if strW3<>"" Then
+			set frs=conn.execute(fsql)
+			while not frs.eof
+				if rtnW1="" then
+					rtnW1=frs(0)
+				else
+					rtnW1=rtnW1&","&frs(0)
+				end if
+				frs.movenext
+			wend
+			frs.close
+			fsql="select distinct sorce2 from gate where charindex(','+cast(ord as varchar(10))+',',',"&strW3&",')>0 and sorce2>=0"
+			'frs.close
+			set frs=conn.execute(fsql)
+			while not frs.eof
+				if rtnW2="" then
+					rtnW2=frs(0)
+				else
+					rtnW2=rtnW2&","&frs(0)
+				end if
+				frs.movenext
+			wend
+			frs.close
+		end if
+		if rtnW1="" then rtnW1="0"
+		if rtnW2="" then rtnW2="0"
+		getW1W2=rtnW1&";"&rtnW2
+	end function
+	function getW3WithLock(strW1,strW2,strW3)
+		getW3WithLock=GetW3Core(strW1, strW2, strW3, "1,2,3")
+	end function
+	function CheckPurview(AllPurviews,strPurview)
+		if isNull(AllPurviews) or AllPurviews="" or strPurview="" then
+			CheckPurview=False
+			exit function
+		end if
+		CheckPurview=False
+		if instr(AllPurviews,",")>0 then
+			dim arrPurviews,i77
+			arrPurviews=split(AllPurviews,",")
+			for i77=0 to ubound(arrPurviews)
+				if trim(arrPurviews(i77))=strPurview then
+					CheckPurview=True
+					exit for
+				end if
+			next
+		else
+			if AllPurviews=strPurview then
+				CheckPurview=True
+			end if
+		end if
+	end function
+	
+	Class ExcelApp
+		Public SheetsInNewWorkbook
+		Public WorkBooks
+		Public Visible
+		Public ActiveSheet
+		Public lastRowIndex
+		Public CurrFileIndex
+		Private m_RecordCount
+		Public  currMainRecCount
+		Public exportPercent
+		Public headerCells
+		Private sheets
+		Private m_FileName
+		Private m_FileBaseName
+		Private m_FileExtName
+		Private m_numberDot
+		Private m_moneyDot
+		Public regEx
+		Public isMainDetailMode
+		Private m_xlsApp
+		Public xsheet
+		Public sheetPerFile
+		Public recordPerSheet
+		Public sheetNumInFile
+		Public recordNumInSheet
+		Public Property Get RecordCount
+		RecordCount = m_RecordCount
+		End Property
+		Public Sub Init(fname,recCnt)
+			m_RecordCount = recCnt
+			If isMainDetailMode = False Then
+				currMainRecCount = recCnt
+			else
+				currMainRecCount = 0
+			end if
+			m_FileName = fname
+			m_FileName = Replace(m_FileName,"/","")
+			m_FileName = Replace(m_FileName,":","")
+			m_FileName = Replace(m_FileName,"*","")
+			m_FileName = Replace(m_FileName,"?","")
+			m_FileName = Replace(m_FileName,"""","")
+			m_FileName = Replace(m_FileName,"<","")
+			m_FileName = Replace(m_FileName,">","")
+			m_FileName = Replace(m_FileName,"|","")
+			If Len(m_FileName) = 0 Then
+				m_FileName = "未命名.xls"
+			ElseIf InStr(m_FileName,".")=0 Then
+				m_FileName = m_FileName & ".xls"
+			end if
+			Dim m_Names
+			m_Names=Split(m_FileName,".")
+			m_FileExtName = m_Names(ubound(m_Names))
+			m_FileBaseName =left(m_FileName,len(m_FileName)-len(m_FileExtName)-1)
+'m_FileExtName = m_Names(ubound(m_Names))
+		end sub
+		Public Property Get FileName
+		FileName = m_fileBaseName & "-" & CurrFileIndex & "." & m_fileExtName
+'Public Property Get FileName
+		End Property
+		Public Property Get FileRealPath
+		FileRealPath = Server.mappath("../out/") & "\" & Me.FileName
+		End Property
+		Public Property Get numberDot
+		numberDot = m_numberDot
+		End Property
+		Public Property Get moneyDot
+		moneyDot = m_moneyDot
+		End Property
+		Public Property Get xlsApp
+		Set xlsApp = m_xlsApp
+		End Property
+		Public Function WorkSheets(i)
+			Set ActiveSheet = sheets(i)
+			Set WorkSheets = ActiveSheet
+		end function
+		Public Sub NewFile
+			Set m_xlsApp = server.createobject(ZBRLibDLLNameSN & ".HtmlExcelApplication")
+			m_xlsApp.init zblog.PageScript , conn
+			Set xsheet = m_xlsApp.sheets.add(ActiveSheet.name)
+			CurrFileIndex = CurrFileIndex + 1
+'Set xsheet = m_xlsApp.sheets.add(ActiveSheet.name)
+		end sub
+		Private Sub class_initialize
+			Set m_xlsApp = server.createobject(ZBRLibDLLNameSN & ".HtmlExcelApplication")
+			m_xlsApp.init zblog.PageScript , conn
+			SheetsInNewWorkbook = 1
+			Set WorkBooks = New ExcelWorkBooks
+			Set WorkBooks.parent = Me
+			Set sheets = New ExcelCommonCollections
+			sheets.ClassName = "ExcelWorkSheet"
+			Set sheets.parent = Me
+			CurrFileIndex = 1
+			Dim sheet : Set sheet = New ExcelWorkSheet
+			Set sheet.parent = sheets
+			Set headerCells = New ExcelCommonCollections
+			headerCells.ClassName = "ExcelCell"
+			Set headerCells.parent = Me
+			lastRowIndex = 0
+			sheetPerFile = 1
+			recordPerSheet = 10000
+			sheetNumInFile = 1
+			recordNumInSheet = 0
+			Set regEx = New RegExp
+			regEx.Pattern = "<[^>]+>"
+'Set regEx = New RegExp
+			regEx.IgnoreCase = True
+			regEx.Global = True
+			m_numberDot = conn.execute("select num1 from setjm3 where ord=88")(0)
+			m_moneyDot = conn.execute("select num1 from setjm3  where ord=1")(0)
+			isMainDetailMode = False
+			m_RecordCount = 0
+		end sub
+		Public Sub Quit
+			Call m_xlsApp.Dispose()
+		end sub
+	End Class
+	Class ExcelWorkBooks
+		Public parent
+		Public Sub Add
+		end sub
+	End Class
+	Class ExcelWorkSheet
+		Public parent
+		Private m_name
+		Public Property Let name(v)
+		m_name = v
+		Set parent.parent.xsheet = parent.parent.xlsApp.sheets.add(v)
+		End Property
+		Public Property Get name
+		name = m_name
+		End Property
+		Public Columns
+		Public Cells
+		Public Function Range(strRange)
+			Set Range = New ExcelRange
+		end function
+		Private Sub class_initialize
+			Set Columns = New ExcelCommonCollections
+			Columns.ClassName = "ExcelColumn"
+			Set Columns.parent = Me
+			Set Cells = New ExcelCellCollections
+			Set Cells.parent = Me
+		end sub
+		Public Sub SaveAs(fPath)
+			Dim root : Set root = parent.parent
+			Call AutoSplitSheetAndFile
+			Call WriteContentHtml
+			Call root.xlsApp.Save(root.FileRealPath)
+			Response.write "<script>exportProcBar.showExcelProgress(100," & root.RecordCount & "," & root.RecordCount & ")</script>"
+			Response.write "<script>exportProcBar.addFileLink({fileUrl:'" & root.xlsApp.HexEncode(root.FileRealPath) & "',fileName:'" & root.FileName & "',fileCnt:" & root.CurrFileIndex & "})</script>"
+		end sub
+		Public Sub AutoSplitSheetAndFile
+			Dim root : Set root = parent.parent
+			If root.recordNumInSheet >= root.recordPerSheet Then
+				If root.sheetNumInFile >= root.sheetPerFile Then
+					Call parent.parent.xlsApp.Save(parent.parent.FileRealPath)
+					Response.write "<script>exportProcBar.addFileLink({fileUrl:'" & root.xlsApp.HexEncode(root.FileRealPath) & "',fileName:'" & root.FileName & "',fileCnt:" & root.CurrFileIndex & "})</script>"
+					Call root.NewFile
+					root.sheetNumInFile = 1
+				else
+					Set root.xsheet = root.xlsApp.sheets.Add(name & (CLng(root.sheetNumInFile) + 1))
+'root.sheetNumInFile = 1
+					root.sheetNumInFile = root.sheetNumInFile + 1
+'root.sheetNumInFile = 1
+				end if
+				Call WriteHeaderHtml
+				root.recordNumInSheet = 1
+			else
+				root.recordNumInSheet = root.recordNumInSheet + 1
+				root.recordNumInSheet = 1
+			end if
+			If root.isMainDetailMode Then
+				If Not isDetailRow() Then
+					root.currMainRecCount = root.currMainRecCount + 1
+'If Not isDetailRow() Then
+				end if
+			else
+				root.currMainRecCount = root.currMainRecCount + 1
+'If Not isDetailRow() Then
+			end if
+		end sub
+		Private Function isDetailRow()
+			Dim pos : pos = getIdxOfDetailField()
+			If pos < 0 Then
+				isDetailRow = isAllEmptyCellBefore(3)
+			Else
+				isDetailRow = isAllEmptyCellBefore(pos)
+			end if
+		end function
+		Private Function isAllEmptyCellBefore(idx)
+			Dim rowIdx : rowIdx = parent.parent.lastRowIndex
+			Dim i
+			isAllEmptyCellBefore = True
+			For i=1 To idx - 1
+'isAllEmptyCellBefore = True
+				If i > Cells.count Then Exit For
+				If Cells(rowIdx,i).value & "" <> "" Then
+					isAllEmptyCellBefore = False
+					Exit Function
+				end if
+			next
+			isAllEmptyCellBefore = True
+		end function
+		Private Function getIdxOfDetailField()
+			Dim rowIdx : rowIdx = parent.parent.lastRowIndex
+			Dim i
+			For i=1 To Cells.count
+				If InStr(Cells(rowIdx,i).value,"明细") > 0 Then
+					getIdxOfDetailField = i
+					Exit Function
+				end if
+			next
+			getIdxOfDetailField = -1
+			Exit Function
+		end function
+		Public Sub WriteHeaderHtml
+			Call WriteCellHtml(True)
+		end sub
+		Public Sub WriteContentHtml
+			Call WriteCellHtml(False)
+		end sub
+		Private Sub WriteCellHtml(isHeader)
+			Dim i,root,outputCells
+			Set root = parent.parent
+			If isHeader Then
+				Set outputCells = root.headerCells
+			else
+				Set outputCells = Cells
+			end if
+			For i = 1 To outputCells.count
+				If isHeader Then
+					Call outputCells(i).WriteCellHtml(isHeader,Columns(i))
+				else
+					Call outputCells.cell(i).WriteCellHtml(isHeader,Columns(i))
+				end if
+			next
+			root.xsheet.movenext
+		end sub
+	End Class
+	Class ExcelCommonCollections
+		Dim datas()
+		Public ClassName
+		Public parent
+		Private m_count
+		Private m_maxIdx
+		Public Property Get count
+		count = m_count
+		End Property
+		Public Sub class_initialize
+			m_count = 0
+			m_maxIdx = 0
+			Call allocationSpace
+		end sub
+		Public Default Function item(ByVal index)
+			Dim i
+			If isnumeric(index) Then
+				If index > 0 Then
+					If index > m_count Then
+						Dim obj : Set obj = eval("New " & ClassName)
+						Set obj.parent = Me
+						Call addWithIdx(obj,index)
+					end if
+					Set item = datas(index)
+				else
+					Set item = Nothing
+				end if
+			else
+				Set item = Nothing
+			end if
+		end function
+		Private Sub addWithIdx(o,idx)
+			While idx > m_maxIdx
+				Call AllocationSpace
+			wend
+			Dim i,obj
+			If idx > m_count Then
+				For i = m_count + 1 To idx
+'If idx > m_count Then
+					Set obj = eval("New " & ClassName)
+					Set obj.parent = Me
+					Set datas(i) = obj
+				next
+				m_count = idx
+			end if
+			Set datas(idx) = o
+		end sub
+		Public Function Add(o)
+			m_count = m_count + 1
+'Public Function Add(o)
+			Add = m_count
+			If m_count > m_maxIdx Then
+				Call allocationSpace
+			end if
+			Set datas(m_count) = o
+			Call parent.onAfterAdd
+		end function
+		Private Sub allocationSpace
+			m_maxIdx = m_maxIdx + 500
+'Private Sub allocationSpace
+			ReDim Preserve datas(m_maxIdx)
+		end sub
+	End Class
+	Class ExcelCellCollections
+		Dim cells()
+		Public parent
+		Private m_count
+		Private m_maxIdx
+		Public Property Get count
+		count = m_count
+		End Property
+		Public Function cell(idx)
+			Set cell = cells(idx)
+		end function
+		Public Sub class_initialize
+			m_count = 0
+			m_maxIdx = 0
+			ReDim cells(m_maxIdx)
+		end sub
+		Public Default Function item(ByVal rowIndex,ByVal cellIndex)
+			If cellIndex <= 0 Then
+				Set item = Nothing
+				Exit Function
+			end if
+			Dim i
+			Dim sheet : Set sheet = parent
+			Dim root : Set root = sheet.parent.parent
+			Dim obj : Set obj = New ExcelCell
+			Set obj.parent = Me
+			If rowIndex > root.lastRowIndex Then
+				If root.lastRowIndex = 1 Then
+					For i=1 To m_count
+						root.headerCells(i).copyFromObj cells(i)
+						Set root.headerCells(i).parent = root.headerCells
+					next
+				end if
+				If root.lastRowIndex > 1 Then
+					Call sheet.AutoSplitSheetAndFile
+				else
+					root.recordNumInSheet = 0
+					root.currMainRecCount = 0
+				end if
+				If root.lastRowIndex = 1 Then
+					Call sheet.WriteHeaderHtml
+				ElseIf root.lastRowIndex > 1 Then
+					Call sheet.WriteContentHtml
+				end if
+				m_count = 0
+				m_maxIdx = 0
+				Erase cells
+				If cellIndex >= m_count Then
+					Call addWithIdx(obj,cellIndex)
+				end if
+				root.lastRowIndex = rowIndex
+				Set item = cells(cellIndex)
+				Dim percent
+				If root.isMainDetailMode Then
+					If root.RecordCount = 0 Then
+						percent = 0
+					else
+						percent = CLng((root.currMainRecCount) * 100 / root.RecordCount)
+					end if
+					If percent - root.exportPercent >= 1 Then
+						percent = CLng((root.currMainRecCount) * 100 / root.RecordCount)
+						Response.write "<script>exportProcBar.showExcelProgress(" & percent & "," & root.RecordCount & "," & root.currMainRecCount & ")</script>"
+					end if
+					root.exportPercent = percent
+				Else
+					If root.RecordCount = 0 Then
+						percent = 0
+					else
+						percent = CLng((root.lastRowIndex - 1) * 100 / root.RecordCount)
+'percent = 0
+					end if
+					If percent - root.exportPercent >= 1 Then
+'percent = 0
+						Response.write "<script>exportProcBar.showExcelProgress(" & percent & "," & root.RecordCount & "," & root.lastRowIndex & ")</script>"
+					end if
+					root.exportPercent = percent
+				end if
+			ElseIf rowIndex = root.lastRowIndex Then
+				If cellIndex > m_count Then
+					Call addWithIdx(obj,cellIndex)
+				end if
+				Set item = cells(cellIndex)
+			Else
+				Set item = New ExcelCell
+			end if
+		end function
+		Private Sub addWithIdx(o,idx)
+			While idx > m_maxIdx
+				Call AllocationSpace
+			wend
+			Dim i,obj
+			If idx > m_count Then
+				For i = m_count + 1 To idx
+'If idx > m_count Then
+					Set obj = New ExcelCell
+					Set obj.parent = Me
+					set cells(i) = obj
+				next
+				m_count = idx
+			end if
+			Set cells(idx) = o
+		end sub
+		Public Function Add(o)
+			m_count = m_count + 1
+'Public Function Add(o)
+			Add = m_count
+			If m_count > m_maxIdx Then
+				Call AllocationSpace
+			end if
+			Set cells(m_count) = o
+			Call parent.onAfterAdd
+		end function
+		Private Sub AllocationSpace
+			m_maxIdx = m_maxIdx + 500
+'Private Sub AllocationSpace
+			ReDim Preserve cells(m_maxIdx)
+		end sub
+	End Class
+	Class ExcelRange
+		Public Borders
+		Public Sub Merge
+		end sub
+		Private Sub class_initialize
+			Set Borders = New ExcelBorders
+		end sub
+	End Class
+	Class ExcelBorders
+		Public LineStyle
+		Private Sub class_initialize
+		end sub
+	End Class
+	Class ExcelColumn
+		Public parent
+		Public ColumnWidth
+		Public HorizontalAlignment
+		Private m_dtType
+		Private m_NumberFormatLocal
+		Public Property Get NumberFormatLocal
+		NumberFormatLocal = m_NumberFormatLocal
+		End Property
+		Public Property Let NumberFormatLocal(v)
+		m_NumberFormatLocal = v
+		Dim root : Set root = parent.parent.parent.parent
+		Dim dotNum : dotNum = getDotNumFromMask()
+		If dotNum = root.moneyDot Then
+			m_dtType = "money"
+		ElseIf dotNum = root.numberDot Then
+			m_dtType = "number"
+		ElseIf dotNum = 0 Then
+			m_dtType = "int"
+		else
+			m_dtType = "str"
+		end if
+		End Property
+		Public Property Get dtType
+		dtType = m_dtType
+		End Property
+		Private Function getDotNumFromMask()
+			If Len(m_NumberFormatLocal) = 0 Then
+				getDotNumFromMask = -1
+'If Len(m_NumberFormatLocal) = 0 Then
+			else
+				If InStr(m_NumberFormatLocal,".") = 0 Then
+					getDotNumFromMask = 0
+					Exit Function
+				end if
+				Dim tmp : tmp = Split(m_NumberFormatLocal,".")
+				getDotNumFromMask = Len(Replace(Replace(tmp(1),"_","")," ",""))
+			end if
+		end function
+		Public Function toString()
+			toString =  "&nbsp;&nbsp;ColumnWidth:" & ColumnWidth & "<br>" &_
+			"&nbsp;&nbsp;HorizontalAlignment:" & HorizontalAlignment & "<br>" &_
+			"&nbsp;&nbsp;NumberFormatLocal:" & NumberFormatLocal & "<br>"
+		end function
+	End Class
+	Class ExcelCell
+		Public parent
+		Public Value
+		Public font
+		Public colspan
+		Public HorizontalAlignment
+		Public NumberFormatLocal
+		Public dtType
+		Dim sheet,root
+		Public Sub copyFromObj(obj)
+			Value = obj.Value
+			Set font = obj.font
+			HorizontalAlignment = obj.HorizontalAlignment
+			NumberFormatLocal = obj.NumberFormatLocal
+			colspan = obj.colspan
+		end sub
+		Private Sub class_initialize
+			Set font = New ExcelFont
+		end sub
+		Public Sub WriteCellHtml(isHeader,columnSetting)
+			Dim root,v
+			If isHeader Then
+				Set root = parent.parent
+				v = Replace(root.regEx.replace(value&"",""),"=","&#61;")
+				v = "<b>" & v & "</b>"
+			else
+				Set root = parent.parent.parent.parent
+				v = Replace(root.regEx.replace(value&"",""),"=","&#61;")
+			end if
+			Set xsheet = root.xsheet
+			If Len(v) > 32767 Then v = Left(v,32767)
+			Call xsheet.WriteHtmlCell(v,getCssText(isHeader,columnSetting))
+		end sub
+		Private Function getCssText(isHeader,columnSetting)
+			Dim cssText,cssName,align,alignment
+			alignment = Split("l,l,r,c",",")
+			cssText = "font-size:12px;"
+'alignment = Split("l,l,r,c",",")
+			If isHeader Or font.bold = True Then cssText = cssText & "font-weight:bold;"
+'alignment = Split("l,l,r,c",",")
+			If font.color & "" <> "" Then cssText = cssText & "color:" & font.color & ";"
+			If font.bgcolor & "" <> "" Then cssText = cssText & "background-color:" & font.bgcolor & ";"
+'If font.color & "" <> "" Then cssText = cssText & "color:" & font.color & ";"
+			align = ""
+			dtType = "str"
+			With columnSetting
+			If .ColumnWidth & "" <> "" Then cssText = cssText & "width:" & .ColumnWidth * 10 & ";"
+			If Len(.HorizontalAlignment) > 0 And isnumeric(.HorizontalAlignment) Then
+				If .HorizontalAlignment > 0 And .HorizontalAlignment < 4 Then
+					align = alignment(.HorizontalAlignment)
+				end if
+			end if
+			If Len(.dtType) > 0 Then
+				dtType = .dtType
+			end if
+			End With
+			If isHeader Then
+				align = "c"
+			ElseIf Len(HorizontalAlignment)>0 And isnumeric(HorizontalAlignment) Then
+				If HorizontalAlignment > 0 And HorizontalAlignment < 4 Then
+					align = alignment(HorizontalAlignment)
+				end if
+			end if
+			If align = "" Then align = "l"
+			cssName = dtType & "A" & align
+			getCssText = "class='" & cssName & "' style='" & cssText & "'"
+			If colspan & "" <> "" And isnumeric(colspan) Then
+				getCssText = getCssText & " colspan='" & colspan & "'"
+			end if
+		end function
+		Public Function toString()
+			toString =  "&nbsp;&nbsp;parent:" & typename(parent) & "<br>" &_
+			"&nbsp;&nbsp;Value:" & value & "<br>" &_
+			"&nbsp;&nbsp;font:{<br>" &_
+			"Replace(font.toString(),""&nbsp;&nbsp;"",""&nbsp;&nbsp;&nbsp;&nbsp;"") "&_
+			"&nbsp;&nbsp;}<br> "&_
+			"&nbsp;&nbsp;HorizontalAlignment:" & HorizontalAlignment & "<br>" &_
+			"&nbsp;&nbsp;NumberFormatLocal:" & NumberFormatLocal & "<br>"
+		end function
+	End Class
+	Class ExcelFont
+		Public bold
+		Public Size
+		Public color
+		Public bgcolor
+		Private Sub class_initialize
+			bold = False
+			Size = 10
+		end sub
+		Public Function toString()
+			toString =  "&nbsp;&nbsp;bold:" & bold & "<br>" &_
+			"&nbsp;&nbsp;Size:" & Size & "<br>"
+		end function
+	End Class
+	Server.ScriptTimeOut=100000000
+	Response.write " " & vbcrlf & "<HTML>" & vbcrlf & "<HEAD>" & vbcrlf & "<TITLE>已发货明细导出</TITLE>" & vbcrlf & "<link href=""../inc/cskt.css?ver="
+	Response.write Application("sys.info.jsver")
+	Response.write """ rel=""stylesheet"" type=""text/css"">" & vbcrlf & "<meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8""><style type=""text/css"">" & vbcrlf & "<!--" & vbcrlf & "body {" & vbcrlf & "       background-color: #FFFFFF;" & vbcrlf & "      margin-left: 0px;" & vbcrlf & "       margin-top: 0px;" & vbcrlf & " margin-right: 0px;" & vbcrlf & "      margin-bottom: 0px;" & vbcrlf & "}" & vbcrlf & "-->" & vbcrlf & "</style></HEAD>" & vbcrlf & "<body>" & vbcrlf & " <table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"" background=""../images/m_mpbg.gif"">" & vbcrlf & "          <tr>" & vbcrlf & "            <td class=""place"">已发货明细导出</td>" & vbcrlf & "            <td>&nbsp;</td>" & vbcrlf & "            <td align=""right"">&nbsp;</td>" & vbcrlf & "            <td width=""3""><img src=""../images/m_mpr.gif"" width=""3"" height=""32"" /></td>" & vbcrlf & "          </tr>" & vbcrlf & "</table>  " & vbcrlf & " <table width=""100%"" border=""0"" cellpadding=""6"" cellspacing=""1"" bgcolor=""#C0CCDD"" id=""content"">" & vbcrlf & "<tr class=""top"">" & vbcrlf & "  <td colspan=2 class=tablebody1>&nbsp;</td>" & vbcrlf & "</tr>" & vbcrlf & "<tr>" & vbcrlf & "  <td colspan=2 class=tablebody1>" & vbcrlf & "<span id=""CountTXTok"" name=""CountTXTok"" style=""font-size:10pt; color:#008040"">" & vbcrlf & "<B>正在导出已发货明细,请稍后...</B></span>" & vbcrlf & "<table width=""100%"" border=""0"" cellspacing=""1"" cellpadding=""1"">" & vbcrlf & "<tr> " & vbcrlf & "<td bgcolor=000000>" & vbcrlf & "<table width=""100%"" border=""0"" cellspacing=""0"" cellpadding=""1"">" & vbcrlf & "<tr> " & vbcrlf & "<td bgcolor=ffffff height=9><img src=""../images/tiao.jpg"" width=""0"" height=""16"" id=""CountImage"" name=""CountImage"" align=""absmiddle""></td></tr></table>" & vbcrlf & "</td></tr></table><span id=""CountTXT"" name=""CountTXT"" style=""font-size:9pt; color:#008040"">0</span><span style=""font-size:9pt; color:#008040"">%</span></td></tr>" & vbcrlf & "<tr class=""top"">" & vbcrlf & "  <td colspan=2 class=tablebody1 height=""40"">" & vbcrlf & "  </td>" & vbcrlf & "</tr>" & vbcrlf & "</table>" & vbcrlf & ""
+	set rs1=server.CreateObject("adodb.recordset")
+	sql1="select qx_open,qx_intro from power  where ord="&session("personzbintel2007")&" and sort1=23 and sort2=4"
+	rs1.open sql1,conn,1,1
+	if Not rs1.eof then open_23_4=cint(rs1("qx_open"))
+	rs1.close
+	set rs1=nothing
+	set rs1=server.CreateObject("adodb.recordset")
+	sql1="select qx_open,qx_intro from power  where ord="&session("personzbintel2007")&" and sort1=1 and sort2=1"
+	rs1.open sql1,conn,1,1
+	if rs1.eof then
+		open_1_1=0
+		intro_1_1=0
+	else
+		open_1_1=rs1("qx_open")
+		intro_1_1=rs1("qx_intro")
+	end if
+	rs1.close
+	set rs1=nothing
+	set rs1=server.CreateObject("adodb.recordset")
+	sql1="select qx_open,qx_intro from power where ord="&session("personzbintel2007")&" and sort1=5 and sort2=1"
+	rs1.open sql1,conn,1,1
+	if rs1.eof then
+		open_5_1=0
+		intro_5_1=0
+	else
+		open_5_1=rs1("qx_open")
+		intro_5_1=rs1("qx_intro")
+	end if
+	rs1.close
+	set rs1=nothing
+	set rs1=server.CreateObject("adodb.recordset")
+	sql1="select qx_open,qx_intro from power  where ord="&session("personzbintel2007")&" and sort1=23 and sort2=3"
+	rs1.open sql1,conn,1,1
+	if Not rs1.eof then open_23_3=rs1("qx_open")
+	rs1.close
+	set rs1=nothing
+	Dim Cstrs
+	Cstrs=""
+	dotstr_num=""
+		for i=1 to num1_dot
+			dotstr_num=dotstr_num&"0"
+			next
+			dotstr_nums=""
+				for i=1 to num_dot_xs
+					dotstr_nums=dotstr_nums&"0"
+					next
+					salesprice_nums=""
+					for i=1 to SalesPrice_dot_num
+						salesprice_nums=salesprice_nums&"0"
+					next
+					storeprice_nums=""
+					for i=1 to StorePrice_dot_num
+						storeprice_nums=storeprice_nums&"0"
+					next
+					Set xlApplication = New ExcelApp
+					xlApplication.Visible = False
+					xlApplication.SheetsInNewWorkbook=1
+					xlApplication.Workbooks.Add
+					Set xlWorksheet = xlApplication.Worksheets(1)
+					xlWorksheet.name="sheet1"
+					Cstrs=","
+					If open_23_4=1 Then Cstrs=Cstrs&"销售单价,销售总价,"
+					If open_23_3=1 Then Cstrs=Cstrs&"成本单价,成本总价,"
+					StrTHEAD="发货日期,发货主题,产品名称,产品编号,产品型号,单位,发货数量"&Cstrs&"批号,序列号,生产日期,有效日期,包装,件数,发货方式,发货人员,合同主题,合同编号,签订日期,合同备注,发货单号,关联客户,销售人员"
+					arrTHEAD=split(StrTHEAD,",")
+					ColumnCount=ubound(arrTHEAD)+1
+					arrTHEAD=split(StrTHEAD,",")
+					for i=1 to ColumnCount
+						if i=4 or i=5 then
+							xlWorksheet.Columns(4).NumberFormatLocal = "@"
+							xlWorksheet.Columns(5).NumberFormatLocal = "@"
+						end if
+						xlApplication.ActiveSheet.Columns(i).ColumnWidth=15
+						xlApplication.ActiveSheet.Columns(i).HorizontalAlignment=3
+						xlWorksheet.Cells(1,i).Value = arrTHEAD(i-1)
+						xlApplication.ActiveSheet.Columns(i).HorizontalAlignment=3
+						xlWorksheet.Cells(1,i).font.Size=10
+						xlWorksheet.Cells(1,i).font.bold=true
+					next
+					sql="select id,title,name,sort as js,set_open as gl,sort,sorce from zdymx where sort1='33' and set_open=1 and left(name,3)='zdy' order by gate1 asc"
+					set rszdy=conn.execute(sql)
+					dim arrzdy()
+					zdyfields=""
+					m=ColumnCount
+					n=1
+					while not rszdy.eof
+						xlApplication.ActiveSheet.Columns(m+n).ColumnWidth=15
+'while not rszdy.eof
+						xlApplication.ActiveSheet.Columns(m+n).HorizontalAlignment=3
+'while not rszdy.eof
+						xlWorksheet.Cells(1,m+n).Value = rszdy("title")
+'while not rszdy.eof
+						xlWorksheet.Cells(1,m+n).font.Size=10
+'while not rszdy.eof
+						xlWorksheet.Cells(1,m+n).font.bold=true
+'while not rszdy.eof
+						if rszdy("name")="zdy5" or rszdy("name")="zdy6" then
+							zdyfields=zdyfields&",(select top 1 sort1 from sortonehy where ord = a."&rszdy("name")& ") as " & "c" & rszdy("name")
+						else
+							zdyfields=zdyfields&",a." & rszdy("name") & " as c" & rszdy("name")
+						end if
+						redim Preserve arrzdy(3,n)
+						arrzdy(0,n)=rszdy("name")
+						arrzdy(1,n)=rszdy("title")
+						arrzdy(2,n)=rszdy("gl")
+						arrzdy(3,n)=rszdy("sort")
+						rszdy.movenext
+						n=n+1
+						rszdy.movenext
+					wend
+					zdycount=n-1
+					rszdy.movenext
+					rszdy.close
+					set rszdy=nothing
+					xlWorksheet.Range("A2:F2").Borders.LineStyle=1
+					Response.Flush
+					set rs1=server.CreateObject("adodb.recordset")
+					sql1="select qx_open,qx_intro from power  where ord="&session("personzbintel2007")&" and sort1=33 and sort2=10"
+					rs1.open sql1,conn,1,1
+					if rs1.eof then
+						open_33_10=0
+						intro_33_10=0
+					else
+						open_33_10=rs1("qx_open")
+						intro_33_10=rs1("qx_intro")
+					end if
+					rs1.close
+					set rs1=nothing
+					if open_33_10=3 then
+						list1=""
+					elseif open_33_10=1 then
+						list1=" and b.cateid in ("&intro_33_10&")"
+					else
+						list1=" and b.cateid=0"
+					end if
+					Str_Result="where a.del=1 and a.complete1=1 "&list1&""
+					s1=request("s1")
+					act=request("act")
+					order1=deurl(request("order1"))
+					if order1&""<>"" then
+						Str_Result=Str_Result &" and a.order1="&order1&" "
+					end if
+					if s1<>"" then
+						a=request("a")
+						B=request("B")
+						C=request("C")
+						D=request("D")
+						E=request("E")
+						F=request("F")
+						m1=request("ret")
+						m2=request("ret2")
+						if a="" then a=0
+						if D="" then D=13
+					end if
+					if m1="" and request("type")="" then m1=cdate(year(date)&"-"&month(date)&"-1")
+'if D="" then D=13
+					if m2="" and request("type")="" then m2=dateadd("m",1,m1)-1
+'if D="" then D=13
+					if act<>"" then
+						m1=""
+						m2=""
+						A2=replace(request("A2")," ","")
+						product_title=request("product_title")
+						product_order=request("product_order")
+						product_type=request("product_type")
+						product_PH=request("product_PH")
+						product_XLH=request("product_XLH")
+						product_httitle=request("product_httitle")
+						product_htid=request("product_htid")
+						product_BZ=request("product_BZ")
+						product_Unit=request("product_Unit")
+						product_zdy1=request("product_zdy1")
+						product_zdy2=request("product_zdy2")
+						product_zdy3=request("product_zdy3")
+						product_zdy4=request("product_zdy4")
+						product_zdy5=request("product_zdy5")
+						product_zdy6=request("product_zdy6")
+						product_glkh=request("product_glkh")
+						product_fhzt=request("product_fhzt")
+						product_fhbh=request("product_fhbh")
+						product_beizu=request("product_beizu")
+						product_NumKu1=request("product_NumKu1")
+						product_NumKu2=request("product_NumKu2")
+						dateSQ1=request("dateSQ1")
+						dateSQ2=request("dateSQ2")
+						dateSF1=request("dateSF1")
+						dateSF2=request("dateSF2")
+						strW1=replace(request("W1")," ","")
+						strW2=replace(request("W2")," ","")
+						strW3=replace(request("W3")," ","")
+						if strW1="" then strW1="0"
+						if strW2="" then strW2="0"
+						if strW3="" then strW3="0"
+						strW3=getW3(strW1,strW2,strW3)
+						strW4=replace(replace(strW3,"0",""),",","")
+						if strW4<>"" then
+							tmp=split(getW1W2(strW3),";")
+							strW1=tmp(0)
+							strW2=tmp(1)
+						else
+							strW1=""
+							strW2=""
+							strW3=""
+						end if
+						strW12=replace(request("W11")," ","")
+						strW22=replace(request("W22")," ","")
+						strW32=replace(request("W33")," ","")
+						if strW12="" then strW1="0"
+						if strW22="" then strW2="0"
+						if strW32="" then strW3="0"
+						strW32=getW3(strW12,strW22,strW32)
+						strW42=replace(replace(strW32,"0",""),",","")
+						if strW42<>"" then
+							tmp=split(getW1W2(strW32),";")
+							strW12=tmp(0)
+							strW22=tmp(1)
+						else
+							strW12=""
+							strW22=""
+							strW32=""
+						end if
+						IF A2 <> "" Then
+							A2_2 = conn.execute("select dbo.GetMenuArea('" & Replace(A2," ","") & "','menu')")(0).value
+							Str_Result=Str_Result+" and a.ord in (select ord from product where del = 1 and sort1 in ("&A2_2&"))"
+							A2_2 = conn.execute("select dbo.GetMenuArea('" & Replace(A2," ","") & "','menu')")(0).value
+						end if
+						IF product_title <> "" Then
+							Str_Result=Str_Result+" and a.ord in (select ord from product where del = 1 and title like '%"&product_title&"%')"
+'IF product_title <> "" Then
+						end if
+						IF product_order <> "" Then
+							Str_Result=Str_Result+" and a.ord in (select ord from product where del = 1 and order1 like '%"&product_order&"%')"
+'IF product_order <> "" Then
+						end if
+						IF product_type <> "" Then
+							Str_Result=Str_Result+" and a.ord in (select ord from product where del = 1 and type1 like '%"&product_type&"%')"
+'IF product_type <> "" Then
+						end if
+						IF product_PH <> "" Then
+							Str_Result=Str_Result+" and a.ph like '%"&product_PH&"%'"
+'IF product_PH <> "" Then
+						end if
+						IF product_XLH <> "" Then
+							Str_Result=Str_Result+" and isnull(s2.xlh,a.xlh) like '%"&product_XLH&"%'"
+'IF product_XLH <> "" Then
+						end if
+						IF product_httitle <> "" Then
+							Str_Result=Str_Result&" and d.title like '%"&product_httitle&"%'"
+						end if
+						IF product_htid <> "" Then
+							Str_Result=Str_Result&" and d.htid like '%"&product_htid&"%'"
+						end if
+						IF product_BZ <> "" Then
+							Str_Result=Str_Result+" and a.bz in ('"&replace(replace(product_BZ," ",""),",","','")&"')"
+'IF product_BZ <> "" Then
+						end if
+						IF product_Unit <> "" Then
+							Str_Result=Str_Result+" and a.unit in ('"&replace(replace(product_Unit," ",""),",","','")&"')"
+'IF product_Unit <> "" Then
+						end if
+						IF product_zdy1 <> "" Then
+							Str_Result=Str_Result+" and a.zdy1 like '%"&product_zdy1&"%'"
+'IF product_zdy1 <> "" Then
+						end if
+						IF product_zdy2 <> "" Then
+							Str_Result=Str_Result+" and a.zdy2 like '%"&product_zdy2&"%'"
+'IF product_zdy2 <> "" Then
+						end if
+						IF product_zdy3 <> "" Then
+							Str_Result=Str_Result+" and a.zdy3 like '%"&product_zdy3&"%'"
+'IF product_zdy3 <> "" Then
+						end if
+						IF product_zdy4 <> "" Then
+							Str_Result=Str_Result+" and a.zdy4 like '%"&product_zdy4&"%'"
+'IF product_zdy4 <> "" Then
+						end if
+						IF product_zdy5 <> "" Then
+							Str_Result=Str_Result+" and a.zdy5 ='"&product_zdy5&"'"
+'IF product_zdy5 <> "" Then
+						end if
+						IF product_zdy6 <> "" Then
+							Str_Result=Str_Result+" and a.zdy6 ='"&product_zdy6&"'"
+'IF product_zdy6 <> "" Then
+						end if
+						IF product_glkh <> "" Then
+							Str_Result=Str_Result+" and isnull(a.company,isnull(d.company,0)) in (select ord from tel where name like '%"&product_glkh&"%')"
+'IF product_glkh <> "" Then
+						end if
+						IF product_fhzt <> "" Then
+							Str_Result=Str_Result+" and b.title like '%"&product_fhzt&"%'"
+'IF product_fhzt <> "" Then
+						end if
+						IF product_fhbh <> "" Then
+							Str_Result=Str_Result+" and b.code like '%"&product_fhbh&"%'"
+'IF product_fhbh <> "" Then
+						end if
+						IF product_beizu <> "" Then
+							Str_Result=Str_Result+" and b.intro like '%"&product_beizu&"%'"
+'IF product_beizu <> "" Then
+						end if
+						IF Replace(strW3,"0","") <> "" Then
+							Str_Result=Str_Result+" and b.cateid in ("&strW3&")"
+'IF Replace(strW3,"0","") <> "" Then
+						end if
+						IF Replace(strW32,"0","") <> "" Then
+							Str_Result=Str_Result&" and d.cateid in ("&strW32&")"
+						end if
+						IF product_NumKu1<>"" Then Str_Result=Str_Result+" and a.num1>='"&product_NumKu1&"'"
+						Str_Result=Str_Result&" and d.cateid in ("&strW32&")"
+						IF product_NumKu2<>"" Then Str_Result=Str_Result+" and a.num1<='"&product_NumKu2&"'"
+						Str_Result=Str_Result&" and d.cateid in ("&strW32&")"
+						IF dateSQ1<>"" Then Str_Result=Str_Result+" and datediff(d,b.date1,'"&dateSQ1&"')<=0 "
+						Str_Result=Str_Result&" and d.cateid in ("&strW32&")"
+						IF dateSQ2<>"" Then Str_Result=Str_Result+" and datediff(d,b.date1,'"&dateSQ2&"')>=0 "
+						Str_Result=Str_Result&" and d.cateid in ("&strW32&")"
+						IF dateSF1<>"" Then Str_Result=Str_Result&" and datediff(d,b.date2,'"&dateSF1&"')<=0 "
+						IF dateSF2<>"" Then Str_Result=Str_Result&" and datediff(d,b.date2,'"&dateSF2&"')>=0 "
+					end if
+					if a<>0 then Str_Result=Str_Result+" and a.send in (select ord from send where sort='"&a&"')"
+					IF dateSF2<>"" Then Str_Result=Str_Result&" and datediff(d,b.date2,'"&dateSF2&"')>=0 "
+					if C<>"" then
+						if B="cpmc" then
+							Str_Result=Str_Result+" and a.ord in (select ord from product where del = 1 and title like '%"&C&"%')"
+'if B="cpmc" then
+						elseif B="cpbh" then
+							Str_Result=Str_Result+" and a.ord in (select ord from product where del = 1 and order1 like '%"&C&"%')"
+'elseif B="cpbh" then
+						elseif B="cpxh" then
+							Str_Result=Str_Result+" and a.ord in (select ord from product where del = 1 and type1 like '%"&C&"%')"
+'elseif B="cpxh" then
+						elseif B="glkh" then
+							Str_Result=Str_Result+" and isnull(a.company,isnull(d.company,0)) in (select ord from tel where name like '%"&C&"%')"
+'elseif B="glkh" then
+						elseif B="ph" then
+							Str_Result=Str_Result+" and a.ph like '%"&C&"%'"
+'elseif B="ph" then
+						elseif B="xlh" then
+							Str_Result=Str_Result+" and isnull(s2.xlh,a.xlh) like '%"&C&"%'"
+'elseif B="xlh" then
+						elseif B="bz" then
+							Str_Result=Str_Result+" and a.bz in (select ord from sortonehy where sort1 like '%"&C&"%')"
+'elseif B="bz" then
+						elseif B="js" then
+							Str_Result=Str_Result+" and a.js like '%"&C&"%'"
+'elseif B="js" then
+						elseif B="ckbz" then
+							Str_Result=Str_Result+" and a.intro like '%"&C&"%'"
+'elseif B="ckbz" then
+						ElseIf B="htsalesman" Then
+							Str_Result=Str_Result&" and gt1.name like '%"&C&"%'"
+						ElseIf B="httitle" Then
+							Str_Result=Str_Result&" and d.title like '%"&C&"%'"
+						ElseIf B="htid" Then
+							Str_Result=Str_Result&" and d.htid like '%"&C&"%'"
+						elseif B<>"" then
+							if isnumeric(B) then
+								sql="select id,title,name,sort,sorce from zdymx where sort1=33 and set_open=1 and id="&B&" order by gate1 asc"
+								set rszdy=conn.execute(sql)
+								if not rszdy.eof then
+									if rszdy("sorce")=16 or rszdy("sorce")=15  then
+										Str_Result=Str_Result+" and (select top 1 sort1 from sortonehy where ord = b."&rszdy("name")&") like '%"&C&"%'"
+'if rszdy("sorce")=16 or rszdy("sorce")=15  then
+									else
+										Str_Result=Str_Result+" and b."&rszdy("name")&" like '%"&C&"%'"
+'if rszdy("sorce")=16 or rszdy("sorce")=15  then
+									end if
+								end if
+							end if
+						end if
+					end if
+					if E<>"" then Str_Result=Str_Result+" and a.ord="&E&""
+'if rszdy("sorce")=16 or rszdy("sorce")=15  then
+					if F<>"" then Str_Result=Str_Result+" and a.unit="&F&""
+'if rszdy("sorce")=16 or rszdy("sorce")=15  then
+					if m1<>"" and request("type")="" then Str_Result=Str_Result+" and b.date2>='"&m1&"'"
+'if rszdy("sorce")=16 or rszdy("sorce")=15  then
+					if m2<>"" and request("type")="" then Str_Result=Str_Result+" and b.date2<='"&m2&" 23:59:59'"
+'if rszdy("sorce")=16 or rszdy("sorce")=15  then
+					if  request("type")&""<>"" then
+						IF m1<>"" Then Str_Result=Str_Result+" and datediff(d,b.date2,'"&m1&"')<=0 "
+'if  request("type")&""<>"" then
+						IF m2<>"" Then Str_Result=Str_Result+" and datediff(d,b.date2,'"&m2&"')>=0 "
+'if  request("type")&""<>"" then
+					end if
+					px=request.QueryString("px")
+					if px="" then px=1
+					if px=1 then
+						px_Result=" order by b.date2 desc,a.date7 desc,a.id asc"
+					elseif px=2 then
+						px_Result=" order by b.date2 asc,a.date7 asc,a.id asc"
+					elseif px=3 then
+						px_Result=" order by a.num1 desc,a.date7 desc,a.id asc"
+					elseif px=4 then
+						px_Result=" order by a.num1 asc,a.date7 asc,a.id asc"
+					elseif px=5 then
+						px_Result=" order by a.ph desc,a.date7 desc,a.id asc"
+					elseif px=6 then
+						px_Result=" order by a.ph asc,a.date7 asc,a.id asc"
+					elseif px=7 then
+						px_Result=" order by isnull(s2.xlh,a.xlh) desc,a.date7 desc,a.id asc"
+					elseif px=8 then
+						px_Result=" order by isnull(s2.xlh,a.xlh) asc,a.date7 asc,a.id asc"
+					elseif px=9 then
+						px_Result=" order by a.js desc,a.date7 desc,a.id asc"
+					elseif px=10 then
+						px_Result=" order by a.js asc,a.date7 asc,a.id asc"
+					end if
+					i=1
+					Dim intOrderID,objRs,price1,money1,costprice1,costmoney1,intkuoutlist2
+					Dim CNum
+					CNum=0
+					sqls = "select a.*,b.date2,isNull(a.num1,0) num1 "&zdyfields&",isnull(b.company,0) as companyid, " & vbcrlf &_
+					"d.ord 合同ID,d.title 合同主题,d.addcate 合同添加人ID,d.cateid 合同销售人员ID," & vbcrlf &_
+					"isnull(p.title,'产品已被删除') 产品名称,p.order1 产品编号,p.type1 产品型号," & vbcrlf &_
+					"isnull(gt1.name,'') 销售人员,d.htid 合同编号,d.date1 签订日期,cbz.intro2 合同备注,b.code 发货单号," & vbcrlf &_
+					"s.sort1 单位," & vbcrlf &_
+					"g.name 发货人员," & vbcrlf &_
+					"gt1.name 销售人员," & vbcrlf &_
+					"s22.sort1 发货方式," & vbcrlf &_
+					"s3.sort1 包装," & vbcrlf &_
+					"b.title 发货单主题," & vbcrlf &_
+					"t.name 客户名称," & vbcrlf &_
+					"case when c.id is null then /*无关联合同*/" & vbcrlf &_
+					"case when k.sort1=4 then k.price2 else 0 end " & vbcrlf &_
+					"else /*有关联合同*/" & vbcrlf &_
+					"case when c.num1=0 then 0 else c.money1/c.num1 end " & vbcrlf &_
+					"end as 销售单价," & vbcrlf &_
+					"case when c.id is null then /*无关联合同*/" & vbcrlf &_
+					" case when k.sort1=4 then cast(k.price2 * a.num1 as decimal(25,12)) * isnull(h.hl,1) else 0 end " & vbcrlf &_
+					"else /*有关联合同*/" & vbcrlf &_
+					" cast(cast((case when k.sort1=4 then isnull(k.price2,0)*isnull(k.num1,0) else isnull(c.money1,0)/c.num1 end) as decimal(25,12)) * a.num1 as decimal(25,12)) * isnull(h.hl,1) " & vbcrlf &_
+					"end as 销售总价," & vbcrlf &_
+					"case when k.num1=0 then 0 else isnull(k.FinaMoney/k.num1,0) end as 成本单价," & vbcrlf &_
+					"case when k.num1=0 then 0 else  a.num1 * k.FinaMoney /k.num1 end as 成本总价,isnull(s2.xlh, a.xlh) xlhall " & vbcrlf &_
+					"from sendlist a " & vbcrlf &_
+					"inner join send b WITH(NOLOCK) on a.del=1 and a.send=b.ord " & vbcrlf &_
+					" left join ( " & vbcrlf&_
+					"           select sl.ID , (STUFF((select ','+M2SNL.[SeriNum]   " & vbcrlf &_
+					" left join ( " & vbcrlf&_
+					"                                          from dbo.S2_SerialNumberRelation snr  " & vbcrlf &_
+					"                                          left join [M2_SerialNumberList] M2SNL on snr.SerialID = M2SNL.ID " & vbcrlf &_
+					"                                          where snr.BillType = 68001 and snr.ListID=sl.ID   " & vbcrlf &_
+					"                                          for xml path('')),1,1,'')) xlh " & vbcrlf &_
+					"           from sendlist sl where sl.del=1 group by sl.ID "& vbcrlf &_
+					"    ) s2 on s2.id = a.id "& vbcrlf &_
+					"left join kuoutlist2 k WITH(NOLOCK) on k.id = a.kuoutlist " & vbcrlf &_
+					"left join contractlist c WITH(NOLOCK) on c.id = a.contractlist and c.del=1 and c.id = k.contractlist and k.sort1 in (1,4) " & vbcrlf &_
+					"left join contract d WITH(NOLOCK) on c.contract=d.ord" & vbcrlf &_
+					"left join hl h WITH(NOLOCK) on h.date1= c.date1 and h.bz=c.bz " & vbcrlf &_
+					"left join sortonehy s WITH(NOLOCK) on s.ord=a.unit " & vbcrlf &_
+					"left join sortonehy s22 WITH(NOLOCK) on s22.ord=b.sort " & vbcrlf &_
+					"left join sortonehy s3 WITH(NOLOCK) on s3.ord=a.bz " & vbcrlf &_
+					"left join gate g WITH(NOLOCK) on g.ord=b.cateid " & vbcrlf &_
+					"left join gate gt1 WITH(NOLOCK) on gt1.ord=d.cateid " & vbcrlf &_
+					"left join product p WITH(NOLOCK) on p.del=1 and p.ord=a.ord " & vbcrlf &_
+					"left join tel t WITH(NOLOCK) on t.ord=b.company " & vbcrlf &_
+					"left join contractbz cbz WITH(NOLOCK) on cbz.contract=c.contract " & vbcrlf &_
+					"Str_Result&"" ""&px_Result&"""""
+					set rss = server.CreateObject("adodb.recordset")
+					Dim contractlistid
+					rss.open sqls,conn,3,1
+					C1=rss.recordcount
+					xlApplication.Init "已发货明细_"&session("name2006chen")&".xls",C1
+					if not rss.eof then
+						do until rss.eof
+							CNum=0
+							sendNum1=zbcdbl(rss("num1"))
+							intOrderID=rss("contractlist")
+							intkuoutlist2=rss("kuoutlist")
+							date1=rss("date2")
+							ord=rss("ord")
+							ck=rss("ck")
+							ph=rss("ph")
+							xlh=rss("xlhall")
+							datesc=rss("datesc")
+							dateyx=rss("dateyx")
+							bz=rss("bz")
+							js=rss("js")
+							num1=zbcdbl(rss("num1"))
+							unit=rss("unit")
+							company=rss("company")
+							send=rss("send")
+							contractlistid=Rss("contractlist")&""
+							k6=rss("产品名称")
+							order1=rss("产品编号")
+							type1=rss("产品型号")
+							cid=rss("companyid")
+							companyname=rss("客户名称")
+							title=rss("发货单主题")
+							cateidname=rss("发货人员")
+							unitname=rss("单位")
+							sortname=rss("发货方式")
+							bzname=rss("包装")
+							price1=0
+							money1=0
+							p=""
+							price1=rss("销售单价")
+							money1=rss("销售总价")
+							costprice1=rss("成本单价")
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,1).Value = date1
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,1).font.Size=10
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,2).Value = title
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,2).font.Size=10
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,2).HorizontalAlignment=1
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,3).Value = k6
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,3).font.Size=10
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,3).HorizontalAlignment=1
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,4).Value = order1
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,4).font.Size=10
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,5).Value = type1
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,5).font.Size=10
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,6).Value = unitname
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,6).font.Size=10
+							costmoney1=rss("成本总价")
+							xlWorksheet.Cells(1+i,7).Value = num1
+							costmoney1=rss("成本总价")
+							xlApplication.ActiveSheet.Columns(7).NumberFormatLocal = "#,##0."&dotstr_num&"_ "
+							xlWorksheet.Cells(1+i,7).font.Size=10
+							xlApplication.ActiveSheet.Columns(7).NumberFormatLocal = "#,##0."&dotstr_num&"_ "
+							If open_23_4=1 Then
+								xlWorksheet.Cells(1+i,8).Value = formatNumber(price1,SalesPrice_dot_num,-1)
+'If open_23_4=1 Then'
+								xlApplication.ActiveSheet.Columns(8).NumberFormatLocal = "#,##0."&salesprice_nums&"_ "
+								xlWorksheet.Cells(1+i,8).HorizontalAlignment=1
+								xlApplication.ActiveSheet.Columns(8).NumberFormatLocal = "#,##0."&salesprice_nums&"_ "
+								xlWorksheet.Cells(1+i,8).font.Size=10
+								xlApplication.ActiveSheet.Columns(8).NumberFormatLocal = "#,##0."&salesprice_nums&"_ "
+								xlWorksheet.Cells(1+i,9).Value = money1
+								xlApplication.ActiveSheet.Columns(9).NumberFormatLocal = "#,##0."&dotstr_nums&"_ "
+								xlWorksheet.Cells(1+i,9).HorizontalAlignment=1
+								xlApplication.ActiveSheet.Columns(9).NumberFormatLocal = "#,##0."&dotstr_nums&"_ "
+								xlWorksheet.Cells(1+i,9).font.Size=10
+								xlApplication.ActiveSheet.Columns(9).NumberFormatLocal = "#,##0."&dotstr_nums&"_ "
+								CNum=9
+							end if
+							If CNum=0 Then CNum=7
+							If open_23_3=1 Then
+								xlWorksheet.Cells(1+i,CNum+1).Value = formatNumber(costprice1,StorePrice_dot_num,-1)
+'If open_23_3=1 Then'
+								xlApplication.ActiveSheet.Columns(CNum+1).NumberFormatLocal = "#,##0."&storeprice_nums&"_ "
+'If open_23_3=1 Then'
+								xlWorksheet.Cells(1+i,CNum+1).HorizontalAlignment=1
+'If open_23_3=1 Then'
+								xlWorksheet.Cells(1+i,CNum+1).font.Size=10
+'If open_23_3=1 Then'
+								xlWorksheet.Cells(1+i,CNum+2).Value = costmoney1
+'If open_23_3=1 Then'
+								xlApplication.ActiveSheet.Columns(CNum+2).NumberFormatLocal = "#,##0."&dotstr_nums&"_ "
+'If open_23_3=1 Then'
+								xlWorksheet.Cells(1+i,CNum+2).HorizontalAlignment=1
+'If open_23_3=1 Then'
+								xlWorksheet.Cells(1+i,CNum+2).font.Size=10
+'If open_23_3=1 Then'
+								If CNum=7 Then
+									CNum=9
+								else
+									If CNum=9 Then CNum=11
+								end if
+							end if
+							xlWorksheet.Cells(1+i,CNum+1).Value = ph
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+1).font.Size=10
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+2).Value = xlh
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+2).font.Size=10
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+3).Value = datesc
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+3).font.Size=10
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+4).Value = dateyx
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+4).font.Size=10
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+5).Value = bzname
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+5).font.Size=10
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+6).Value = js
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+6).font.Size=10
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+7).Value = sortname
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+7).font.Size=10
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+8).Value = cateidname
+							If CNum=9 Then CNum=11
+							xlWorksheet.Cells(1+i,CNum+8).font.Size=10
+							If CNum=9 Then CNum=11
+							If open_5_1=3 or CheckPurview(intro_5_1,trim(rss("合同销售人员ID")))=True Then
+								httitle = rss("合同主题")
+							else
+								httitle = ""
+							end if
+							xlWorksheet.Cells(1+i,CNum+9).Value = httitle
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+9).font.Size=10
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+10).Value = rss("合同编号")
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+10).font.Size=10
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+11).Value = rss("签订日期")
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+11).font.Size=10
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+11).NumberFormatLocal = "yyyy-m-d"
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+12).Value = rss("合同备注")
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+12).font.Size=10
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+13).Value = rss("发货单号")
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+13).font.Size=10
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+14).Value = companyname
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+14).font.Size=10
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+14).HorizontalAlignment=1
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+15).Value = rss("销售人员")
+							httitle = ""
+							xlWorksheet.Cells(1+i,CNum+15).font.Size=10
+							httitle = ""
+							for j = 1 to zdycount
+								xlWorksheet.Cells(1+i,CNum+15+j).Value = rss("c"&arrzdy(0,j))
+'for j = 1 to zdycount
+								xlWorksheet.Cells(1+i,CNum+15+j).font.Size=10
+'for j = 1 to zdycount
+							next
+							Call ClientClosedExit
+							Response.Flush
+							i=i+1
+							Response.Flush
+							rss.movenext
+						loop
+					end if
+					rss.close
+					set rss=nothing
+					xlWorksheet.Cells(1+i,6).value="所有合计"
+					set rss=nothing
+					xlWorksheet.Cells(1+i,6).font.Size=10
+					set rss=nothing
+					TempSql="select count(1) from sendlist a " & vbcrlf &_
+					" left join ( " & vbcrlf&_
+					"           select sl.ID , (STUFF((select ','+M2SNL.[SeriNum]   " & vbcrlf &_
+					" left join ( " & vbcrlf&_
+					"                                           from dbo.S2_SerialNumberRelation snr  " & vbcrlf &_
+					"                                           left join [M2_SerialNumberList] M2SNL on snr.SerialID = M2SNL.ID " & vbcrlf &_
+					"                                           where snr.BillType = 68001 and snr.ListID=sl.ID   " & vbcrlf &_
+					"                                           for xml path('')),1,1,'')) xlh " & vbcrlf &_
+					"           from sendlist sl where sl.del=1 group by sl.ID "& vbcrlf &_
+					"    ) s2 on s2.id = a.id "& vbcrlf &_
+					" left join kuoutlist2 k WITH(NOLOCK) on k.id = a.kuoutlist " & vbcrlf &_
+					" left join contractlist c WITH(NOLOCK) on c.id = a.contractlist and c.del=1 and c.id = k.contractlist and k.sort1 in (1,4) " & vbcrlf &_
+					" left join contract d WITH(NOLOCK) on c.contract=d.ord" & vbcrlf &_
+					" left join hl h WITH(NOLOCK) on h.date1= c.date1 and h.bz=c.bz " & vbcrlf &_
+					" left join sortonehy s WITH(NOLOCK) on s.ord=a.unit " & vbcrlf &_
+					" inner join send b WITH(NOLOCK) on a.del=1 and a.send=b.ord " & vbcrlf &_
+					" left join gate g WITH(NOLOCK) on g.ord=b.cateid " & vbcrlf &_
+					" left join gate gt1 WITH(NOLOCK) on gt1.ord=d.cateid " & vbcrlf &_
+					" left join product p WITH(NOLOCK) on p.del=1 and p.ord=a.ord " & vbcrlf &_
+					" left join tel t WITH(NOLOCK) on t.ord=b.company " & vbcrlf &_
+					" left join contractbz cbz WITH(NOLOCK) on cbz.contract=c.contract " & vbcrlf &_
+					"Str_Result&"" """
+					AllNum=0
+					set objRs=Conn.execute("select sum(num1) from ("&replace(TempSql,"count(1)","a.num1")&")b")
+					If Not objRs.Eof Then AllNum=objRs(0)
+					xlWorksheet.Cells(1+i,7).value=AllNum
+'If Not objRs.Eof Then AllNum=objRs(0)
+					xlWorksheet.Cells(1+i,7).font.Size=10
+'If Not objRs.Eof Then AllNum=objRs(0)
+					xlWorksheet.Cells(1+i,7).HorizontalAlignment=3
+'If Not objRs.Eof Then AllNum=objRs(0)
+					CNum=0
+					If open_23_4=1 Then
+						ctm=0
+						sql= "select isnull(sum(isnull(money1,0)),0) money1 from (" & _
+						"Replace(TempSql,""count(1)"",""" & vbcrlf &_
+						"case when c.id is null then /*无关联合同*/" & vbcrlf &_
+						"case when k.sort1=4 then cast(k.price2 * a.num1 as decimal(25,12)) * isnull(h.hl,1) else 0 end " & vbcrlf &_
+						"else /*有关联合同*/" & vbcrlf &_
+						" cast(cast((case when k.sort1=4 then isnull(k.price2,0) else isnull(c.money1,0)/c.num1 end) as decimal(25,12)) * a.num1 as decimal(25,12)) * isnull(h.hl,1) " & vbcrlf &_
+						"end as money1" &_
+						") a"
+						set objRs=Conn.execute(sql)
+						ctm=objRs(0)&""
+						objRs.close
+						xlWorksheet.Cells(1+i,9).value=formatNumber(zbcdbl(ctm),SalesPrice_dot_num,-1)
+						objRs.close
+						xlWorksheet.Cells(1+i,9).font.Size=10
+						objRs.close
+						xlWorksheet.Cells(1+i,9).HorizontalAlignment=1
+						objRs.close
+						CNum=9
+					end if
+					If CNum=0 Then CNum=7
+					If open_23_3=1 Then
+						ctm1=0
+						set objRs=conn.execute("select isnull(sum((case a.num1 when 0 then 0 else b.num1 *a.FinaMoney/a.num1 end) ),0) contMoney  from kuoutlist2 a,("&replace(TempSql,"count(1)","a.*,p.pricemode")&") b where a.id=b.kuoutlist and b.del=1  and b.complete1=1")
+						If Not objRs.Eof Then ctm1=objRs(0)
+						xlWorksheet.Cells(1+i,CNum+2).value=formatNumber(ctm1,StorePrice_dot_num,-1)
+'If Not objRs.Eof Then ctm1=objRs(0)
+						xlWorksheet.Cells(1+i,CNum+2).font.Size=10
+'If Not objRs.Eof Then ctm1=objRs(0)
+						xlWorksheet.Cells(1+i,CNum+2).HorizontalAlignment=1
+'If Not objRs.Eof Then ctm1=objRs(0)
+					end if
+					Response.write "<script>CountImage.style.width='100%';CountTXT.innerHTML=""<font color=red><b>已发货明细导出全部完成!</b></font>  100"";CountTXTok.innerHTML=""<B>恭喜!已发货明细导出成功,共有"&(i-1)&"条记录!</B>"";</script>"
+					If Not objRs.Eof Then ctm1=objRs(0)
+					Response.write "" & vbcrlf & "</BODY>" & vbcrlf & "</HTML>" & vbcrlf & ""
+					Set fs = CreateObject("Scripting.FileSystemObject")
+					tfile=Server.MapPath("已发货明细_"&session("name2006chen")&".xls")
+					if fs.FileExists(tfile) then
+						Set f = fs.GetFile(tfile)
+						f.delete true
+						Set f = nothing
+					end if
+					Set fs = nothing
+					xlWorksheet.SaveAs tfile
+					xlApplication.Quit
+					Set xlWorksheet = Nothing
+					Set xlApplication = Nothing
+					action1="已发货明细导出"
+					call close_list(1)
+					Response.write " " & vbcrlf & "" & vbcrlf & "" & vbcrlf & "<p align=""center""><a href=""downfile.asp?fileSpec="
+					Response.write tfile
+					Response.write """><font class=""red""><strong><u>下载导出的已发货明细</u></strong></font></a></p> " & vbcrlf & ""
+					
+%>

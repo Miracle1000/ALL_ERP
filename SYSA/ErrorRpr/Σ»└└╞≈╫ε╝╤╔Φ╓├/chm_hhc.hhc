@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="目录">
+		</OBJECT>
+	<UL> ;32
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="浏览器设置目录">
+			<param name="Local" value="index.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="360安全浏览器">
+			<param name="Local" value="360浏览器.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="IE6设置说明">
+			<param name="Local" value="ie6.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="IE7设置说明">
+			<param name="Local" value="ie7.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="IE8设置说明">
+			<param name="Local" value="ie8.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="IE9设置说明">
+			<param name="Local" value="ie9.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="遨游浏览器">
+			<param name="Local" value="遨游.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="浏览器内核说明">
+			<param name="Local" value="浏览器内核.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="世界之窗浏览器">
+			<param name="Local" value="世界之窗.html">
+            </OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="搜狗浏览器">
+			<param name="Local" value="搜狗浏览器.html">
+            </OBJECT>
+          </UL>
+</UL>
+</BODY></HTML>

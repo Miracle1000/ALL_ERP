@@ -1,0 +1,4 @@
+<datasource>
+	<type>tree</type>
+	<sql>exec [@@MainDataBaseName]..erp_comm_gatesTree @uid,3, '@keytext','@personstatus'</sql>
+</datasource>

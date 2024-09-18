@@ -1,0 +1,1335 @@
+﻿div.bodydiv{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+}
+.divdlgBody div{
+	color:#2F496E;
+}
+
+.full {
+	width:100%;
+	height:100%;
+}
+td.hj{
+	color:red;
+}
+script {
+	display:none;
+}
+
+select {
+	font-size:12px;
+	border:1px solid #aaaaaa;
+}
+.c_g{
+	color:#5B7CAE;
+}
+.c_r {
+	color:#5B7CAE;
+}
+.c_red {
+	color:#ff0000;
+}
+td.c_r {
+	color:#5B7CAE;
+}
+.c_b {
+	color:#2F496E;
+}
+.c_c {
+	
+}
+table {
+	
+}
+span.link{
+	color:#2F496E;
+	cursor:pointer;
+}
+
+center{
+	display:inline-block;
+}
+
+.center {
+	text-align:center;
+}
+.InselButton{
+	width:20px;
+	height:21px;
+	border-top:1px solid #e0e0e6;
+	border-left:1px solid white;
+	border-bottom:1px solid #e0e0e6;
+	border-right:1px solid #e0e0e6;
+	background-color:white;
+	padding:0px;
+	margin:0px;
+	overflow:hidden;
+	cursor:pointer;
+	Filter:Chroma(color=#c2cbcf);
+}
+
+input.text {
+	height:17px;
+	border:1px solid #e0e0e6;
+	/*border-left:1px solid #bbbbcc;
+	border-bottom:1px solid #bbbbcc;
+	border-right:1px solid #bbbbcc;
+	*/
+	font-size:12px;
+	width:100px;
+	color:#585858;
+	line-height:16px;
+	padding-left:2px;
+	overflow:hidden;
+}
+
+button.wavbutton {
+	border:1px solid #9FA3BC;
+	font-family:arial;
+	font-size:12px;
+	background-color:white;
+	height:20px;
+	filter:wave(strength=0,freq=1,lightstrength=6,phase=0);
+	
+	cursor:default;
+}
+
+button.button {
+	border:1px solid #9FA3BC;
+	font-family:arial;
+	font-size:12px;
+	background-color:#C6CBD8;
+	height:20px;
+	background-image:url(../images/smico/m_an2.gif);
+	cursor:default;
+}
+div.DisDivBgCss {
+	display:block;
+	position:fixed;
+	_position:absolute;
+	width:100%;
+	height:2000px;
+	z-index:100;
+	top:0px;
+	left:0px;
+	filter:Alpha(opacity=40);
+	-moz-opacity:0.4;  
+	-khtml-opacity: 0.4;  
+	opacity: 0.4; 
+	background-color:#CAD0E0;
+	background-image:url(../images/login_sample_bg.jpg);
+	background-repeat:repeat-x;
+	/*IE以下模式*/
+	
+}
+span.spitem{
+	color:#229922;
+	cursor:pointer;
+}
+table.divForm{
+	border-top:1px solid #CCC;
+	border-left:1px solid #CCC;
+	border-bottom:1px solid #CCC;
+	border-right:1px solid #CCC;
+}
+div.divdlgb{
+	width:100%;
+	height:100%;
+}
+div.divdlgBody{
+	width:100%;
+	height:100%;
+	border:1px solid #CCC;
+	background-color:white;
+	padding:500px;
+	overflow:auto;
+
+	overflow-x:auto;
+	overflow-y:hidden;
+	scrollbar-3dlight-color:#ffffFF;
+	scrollbar-highlight-color:#ffffFF;
+	scrollbar-face-color:#eeeeFF;
+	scrollbar-arrow-color:#6666ff;
+	scrollbar-shadow-color:#ffffFF;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-base-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+}
+span.spmxitem{
+	color:#aaaaaa;
+	cursor:pointer;
+}
+/*实现SSTab*/
+.ssTabItem_select {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+	/*filter:Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+.ssTabItem {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+	/*Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+
+.divdlgBody .ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid  #CCC;
+	border-bottom:1px solid white;
+}
+.divdlgBody  .ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid  #CCC;
+	border-right:1px solid  #CCC;
+	border-bottom:1px solid white;
+	padding-right:3px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+.divdlgBody  .ssTabItem_select .TabItemSlash{
+	background-image:url(../images/smico/divdlgSlash.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid white;
+	padding:0px;
+}
+.divdlgBody .ssTabItem .TabItemSlash{
+	background-image:url(../images/smico/bgdivbgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #CCC;
+	padding:0px;
+}
+.divdlgBody  .ssTabItem .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #CCC;
+	border-bottom:1px solid #CCC;
+}
+.divdlgBody  .ssTabItem .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #CCC;
+	border-right:1px solid #CCC;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #CCC;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+.ssTabItem_select .TabItemSlash{
+	background-image:url(../images/smico/Slash.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid white;
+	padding:0px;
+}
+.ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid white;
+}
+.ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	border-bottom:1px solid white;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+.ssTabItem .TabItemSlash{
+	background-image:url(../images/smico/BgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #A5A8D4;
+	padding:0px;
+}
+.ssTabItem .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid #A5A8D4;
+	background-image:url(../images/smico/TabItemBg.bmp);
+}
+.ssTabItem .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #A5A8D4;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+	background-image:url(../images/smico/TabItemBg.bmp);
+}
+/*实现SSTab完毕*/
+
+
+#spbilltitle{
+	width:146px;
+	height:27px;
+	background-image:url(../images/smico/content_tab_sp.png);
+	padding-left:40px;
+	padding-top:4px;
+	font-weight:bold;
+	font-size:14px;
+	color:#444499;
+}
+
+#billtitle{
+	width:210px;
+	height:27px;
+	background-image:url(../images/content_tab.png);
+	padding-left:40px;
+	padding-top:4px;
+	font-weight:bold;
+	font-size:14px;
+	color:#444499;
+}
+
+#billtopbardiv {	/*顶部div*/
+
+	position:relative; 
+	margin-top:-32px; 
+	height:32px;
+	background-image:url(../images/m_mpbg.gif);
+	border-bottom:1px solid #acaccc;
+}
+
+#billBodyDiv{			/*内容根div*/
+	 position:relative; 
+	 overflow:auto; 
+	 height:100%; 
+	 clear:both;
+}
+
+
+#LeftTreeArea{	/*div 导航树背景*/
+	 position:relative; 
+	 height:100%; 
+	 overflow:auto; 
+	 width:100px; 
+	 float:left; 
+	 margin-right:0 !important; 
+	 margin-right:-3px; 
+	 padding-left:20px;
+}
+
+#teBoxLeft {
+	width:100%;
+	height:100%;
+	overflow:visible;
+	margin-left:-20px;
+}
+
+
+#SpliterBar{		/*div  分隔栏按钮背景*/
+	 position:relative; 
+	 height:100%; 
+	 background:#ace; 
+	 overflow:hidden; 
+	 width:10px; 
+	 float:left; 
+	 margin-right:0 !important; 
+	 margin-right:-3px; 
+	 filter:Alpha(Opacity=100, FinishOpacity=10, Style=2);
+	 cursor:e-resize;
+}
+
+#sptBar {		/*div  分隔栏按钮*/
+	position:relative;
+	width:10px;
+	height:120px;
+	top:200px;
+	background-image:url(../images/btn_sh.png);
+	cursor:default;
+}
+
+
+
+#billBodyTable{			/*内容表单*/
+	left:0px;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	float:right;
+}
+
+
+#BillMainInfo{
+
+}
+
+#calendardiv {
+	position:absolute;
+	z-index:1000;
+	top:0px;
+}
+
+#calendardiv td{
+	margin:3px;
+}
+
+#calendardiv input{
+	padding:0px 3px 0px 5px;
+}
+
+
+.PageItemBar td{
+	display:block;
+	padding-left:2px;
+	padding-right:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+}
+
+#leftPanelExpBar {
+	position:absolute;
+	top:235px;
+	left:-5px;
+	width:24px;
+	height:22px;
+	overflow:hidden;
+	border:1px solid #dddddd;
+	background-color:#ffffff;
+	filter:Alpha(opacity=14) wave(strength=0,freq=1,lightstrength=12,phase=60);
+	cursor:pointer;
+	font-family:Webdings;
+	font-size:16px;
+	padding:0px;
+	color:#666666;
+}
+
+textarea.billfieldtextarea {
+	width:99%;
+	font-size:12px;
+	height:10px;
+	/*border-top:1px solid #aaaaaa;
+	border-left:1px solid #aaaaaa;
+	border-right:1px solid #f0f0f0;
+	border-bottom:1px solid #f0f0f0;*/
+	border:0px;
+	background-color:#fcfcff;
+
+}
+
+button.billcmdButton{
+	border:1px solid #9FA3BC;
+	font-size:12px;
+	background-color:#C6CBD8;
+	height:20px;
+	filter:wave(strength=0,freq=1,lightstrength=5,phase=0);
+	width:49px;
+	color:#5B7CAE;
+	background-image:url(../images/smico/m_an2.gif);
+	/*border:0px;
+	
+	height:20px;
+	background-image:url(../images/m_an2.gif);
+	color:#444488;
+	font-size:12px;
+	font-family:宋体;
+	cursor:pointer;*/
+}
+
+div.xDiatelScroll{
+	position:relative; /*滚动条是relative,所以容器必须是relative*/
+	width:100%;
+	display:block;
+	/*padding-top:16px\9;*/
+	padding-top:0px;
+	padding-bottom:16px\9;
+	padding-bottom:0px\0;
+	margin-left:-2px;
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+
+button.disbillcmdButton{
+	border:1px solid #b0bcbf;
+	width:49px;
+	height:20px;
+	color:#444488;
+	font-size:12px;
+	font-family:宋体;
+	cursor:default;
+}
+
+#MainTable {
+	width:100%;
+	background-image:url(../images/m_table_top.jpg);
+	background-repeat:repeat-x;
+	table-layout:fixed;
+}
+.bfleft{
+	width:100px;
+	height:0px;
+}
+
+#billbody{
+	 position:relative; 
+	 overflow:auto; 
+	 height:100%; 
+	 background-color:#fdfdff;
+}
+
+.billfieldleft {
+	text-align:right;
+	height:30px;
+	border-top:1px solid #c0ccdd;
+	border-right:1px solid #c0ccdd;
+	color:#5B7CAE;
+	padding-right:3px;
+}
+
+.billfieldright {
+	text-align:left;
+	height:30px;
+	border-top:1px solid #c0ccdd;
+	border-right:1px solid #c0ccdd; /*#f4f4fc;*/
+	padding-left:3px;
+	color:#585858;
+}
+
+.billreadonlytext{
+	font-family:宋体;
+	font-size:12px;
+	border:0px;
+	color:#585858;
+	background-color:transparent;
+}
+
+.billtext{
+	font-size:12px;
+	font-family:宋体;
+	background-color:#ffffff;
+}
+
+.selButton{
+	width:19px;
+	height:19px;
+	border:1px solid #cddcee;
+	background-color:white;
+	padding:0px;
+	cursor:pointer;
+	_filter:Chroma(color=#c2cbcf);
+}
+
+.smselButton{
+	width:16px;
+	height:16px;
+	border:1px solid #deedff;
+	background-color:white;
+	padding:0px;
+	cursor:pointer;
+}
+
+.textitemtable {
+	border-collapse:collapse;
+}
+
+.textitemtable td {
+	padding:0px;
+}
+.billgrouptool {
+	background-image:url(../images/m_table_top.jpg);
+	height:24px;
+}
+
+.billgrouptitle{
+	font-size:12px;
+	font-weight:bold;
+	color:#555588;
+	cursor:pointer;
+}
+td.lvwscrollbarbg{
+	width:15px;
+	text-align:center;
+	padding:0px;
+	overflow:hidden;
+}
+
+div.lvwscrollbar{  /*滚动条*/
+	width:14px;
+	background-color:#edddff;
+	position:relative;
+	border-left:1px solid white;
+	border-top:1px solid white;
+	border-right:1px solid #bbbbcc;
+	border-bottom:1px solid #bbbbcc;
+	background-image:url(../images/smico/vbuttonbg1.jpg);
+}
+.listviewframe{/*listview 框架*/
+	border:1px solid #666699;
+	
+}
+
+.lvwautosum .lvcr{
+	color:red;
+}
+
+.ctl_listviewbgtable {
+	text-align:left;
+	padding:0px;
+	margin:0px;
+}
+.ctl_listview{
+	background-image:url(../images/m_table_top.jpg);
+	background-repeat:repeat-x;
+	padding:0px;
+}
+
+.ctl_flatlistview{
+	background-repeat:repeat-x;
+	padding:0px;
+}
+
+td.flatlvx{
+	border:1px solid #ccccee;
+	text-align:center;
+	font-weight:bold;
+}
+
+td.lvc{
+	border:1px solid #ccccee;
+	height:24px;
+	overflow:hidden;
+	white-space:nowrap;
+	padding-left:4px;
+	color:#5B7CAE;
+}
+
+td.tnode{ 
+	height:24px;
+}
+
+
+td.tnode .edt0tb{
+	display:block;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	margin:0px;
+}
+
+td.tnode .full{
+	height:100%;
+	margin:0px;
+}
+
+td.tnode td{
+	display:block;
+	padding-top:0px;
+	padding-bottom:0px;
+	height:100%;
+}
+
+td.lvcr{
+	border:1px solid #ccccee;
+	height:24px;
+	text-align:right;
+	padding-right:4px;
+	color:#5B7CAE;
+}
+
+td.lvcc{
+	border:1px solid #ccccee;
+	height:24px;
+	text-align:center;
+	color:#5B7CAE;
+}
+
+th.lvc{
+	color:#2f4961;
+	/*font-weight:normal;*/
+	border:1px solid #ccccee;
+	height:28px;
+	font-family:arial;
+	cursor:default;
+	text-align:center;
+	/*padding:0px 4px 0px 4px;*/
+	background-color:white;
+	background-image:url(../images/lvx.jpg);
+	word-break: keep-all;/*必须*/
+}
+td.lvwbottomwhite{
+	height:25px;
+	display:inline-block;
+	border:2px solid red;
+}
+div.ctl_lvwadddiv{
+	text-align:center;
+	width:100%;
+	height:25px;
+}
+
+button.lvwReplaceCol { /*listview表头替换按钮*/
+	border:0px;
+	width:10px;
+	overflow:hidden;
+	background-image:url(../images/arrow_d.gif);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	height:11px;
+	cursor:pointer;
+	position:relative\0;
+	top:2px\0;
+}
+
+button.lvwpagebutton { /*分页按钮样式*/
+	width:20px;
+	height:20px;
+	font-size:12px;
+	line-height:12px;
+	padding-left:3px;
+	padding-top:1px;
+	font-family:Webdings;
+	background-color:white;
+	border:1px solid #A5A8D4;
+	filter:wave(strength=0,freq=1,lightstrength=5,phase=0);
+}
+
+.ctl_lvwaddrowlk{
+	color:red;
+	cursor:pointer;
+}
+.lvx{
+	font-family:arial;
+	text-align:center;
+	border:1px solid #ccccee;
+	cursor:default;
+	background-color:#f8f8ff;
+	background-image:url(../images/lvx.jpg);
+	background-repeat:repeat-x;
+}
+.dbcheck{
+	display:block;
+	float:left;
+	width:20px;
+	height:20px;
+	overflow:hidden;
+	text-align:left;
+	line-height:20px;
+}
+.dbcheck input{
+	height:15px;
+	width:15px;
+	margin-top:3px;
+	margin-left:5px;
+}
+.dbcheckboxindex {
+	width:22px;
+	display:block;
+	text-align:right;
+	float:left;
+	height:20px;
+	line-height:20px;
+}
+.ctldelspan{
+	cursor:pointer;
+	color:#cc9999;
+	font-size:12px;
+}
+
+.edt0{
+	padding:1px;
+	height:22px;
+}
+
+.edt1{
+	padding:2px;
+	height:22px;
+}
+
+td.edtfocus {
+	background-image:url(../images/smico/lvweditline.GIF);
+	background-position: center bottom; 
+	background-repeat: repeat-x;
+	padding:2px;
+}
+
+.ctllvwCurrInput {
+	width:100%;
+	border:0px solid #000;
+	font-size:12px;
+	background-color:transparent;
+}
+.edt0tb{
+	width:100%;
+	height:100%;
+}
+.edt1tb{
+	display:inline;
+	width:100%;
+	height:100%;
+}
+.edtfocustb{
+	width:100%;
+	height:100%;
+}
+
+ul.tvw_child{
+	margin-left:18px;
+	margin-left:-25px\9;
+	+margin-left:18px;
+	_margin-left:18px;  /*IE兼容性写法*/
+	background-color:white;
+	text-indent:0px;
+}
+ul.treeview {
+	margin-left:0px;
+	padding-left:0px;
+	list-style-type:none;
+}
+
+ul.treeview ul{
+	margin-left:0px;
+	padding-left:20px;
+	list-style-type:none;
+}
+
+li.tvw_item {
+	list-style-type:none;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+	width:100%;
+	line-height:20px;
+	color:#2F496E;
+}
+
+li.tvw_selitem span.tvw_itemtext {
+	background-color:#5555aa;
+	border:1px dotted yellow;
+	color:white;
+}
+li.tvw_selitem span.tvw_selitemtext {
+	background-color:#5555aa;
+	border:1px dotted yellow;
+	color:white;
+}
+span.tvw_itemtext{
+	padding-left:3px;
+	padding-right:3px;
+	border:1px solid white;
+}
+
+span.tvw_selitemtext{ /*鼠标移动到文本上状态*/
+	padding-left:3px;
+	padding-right:3px;
+	color:#555599;
+	Text-Decoration:underline;
+	border:1px solid white;
+}
+li.list {
+	list-style-type:none;
+	margin-left:18px;
+	height:20px;
+	cursor:default;
+	white-space: nowrap; 
+
+}
+span.key {
+	color:#2F49a1;
+}
+
+span.rem {
+	color:green;
+}
+
+span.cls {
+	color:red;
+}
+
+pre {
+	font-family:宋体;
+}
+
+br.f3 {
+	font-size:3px
+}
+br.f4 {
+	font-size:4px
+}
+br.f5 {
+	font-size:5px
+}
+
+div.spstatus0{
+	padding-top:6px;
+	width:100px;
+	height:18px;
+	background-color:#ffff00;
+	border:1px dashed #559955;
+	text-align:center;
+	/*filter:wave(strength=0,freq=1,lightstrength=10,phase=0);*/
+	cursor:default;
+}
+
+div.spstatus_1{
+	padding-top:6px;
+	width:100px;
+	height:20px;
+	background-color:white;
+	border:1px dashed #cccccc;
+	text-align:center;
+	/*filter:wave(strength=0,freq=1,lightstrength=4,phase=0);*/
+	cursor:default;
+}
+
+div.spstatus1{
+	padding-top:6px;
+	width:100px;
+	height:20px;
+	background-color:#55ee55;
+	border:1px solid #22aa22;
+	text-align:center;
+	/*filter:wave(strength=0,freq=1,lightstrength=4,phase=0);*/
+	cursor:default;
+}
+
+
+.RplOrderAttr {
+	width:140px;
+	text-align:right;
+	font-family:宋体;
+	color:#2F49a1;
+	display:inline-block;
+	padding-right:10px;
+}
+
+td.spMenuBar {
+	height:24px;
+	padding-top:2px;
+	padding-left:4px;
+	filter:wave(strength=0,freq=1,lightstrength=2,phase=90);
+	background-color:#ffffff;
+}
+
+
+td.menuLineV{
+	border-left:1px solid #aaaacc;
+	border-bottom:1px solid #aaaacc;
+	width:20px;
+}
+
+td.menuLineVstart{
+	border-top:1px solid #aaaacc;
+	border-left:1px solid #aaaacc;
+	border-bottom:1px solid #aaaacc;
+	width:20px;
+}
+
+div.spHomeSpman {
+	width:180px;
+	height:80px;
+	overflow:auto;
+	background-color:#fdfdff;
+	filter:wave(strength=0,freq=1,lightstrength=2,phase=90);
+	padding:5px;
+	font-family:Arial;
+	color:#666666;
+	border:1px solid #ddddee;
+}
+a{color:#2F496E;}
+a:link {color: #2F496E;Text-Decoration:none}     /* 未访问的链接 */
+a:visited {color: #2F496E;Text-Decoration:none}
+a:hover {color: #FF0000;Text-Decoration:underline}    /* 当有鼠标悬停在链接上 */
+a:active {color: #2F496E}   /* 被选择的链接 */
+
+a.com {color:#2F496E;}
+a.com:link {color: #2F496E;Text-Decoration:underline}     /* 未访问的链接 */
+a.com:visited {color: #2F496E;Text-Decoration:underline}
+a.com:hover {color: #2F496E;Text-Decoration:underline}    /* 当有鼠标悬停在链接上 */
+a.com:active {color: #2F496E;} 
+
+div.rbdiv {
+	background-color:#ffffff;
+	color:red;
+	padding:5px;
+	border:1px solid #eeeeee;
+	filter:wave(strength=0,freq=1,lightstrength=4,phase=90);
+}
+
+div.gbdiv {
+	background-color:#ffffff;
+	color:#00aa00;
+	padding:5px;
+	border:1px solid #eeeeee;
+	filter:wave(strength=0,freq=1,lightstrength=4,phase=90);
+}
+
+div.cbdiv {
+	background-color:#ffffff;
+	color:#666666;
+	padding:5px;
+	border:1px solid #eeeeee;
+	filter:wave(strength=0,freq=1,lightstrength=4,phase=90);
+}
+
+div.spNMItemDiv {
+	overflow:auto;
+	background-color:#fafffa;
+	filter:wave(strength=0,freq=1,lightstrength=2,phase=90);
+	padding:5px;
+	font-family:Arial;
+	border:1px solid #cccccc;
+}
+
+div.spRootDiv{
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:14px;
+	border:1px solid #000;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+
+table.lvwtoolbartable {
+	border-collapse:collapse;
+	margin-right:4px;
+}
+
+table.lvwtoolbartable button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:transparent;
+	padding:0px;
+	text-align:center;
+	margin:1px;
+}
+
+table.lvwtoolbartable td.bommvbutton{
+	background-color:#b5b5cc;
+}
+
+table.lvwtoolbartable td.bommvbutton button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:#dddfff;
+	padding:0px;
+	margin:1px;
+}
+
+table.lvwtoolbartable td.mv{
+	background-color:#6666aa;
+}
+
+table.lvwtoolbartable td.mv button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:#dddfff;
+	padding:0px;
+	margin:1px;
+}
+.dlgbackdiv{
+	background-color:#e6e6e9;
+	margin:-5px;
+	position:absolute;
+	border-top:1px solid white;
+	border-left:1px solid white;
+	border-bottom:1px solid #999999;
+	border-right:1px solid #999999;
+	padding:6px;
+}
+
+
+.ProcNode{
+	position:absolute;
+	display:block;
+	margin:0px;
+	border:1px solid #73a6dF;
+	background-color:#ffffff;
+	background-image:url(../images/smico/gpbg2.jpg);
+	overflow:hidden;
+	text-align:center;
+}
+
+.ProcNodeText {
+	font-family:arial;
+	font-size:12px;
+	display:block;
+	margin:4px;
+	padding-top:2px;
+}
+
+.currProcNode{
+	position:absolute;
+	display:block;
+	margin:0px;
+	background-color:#ffff00;
+	border:1px solid red;
+	background-image:url(../images/smico/gpbg3.jpg);
+	overflow:hidden;
+	text-align:center;
+}
+
+.currProcNodeText {
+	font-family:arial;
+	font-size:12px;
+	display:block;
+	color:#330000;
+	margin:4px;
+	padding-top:2px;
+}
+.spFont{
+	font-size:24px;
+	font-family:隶书;
+}
+.mt1{
+	position:relative;
+	top:-1px;
+}
+.mt2{
+	position:relative;
+	top:-2px;
+}
+.mt3{
+	position:relative;
+	top:-3px;
+}
+.mt4{
+	position:relative;
+	top:-4px;
+}
+.mt5{
+	position:relative;
+	top:-5px;
+}
+div.datailalertRow{
+	height:24px;
+	display:block;
+	border-bottom:1px dotted #eeeeff;
+	margin-left:10px;
+	line-height:24px;
+	margin-right:10px;
+	cursor:default;
+	color:#000;
+}
+div.ReportItemText{
+	font-family:arial;
+	line-height:12px;
+	position:relative;
+	top:4px;
+	height:35px;
+	width:100px;
+	padding-top:2px;
+	overflow:hidden;
+	cursor:default;
+}
+Div.ReportItemICO{
+	float:left;
+	width:150px;
+	height:60px;
+}
+
+td.fcdlcell{
+	height:32px;
+	color:#000;
+	border:1px solid #ccccdd;
+	background-color:#fefefe;
+}
+
+th.fcdlcell{
+	height:32px;
+	color:#fff;
+	border:1px solid #888899;
+	background-color:#aaaacc;
+}
+
+.wtypebutton {
+	font-size:12px;
+	height:26px;line-height:18px;
+	font-family:宋体;width:60px;
+	cursor:pointer;
+}
+.datelistjtbutton{
+	float:right;
+	margin-right:5px;
+	margin-top:4px;
+	border-top:1px solid white;
+	border-left:1px solid white;
+	border-right:1px solid #bbb;
+	border-bottom:1px solid #bbb;
+	background-color:#eee;
+	cursor:pointer;
+}
+.blistbottomarea {
+	background-image:url(../images/m_table_b.jpg);
+	height:30px;
+	width:100%;
+	position:relative;
+	top:-4px;
+}
+
+table.lvwtreenode  {
+	border-collapse:collapse;
+	table-layout:fixed;
+	margin:0px;
+	width:100%;
+	height:100%;
+}
+
+table.lvwtreenode td{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+td.lvwtreenode1{
+	background-image:url(../images/smico/gxlc5.gif);
+	background-repeat:no-repeat;
+	width:13px;
+}
+
+td.lvwtreenode2{
+	background-image:url(../images/smico/sfolder.gif);
+	background-repeat:no-repeat;
+	background-position-y:6px;
+	background-position-x:1px;
+	width:16px;
+}
+
+td.lvwtreenode3{
+	background-image:url(../images/smico/sfolder2.gif);
+	background-repeat:no-repeat;
+	width:16px;
+}
+
+td.lvwtndident {
+	width:16px;
+	padding:0px;
+}
+span.hidedeep{
+	display:none;
+}
+div.lvwvline{
+	width:4px;
+	height:100%;
+	border-right:1px dotted #7C5F1D;
+}
+div.dvt_closebar{
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	background-image:url(../images/smico/panel_tools.gif);
+	background-position:-16px 0px;
+	float:right;
+	margin-right:2px;
+}
+div.dvt_maxbar{
+	width:16px;
+	height:16px;
+	background-image:url(../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:2px;
+	background-repeat:no-repeat;
+	background-position:0px -16px;
+	overflow:hidden;
+}
+
+div.dvt_minbar{
+	width:16px;
+	height:16px;
+	background-image:url(../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+div.dvt_maxedbar{
+	width:16px;
+	height:16px;
+	background-image:url(../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-position:-16px -16px;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+
+div.dvt_closebar_out{
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	background-image:url(../images/smico/panel_tools2.gif);
+	background-position:-16px 0px;
+	float:right;
+	margin-right:2px;
+}
+div.dvt_maxbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:2px;
+	background-position:0px -16px;
+	overflow:hidden;
+}
+
+div.dvt_minbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+div.dvt_maxedbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-position:-16px -16px;
+	overflow:hidden;
+	margin-right:2px;
+}

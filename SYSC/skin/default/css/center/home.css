@@ -1,0 +1,10 @@
+﻿html,body {padding:0px;margin:0px;background-color:#3085CB;width:100%;height:100%}
+#BodyContent {  position:fixed;  _position:absolute;  background-color: white;  top:100px; left:5px;right:5px;bottom:35px; display:block; }
+#logoBox {position:absolute;z-Index:100;width:210px;height:60px;left:15px;top:18px;border:0;}
+#righttopbar {position:fixed;_position:absolute; top:0px; right:20px; }
+table {border-collapse:collapse;}
+#toprightbartb { height:50px; }
+td.toplink{ cursor:pointer;padding-left:8px;padding-right:8px}
+#stopsitelistsb {position:fixed;_position:absolute; cursor:pointer; font-family:微软雅黑;right:6px;top:60px;width:218px;height:28px;overflow:hidden;background-color:white; line-height:28px; color:#000;padding-left:25px;box-sizing:border-box}
+#homebuttomdiv {position:absolute;left:0px;bottom:0px;width:100%;height:26px;}
+#homebuttomdiv div, #homebuttomdiv a {font-family:微软雅黑; color:white;}

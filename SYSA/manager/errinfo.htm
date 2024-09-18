@@ -1,0 +1,48 @@
+﻿<html>
+	<head>
+		<title>提示信息</title>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<meta name="description" content="zbintel.error.message">
+		<style>.hbox {border:0px;width:1px;height:1px;position:absolute;left:-100px}</style>
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	</head>
+	<body style='border:1px solid #c0ccdd' onload='try{errbody_load()}catch(e){}'>
+	<div style='position:absolute;top:0px;left:0px;z-index:999999999;width:100%;height:100%;background-color:white'>
+	<table style='margin:30px'>
+	<tr>
+		<td><span style='font-size:22px;font-family:微软雅黑;color:#2f496e;'>抱歉，您访问的页面出问题了。</span></td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td style='font-size:14px;font-family:微软雅黑;color:#5b7cae;'>您好，请您把问<a style='text-decoration:none;font-size:14px;font-family:微软雅黑;color:#5b7cae;' href='javascript:void(0)' title='点击查处问题详情' onclick='errortextbox.style.display=(errortextbox.style.display=="none" ? "block" : "none")'>题</a>一键提交给智邦国际！<input onclick='try{document.getElementsByName("errortext")[0].value=document.getElementById("errmsgbody").innerText;}catch(e){};document.getElementById("form1").submit();' style='margin-left:40px;font-size:12px;text-align:center' type='button' value='一键提交'></td>
+	</tr>
+	</table>
+	<form action='http://work.zbintel.com/service/errorinfos.asp' method='post' id='form1' target='sendbug'>
+		<textarea name='errorfile' style="border:0px;width:1px;height:1px;position:absolute;left:-100px"><!--{@errorfile}--></textarea>
+		<textarea name='errorline' style="border:0px;width:1px;height:1px;position:absolute;left:-100px"><!--{@errorline}--></textarea>
+		<textarea name='errortext' style="border:0px;width:1px;height:1px;position:absolute;left:-100px"><!--{@errortext}--></textarea>
+		<textarea name='errortime' style="border:0px;width:1px;height:1px;position:absolute;left:-100px"><!--{@errortime}--></textarea>
+		<textarea name='errornums' style="border:0px;width:1px;height:1px;position:absolute;left:-100px"><!--{@errornums}--></textarea>
+		<textarea name='systemver' style="border:0px;width:1px;height:1px;position:absolute;left:-100px"><!--{@systemver}--></textarea>
+		<textarea name='systemuqn' style="border:0px;width:1px;height:1px;position:absolute;left:-100px"><!--{@systemuqn}--></textarea>
+	</form>
+	<div id='errortextbox' style='margin:30px;border:1px solid #ccced4;width:800px;display:none'><div style='border:12px solid #f2f4f8;border-top:2px solid #f2f4f8;'>
+	<div style='padding:5px;background-color:#f2f4f8;color:#2f496e;font-size:12px;font-family:宋体;'><!--{@systemver}--></div>
+	<div style='border:1px dashed #e2e3e4;padding:10px;font-size:12px;font-family:宋体;color:#6878a8' id='errmsgbody'>
+	<div style='color:red;padding-bottom:5px'>附加信息：</div>
+	<!--{@errorfile}--> &nbsp; <!--{@errorline}--> 行<br>
+	<!--{@errorhtml}--><br><br><div style='code' style='margin:10px'><!--{@errorcode}--></div>
+	</div>
+	</div></div>
+	<iframe name='sendbug' style="border:0px;width:1px;height:1px;position:absolute;left:-100px;" frameborder='0'></iframe>
+	</div>
+	<script>
+	function errbody_load() {
+		if(document.body.offsetWidth<=2) {
+			parent.document.write(document.documentElement.outerHTML);
+			parent.document.close();
+		}
+	}
+	</script>
+	</body>
+</html>

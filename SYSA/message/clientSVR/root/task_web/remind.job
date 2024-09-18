@@ -1,0 +1,61 @@
+﻿Sub ClearQueue	'提醒处理
+	Dim xmlHttp,postData,actTime,clearSuccess,cn,dateNow,base64
+	Set cn = app.getConnection
+	actTime = datediff("d","2014-01-01",now)
+	dateNow = date
+	If CLng(actTime) <> CLng(app("REMIND_TASK_DAILY_CLEAR_QUEUE")) Then '每天只取一次
+		Set xmlHttp = CreateObject("Microsoft.XMLHTTP")
+		xmlHttp.Open "POST","http://127.0.0.1/inc/ReminderCall.asp",false
+		Set base64 = CreateObject("ZBRuntime.Base64Class")
+		postData = "act=clearQueue&dt=" & dateadd("m",-3,dateNow) & "&tk=" & base64.base64Encode("clearQueue")
+		xmlHttp.setRequestHeader "Content-Length",len(postdata)
+		xmlHttp.setRequestHeader "CONTENT-TYPE", "application/x-www-form-urlencoded"
+		xmlHttp.send postData
+		clearSuccess = False  
+		If xmlHttp.ReadyState = 4 And xmlHttp.status = 200 Then
+			clearSuccess = True 
+		End if
+
+		if xmlHttp.responseText <> "success" then 
+			app.msgbox "清理提醒队列失败：" & xmlHttp.responseText
+		end if 
+
+		If clearSuccess Then 
+			app("REMIND_TASK_DAILY_CLEAR_QUEUE") = actTime
+			cn.execute "update home_usConfig set tvalue='" & app("REMIND_TASK_DAILY_CLEAR_QUEUE") & "' where name='REMIND_TASK_DAILY_CLEAR_QUEUE'"
+		End If 
+	End If 
+
+	Call App.setTimeOut( "remind" , 60000 , "ClearQueue") '过一分钟再进行检测
+End Sub
+
+Sub ReloadCycle
+	Dim xmlHttp,postData,actTime,reloadSuccess,cn
+	Set cn = app.getConnection
+	actTime = datediff("d","2014-01-01",now)
+	If CLng(actTime) <> CLng(app("REMIND_TASK_DAILY_RELOAD_CYCLE")) Then '每天只取一次
+		Set xmlHttp = CreateObject("Microsoft.XMLHTTP")
+		xmlHttp.Open "POST","http://127.0.0.1/inc/ReminderCall.asp",false
+		Set base64 = CreateObject("ZBRuntime.Base64Class")
+		postData = "act=reloadCycleWithoutLimit&tk=" & base64.base64Encode("reloadCycleWithoutLimit")
+		'app.msgbox postData
+		xmlHttp.setRequestHeader "Content-Length",len(postdata)
+		xmlHttp.setRequestHeader "CONTENT-TYPE", "application/x-www-form-urlencoded"
+		xmlHttp.send postData
+		reloadSuccess = False  
+		If xmlHttp.ReadyState = 4 And xmlHttp.status = 200 Then
+			reloadSuccess = True 
+		End if
+
+		if xmlHttp.responseText <> "success" then 
+			app.msgbox "重新载入周期提醒失败：" & xmlHttp.responseText
+		end if 
+
+		If reloadSuccess Then 
+			app("REMIND_TASK_DAILY_RELOAD_CYCLE") = actTime
+			cn.execute "update home_usConfig set tvalue='" & app("REMIND_TASK_DAILY_RELOAD_CYCLE") & "' where name='REMIND_TASK_DAILY_RELOAD_CYCLE'"
+		End If 
+	End If 
+
+	Call App.setTimeOut( "remind" , 60000 , "ReloadCycle") '过一分钟再进行检测
+End Sub 

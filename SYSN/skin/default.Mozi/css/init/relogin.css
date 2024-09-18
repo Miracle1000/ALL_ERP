@@ -1,0 +1,59 @@
+﻿#set_bg, #down_bg, div.notice,#white_space, #mb_cont{display:none;}
+#maincn #magicBoxs{display:none}
+#main_login {top:0px;margin:0px auto;width:100%;left:0px}
+#main_login #main_login_body {box-shadow:none;padding:64px 80px 0px;height: 560px;width: 100%;*height:480px;*width:320px}
+#maincn {background-color:white;}
+#maincn #ieShadow {display:none; }
+#cont_body #user_icon {background-color:transparent;}
+
+#top_center{
+    margin:0px;
+    margin-bottom:24px;
+}
+#main_login_body #logQrcode{top:0px;right:0px;width:56px;height:56px;background:url()}
+#cont_body #username, #cont_body #password, #cont_body #jmgpwd,#cont_body #xcode{
+    height:38px;
+    line-height:38px;
+    margin: 8px auto 24px;
+}
+#cont_body #xcode{
+    margin-bottom:40px;
+    width:100%;
+}
+#cont_body #formall{
+    height:auto;
+}
+#formall .bottom_button{
+    margin:24px auto;
+    height:auto;
+}
+.code #code_img{
+    height:36px;
+    line-height:36px;
+}
+.bottom_button #exitSys{
+    display:block;
+    margin-top:16px;
+    color:#027FEE;
+    text-align:center;
+    text-decoration:none;
+    font-size:14px;
+}
+.bottom_button #exitSys:hover{
+    color:red;
+}
+.bottom_button #login{
+    height:38px;
+    line-height:38px;
+}
+#formall #fa_password{
+    height:40px;
+    line-height:40px;
+}
+#formall .code{
+    height:38px;
+}
+div#DevelopmentMenuBg,#DevelopmentMenuBody{display:none!important;}
+div#lgpopsign{top:20px!important;right:40px!important;}
+div#ScanfLoginDiv{top:118px!important;}
+#phoneScanQR{padding:40px 0 20px 0!important}

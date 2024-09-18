@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StatisticMenus>
+  <Page1>
+    <groups name="" >
+      <group name="进度追踪" power="{18000}">
+        <item type="link" title="订单进度追踪表" url="/SYSN/view/produceV2/ManuOrders/ManuOrdersTrackingReport.ashx" power="{18500}+[51,11]" checkPower="1"/>
+        <item type="link" title="派工进度追踪表" url="/SYSN/view/produceV2/WorkAssign/WorkAssignsTrackingReport.ashx" power="{18600}+[54,39]"  checkPower="1"/>
+        <item type="link" title="整单委外进度追踪表" url="/SYSN/view/produceV2/ProcedureProgres/OutSourceProgres.ashx" power="{18700}+[5025,11]" checkPower="1"/>
+        <item type="link" title="工序委外进度追踪表" url="/SYSN/view/ProduceV2/OutProcedure/OutProcedureTrackingReport.ashx" power="{18700}+{18610}+[5026,11]"  checkPower="1"/>
+        <item type="link" title="委外收货成本表" url="/SYSN/view/produceV2/ReceivingGoods/CostReceivingGoodsReport.ashx" power="{18700}"  checkPower="1"/>
+      </group>
+      <group name="物料跟进" power="{18900}">
+        <item type="link" title="缺料追踪表" url="/SYSN/view/produceV2/Material/LackMaterialReport.ashx" power="[57,11]" checkPower="1"/>
+        <item type="link" title="物料领用追踪表" url="/SYSN/view/produceV2/Material/MaterialReport.ashx" power="[57,11]" checkPower="1"/>
+        <item type="link" title="退料明细表" url="/SYSN/view/produceV2/Material/ReturnMaterialDetailReport.ashx" power="{18620}+[57,11]" checkPower="1"/>
+        <item type="link" title="废料数量对比分析" url="/SYSN/view/statistics/produceV2/WasteCountAnalysis.ashx?frmn=1"  power="[57,11]" checkPower="1"/>
+        <item type="link" title="废料原因对比分析" url="/SYSN/view/statistics/produceV2/WasteReasonAnalysis.ashx?" power="[57,11]"  checkPower="1"/>
+        <item type="link" title="废料明细表" url="/SYSN/view/produceV2/Material/AbolishMaterialReport.ashx" power="{18620}+[57,11]"  checkPower="1"/>
+        <item type="link" title="物料登记明细表" url="/SYSN/view/produceV2/Material/RegistersDetailReport.ashx" power="{18620}+[61,11]" checkPower="1"/>
+      </group>
+      <group name="次品率分析" power="{18000}">
+        <item type="link" title="产品不合格率对比" url="/SYSN/view/statistics/produceV2/ProductUncertContrast.ashx" power="[58,11]|[5027,11]" checkPower="1"/>
+        <item type="link" title="产品不合格率走势" url="/SYSN/view/statistics/produceV2/QTProductTrend.ashx?frmn=1" power="[58,11]|[5027,11]" checkPower="1"/>
+        <item type="link" title="工序不合格率分析" url="/SYSN/view/statistics/produceV2/ProcedureNoQualified.ashx" power="{18600}+[5031,11]" checkPower="1"/>
+        <item type="link" title="委外不合格率分析" url="/SYSN/view/statistics/produceV2/ProductUncertAnalyze.ashx"  power="{18700}+[5027,11]" checkPower="1"/>
+        <item type="link" title="生产质检汇总表" url="/SYSN/view/statistics/produceV2/QualiyTestGather.ashx" power="([58,11]|[5027,11])" checkPower="1"/>
+      </group>
+      <group name="成本分析报表" power="{18500}+[5035,19]">
+        <item type="link" title="产品成本汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductedSummaryList.ashx" power="[5035,11]" checkPower="1"/>
+        <item type="link" title="产品成本还原表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductCostRecoveryList.ashx" power="[5035,11]"  checkPower="1"/>
+        <item type="link" title="在产品成本汇总表" url="/SYSN/view/finan/CostAnalysis/CostReport/ProductingSummaryList.ashx" power="[5035,11]"  checkPower="1"/>
+        <item type="link" title="剩余物料成本表" url="/SYSN/view/finan/CostAnalysis/CostReport/SurplusMaterielList.ashx" power="{18620}+[5035,11]"  checkPower="1"/>
+        <item type="link" title="车间成本分析表" url="/SYSN/view/finan/CostAnalysis/CostReport/WorkshopCostList.ashx" power="[5035,11]"  checkPower="1"/>
+      </group>
+      <group name="计件工资统计" power="({18900}|{218910})+[60,19]">
+        <item type="link" title="计件工资人员分布" url="/SYSN/view/statistics/produceV2/CountPayWorker.ashx" power="[60,11]" checkPower="1"/>
+        <item type="link" title="计件工资走势" url="/SYSN/view/statistics/produceV2/CountPayTrend.ashx?frmn=1" power="[60,11]"  checkPower="1"/>
+        <item type="link" title="计件计时工资统计表" url="/SYSN/view/statistics/produceV2/PieceAndHourlyWagesList.ashx" power="[60,11]"  checkPower="1"/>
+        <item type="link" title="计件工资日报" url="/SYSN/view/statistics/produceV2/PieceWagesDailyList.ashx" power="[60,11]"  checkPower="1"/>
+        <item type="link" title="计件工资明细表" url="/SYSN/view/produceV2/CountPay/CountPayDetail.ashx" power="[60,11]"  checkPower="1"/>
+        <item type="link" title="计时工资明细表" url="/SYSN/view/produceV2/Wage_JS/WageJSDetailReport.ashx" power="[60,11]+[70,19]"  checkPower="1"/>
+      </group>
+    </groups>
+  </Page1>
+</StatisticMenus>

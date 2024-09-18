@@ -1,0 +1,25 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=CHM 帮助.chm
+Contents file=chm_hhc.hhc
+Default Window=chm_window
+Default topic=chm_about.htm
+Display compile progress=No
+Index file=chm_hhk.hhk
+Language=0x804 中文(中国)
+
+[WINDOWS]
+chm_window="浏览器快速设置说明","chm_hhc.hhc","chm_hhk.hhk","index.html",,,,"chm_about.htm","关于...",0x2120,,0x8380e,[84,25,648,513],,,,,,,0
+[FILES]
+360浏览器.html
+ie6.html
+ie7.html
+ie8.html
+ie9.html
+index.html
+遨游.html
+浏览器内核.html
+世界之窗.html
+搜狗浏览器.html
+
+[INFOTYPES]

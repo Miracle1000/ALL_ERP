@@ -1,0 +1,585 @@
+﻿
+<SCRIPT LANGUAGE="JavaScript">
+	var cpe_id;
+			var phone;
+		var adddate;
+		var changvalue;
+		var vbegin;
+		var vend;
+		var vhook=0;
+		var chenggong;
+		var vGetSerial;
+		var uID;
+		var phoneTpye=0;
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="window" EVENT="onLoad()">
+<!--
+	try
+	{
+		if(YeahDone1.OpenCPE()>0)
+		{
+		cpe_id = YeahDone1.GetPhoneHandle(0);
+		uID=cpe_id
+		//	document.forms.textctrlcpeid.value=cpe_id;
+		//
+		//	document.forms.textcpeversion.value=YeahDone1.GetDeviceVersion(cpe_id);
+		//document.forms.textcpesn.value=YeahDone1.GetDeviceSerialNumber(cpe_id);
+		vGetSerial=YeahDone1.GetDeviceSerialNumber(cpe_id);
+		}
+		else
+		{
+			alert("设备安装未成功！");
+		 window.location.href="../ocx/sy60.rar";
+		}
+	}
+	catch(e1)
+	{
+			alert("设备安装未成功！");
+		 window.location.href="../ocx/sy60.rar";
+	}
+-->
+</SCRIPT>
+    
+<SCRIPT LANGUAGE="JavaScript" FOR="YeahDone1" EVENT="OnPhoneIncoming(cpe_id, IncomingNum)">
+<!--
+//	document.forms.textcpeid.value = cpe_id;
+//	document.forms.textfieldk.value = IncomingNum;
+	phone=IncomingNum;
+	var now= new Date();
+	adddate=now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+	vbegin=adddate;
+	refuseCall(uID,phone,vGetSerial,adddate);
+//	callServer2(uID,phone,vGetSerial,adddate);
+				
+-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="YeahDone1" EVENT="OnPhoneState(cpe_id, bState)">
+<!--
+//	document.forms.textstatecpeid.value = cpe_id;
+//	if(bState)
+//		document.forms.textcpestate.value = "闲";
+//	else
+//		document.forms.textcpestate.value = "忙";
+if(bState)
+{
+	 	try
+	{
+	//alert(uID);
+		TV_StopRecordFile(uID);
+	}
+	catch(e1)
+	{
+	}
+	
+}
+-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="YeahDone1" EVENT="OnPhoneRing(cpe_id)">
+<!--
+//	document.forms.textringcpeid.value = cpe_id;
+//	document.forms.textcpering.value = "线路振铃";
+	phoneTpye=1;
+
+					
+-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="YeahDone1" EVENT="OnPhoneKeyPress(cpe_id, lKey, lPosition)">
+<!--
+//  document.forms.textkeycpeid.value = cpe_id;
+//  document.forms.textcpekey.value = lKey;
+-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="YeahDone1" EVENT="OnPhoneSignaling(cpe_id, nType)">
+<!--
+//  document.forms.textinfocpeid.value = cpe_id;
+//  document.forms.textcpeinfo.value = nType;
+//alert(nType);
+	switch(nType)
+			{
+				case 0:
+				break;
+				case 1:
+				break;
+				case 2:
+				break;
+				
+				default:
+				
+				break;
+				}
+-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" FOR="YeahDone1" EVENT="OnDeviceDetect(bState, cpe_id)">
+<!--
+  if(bState)
+  {
+  	//window.defaultStatus="FR60.OCX V1.0.4 —— 设备接上了"
+  	
+		cpe_id = YeahDone1.OpenCPE();
+		
+	//	document.forms.textctrlcpeid.value=cpe_id;
+		//document.forms.textcpesn.value=YeahDone1.GetDeviceSerialNumber(cpe_id);
+		vGetSerial=YeahDone1.GetDeviceSerialNumber(cpe_id);
+//		document.forms.textcpeversion.value=YeahDone1.GetDeviceVersion(cpe_id);
+	}
+  else
+  {
+  	//window.defaultStatus="FR60.OCX V1.0.4 —— 设备移走了"
+  	
+//		document.forms.textctrlcpeid.value="";
+//		document.forms.textcpesn.value="";
+//		document.forms.textcpeversion.value="";
+  }
+-->
+</SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" type="text/javascript">
+<!--
+   function TV_OffHookCtrl(uID)
+   {
+       YeahDone1.OffHand(cpe_id);
+			 if(phoneTpye==1)
+			 {
+			 var now= new Date();
+		adddate=now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+		vbegin=adddate;
+		vhook=1;
+		try
+		{
+		var fsoFileName2=DateDemo();
+		var fsoFolderName2=DateFolderName();
+		var fso2 = new ActiveXObject("Scripting.FileSystemObject");
+		try
+		{
+		f2=fso2.CreateFolder ("d:\\zbintel");
+		}
+		catch(e1)
+		{
+		}
+		try
+		{
+		f2=fso2.CreateFolder ("d:\\zbintel\\ringin");
+		}
+		catch(e1)
+		{
+		}
+		try
+		{
+		f2=fso2.CreateFolder ("d:\\zbintel\\ringin\\"+ fsoFolderName2 +"");
+		f2.close();
+		}
+		catch(e1)
+		{
+		}
+		var f1 = fso2.createtextfile("d:\\zbintel\\ringin\\"+ fsoFolderName2 +"\\"+ fsoFileName2 +".wav",true); 
+		var wavFileUrl2="d:\\zbintel\\ringin\\"+ fsoFolderName2 +"\\"+ fsoFileName2 +".wav";
+		f1.close();
+		try
+		{
+		RecordStart(wavFileUrl2);
+		}
+		catch(e1)
+		{
+		}
+		}
+		catch(e1)
+		{
+		//	alert(e1.message);
+		}
+		
+		
+		try
+		{
+		fso2.close();
+		}
+		catch(e1)
+		{
+		}
+					}
+   }
+   function TV_HangUpCtrl(uID)
+   {
+	 
+       YeahDone1.OnHand(cpe_id);
+			 	try
+	{
+	//alert(uID);
+		TV_StopRecordFile(uID);
+	}
+	catch(e1)
+	{
+	}
+	var now= new Date();
+	vend=now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+	callServer4(changvalue,phone,adddate,vhook,vbegin,vend);
+   }
+   function Flash()
+   {
+       YeahDone1.Flash(cpe_id,100);
+   }
+   function TV_StartDial(uID,szCode)
+   {
+	 TV_OffHookCtrl(uID);
+			phone=szCode;
+			var now= new Date();
+		adddate=now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+		callServer2(uID,phone,vGetSerial,adddate);
+		vhook=2;
+			vbegin=adddate;
+       YeahDone1.Dial(cpe_id,szCode);
+			 	var now= new Date();
+					adddate=now.getYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+					vbegin=adddate;
+	
+				if(phoneTpye!=1)
+				{
+				try
+					{
+						var fsoFileName1=DateDemo();
+						var fsoFolderName1=DateFolderName();
+						var fso1 = new ActiveXObject("Scripting.FileSystemObject");
+						
+						try
+						{
+							f2=fso1.CreateFolder ("d:\\zbintel");
+						}
+						catch(e5)
+						{
+						}
+						try
+						{
+						
+						f2=fso1.CreateFolder ("d:\\zbintel\\ringout");
+						}
+						catch(e6)
+						{
+						}
+						try
+						{
+							f2=fso1.CreateFolder ("d:\\zbintel\\ringout\\"+ fsoFolderName1 +"");
+							f2.close();
+							}
+						catch(e1)
+						{
+							}
+					
+						var f1 = fso1.createtextfile("d:\\zbintel\\ringout\\"+ fsoFolderName1 +"\\"+ fsoFileName1 +".wav",true); 
+						var wavFileUrl1="d:\\zbintel\\ringout\\"+ fsoFolderName1 +"\\"+ fsoFileName1 +".wav";
+						f1.close();
+						try
+						{
+						//alert(cpe_id);
+						RecordStart(wavFileUrl1);	
+						}
+						catch(e1)
+						{
+						}
+						try
+						{
+						fso1.close();
+						}
+						catch(e1)
+						{
+						}
+						}
+					catch(e1)
+					{
+					//	alert(e1.message);
+					}
+					}
+//					alert(wavFileUrl);
+   }
+   function DialSingle(charTele)
+   {
+       YeahDone1.DialSingle(cpe_id,charTele);
+   }
+   function RecordStart(szFile)
+   {
+       YeahDone1.RecordStart(cpe_id,szFile);
+   }
+   function StopRecord()
+   {
+       YeahDone1.RecordFinish(cpe_id);
+   }
+   function Compress()
+   {
+       YeahDone1.Wav2MP3("C:\\rec.wav", "C:\\rec.mp3");
+   }
+-->
+    </SCRIPT>
+		
+		<script language="javascript" type="text/javascript">
+		<!--
+
+		function callServer2(s1,s2,s3,s4) {
+  var url = "tc.asp?s1=" + s1 + "&s2=" + s2 + "&s3=" +s3 + "&s4=" +s4 +"&timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+  xmlHttp.open("GET", url, false);
+  xmlHttp.onreadystatechange = function(){
+  updatePage2(s2,s4);
+  };
+  xmlHttp.send(null);
+}
+//function callServer22(s1,s2,s3,s4) {
+//  var url = "tc.asp?s1=" + s1 + "&s2=" + s2 + "&s3=" +s3 + "&s4=" +s4 +"&timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+//  xmlHttp.open("GET", url, false);
+//  xmlHttp.onreadystatechange = function(){
+//  updatePage22(s2,s4);
+//  };
+//  xmlHttp.send(null);
+//}
+
+//function recordFilRequest() {
+//  var url = "../test/creatFile.asp?timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+//  xmlHttp.open("GET", url, false);
+//  xmlHttp.onreadystatechange = function(){
+//  updateFilRequest();
+//  };
+//  xmlHttp.send(null);
+//}
+
+//function updateFilRequest() {
+//  if (xmlHttp.readyState < 4) {
+//  }
+//  if (xmlHttp.readyState == 4) {
+//    var response = xmlHttp.responseText;
+//	alert(response);
+//	if(response!="")
+//	{
+//TV_StartRecordFile(cpe_id-1,response);
+//	}
+//	//else { //页面不正常 
+//	//alert("您所请求的页面有异常。"); 
+//	//} 
+//	xmlHttp.abort();
+//  }
+//}
+
+function refuseCall(s1,s2,s3,s4)
+{
+	var url = "refuseTel.asp?s2=" + s2 ;
+  xmlHttp.open("GET", url, false);
+  xmlHttp.onreadystatechange = function(){
+  updateRefuse(s1,s2,s3,s4);
+  };
+  xmlHttp.send(null);
+	}
+function updateRefuse(s1,s2,s3,s4) {
+	if (xmlHttp.readyState < 4) {
+	}
+	if (xmlHttp.readyState == 4) {
+		var response = xmlHttp.responseText;
+	//alert(response);
+	if(response!="")
+	{
+		if(response=="no")
+		{
+		
+		TV_OffHookCtrl(s1-1);
+		window.setTimeout("TV_HangUpCtrl("+(s1-1)+")",1000);
+	//	callServer3(changvalue,phone,adddate,vhook);
+		callServer42(phone,adddate,3);
+	 // callServer22(s1,s2,s3,s4);
+		}
+		else if(response=="ok")
+		{
+		callServer2(s1,s2,s3,s4);
+		}
+		else
+		{
+		alert(response);
+		}
+
+
+}
+//else { //页面不正常 
+//alert("您所请求的页面有异常。"); 
+//} 
+xmlHttp.abort();
+}
+}
+
+var t=1;
+function updatePage2(s2,s4) {
+  var s2=s2;
+  var s4=s4;
+  if (xmlHttp.readyState < 4) {
+  }
+  if (xmlHttp.readyState == 4) {
+    var response = xmlHttp.responseText;
+	if(response!="")
+	{
+		changvalue=response;
+		var url="PopupForm.asp?s2="+s2+"&s4="+s4+"&s1="+changvalue;
+		var winName=s2+t;
+		MM_openBrWindow(url,winName,'features', 700, 700, 'true')
+		t=t+1;
+
+
+
+	}
+	//else { //页面不正常 
+	//alert("您所请求的页面有异常。"); 
+	//} 
+	xmlHttp.abort();
+  }
+}
+//function updatePage22(s2,s4) {
+//  var s2=s2;
+//  var s4=s4;
+//  if (xmlHttp.readyState < 4) {
+//  }
+//  if (xmlHttp.readyState == 4) {
+//    var response = xmlHttp.responseText;
+//	//alert(response);
+//	if(response!="")
+//	{
+//		changvalue=response;
+//		var url="PopupForm.asp?s2="+s2+"&s4="+s4+"&s1="+changvalue;
+//		xmlHttp.open("GET", url, false);
+//		var winName=s2+t;
+//		t=t+1;
+//
+//
+//
+//	}
+//	//else { //页面不正常 
+//	//alert("您所请求的页面有异常。"); 
+//	//} 
+//	xmlHttp.abort();
+//  }
+//}
+
+
+function MM_openBrWindow(theURL,winName,features, myWidth, myHeight, isCenter) 
+{
+  if(window.screen)if(isCenter)if(isCenter=="true")
+{
+    var myLeft = (screen.width-myWidth)/2;
+    var myTop = (screen.height-myHeight)/2;
+    features+=(features!='')?',':'';
+   
+features+=',left='+myLeft+',top='+myTop+',scrollbars=yes';
+  }
+<!--
+  window.open(theURL,winName,features+((features!='')?',':'')+'width='+myWidth+',height='+myHeight);
+-->
+}
+
+
+function callServer3(s2,s3,s4,s5) {
+	//TV_StartRecordFile(1,"c:\2009\07\15\a.wav");
+	//TV_StopRecordFile(1);
+	
+  var url = "xr.asp?s2=" + s2 + "&s3=" +s3 + "&s4=" +s4 + "&s5=" +s5 +"&timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+  xmlHttp.open("GET", url, false);
+  xmlHttp.onreadystatechange = function(){
+  updatePage3();
+  };
+  xmlHttp.send(null);
+}
+function updatePage3() {
+  if (xmlHttp.readyState < 4) {
+  }
+  if (xmlHttp.readyState == 4) { 
+  	changvalue="";
+	phone="";
+	adddate="";
+	vbegin="";
+	vend="";
+	vhook=0;
+	xmlHttp.abort();
+  }
+}
+
+function callServer4(s2,s3,s4,s5,s6,s7) {
+  var url = "yj.asp?s2=" + s2 + "&s3=" +s3 + "&s4=" +s4 + "&s5=" +s5 + "&s6=" +s6 + "&s7=" +s7 +"&timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+  xmlHttp.open("GET", url, false);
+	//alert(url);
+  xmlHttp.onreadystatechange = function(){
+	//	TV_StartRecordFile(1,"c:\2009\07\15\a.wav");
+	//TV_StopRecordFile(1);
+	updatePage4();
+		  };
+  xmlHttp.send(null);
+}
+function callServer42(s2,s3,s4) {
+  var url = "refuseTelAdd.asp?s2=" + s2 + "&s3=" +s3 + "&s4=" +s4+"&timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+  xmlHttp.open("GET", url, false);
+  xmlHttp.onreadystatechange = function(){
+
+  updatePage4();
+  };
+  xmlHttp.send(null);
+}
+function updatePage4() {
+  if (xmlHttp.readyState < 4) {
+  }
+  if (xmlHttp.readyState == 4) {
+  	changvalue="";
+	phone="";
+	adddate="";
+	vbegin="";
+	vend="";
+	vhook=0;
+	phoneTpye=0
+	xmlHttp.abort();
+  }
+}
+
+function callServer51() {
+  var url = "set.asp?timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+  xmlHttp.open("GET", url, false);
+  xmlHttp.send(null);
+}
+
+function callServer52() {
+  var url = "hq.asp?timestamp=" + new Date().getTime() + "&date1="+ Math.round(Math.random()*100);
+  xmlHttp.open("GET", url, false);
+  xmlHttp.onreadystatechange = function(){
+  updatePage52();
+  };
+  xmlHttp.send(null);
+}
+
+function updatePage52() {
+  if (xmlHttp.readyState < 4) {
+  }
+  if (xmlHttp.readyState == 4) {
+    response = xmlHttp.responseText;
+	if(response!="")
+	{
+		chenggong=response;
+	}
+	xmlHttp.abort(); 
+  }
+}
+
+function DateDemo()
+{
+	var d, s = "";           // 声明变量。
+	d = new Date();                           // 创建 Date 对象。
+	s += d.getYear();                         // 获取年份。
+	s += (d.getMonth() + 1);            // 获取月份。
+	s += d.getDate();                   // 获取日。
+	s += d.getHours(); 
+	s += d.getMinutes(); 
+	s += d.getSeconds(); 
+	return(s);                                // 返回日期。
+} 
+function DateFolderName(){
+		var d, s = "";           // 声明变量。
+		d = new Date();                           // 创建 Date 对象。
+		s += d.getYear();                         // 获取年份。
+		s += (d.getMonth() + 1);            // 获取月份。
+		s += d.getDate();                   // 获取日。
+		 return(s);                                // 返回日期。
+	 
+} 
+		-->
+		</script>

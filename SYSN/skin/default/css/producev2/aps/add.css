@@ -1,0 +1,40 @@
+﻿#pcmxbody_fbg{padding-left:30px}
+#selectedMlListcc {border-bottom:1px solid #c0ccdc;padding:8px;overflow:hidden;}
+#datahandlearearight div.sstab_div {float:right;}
+#datahandlearearight div.sstab_div a.sstab_a {width:86px;}
+#lstbody_plansearch {clear:both;width:100%;}
+#lstbody_plansearch td, #lstbody_plansearch tr {background-color:transparent;line-height:1;}
+#lstbody_plansch_cel2 { width:60px;visibility:hidden;}
+#lstbody_plansch_cel1 {text-align:right;width:40px;visibility:hidden;}
+#lstbody_plansch_cel3 {height:34px;}
+#lstbody_plansch_wtd {float:right;margin-right:6px;padding:0px;}
+#datahandlearealeft {margin-top:-38px;height:36px;overflow:hidden;padding-left:10px}
+#datahandlearealeft button.zb-button {height:28px;margin-bottom:5px;width:80px;border-width:1px;font-weight:bold}
+#datahandlearearight{overflow:hidden;border:0px solid red;height:36px;margin-top:10px;}
+#datahandlearearight div.sub-field-children {display:block;}
+#fld_lp_rbody_pcmxbody div.sub-field {padding-left:0px;margin-left:0px}
+#sstab_line{width:100%}
+div.sub-field-childparent {display:inline;padding-top:0px}
+span.adsresultproduct {color:red;}
+#fld_lp_rbody_pcmxbody td.fcell,
+#fld_lp_rbody_pcmxbody td.lvw_index,
+#fld_lp_rbody_pcmxbody .lvwheader
+{line-height:16px;}
+#fld_lp_rbody_pcmxbody td.lvw_cell {
+	padding-left:0px;padding-right:0px;
+}
+#fld_lp_rbody_pcmxbody tr.lr_je_sel td, 
+#fld_lp_rbody_pcmxbody tr.lr_je_sel th{
+	background-color:transparent;
+}
+#fld_lp_rbody_pcmxbody .lvwheader {
+	height:26px
+}
+
+div.r1bar0 {border-bottom:1px  solid #eeaa00;border-top:1px solid #eeaa00;background-color:#ffcc00;height:18px;overflow:hidden;}
+div.r1bar1 {border-bottom:1px  solid #007000;border-top:1px solid #007000;background-color:#009900;height:18px;overflow:hidden; cursor:default}
+div.r1bar2 {border-bottom:1px  solid #f2f2f2;border-top:1px solid #f2f2f2;background-color:#f2f2f2;height:18px;overflow:hidden;}
+span.billfieldreadonlymodecont.clearfloat span.open{background:url(../../../img/txt.gif) no-repeat center;}
+span.billfieldreadonlymodecont.clearfloat span.open:hover{background:url(../../../img/txt2.gif) no-repeat center;}
+span.billfieldreadonlymodecont.clearfloat span.del{background:url(../../../img/cross.gif) no-repeat center;}
+span.billfieldreadonlymodecont.clearfloat span.del:hover{background:url(../../../img/cross2.gif) no-repeat center;}

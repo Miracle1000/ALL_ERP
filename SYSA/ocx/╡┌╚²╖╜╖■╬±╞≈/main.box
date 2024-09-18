@@ -1,0 +1,127 @@
+
+Dim httpd,status,wOpen,defPort, rTime
+Shell.Service.icon = "\status\on.gif"
+Shell.Service.RunService "ASPWebserver", "智邦国际录音文件服务器", "智邦国际 off"
+'---------------------- 服务事件开始 ---------------------
+
+Sub OnServiceStart()
+    Shell.Service.SetTimer 1000
+    wOpen=0
+    Shell.Service.AppendCommand "140","属性"
+
+    defPort =80
+    rTime = now
+    call StartServer()
+
+End Sub
+
+Sub StartServer()
+    Set httpd = CreateObject("netbox.HttpServer")
+    If httpd.Create("",defPort) = 0 Then
+        Set host = httpd.AddHost("", "root")
+        host.EnableWrite=false
+        host.EnableScript = true
+	host.AddDefault "index.asp"
+        httpd.Start
+	status = 1 
+    else
+	Set httpd = nothing
+	defPort = defPort + 1
+	if defPort >100 then
+		shell.msgbox "创建服务器失败","提示",16
+		exit sub
+	else
+		call StartServer()
+	end if 
+    end if
+
+end Sub
+
+
+Sub OnServiceStop()
+    if wOpen = 0 then
+	httpd.Close
+    else
+	shell.msgbox "关闭服务之前请先关闭相关窗口","无法关闭服务",16
+    end if
+End Sub
+
+
+Sub OnServiceResume()
+    OnServiceTimer
+    httpd.Start
+End Sub
+
+Sub OnServiceTimer
+	If Shell.Service.icon = "\status\on.gif" Then
+		Shell.Service.icon = "\status\off.gif"
+	Else
+		if status = 1 then
+			Shell.Service.icon = "\status\on.gif"
+		end if
+	End If
+End Sub
+
+
+
+
+Sub OnServiceCommand(n)
+	Select Case n'--------开始对自定义命令 N表示无限-----------
+		Case 139
+			wOpen= 1
+			Set htWin= CreateObject("NetBox.HtmlWindow") 
+			htWin.ContextMenu=false
+			htWin.icon = "\status\on.gif"
+			htWin.Width=400
+			htWin.Height=260
+			htWin.Center
+			htWin.scrollbar=false
+			htWin.resizable=false
+			htWin.Center
+			htWin.Open "http://127.0.0.1:" & defport & "/hlp/apply.asp" 
+			htWin.ShowDialog 
+			wOpen= 0
+		case 140
+			wOpen= 1
+			Set htWin= CreateObject("NetBox.HtmlWindow") 
+			htWin.ContextMenu=true
+			htWin.icon = "\status\on.gif"
+			htWin.Width=400
+			htWin.Height=420 
+			htWin.scrollbar=false
+			htWin.resizable=false
+			htWin.Center
+			htWin.Open "http://127.0.0.1:" & defport & "/hlp/setConfig.asp?runTime=" & rTime & " &port=" & defPort 
+			htWin.ShowDialog 
+			wOpen= 0
+		Case 141
+			wOpen= 1
+			Set htWin= CreateObject("NetBox.HtmlWindow") 
+			htWin.ContextMenu=true
+			htWin.icon = "\status\on.gif"
+			htWin.Width=440
+			htWin.Height=280 
+			htWin.scrollbar=false
+			htWin.resizable=false
+			htWin.Center
+			htWin.Open "http://127.0.0.1:" & defport & "/hlp/about.asp" 
+			htWin.ShowDialog 
+			wOpen= 0
+		case 143
+			if status = 1 then
+				status = 0
+				httpd.stop
+			else
+				status = 1
+				httpd.start
+			end if
+		Case 142
+			if wOpen = 0 then
+				Shell.Service.Restart
+			else
+				shell.msgbox "重启服务之前请先关闭相关窗口","无法重启服务",16
+			end if
+		Case Else'--------结束对自定义命令-----------
+			Exit Sub
+	End Select
+End Sub

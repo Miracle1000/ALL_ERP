@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--收款打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="43003" DBViewName="FUN_PayBackTemplateData" DBDetailViewName="P_PayBackTemplateDetailData" >
+  <Items Title="公共字段">
+    <Items Title="基本信息">
+      <Column Name="序号" dbName="sortnum" Description="序号" LocationType="All"/>
+      <Column Name="币种" dbName="zb_bz" Description="币种" LocationType="All"/>
+      <Column Name="应收日期" dbName="zb_hkdate" Description="应收日期" LocationType="All"/>
+      <Column Name="回款金额" dbName="zb_hkmoney" Description="回款金额" LocationType="All"/>
+      <Column Name="收款状态" dbName="zb_hkstatus" Description="收款状态" LocationType="All"/>
+      <Column Name="底单日期" dbName="zb_dddate" Description="底单日期" LocationType="All"/>
+      <Column Name="实收金额" dbName="zb_cnhkmoney" Description="实收金额" LocationType="All"/>
+      <Column Name="收款人员" dbName="zb_hkperson" Description="收款人员" LocationType="All"/>
+      <Column Name="实收日期" dbName="zb_shdate" Description="实收日期" LocationType="All"/>
+      <Column Name="收款方式" dbName="zb_hktype" Description="收款方式" LocationType="All"/>
+      <Column Name="收款账户" dbName="zb_Bank" Description="收款账户" LocationType="All"/>
+      <Column Name="收款账号" dbName="zb_Account" Description="收款账号" LocationType="All"/>
+      <Column Name="备注" dbName="zb_intro" Description="备注" LocationType="All"/>
+      <Column Name="优惠金额" dbName="zb_yhmoney" Description="优惠金额" LocationType="All"/>
+    </Items>
+    <Items Title="关联客户">
+      <Column Name="客户名称" dbName="zb_company" Description="客户名称" LocationType="All" />
+      <Column Name="客户编号" dbName="zb_code" Description="客户编号" LocationType="All"  />
+      <Column Name="法人代表" dbName="zb_faren" Description="法人代表" LocationType="All"  />
+      <Column Name="客户办公电话" dbName="zb_kphone" Description="客户办公电话" LocationType="All" />
+      <Column Name="客户传真" dbName="zb_kfax" Description="客户传真" LocationType="All" />
+      <Column Name="客户邮箱" dbName="zb_kemail" Description="客户邮箱" LocationType="All" />
+      <Column Name="客户地址" dbName="zb_address" Description="客户地址" LocationType="All" />
+      <Column Name="客户邮编" dbName="zb_zip" Description="客户邮编" LocationType="All" />
+    </Items>
+    <Items Title="关联合同">
+      <Column Name="合同主题" dbName="zb_ht_title" Description="合同主题" LocationType="All"/>
+      <Column Name="合同编号" dbName="zb_order1" Description="合同编号" LocationType="All"/>
+      <Column Name="合同分类" dbName="zb_ht_sort" Description="合同分类" LocationType="All"/>
+      <Column Name="执行状态" dbName="zb_zxstatus" Description="执行状态" LocationType="All"/>
+      <Column Name="合同总额" dbName="pro_allmoney1" Description="合同总额" LocationType="All"/>
+      <Column Name="实收金额" dbName="zb_ht_realmoney" Description="实收金额" LocationType="All"/>
+    </Items>
+    <Items Title="销售人员">
+      <Column Name="销售人姓名" dbName="sales_name" Description="销售人姓名" LocationType="All" />
+      <Column Name="销售人电话" dbName="sales_phone" Description="销售人电话" LocationType="All" />
+      <Column Name="销售人传真" dbName="sales_tax" Description="销售人传真" LocationType="All" />
+      <Column Name="销售人手机" dbName="sales_mobile" Description="销售人手机" LocationType="All" />
+      <Column Name="销售人邮件" dbName="sales_email" Description="销售人邮件" LocationType="All" />
+      <Column Name="销售人部门" dbName="sales_branch" Description="销售人部门" LocationType="All" />
+    </Items>
+    <Items Title="添加人信息">
+      <Column Name="添加人姓名" dbName="person_name" Description="添加人姓名" LocationType="All" />
+      <Column Name="添加人电话" dbName="person_phone" Description="添加人电话" LocationType="All" />
+      <Column Name="添加人传真" dbName="person_tax" Description="添加人传真" LocationType="All" />
+      <Column Name="添加人手机" dbName="person_mobile" Description="添加人手机" LocationType="All" />
+      <Column Name="添加人邮编" dbName="person_email" Description="添加人邮编" LocationType="All" />
+      <Column Name="添加人部门" dbName="person_branch" Description="添加人部门" LocationType="All" />
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="关联产品">
+      <Column Name="产品名称" dbName="pro_name" Description="产品名称" LocationType="Detail"  GroupBy="true" TableName="#PayBackProduct#" />
+      <Column Name="产品编号" dbName="pro_order1" Description="产品编号" LocationType="Detail"  GroupBy="true" TableName="#PayBackProduct#"/>
+      <Column Name="产品型号" dbName="pro_type" Description="产品型号" LocationType="Detail"  GroupBy="true" TableName="#PayBackProduct#"/>
+      <Column Name="产品分类" dbName="pro_sort1" Description="产品分类" LocationType="Detail" GroupBy="true" TableName="#PayBackProduct#"/>
+      <Column Name="产品分类(全路径)" dbName="pro_sort2" Description="产品分类(全路径)" LocationType="Detail" GroupBy="true" TableName="#PayBackProduct#"/>
+      <Column Name="单位" dbName="pro_unit" Description="单位" LocationType="Detail" GroupBy="true" TableName="#PayBackProduct#"/>
+      <Column Name="数量" dbName="pro_num" Description="数量" LocationType="Detail" SumaryCalculate="true" TableName="#PayBackProduct#"/>
+      <Column Name="已回款金额" dbName="pro_money" Description="已回款金额" LocationType="Detail" SumaryCalculate="true" TableName="#PayBackProduct#"/>
+      <Column Name="1a" dbName="htcp_29" Description="1a" LocationType="Detail" GroupBy="true" />
+      <Column Name="2B" dbName="htcp_30" Description="2B" LocationType="Detail" GroupBy="true" />
+      <Column Name="雅美斯2" dbName="htcp_31" Description="雅美斯2" LocationType="Detail" GroupBy="true" />
+      <Column Name="自定义4" dbName="htcp_32" Description="自定义4" LocationType="Detail" GroupBy="true" />
+      <Column Name="zdy6" dbName="htcp_34" Description="zdy6" LocationType="Detail" GroupBy="true" />
+      <Column Name="wewe" dbName="htcp_143" Description="wewe" LocationType="Detail" GroupBy="true" />
+      <Column Name="333" dbName="htcp_318" Description="333" LocationType="Detail" GroupBy="true" />
+      <Column Name="23" dbName="htcp_479" Description="23" LocationType="Detail" GroupBy="true" />
+    </Items>
+  </Items>
+</Report>

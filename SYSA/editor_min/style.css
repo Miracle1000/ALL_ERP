@@ -1,0 +1,306 @@
+﻿html{
+	margin:0px;
+	border:0px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+body{
+	margin:0px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	font-size:12px;
+	cursor:default;
+}
+table{
+	border-collapse:collapse;
+}
+
+.cleart td{
+	padding:0px;
+}
+#toolbar{
+	background-color:#ffffff;
+	width:100%;
+	height:48px;
+	background-image:url(img/bg1.jpg);
+}
+#editarea{
+	background-color:#ffffff;
+	width:100%;
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+	border-top:0px;
+}
+
+#editview{
+	background-color:#ffffee;
+	width:100%;
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+	border-top:0px;
+}
+#hiddenFrame{
+	display:none;
+}
+#hidden1{
+	display:none;
+}
+#hidden2{
+	display:none;
+}
+#editareacode{
+	background-color:#ffffff;
+	width:100%;
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+	border-top:0px;
+	font-size:12px;
+	font-family:新宋体;
+	overflow:auto;
+}
+
+
+.l2rsel {
+	border-bottom:1px solid white;
+	background-color:white;
+}
+
+.l2rnosel {
+	border-bottom:1px solid #bbbbcc;
+	background-color:#f8f8ff;
+}
+
+.l2rtab {
+	position:relative;
+	text-align:center;
+	height:25px;width:65px;
+	border-top:1px solid #bbbbcc;
+	border-left:1px solid #bbbbcc;
+	border-right:1px solid #bbbbcc;
+	overflow:hidden;
+	cursor:default;
+	z-index:200;
+}
+
+.l2rtab span{
+	margin-top:6px;
+	display:inline-block;
+	cursor:pointer;
+}
+
+#l2rtab1{
+	float:left;
+	
+}
+
+#l2rtab2{
+	float:right;
+}
+#l2rbg {
+	float:right;
+	width:138px;
+	height:26px;
+	margin-right:14px
+}
+#l2bg{
+	position:absolute;
+	width:100%;
+	top:21px;
+	height:27px;
+	overflow:hidden;
+}
+
+#menubar{
+	height:20px;
+	overflow:hidden;
+	padding-top:1px;
+	padding-left:1px;
+	background-image:url(img/bg2.jpg);
+	cursor:default;
+}
+/*菜单*/
+.ContextMenubg{
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+	background-color:#F9F8F7;
+	border:1px solid #666666;
+	z-index:300;
+	-moz-user-select:none;  
+}
+.ContextMenuBody{
+	margin-top:2px;
+	background-image:url(img/bg3.jpg);
+	background-repeat:repeat-y;
+	margin-left:1px;
+	margin-right:1px;
+	margin-bottom:1px;
+}
+
+.M_itemBody {
+	height:20px;
+	overflow:hidden;
+	margin:1px;
+	padding:0px;
+}
+
+
+.M_item {
+	height:22px;
+	overflow:hidden;
+	width:100%;
+	background-color:transparent;
+	margin:0px;
+	padding:0px;
+}
+
+.M_item_Ico {
+	margin:0px;
+	height:20px;
+	width:20px;
+	overflow:hidden;
+	background-color:transparent;
+	display:block;
+	float:left;
+}
+.M_item_Text {
+	margin:0px;
+	height:20px;
+	overflow:hidden;
+	display:block;
+	background-color:transparent;
+}
+.M_item_context{
+	position:relative;
+	top:4px;
+	left:8px;
+}
+
+.selected .M_itemBody{
+	background-color:#b6bdd2;
+}
+
+/**/
+td.menuitem{
+	display:inline-block;
+	width:54px;
+	height:16px;
+	overflow:hidden;
+	cursor:default;
+}
+
+td.menuitem span{
+	display:inline-block;
+	width:54px;
+	text-align:center;
+	height:16px;
+	overflow:hidden;
+	line-height:18px;
+	cursor:default;
+}
+#icoitembar{
+	height:24px;
+	overflow:hidden;
+	z-index:100;
+	position:relative;
+	padding:0px;
+	-moz-user-select:none;
+}
+.tooltext{
+	border:1px solid white;
+	border-right:0px;
+	font-size:12px;
+	overflow:hidden;
+	display:block;
+	line-height:15px;
+	height:15px;
+	cursor:default;
+}
+.tooldropbutton{
+	border:1px solid white;
+	height:19px;
+	width:19px;
+	overflow:hidden;
+	display:block;
+	background-image:url(img/drop.gif);
+	background-color:#f0f0f0;
+	padding:0px;
+	margin:0px;
+}
+.selectcleart td{
+	padding:0px;
+}
+.selectcleart .tooltext{
+	border-color:#0A246A;
+}
+
+.selectcleart .tooldropbutton{
+	border-Color:#0A246A;
+	background-color:#B6BDD2;
+}
+
+.ListMenuDiv{
+	position:absolute;
+	z-index:1000;
+	background-color:#ffffff;
+	display:none;
+	overflow:auto;
+	border:1px solid #0A246A;
+}
+.ListMenuDivItem{
+	cursor:default;
+	height:22px;
+	overflow:hidden;
+}
+.ListMenuDivItemIco{
+	display:block;
+	float:left;
+}
+.ListMenuDivItemText{
+	display:block;
+	padding-left:4px;
+}
+div.divspliter{
+	border-left:1px solid #ccc;
+	height:16px;
+	border-right:1px solid white;
+	width:1px;
+}
+div.toolitemborder{
+	width:22px;
+	height:21px;
+	overflow:hidden;
+	margin-top:-1;
+	-moz-user-select:none;
+}
+div.toolitembg{
+	width:20px;
+	height:19px;
+	margin-top:1px;
+	margin-left:1px;
+	text-align:center;
+	overflow:hidden;
+}
+
+div.toolitembg img{
+	vertical-align:middle;
+	
+}
+
+div.ContextMenubgTop{
+	position:absolute;
+	border-left:1px solid #666;
+	border-right:1px solid #666;
+	border-bottom:0px;
+	border-top:0px;
+	background-color:#f8f7f6;
+	height:2px;
+	z-index:600;
+	overflow:hidden;
+}

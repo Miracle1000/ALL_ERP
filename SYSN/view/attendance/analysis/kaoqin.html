@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考勤工作台</title>
+    <link rel="stylesheet" href="../../../skin/default/css/kaoqin.css">
+</head>
+<body>
+    <div class="kaoqin-topbar block-box">
+        <div class="kaoqin-container">
+            <p class="common-title" style="float: left;">考勤工作台</p>
+            <div class="options-box">
+                <div class="options-date">
+                    <span class="options-name">日期：</span>
+                    <div class="date-picker">
+                        <div class="date-show date-show-start">
+                            <span class="start-date">开始日期</span>
+                        </div>
+                        <div style="float: left;margin:0 15px;"> 至 </div>
+                        <div class="date-show date-show-end">
+                            <span class="end-date">结束日期</span>
+                        </div>
+                        <div class="date-range">
+                            <div class="date-head">
+                                <!-- <span class="year-left"></span> -->
+                                <div class="month-left"></div>
+                                <div class="current-date"> 
+                                    <select id="current-year"></select>
+                                    <select id="current-month">
+                                       <option value="0">一月</option>
+                                       <option value="1">二月</option>
+                                       <option value="2">三月</option>
+                                       <option value="3">四月</option>
+                                       <option value="4">五月</option>
+                                       <option value="5">六月</option>
+                                       <option value="6">七月</option>
+                                       <option value="7">八月</option>
+                                       <option value="8">九月</option>
+                                       <option value="9">十月</option>
+                                       <option value="10">十一月</option>
+                                       <option value="11">十二月</option>
+                                    </select>
+                                </div>
+                                <div class="month-right"></div>
+                                <!-- <span class="year-right"></span> -->
+                            </div>
+                            <div class="date-daybox">
+                                <ul class="week-list">
+                                    <li class="week-item">日</li>
+                                    <li class="week-item">一</li>
+                                    <li class="week-item">二</li>
+                                    <li class="week-item">三</li>
+                                    <li class="week-item">四</li>
+                                    <li class="week-item">五</li>
+                                    <li class="week-item">六</li>
+                                </ul>
+                                <ul class="day-list">
+                                </ul>
+                            </div>
+                            <div class="date-footer">
+                                <div class="date-btn date-btn-clear">清空</div>
+                                <div class="date-today">今天:<span>2022年1月7日</span></div>
+                                <div class="date-btn date-btn-close">关闭</div>
+                            </div>
+                        </div>
+                        <select id="date-group">
+                            <option value="0">日期范围</option>
+                            <option value="1">今日</option>
+                            <option value="2">本周</option>
+                            <option value="3">本月</option>
+                            <option value="4">本年</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="options-group">
+                    <span class="options-name options-name-group">组织架构：</span>
+                    <select id="options-group-level">
+                    </select>
+                    <div class="options-group-name">
+                        <div class="options-group-show">请选择</div>
+                        <div class="options-group-list">
+                            <div class="options-group-title">请选择部门 <span class="hide-group"></span></div>
+                            <div class="options-group-content"></div>
+                        </div>
+                    </div>
+                    <div class="check-btn">检索</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-box" style="padding-bottom: 12px;">
+        <div class="kaoqin-container" style="overflow: hidden;">
+            <div class="kaoqin-huizong">
+                <div class="common-title">考勤汇总
+                    <div class="help">
+                        <img class="wenhao" src="../../../skin/default/img/wenhao.png" alt=""></span>
+                        <div class="help-tips">
+                            <span class="hide-tips"></span>
+                            应到：取检索时间范围内对应组织架构下的人员，除休息之外的已排班的天数；<br>
+                            实到：取检索时间范围内对应组织架构下人员，除请假和休息之外的实际出勤天数；
+                        </div>
+                    </div>
+                </div>
+                <div class="kaoqin-content">
+                    <div class="kaoqin-all">
+                        <div id="kaoqin-ys"></div>
+                        <div class="kaoqin-all-desc">
+                            <span class="kaoqin-shidao">0</span>/<span class="kaoqin-yingdao">0</span> <br>
+                            实到/应到
+                        </div>
+                    </div>
+                    <div class="kaoqin-detail">
+                        <div id="kaoqin-detail-canvas"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="kaoqin-shenpi">
+                <p class="common-title">考勤审批</p>
+                <div class="kaoqin-content shenpi-kaoqin-content">
+                    <div class="kaoqin-shenpi-item">
+                        <div class="shenpi-head">
+                            <div class="shenpi-title">
+                                <span>考勤申请</span>
+                                <span class="shenpi-num shenqing-num">0条</span>
+                            </div>
+                            <ul class="shenqing shenpi-list"></ul>
+                        </div>
+                    </div>
+                    <div class="kaoqin-shenpi-item shen-shenpi">
+                        <div class="shenpi-title">
+                            <span>申诉处理</span>
+                            <span class="shenpi-num shensu-num">0条</span>
+                        </div>
+                        <ul class="chuli shenpi-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-box kaoqin-fenxi">
+        <div class="kaoqin-container">
+            <div class="common-title">考勤分析  
+                <div class="help">
+                    <img class="wenhao" src="../../../skin/default/img/wenhao.png" alt=""></span>
+                    <div class="help-tips">
+                        <span class="hide-tips"></span>
+                        柱状图显示各考勤类型下排行前10，少于10个有多少显示多少；<br>
+                        饼状图显示各考勤类型下排行前10的人员打卡的位置。
+                    </div>
+                </div>
+            </div>
+            <ul class="kaoqin-sorts">
+                <li class="kaoqin-item active" data-id="4" data-index="0">迟到</li>
+                <li class="kaoqin-item" data-id="5" data-index="1">早退</li>
+                <li class="kaoqin-item" data-id="6" data-index="2">旷工</li>
+                <li class="kaoqin-item" data-id="2" data-index="3">加班</li>
+                <li class="kaoqin-item" data-id="1" data-index="4">请假</li>
+                <li class="kaoqin-item" data-id="3" data-index="5">外勤</li>
+                <li class="kaoqin-sub-item">
+                    <select id="kaoqin-sub-list"></select>
+                </li>
+            </ul>
+            <div class="kaoqin-fenxi-canvas">
+                <div id="kaoqin-line"></div>
+                <div id="kaoqin-pie"></div>
+            </div>
+        </div>
+    </div>
+    <div class="block-box kaoqin-tongji">
+        <div class="kaoqin-container" style="padding-bottom: 12px;">
+            <p class="common-title">考勤统计</p>
+            <ul class="kaoqin-tongji-list">
+                <li class="kaoqin-tongji-item">出勤率分析</li>
+                <li class="kaoqin-tongji-item">加班分析</li>
+                <li class="kaoqin-tongji-item">请假分析</li>
+                <li class="kaoqin-tongji-item">外勤分析</li>
+                <li class="kaoqin-tongji-item">迟到早退旷工分析</li>
+                <li class="kaoqin-tongji-item">考勤记录（单月）</li>
+                <li class="kaoqin-tongji-item">考勤汇总表</li>
+                <li class="kaoqin-tongji-item">年假剩余统计</li>
+                <li class="kaoqin-tongji-item">可调休余额统计</li>
+                <li class="kaoqin-tongji-item">外勤轨迹</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../../../../SYSA/inc/jQuery-1.7.2.min.js"></script>
+    <script src="../../../../SYSA/inc/echarts5.2.min.js"></script>
+    <script>
+        var start_date = '',
+            end_date = '',// 起始日期和结束日期
+            show_date = '',// 当前显示的日期
+            select_date = '',// 当前选中的日期
+            select_sort = 'start',// 当前选择日期的模式, 起始还是结束日期，默认是起始日期
+            reportType = 4,// 考勤分析的参数 考勤类型 1.请假 2.加班 3.外勤 4.迟到 5.早退 6.旷工
+            sourceId = 0, // 考勤分析的参数 选中的部门id或者部门深度
+            sourceType = 0,// 0: sourceId值为部门Id, 1: sourceId值为部门深度  
+            searchType = 0,// 考勤类型 0 代表没有二级考勤类型
+            fenxin_color = ['#ff0000','#ff9900', '#33cccc', '#009900', '#666699', '#993300'],// 柱状图的颜色
+            fenxi_index = 0,// 当前选中的考勤分析的索引 迟到是0，早退是1 以此类推
+            canBindClick = true,// 是否需要给柱状图绑定点击事件
+            myCharts = [],// 所有图表对象的集合
+            Kqlist = [],// 当前考勤分析数据列表
+            group_select = {
+                yingdao:0,
+                shidao:0,
+            }// 当前选中部门的信息
+        
+        function initYear(){
+            var html = '';
+            for(var i = 1900;i<2301;i++){
+                html += '<option value="'+ i +'">' + i + '年</option>';
+            }
+            $('#current-year').html(html);
+        }
+        initYear();
+        $('.date-range').click(function(e){
+            e = e || window.event;
+            e.stopPropagation();
+            e.preventDefault();
+        })
+        $('.date-show-start').click(function(e){
+            e = e || window.event;
+            e.stopPropagation();
+            e.preventDefault();
+            select_sort = 'start';
+            var date = $('.start-date').text();
+            if(date.indexOf('开始日期') > -1){
+                date = ''
+            }
+            createDate({
+                currentDate:date,
+                isOpen:true,
+                datebox:'.date-show-start'
+            })
+        })
+        $('.date-show-end').click(function(e){
+            e = e || window.event;
+            e.stopPropagation();
+            e.preventDefault()
+            select_sort = 'end';
+            var date = $('.end-date').text();
+            if(date.indexOf('结束日期')>-1){
+                date = ''
+            }
+            createDate({
+                currentDate:date,
+                isOpen:true,
+                datebox:'.date-show-end'
+            })
+        })
+        $(".day-list").on("click",".day-item", function(e){
+            if(select_sort == 'start'){
+                start_date = e.currentTarget.dataset.date;
+                $('.start-date').text(formatShowDate(start_date));
+            }else if(select_sort == 'end'){
+                end_date = e.currentTarget.dataset.date;
+                
+                $('.end-date').text(formatShowDate(end_date));
+            }else{
+                alert('选择日期出现了错误，请联系管理');
+            }
+            $(".date-range").hide();
+        });
+        $('#current-year').change(function(){
+            var year = $(this).val();
+            var month = $('#current-month').val();
+            var date = [year,month,1];
+            var render_date = formatDate(date);
+            createDate({
+                currentDate:render_date
+            })
+        })
+        $('#current-month').change(function(){
+            var month = $(this).val();
+            var year = $('#current-year').val();
+            var date = [year,month,1];
+            var render_date = formatDate(date);
+            createDate({
+                currentDate:render_date
+            })
+        })
+        $('.year-left').click(function(e){
+            e = e || window.event;
+            e.stopPropagation();
+            e.preventDefault()
+            var date = show_date.split('-');
+            date[0]--;
+            date[1]--;
+            var render_date = formatDate(date);
+            createDate({
+                currentDate:render_date
+            })
+        })
+        $('.year-right').click(function(e){
+            e = e || window.event;
+            e.stopPropagation();
+            e.preventDefault()
+            var date = show_date.split('-');
+            date[0]++;
+            date[1]--;
+            var render_date = formatDate(date);
+            createDate({
+                currentDate:render_date
+            })
+        })
+        $('.month-left').click(function(e){
+            e = e || window.event;
+            e.stopPropagation();
+            e.preventDefault()
+            var date = show_date.split('-');
+            date[1] -= 2;
+            var render_date = formatDate(date);
+            createDate({
+                currentDate:render_date
+            })
+        })
+        $('.month-right').click(function(e){
+            e = e || window.event;
+            e.stopPropagation();
+            e.preventDefault()
+            var date = show_date.split('-');
+            var render_date = formatDate(date);
+            createDate({
+                currentDate:render_date
+            })
+        })
+        $('.date-today').click(function(e){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth()+1;
+            var day = date.getDate();
+            date = year+'-'+month+'-'+day;
+            if(select_sort == 'start'){
+                start_date = date;
+                $('.start-date').text(formatShowDate(start_date));
+            }else if(select_sort == 'end'){
+                end_date = date;
+                
+                $('.end-date').text(formatShowDate(end_date));
+            }else{
+                alert('选择日期出现了错误，请联系管理');
+            }
+            $(".date-range").hide();
+        })
+        $('.date-btn-close').click(function(e){
+            $('.date-range').hide();
+        })
+        $('.date-btn-clear').click(function(e){
+            alert('日期不能为空！');
+        })
+
+        $('#date-group').change(function(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var today = date.getDate();
+            end_date = year + '-' + (month + 1) + '-' + today;
+            switch($('#date-group').val()){
+                case '1':
+                    start_date = year + '-' + (month + 1) + '-' + today;
+                    break;
+                case '2':
+                    var day = date.getDay() || 7;
+                    var monday = today - (day - 1);
+                    var mon = new Date(year,month,monday);
+                    start_date = mon.getFullYear() + '-' + (mon.getMonth() + 1) + '-' + mon.getDate();
+                    break;
+                case '3':
+                    start_date = year + '-' + (month + 1) + '-' + 1;
+                    break;
+                case '4':
+                    start_date = year + '-1-1';
+                    break;
+                default:
+                    break;
+            }
+            $('.start-date').text(formatShowDate(start_date));
+            $('.end-date').text(formatShowDate(end_date));
+        })
+        $(document).click(function(){
+            $(".date-range").hide();
+            $('.options-group-list').slideUp();
+        })
+        
+        $('#options-group-level').change(function(){ // 切换部门深度
+            sourceType = 1;
+            sourceId = $(this).val();
+            if(sourceId == 0){
+                sourceType = 0;
+            }
+            group_select = {
+                NodeId: '',
+                NodeText:''
+            } 
+            $('.options-group-show').text('请选择');
+            $('.options-group-show').attr('title','');
+        })
+        $('.options-group-show').click(function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            $('.options-group-list').slideDown();
+        })
+        $('.options-group-list').on('click','.group-item-text',function(e){ // 选择部门
+            sourceType = 0;
+            sourceId = e.currentTarget.dataset.id;
+            $('#options-group-level').val(0)
+            group_select = {
+                NodeId:e.currentTarget.dataset.id,
+                NodeText:e.currentTarget.dataset.name
+            }
+            $('.options-group-show').text(group_select.NodeText);
+            $('.options-group-show').attr('title',group_select.NodeText);
+            $('.options-group-list').slideUp();
+            e.stopPropagation();
+            e.preventDefault();
+        }) 
+
+        $('.wenhao').click(function(){
+            $(this).parent().find('.help-tips').show();
+        })
+        $('.hide-tips').click(function(){
+            $(this).parent().hide();
+        })
+        $('.kaoqin-sorts').on('click','.kaoqin-item',function(e){
+            var id = e.currentTarget.dataset.id;
+            fenxi_index = e.currentTarget.dataset.index;
+            reportType = id;
+            $(this).addClass('active').siblings().removeClass('active');
+            if(id<=3){
+                $.ajax({
+                    url:'../../../json/attendance/AttendanceBoard.ashx?actionName=GetAttendanceType&AttType='+id,
+                    method:'POST',
+                    success:function(data){
+                        var html = '';
+                        for(var i = 0;i<data.length;i++){
+                            var text = data[i].Text;
+                            if(text.length>9){
+                                text = text.slice(0,9) + '...';
+                            }
+                            html+='<option value="'+ data[i].Id +'" title="'+ data[i].Text +'">'+ text +'</option>';
+                        }
+                        $('#kaoqin-sub-list').html(html);
+                        $('.kaoqin-sub-item').show();
+                        searchType = data[0].Id;
+                        fenxiInit();
+                    }
+                })
+            }else{
+                $('#kaoqin-sub-list').html('');
+                $('.kaoqin-sub-item').hide();
+                searchType = 0;
+                fenxiInit();
+            }
+        })
+        $('#kaoqin-sub-list').change(function(){
+            searchType = $(this).val();
+            fenxiInit()
+        })
+        $('.check-btn').click(function(){
+            pageInit();
+        })
+
+        function initData(){
+            createWaiting();
+            $.ajax({
+                url:'../../../json/attendance/AttendanceBoard.ashx?actionName=InitData',
+                method:'get',
+                success: function(data){
+                    if(data == 1){
+                        $.ajax({
+                            url:'../../../json/attendance/AttendanceBoard.ashx?actionName=GetOrgInfo',
+                            method:'get',
+                            success: function(data){
+                                var group_level_html = '<option value="0">请选择</options>',group_html = '';
+                                for(var i = 0;i<data.DeepList.length;i++){
+                                    group_level_html += '<option value="'+ data.DeepList[i].Id +'">'+ data.DeepList[i].Text +'</option>' 
+                                }
+                                // var lastDeep = -1;
+                                var OrgList = data.OrgList;
+                                // for(var i = 0;i<OrgList.length;i++){
+                                //     if(OrgList[i].NodeDeep > lastDeep){ // 判断层级深度变大，添加容器
+                                //         group_html += '<div class="groups-box">';
+                                //     }else if(OrgList[i].NodeDeep < lastDeep){ // 判断层级深度变小，闭合容器
+                                //         var diff = lastDeep - OrgList[i].NodeDeep;
+                                //         group_html += '</div>';
+                                //         for(var ii = 0;ii < diff; ii++){
+                                //             group_html +='</div></div>'
+                                //         }
+                                //     }else if(OrgList[i].NodeDeep == lastDeep){ // 同级节点, 正常闭合上一个兄弟节点
+                                //         group_html += '</div>'
+                                //     }
+                                //     var space = '';// 添加空格
+                                //     for(var si = 0;si<=OrgList[i].NodeDeep;si++){
+                                //         if(OrgList[i].NodeDeep == 0){ // 当前节点是最顶级
+                                //             space += '<span class="expand-btn expand-btn-all" data-status="open"></span>';
+                                //         }else if(si == OrgList[i].NodeDeep){//
+                                //             if(OrgList[i+1] && (OrgList[i].NodeDeep < OrgList[i+1].NodeDeep)){ // 当前节点有下级节点
+                                //                 space += '<span class="expand-btn" data-status="open"></span>';
+                                //             }else if(!OrgList[i+1] || (OrgList[i+1] && (OrgList[i].NodeDeep > OrgList[i+1].NodeDeep))){
+                                //                 space += '<span class="shuxian shuxian-last"></span>';
+                                //             }else{
+                                //                 space += '<span class="shuxian shuxian-notlast"></span>';
+                                //             }
+                                //         }else if(si == 0){
+                                //             space += '<span class="shuxian shuxian-space"></span>';
+                                //         }else{
+                                //             space += '<span class="shuxian"></span>';
+                                //         }
+                                //     }
+                                //     group_html += '<div class="options-group-item"> <div class="group-item-text"  data-id="'+ OrgList[i].NodeId +'" data-name="'+ OrgList[i].NodeText +'" title="'+ OrgList[i].NodeText +'"> '+ space + OrgList[i].NodeText + '</div>';
+                                //     lastDeep = OrgList[i].NodeDeep;
+                                // }
+                                $('#options-group-level').html(group_level_html)
+                                // $('.options-group-list .options-group-boxs').html(group_html);
+                                var group_data = formatTree(OrgList);
+                                console.log(group_data)
+                                $('.options-group-list .options-group-content').append(createGroupTree(group_data))
+                                $('.expand-btn').click(function(e){
+                                    e.stopPropagation();
+                                    e.preventDefault();
+                                    var status = $(this).attr('data-status');
+                                    if(status == 'open'){
+                                        $(this).parent().siblings('.groups-box').slideUp(300);
+                                        $(this).attr('data-status','close');
+                                    }else{
+                                        $(this).parent().siblings('.groups-box').slideDown(300);
+                                        $(this).attr('data-status','open');
+                                    }
+                                    $(this).toggleClass('expand-close')
+                                })
+                                pageInit();
+                                removeWaiting();
+                                // console.log( createGroupTree(formatTree(OrgList)));
+                            }
+                        })
+                    }
+                }
+            })
+        }
+
+        function huizongInit(){
+            var url = '../../../json/attendance/AttendanceBoard.ashx?actionName=GetAttendanceSummary&Sourcetype='+ sourceType +'&SourceId='+ sourceId +'&StartTime='+ formatShowDate(start_date) +'&EndTime=' + formatShowDate(end_date);
+            $.ajax({
+                url: url,
+                method:'POST',
+                success:function(data){
+                    $('.kaoqin-yingdao').text(data.YdCount);
+                    $('.kaoqin-shidao').text(data.SdCount);
+                    group_select = {
+                        yingdao:data.YdCount,
+                        shidao:data.SdCount,
+                    }
+                    var chartDom1 = document.getElementById('kaoqin-ys');
+                    var chartDom2 = document.getElementById('kaoqin-detail-canvas');
+                    var myChart1 = echarts.init(chartDom1);
+                    var myChart2 = echarts.init(chartDom2);
+                    var option1 = {
+                        color:['#B6C1DE','#4472E8'],
+                        series: [
+                            {
+                                type: 'pie',
+                                radius: '62%',
+                                labelLine: {
+                                    show: false
+                                },
+                                center:['50%','62%'],
+                                data: [
+                                    { value: group_select.shidao },
+                                    { value: group_select.yingdao - group_select.shidao }
+                                ],
+                            }
+                        ]
+                    };
+                    if(data.YdCount == data.SdCount && data.SdCount == 0){
+                        option1.series[0].data = [{value:0}];
+                        option1.color = ['#B6C1DE'];
+                    }
+                    myChart1.setOption(option1);
+                    var option2 = {
+                        color:fenxin_color,
+                        series: [
+                            {
+                                type: 'pie',
+                                radius: '47%',
+                                labelLine: {
+                                    show: true
+                                },
+                                center:['50%','47%'],
+                                data: [
+                                    { value: data.CdCount , name:' ■ 迟到' + data.CdCount + '人',label:{color:'#ff0000'}},
+                                    { value: data.ZtCount , name:' ■ 早退' + data.ZtCount + '人',label:{color:'#ff9900'}},
+                                    { value: data.KgCount , name:' ■ 旷工' + data.KgCount + '人',label:{color:'#33cccc'}}
+                                ]
+                            }
+                        ]
+                    };
+                    if(data.KgCount == data.CdCount && data.CdCount == data.ZtCount && data.ZtCount == 0){
+                        option2.series[0].labelLine.show = false;
+                        option2.series[0].data =[{value:0}]
+                        option2.color = '#B6C1DE';
+                    }
+                    myChart2.setOption(option2);
+                    myCharts[0] = myChart1;
+                    myCharts[1] = myChart2;
+                }
+            })
+        }
+        function fenxiInit(){
+            $.ajax({
+                url:'../../../json/attendance/AttendanceBoard.ashx?actionName=GetReportAnalysis&Sourcetype='+ sourceType +'&SourceId='+ sourceId +'&StartTime='+formatShowDate(start_date)+'&EndTime='+formatShowDate(end_date)+'&ReportType='+ reportType +'&SearchType='+ searchType +'&TopNum=10',
+                success:function(data){
+                    Kqlist = data.Kqlist;
+                    var Dklist = data.Dklist;
+                    var kaoqin_line = document.getElementById('kaoqin-line');
+                    var kaoqin_pie = document.getElementById('kaoqin-pie');
+                    var myChart1 = echarts.init(kaoqin_line);
+                    var myChart2 = echarts.init(kaoqin_pie);
+                    var line_x_data = [], line_y_data = [];
+                    var sort_name = { //考勤类型 1.请假 2.加班 3.外勤 4.迟到 5.早退 6.旷工
+                        1:'请假',
+                        2:'加班',
+                        3:'外勤',
+                        4:'迟到',
+                        5:'早退',
+                        6:'旷工'
+                    }
+                    for(var i = 0;i<Kqlist.length;i++){
+                        line_x_data.push(Kqlist[i].CoordXCol || '');
+                        line_y_data.push(Kqlist[i].CoordY1);
+                    }
+                    var kaoqin_pie_data = [];
+                    var kaoqin_color = ['#ECB93D','#2CDBDD','#4472E8','#C260E7','#5BBD2B','#F28B37'];
+                    for(var i = 0;i<Dklist.length;i++){
+                        kaoqin_pie_data.push({
+                            value:Dklist[i].ClockCount,
+                            name: ' ■ ' + Dklist[i].Name + Dklist[i].ClockCount + ' 人',
+                            label:{
+                                color: kaoqin_color[i]
+                            }
+                        })
+                    }
+                    var maxFontNum = 4;
+                    var maxFontSize = 12;
+                    var len = line_x_data.length;
+                    if(len >= 6){
+                        maxFontNum = 6;
+                    }else if(len >= 4){
+                        maxFontNum = 12;
+                    }else{
+                        maxFontNum = 16;
+                        maxFontSize = 14;
+                    }
+                    var option1 = {
+                        color:fenxin_color[fenxi_index],
+                        grid:{
+                            top:'15%'
+                        },
+                        animation:false,
+                        tooltip:{
+                            trigger: 'item',
+                            formatter: function(data){
+                                return data.name + ': ' + data.value.toFixed(2);
+                            },
+                            extraCssText:'width:120px; white-space:pre-wrap'
+                        },
+                        xAxis: {
+                            type: 'category',
+                            data: line_x_data,
+                            axisLabel: {
+                                formatter: function(value){
+                                    if(value.length>maxFontNum){
+                                        value = value.slice(0,maxFontNum/2) + '\n' + value.slice(maxFontNum/2,maxFontNum) +'\n' + '…' 
+                                    }else if(len>=maxFontNum/2){
+                                        value = value.slice(0,maxFontNum/2) + '\n' + value.slice(maxFontNum/2,maxFontNum)
+                                    }
+                                    return value
+                                },
+                                textStyle: {
+                                    fontSize : maxFontSize //更改坐标轴文字大小
+                                }
+                            }
+                        },
+                        yAxis: [{
+                            max:function (value) {
+                                if(value.max<5){
+                                    return 5
+                                }else{
+                                    return null
+                                }
+                            },
+                            type: 'value',
+                            name: '次数',
+                            minInterval:1,
+                            nameLocation:'end',
+                            axisLine:{
+                                show:false
+                            },
+                            axisTick:{
+                                show: false
+                            },
+                            nameTextStyle:{
+                                fontSize:14,
+                                align:'center',
+                                fontWeight:600
+                            }
+                        },{
+                            name: line_y_data.length>=10?'TOP10':'',
+                            nameLocation:'end',
+                            axisLine:{
+                                show:false
+                            },
+                            nameTextStyle:{
+                                fontSize:16,
+                                align:'right',
+                                fontWeight:600
+                            }
+                        }],
+                        series: [
+                            {
+                                data: line_y_data,
+                                type: 'bar',
+						        barMaxWidth:30,
+                                tooltip:{
+                                    backgroundColor:'rgba(0,0,0,.7)',
+                                    borderColor:'rgba(0,0,0,.7)',
+                                    padding:4,
+                                    textStyle:{
+                                        color:'#fff',
+                                        fontSize:12
+                                    }
+                                }
+                            }
+                        ]
+                    };
+                    
+                    if( reportType <= 3 ){
+                        option1.yAxis[0].name = '小时';
+                        option1.yAxis[0].minInterval = 0; 
+                        option1.yAxis[0].max = 'dataMax';
+                    }
+                    option1.yAxis[0].name +='（'+ sort_name[reportType] +'）';
+                    var option2 = {
+                        color: kaoqin_color,
+                        title:{
+                            text:"打卡分布",
+                            left:"center",
+                            top:"center",
+                            textStyle:{
+                                color:"#333333",
+                                fontSize:24,
+                                align:"center"
+                            }
+                        },
+                        series: [
+                            {
+                                type: 'pie',
+                                radius: ['40%', '70%'],
+                                avoidLabelOverlap: false,
+                                labelLine: {
+                                    show: true
+                                },
+                                data: kaoqin_pie_data
+                            }
+                        ]
+                    };
+                    if(Dklist.length == 0){
+                        option2.series[0].data = [{value:0}];
+                        option2.color = '#B6C1DE';
+                        option2.series[0].labelLine.show = false;
+                    }
+                    myChart1.setOption(option1);
+                    myChart2.setOption(option2);
+                    if(canBindClick){
+                        canBindClick = false;
+                        myChart1.on('click',function(params){
+                            var i = params.dataIndex;
+                            var currentUrl = window.location;
+                            var date = end_date.split('-');
+                            date[2] = '01';
+                            date = date.join('-')
+                            var url = '../../../json/attendance/AttendanceBoard.ashx?__sys_msgid=sdk_sys_RegLongUrlParams&Sign='+ currentUrl +'&Data=[{"n":"searchdate","v":"'+ formatShowDate(date) +'"},{"n":"userid","v":"'+ Kqlist[i].Uids +'"}]'
+                            $.ajax({
+                                url:url,
+                                success:function(data){
+                                    window.open('../../attendance/statistics/RecordSummary.ashx?type=0&__sys_throughlink=1&__sys_LongUrlParamsID='+data)
+                                }
+                            })
+                        })
+                    }
+                    myCharts[2] = myChart1;
+                    myCharts[3] = myChart2;
+                    
+                }
+            })
+        }
+        function tongjiInit(){
+            $.ajax({
+                url:'../../../json/attendance/AttendanceBoard.ashx?actionName=GetAttendanceStatistic',
+                success:function(data){
+                    createTongji(data);
+                }
+            })
+        }
+        function shenpiInt(){
+            $.ajax({
+                url:'../../../json/attendance/AttendanceBoard.ashx?actionName=GetAttendanceSP',
+                success: function(data){
+                    var base_url = window.location.href.split('SYSN')[0];
+                    var shensu_html='',shenqing_html = '';
+                    if(data.AppealMainUrl.indexOf('canredirect=1') != -1){
+                        shensu_html = '<a target="_blank" href="'+ base_url + data.AppealMainUrl +'">'+ data.AppealCount+'条' +'</a>';
+                    }else{
+                        shensu_html =  '0条';
+                        data.Appeallist = []
+                    }
+                    if(data.SPApplyMainUrl.indexOf('canredirect=1') != -1){
+                        shenqing_html = '<a target="_blank" href="'+ base_url + data.SPApplyMainUrl +'">'+ data.SPApplyCount+'条' +'</a>';
+                    }else{
+                        shenqing_html =  '0条';
+                    }
+                    
+                    $('.shenqing-num').html(shenqing_html)
+                    $('.shensu-num').html(shensu_html)
+                    createShenpi({data:data.SPApplylist,dom:'.shenqing',base_url:base_url+data.SPDealUrl});
+                    createShenpi({data:data.Appeallist,dom:'.chuli',base_url:base_url+data.AppealMainUrl});
+                },
+            })
+        }
+        function pageInit(){
+            huizongInit();
+            shenpiInt();
+            tongjiInit();
+            fenxiInit();
+        }
+
+        function formatShowDate(date){ // 给要展示的被选中的日期补0
+            var date = date.split('-');
+            if(date[1]<10){
+                date[1] = '0' + Number(date[1]);
+            }
+            if(date[2]<10){
+                date[2] = '0' + Number(date[2]);
+            }
+            return date.join('-');
+        }
+        function formatTree(data){ // 格式化树结构
+            var result = [{//最终结果
+                children:[],
+                space:'',
+                isLastNode:true
+            }]
+            var currParent = result[0];// 当前父节点
+            var lastDeep = 0;
+            for(var i = 0;i<data.length;i++){
+                if(data[i].NodeDeep > lastDeep){
+                    currParent = currParent.children[currParent.children.length-1];
+                    currParent.children = [];
+                }else if(data[i].NodeDeep < lastDeep){
+                    var level = lastDeep - data[i].NodeDeep;
+                    for(var j = 0;j<level;j++){
+                        currParent = currParent.parentNode;
+                    }
+                }
+                lastDeep = data[i].NodeDeep;
+                data[i].parentNode = currParent;
+                currParent.children.push(data[i]);
+            }
+            return findLastNode(result[0].children);
+        }
+        function findLastNode(data){ // 找到同组最后一个节点
+            for(var i = 0;i<data.length;i++){
+                if(i == data.length - 1){
+                    data[i].isLastNode = true;
+                }
+                if(data[i].parentNode.isLastNode){
+                    data[i].space = data[i].parentNode.space + '<span class="shuxian shuxian-space"></span>';
+                }else{
+                    data[i].space = data[i].parentNode.space + '<span class="shuxian"></span>';
+                }
+                if(data[i].children && data[i].children.length){
+                    data[i].hasChildren = true;
+                    findLastNode(data[i].children)
+                }
+            }
+            return data;
+        }
+
+        function createGroupTree(data){// 创建组织架构树
+            var dom = document.createElement('div');
+            dom.className = 'groups-box';
+            for(var i = 0;i<data.length;i++){
+                var child = document.createElement('div');
+                child.className = 'options-group-item';
+                var space = data[i].space;
+                if(data[i].hasChildren && data[i].isLastNode){
+                    space += '<span class="expand-btn expand-btn-all" data-status="open"></span>'
+                }else if(data[i].hasChildren){
+                    space += '<span class="expand-btn" data-status="open"></span>'
+                }else if(data[i].isLastNode){
+                    space += '<span class="shuxian shuxian-last"></span>'
+                }else{
+                    space += '<span class="shuxian shuxian-notlast"></span>'
+                }
+                var html = '<div class="group-item-text"  data-id="'+ data[i].NodeId +'" data-name="'+ data[i].NodeText +'" title="'+ data[i].NodeText +'"> '+ space + '&nbsp;' + data[i].NodeText + '</div>';
+                child.innerHTML = html;
+                if(data[i].hasChildren){
+                    child.appendChild(createGroupTree(data[i].children));
+                }
+                dom.appendChild(child);
+            }
+
+            return dom;
+        }
+        function createShenpi(options){ // 创建审批内的列表
+            var data = options.data;
+            var html = '';
+            var href = '#';
+            if(options.base_url && options.base_url.indexOf('canredirect=1') != -1){
+                href =  options.base_url;
+                for(var i = 0;i<data.length;i++){
+                    html+= '<li class="shenpi-item" title="'+ data[i].Title +'"><a target="_blank" href="'+ href + data[i].Id + '">'+ data[i].Title +'</a></li>'
+                }
+            }else{
+                for(var i = 0;i<data.length;i++){
+                    html+= '<li class="shenpi-item" title="'+ data[i].Title +'">'+ data[i].Title +'</li>'
+                }
+            }
+            if(data.length == 0){
+                html = '<li style="text-align:center;line-height:24px;font-size:18px;color:#999999;padding:10% 20% 0 0;"> <img src="../../../skin/default/img/kaoqin-nodata.png"> <br> 无数据信息 </li>'
+            }
+            $(options.dom).html(html)
+        }
+        function createTongji(data){
+            var html = '';
+            for(var i = 0;i<data.length;i++){
+                html+= '<li class="kaoqin-tongji-item"> <a target="_blank" href="'+ window.location.href.split('SYSN')[0] + '/' + data[i].Url +'">'+ data[i].Text +'</a></li>'
+            }
+            $('.kaoqin-tongji-list').html(html);
+        }
+        
+        function createDate(options){ // 创建日期选择框
+            var currentDate; 
+            
+            if(options.currentDate){
+                currentDate = options.currentDate
+            }else{
+                var newDate = new Date();
+                currentDate= newDate.getFullYear() + '-' + (newDate.getMonth() + 1) + '-' + newDate.getDate()
+            }
+            show_date = currentDate;
+            if(options.isOpen){
+                select_date = currentDate;
+            }
+            // $('.current-date').text(currentDate.split('-')[0] + '年' + currentDate.split('-')[1] + '月');
+            var currentDates = new Date(currentDate);
+            var current_year = currentDates.getFullYear();
+            var current_month = currentDates.getMonth();
+            $('#current-year').val(current_year);
+            $('#current-month').val(current_month);
+            var render_date = getCurrMonth(currentDate);
+            var date_html = '';
+            for(var i = 0;i<render_date.length;i++){
+                date_html+='<li class="day-item '+ (render_date[i].others || '') + ' ' + (render_date[i].select || '') +'" data-date="'+ render_date[i].year + '-' + render_date[i].month + '-' + render_date[i].date +'"><div class="day-num">'+ render_date[i].date +'</div></li>'
+            }
+            $('.day-list').html(date_html);
+            var css_obj = {
+                display:'block',
+            }
+            if(options.datebox){
+                var left = $(options.datebox).offset().left - $('.date-picker').offset().left;
+                css_obj.left = left;
+            }
+            var today = new Date();
+            $('.date-today span').text(today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日')
+            $('.date-range').css(css_obj)
+
+        }
+        function getCurrMonth(date){
+            var result = [];// 最终要返回的用来渲染当前月天数的数组
+            var y_m_d = date.split('-');
+            var select_ymd = select_date.split('-');
+
+            var prev_date = new Date(y_m_d[0],y_m_d[1]-1,0);// 上个月的日期对象
+            var next_date = new Date(y_m_d[0],y_m_d[1],1);// 下个月的日期对象
+
+            var prev_year = prev_date.getFullYear(); // 上月日期所在年;
+            var prev_month = prev_date.getMonth()+1; // 上月日期所在月;
+            
+            var next_year = next_date.getFullYear();// 下月日期所在年;
+            var next_month = next_date.getMonth()+1;// 下月日期所在月;
+
+            var curr_month_first_day = new Date(y_m_d[0] + '-' + y_m_d[1] + '-' + '1').getDay();//当前月第一天是周几
+            var curr_month_last_date = new Date(y_m_d[0],y_m_d[1],0).getDate();// 这个月最后一天是几号
+            var last_month_last_date = new Date(y_m_d[0],y_m_d[1]-1,0).getDate();// 上个月最后一天是几号
+            var next_month_need_date = 42 - curr_month_first_day - curr_month_last_date;// 下个月需要补的天数，总共渲染6行共42天
+            
+            for(var i = 0;i<curr_month_first_day;i++){
+                result.unshift({
+                    date:last_month_last_date--,
+                    year:prev_year,
+                    month:prev_month,
+                    others:'others'
+                })
+            }
+            for(var i = 1;i <= curr_month_last_date;i++){
+                var obj = {
+                    date: i,
+                    year: y_m_d[0],
+                    month: y_m_d[1]
+                }
+                if(i == select_ymd[2] && select_ymd[0] == y_m_d[0] && select_ymd[1] == y_m_d[1]){
+                    obj.select = 'select'
+                }
+                result.push(obj);
+            }
+            for(var i = 1;i <= next_month_need_date;i++){
+                result.push({
+                    date:i,
+                    year:next_year,
+                    month:next_month,
+                    others:'others'
+                })
+            }
+            return result;
+
+        }
+        function formatDate(date){
+            var date = new Date(date[0], date[1],1);
+            return date.getFullYear() + '-' + (date.getMonth()+1) + '-1';
+        }
+        function initDate(){
+            var date = new Date();
+            start_date = date.getFullYear()+'-'+ (date.getMonth()+1) + '-' + date.getDate();
+            end_date = date.getFullYear()+'-'+ (date.getMonth()+1) + '-' + date.getDate();
+            $('.start-date').text(formatShowDate(start_date));
+            $('.end-date').text( formatShowDate(end_date));
+        }
+        function initResize(){
+            window.onresize = function (){
+                for(var i = 0;i<myCharts.length;i++){
+                    myCharts[i].resize();
+                }
+            }
+        }
+        function createWaiting(){// 创建加载中等待动画
+            var waiting = $('#waiting');
+            if(waiting.length != 0){
+                return;
+            }else{
+                var waiting = $('<div id="waiting"><div class="waiting-box"><img src="../../../../SYSA/images/loading2.gif" alt=""><p>加载中...</p></div></div>');
+                $('body').append(waiting);
+            }
+        }
+        function removeWaiting(){
+            var waiting = $('#waiting');
+            if(waiting.length != 0){
+                waiting.remove();
+            }
+        }
+        initDate();// 初始化日期格式
+        initData();// 初始化页面数据
+        initResize();// 初始化图表的resize事件
+    </script>
+</body>
+</html>

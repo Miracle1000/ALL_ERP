@@ -1,0 +1,134 @@
+﻿body {
+	font-size: 12px;
+	background-color: #9f9f9f;
+	topmargin: 0pt;
+	vertical-align: top;
+	
+}
+td {
+	font-size: 9pt;
+	height: 10px;
+}
+.table1 {
+	background-color: #ebebeb;
+	}
+a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+	window.status:none;
+}
+.td1 {
+	height: 27px;
+}
+.td2 {
+	height: 30px;
+}
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a {
+	color: #000000;
+	text-decoration: none;
+}
+.bian {
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-color: #CCCCCC;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+}
+.td3 {
+	height: auto;
+	line-height: 20px;
+	text-indent: 24px;
+}
+.td4 {
+	height: 50px;
+	vertical-align: middle;
+}
+.td5 {
+	height: 34px;
+}
+.table2 {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+	margin-top: 1px;
+	margin-right: 1px;
+	margin-bottom: 1px;
+	margin-left: 1px;
+	padding-top: 1px;
+	padding-right: 1px;
+	padding-bottom: 1px;
+	padding-left: 1px;
+}
+.black {
+	color: #585858;
+}
+.gray {
+	color: #585858;
+	line-height: 20px;
+}
+.gray4 {
+	color: #6D6D6D;
+	line-height: 20px;
+}
+
+.gray3 {
+	color: #828282;
+}
+
+.gray2 {
+	color: #434343;
+}
+.white {
+	color: #FFFFFF;
+}
+.white2 {
+	color: #cc3333;
+	text-transform: none;
+}
+.red {
+	color: #CC3333;
+}
+.blue {
+	color: #8000FF;
+}
+.show {
+	font-family: "隶书";
+	font-size: 22pt;
+	color: #030000;
+	font-weight: lighter;
+	text-decoration: blink;
+}
+.blackhead {
+	font-size: 14px;
+}
+.whitehead {
+	font-size: 14px;
+	color: #FFFFFF;
+}
+.red2 {
+	font-size: 16px;
+	color: #CC3333;
+}
+.blue2 {
+	color: #CC00CC;
+}

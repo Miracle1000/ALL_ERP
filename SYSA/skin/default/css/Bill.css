@@ -1,0 +1,168 @@
+﻿.edit-body{width:100%;color:#000;}
+.edit-body .btns-bar{text-align:center; height:40px; line-height:40px;}
+.edit-body .btns-bar td{background:#EFEFEF;}
+.edit-body .btns-bar td .zb-button{background:#FFF}
+.sub-thead,.s_f_d0{background:#fff;}/* 售后管理-售后知识库-知识库添加 检索区域背景*/
+.sub-thead td.fcell{color:#222; text-align:right}/*统计-生产栏目统计-订单统计分析-工序进度看板-检索*/
+.edit-body td.fcell{ padding: 9px 4px;
+    height: 54px;
+    box-sizing: border-box;/*组装拆装（增强）-小table表头-去掉line-height*/ /* padding:3px; */}/* 库存设置-组装拆装设置（增强）-设置组装拆装单显示-检索区域-去掉padding */
+.edit-body td.fcell[colspan="6"][ui]{padding-left:32px;}
+.edit-body td.fcell div.listview{padding-left:32px}
+.edit-body td#designlist_cel{padding-left: 11.5%;padding-top: 30px;}
+#bll_lvwbg_clist,#lvw_tbodybg_mxistvw,#mxlist{padding-top: 26px!important;box-sizing: border-box;}
+/* #remark_editor{margin-left: 38px;margin-top: 30px;} */
+a {color:@zbvar.leftbgcolor;}
+.sub-title{text-align:right; width:10%;color:#222;}
+.group-fold {float:left;padding:1px 3px 0px 3px;vertical-align:middle;line-height: 16px;margin-left: 7px;}
+.group-fold img {cursor:pointer;height:5px}
+.group-title {
+	color: #333;
+	font-weight: bold;
+	float: left;
+	padding-left: 12px;
+	border-left: 2px solid #000;
+	line-height: 1;
+	margin-top: 4px;
+}
+.top.resetTableBg .fcell:before { /*库存-产品养护-详情*/
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 10px;
+	background: #EFEFEF;
+	left: 0px;
+	top: 0;
+	border-top: 30px solid #fff;
+}
+.top.resetTableBg .fcell:after { /*库存-产品养护-详情*/
+	width: auto;
+	height: 1px;
+	content: '';
+	background-color: #ccc;
+	position: absolute;
+	left: 32px;
+	top: 100px;
+	right: 0px;
+	display: block;
+}
+.s_f_d1 {
+	display: none;
+}
+.s_f_d1 td{display:none;}
+.sub-field {margin-left:3px;}
+.fcell tr {background-color:white;}
+input.notnull[type='button']{cursor:default;width:9px;overflow:hidden;min-width:1px;padding-left:0px}
+input.notnull{color:red;border:0px;background-color:transparent;padding-left:0px;padding-right:0px;}
+.edit-body .sub-thead td.fcell{
+    font-weight: bold;
+    cursor: default;
+    padding: 60px 0px 30px 32px;
+    box-sizing: border-box;
+    background: none;
+    height: 120px;
+	position: relative;
+}
+.edit-body .sub-thead:first-child td.fcell {
+	padding: 0px 0 0 32px;/*组装清单添加单元格左侧距离过大*/
+	height: 64px !important;
+	background-position: 32px 50%;
+	line-height: 64px;
+}
+.edit-body .sub-thead td.fcell:before {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 10px;
+	background: #EFEFEF;
+	left: 0px;
+	top: 0;
+    border-top: 30px solid #fff;
+}
+.edit-body .sub-thead:first-child td.fcell:before {
+    border-top: 0;
+	display: none;
+}
+.edit-body .sub-thead td.fcell:after {
+    height: 1px;
+    content: '';
+    background-color: #ccc;
+    position: absolute;
+    left: 42px;
+	right: 0;
+    top: 110px;
+    display: block;
+}
+.edit-body .sub-thead:first-child td.fcell:after{
+    top: 58px;
+}
+.edit-body .sub-thead:first-child td.fcell .group-title {margin-top: 24px;}
+.edit-body .sub-thead:first-child td.fcell .group-fold{margin-top:20px}
+@media print {
+	.edit-body td.fcell {border-color:#ddd;}
+	.zb-button {display:none;}
+}
+html{overflow-x:hidden;*overflow-x:visible;height:auto}
+body {overflow:visible;overflow-x:hidden;*overflow-x:visible} /*防止IE6出滚动条*/
+.lvwheader th {font-weight:normal;background-color:transparent;}
+.lvwheader {border-top:1px solid #ccc;}
+.h_2 {background-image:url();text-align:center;height:24px}
+.lvwframe4 tr{background-color:transparent;}
+.lvwframe4 {position:static;}
+.lvwframe2 {border-left:1px solid #ccc;position:static;}
+.listview {position:static;}
+.lvw_tablebg {position:static;}
+.lvw_pagebar {position:static;}
+.lvw_cell {height:37px;padding-left:2px}
+
+body a:hover{color:#ff0000;text-decoration:underline;}
+/*.lvw_tablebg {border-top:1px solid #ccc;}*/
+div.colorPicker {
+	border:2px solid #ccc;
+	width:16px; height:16px;
+	overflow:hidden;
+	cursor:pointer;
+	background-image:url(../../../images/arrow.top.png);
+	background-repeat:no-repeat;
+	background-position:right bottom;
+}
+button.bllUploadimageSkin {border:0px;height:27px;width:100%;font-size:12px;background-color:#dddde4;overflow:hidden;color:#000;cursor:pointer}
+button.bllUploadimagesSkin {margin-top:0.93in;border:0px;height:27px;width:80px;font-size:12px;background-color:#dddde4;overflow:hidden;color:#000;cursor:pointer}
+button.bllUploadpicSkin {border:0px;height:25px;width:100%;font-size:12px;background-color:#dddde4;overflow:hidden;color:#000;cursor:pointer}
+button.bllUploadimageSkin_over {border:0px;height:27px;width:100%;font-size:12px;background-color:#bbcce4;overflow:hidden;color:#000;cursor:pointer}
+button.bllUploadimagesSkin_over {margin-top:0.93in;border:0px;height:27px;width:80px;font-size:12px;background-color:#bbcce4;overflow:hidden;color:#000;cursor:pointer}
+button.bllUploadpicSkin_over {border:0px;height:25px;width:100%;font-size:12px;background-color:#bbcce4;overflow:hidden;color:#000;cursor:pointer}
+table.blluploadbgtb {background-color:#eeeef4;border:1px solid #ccc;}
+td.blluploadbgtd {background-color:#fff;}
+.showli{display:inline;float:left;padding-left:5px;padding-right:5px;padding-bottom:5px;position:relative;cursor: pointer;list-style:none;}
+.showli img {border:1px solid #ccc;width:1.2in;height:1.2in;}
+.showli .showdiv {border:1px solid #ccc;width:1.2in;height:1.2in;}
+.showli .delimg {position:absolute;top:0px;right:10px;width:0.2in;height:0.2in;}
+.showli .deloperate{
+	background: rgba(33,33,33,.7);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2404040, endColorstr=#b2404040)
+	opacity: .8; 
+	z-index: 5; 
+	position: absolute;
+	top:1.11in;
+	left: 5px; 
+	width: 1.1in;
+	height: 10px;
+	display: none;
+	margin-top:-10px;
+	padding: 5px 0 5px 12px;
+}
+.showli .deloperate i{
+	background-image:url(../../../images/goods_img_icon_bg.png);
+	background-repeat:no-repeat;
+	background-position: -13px 0;
+	float: right;
+	display: inline-block;
+	cursor: pointer;
+	height: 12px;
+	width: 12px;
+	margin: 0 5px;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+}

@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+article,aside,audio,canvas,figure,figcaption,footer,header,hgroup,mark,menu,nav,select{
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+a,address,b,big,blockquote,body,center,cite,code,dd,del,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,i,iframe,img,ins,label,legend,li,ol,p,pre,small,span,strong,u,ul,var {
+	margin: 0;
+	padding: 0;
+}
+input{
+	word-break:break-all;
+}
+/*将滚动条设为隐藏*/
+::-webkit-scrollbar{width:0;}
+#payDiv #confirmDiv, #confirmDiv{
+	position: fixed;
+	z-index:9999999;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background:rgba(0,0,0,0.7);
+	font-size: 14px;
+	margin-top:0px;
+}
+#payDiv #confirmDiv div, #confirmDiv div{
+	margin:150px auto;
+	text-align: center;
+	width: 75%;
+	border-radius: 5px;
+	background: #fff;
+	padding:35px 10px 20px 10px;
+}
+#payDiv #confirmDiv div .btnGroups, #confirmDiv div .btnGroups{
+	padding:20px 30px 10px 30px;
+}
+
+#payDiv #confirmDiv .btn, #confirmDiv .btn{
+	padding:10px 25px;
+}
+
+body { font-family:"微软雅黑", Arial; font-size:12px; letter-spacing: 1px; }
+ul, li { list-style:none; }
+a { text-decoration:none; outline:none; color:#666666; }
+a img { border:none; vertical-align: middle; }
+.fl { float:left; }
+.fr { float:right; }
+button, li { cursor:pointer; }
+.w { width:1200px; }
+.m { margin:0 auto; }
+.mr10 { margin-right:10px; }
+.w1 { width:1000px; }
+.cl { clear:both; }
+.disnone { display: none;}
+.ov{ overflow: hidden;}
+input,button { outline: none;}
+.pr{position: relative;}
+.pa{position: absolute;}

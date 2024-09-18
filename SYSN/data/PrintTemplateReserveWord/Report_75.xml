@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--供应商对账表打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="75" DBViewName="" DBDetailViewName="" IsReport="true">
+  <Items Title="公共字段">
+    <Items Title="基本信息">
+      <Column Name="开始日期" dbName="spl_sta_data" Description="开始日期" LocationType="All"/>
+      <Column Name="截止日期" dbName="spl_end_date" Description="截止日期" LocationType="All"/>
+      <Column Name="期初余额" dbName="spl_open_balance" Description="期初余额" LocationType="All"/>
+      <Column Name="期末余额" dbName="spl_end_balance" Description="期末余额" LocationType="All"/>
+      <Column Name="币种" dbName="spl_this_currency" Description="币种" LocationType="All"/>
+    </Items>
+    <Items Title="供应商信息">
+      <Column Name="供应商名称" dbName="spl_company" Description="供应商名称" LocationType="All"/>
+      <Column Name="供应商编号" dbName="spl_code" Description="供应商编号" LocationType="All"/>
+      <Column Name="供应商地址" dbName="spl_address" Description="供应商地址" LocationType="All"/>
+      <Column Name="主联系人" dbName="spl_people" Description="主联系人" LocationType="All"/>
+      <Column Name="办公电话" dbName="spl_kphone" Description="办公电话" LocationType="All"/>
+      <Column Name="手机" dbName="spl_sjphone" Description="手机" LocationType="All"/>
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表头表尾字段">
+    <Items Title="合计信息">
+      <Column Name="实付小计" dbName="SUM_PAGE([money3])" Description="实付小计" LocationType="All" IsFunction="true" />
+      <Column Name="实付合计" dbName="SUM_ALL([money3])" Description="实付合计" LocationType="All" IsFunction="true" />
+      <Column Name="应付小计" dbName="SUM_PAGE([money2])" Description="应付小计" LocationType="All" IsFunction="true" />
+      <Column Name="应付合计" dbName="SUM_ALL([money2])" Description="应付合计" LocationType="All" IsFunction="true" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="对账信息">
+      <Column Name="行号" dbName="inx" Description="行号" LocationType="Detail" OrderNum="true" />
+      <Column Name="日期" dbName="date1 " Description="日期" LocationType="Detail" GroupBy="true" />
+      <Column Name="主题" dbName="billtitle" Description="主题" LocationType="Detail" GroupBy="true" />
+      <Column Name="业务类型" dbName="billtypename" Description="业务类型" LocationType="Detail" GroupBy="true" />
+      <Column Name="产品名称" dbName="cptitle" Description="产品名称" LocationType="Detail" GroupBy="true" />
+      <Column Name="单位" dbName="unitname" Description="单位" LocationType="Detail" GroupBy="true" />
+      <Column Name="数量" dbName="num1" Description="数量" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="单价" dbName="price1" Description="单价" LocationType="Detail" GroupBy="true" />
+      <Column Name="金额" dbName="money1" Description="金额" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="应付金额" dbName="money2" Description="应付金额" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="实付金额" dbName="money3" Description="实付金额" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="应付余额" dbName="money4" Description="应付余额" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="状态" dbName="status" Description="状态" LocationType="Detail" GroupBy="true" />
+    </Items>
+  </Items>
+</Report>

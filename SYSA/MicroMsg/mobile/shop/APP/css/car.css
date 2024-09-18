@@ -1,0 +1,275 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+    text-align: center;
+}
+　::-webkit-input-placeholder { /* WebKit browsers */
+　　color:#000;
+　　}
+　　:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+　　color:#000;
+　　}
+　　::-moz-placeholder { /* Mozilla Firefox 19+ */
+　　color:#000;
+　　}
+　　:-ms-input-placeholder { /* Internet Explorer 10+ */
+　　color:#000;
+　　}
+header.container{
+	background:rgba(227,227,227,.8);
+	width: 100%;
+	height: 53px;
+	line-height: 53px;
+	font-size: 16px;
+	position: fixed;
+	top: 0;
+	left: 0;	
+	z-index: 777;
+}
+#back,#indexback{
+	width:12px;
+	padding-top: 15px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;	
+}
+.chooseBtn {
+	transform: translate(20%,100%);
+	-webkit-transform:translate(20%,100%);
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	padding: 0;
+	margin: 0 auto;
+}
+.chooseBtn img{
+	margin: 0 auto;
+	width: 1.5rem;
+}
+/******购物车底部*******/
+.allChoose{
+	position: relative;
+}
+#allBtn,#allBtn_1{
+	padding-left: 0.8rem;
+}
+.allcheckbox,.allcheckbox_1{
+	transform: translate(-2.2rem,-3.3rem);
+	-webkit-transform:  translate(-2.2rem,-3.5rem);
+}
+	
+.intro{
+	line-height: 1.7rem;
+	font-size: 14px;
+	height: 3.5rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient: vertical;
+	text-align:left ;
+	/*margin-bottom: 1.5rem;*/
+}
+.attributes{
+	color: #C0C0C0;
+	font-size: 10px;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.allcheckbox,.checkbox,.allcheckbox_1{
+	display:block;
+	width:1.8rem;
+	height:1.8rem;
+	border:1px solid #999;
+	border-radius: 50%;
+	}
+    
+.allcheckbox.checked,.checkbox.checked,.allcheckbox_1.checked{
+  	background:url(../img/choose-link.png) no-repeat center center;
+  	background-size: 100%;
+  	border:none;
+  	}
+ /**库存不足**/
+.nocheckbox{
+	display:block;
+	width:1.4rem;
+	height:1.4rem;
+	border:1px solid #ccc;
+	background:transparent;
+	border-radius: 50%;
+}
+.notShow{
+	opacity: 0.6;
+}
+.checkbox{
+	margin: 3rem auto;
+}
+.notShow li{
+	padding-right: 2px;
+	padding-l: 2px;
+}
+.lose1{
+	display: block;
+	margin: 3rem auto;
+	color: #fff;
+	background: #C0C0C0;
+	padding:1px;
+}
+
+.all-price{
+	color: #fff;
+}
+.all-price:before{
+	content: '￥';
+	color: #fff;
+}
+
+.carfooter{
+	font-size: 15px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: #333;
+	color: #fff;
+	z-index: 9999;
+	height: 60px;
+	line-height: 60px;
+}
+#allDel{
+	background: #F15352;color: #fff;
+}
+.carfooter ul{
+	padding: 0;
+}
+.carfooter ul li{
+	padding: 0;
+}
+.pay{
+	background: #F15352;
+}
+.add,.cut{
+	float: left;
+	display: inline-block;
+	height: 1.8rem;
+	width: 1.8rem;
+}
+.calcuDiv{
+	float: right;
+	border: 1px solid #ccc;
+	padding-bottom:0px;
+}
+.add{
+	background: url(../img/add.png) no-repeat center center;
+	background-size: 100%;
+}
+.cut{
+	background: url(../img/cut.png) no-repeat center center;
+	background-size: 100%;
+}
+.carGoodsPrice{
+	color: #F15352;
+	float: left;
+}
+.list-num{
+	float: left;
+	display: inline-block;
+	vertical-align: middle;
+	height: 1.8rem;
+	text-align: center;
+	width: 4rem;
+	border-top:none !important;
+	border-bottom:none !important;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	transition:all 0.5s;
+	-webkit-transition:all 0.5s;
+	-moz-transition:all 0.5s;
+}
+#carListDiv {
+	padding-top: 57px;
+    background: #fff;
+    width: 100%;
+    padding-bottom: 80px;
+	overflow:visible;
+}
+
+.carList,.notShow{
+	padding-top: 1rem;
+	overflow: visible;
+	transition: all 0.3s linear;
+	-webkit-transition:all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	border-bottom: 1px solid #fff;
+}
+.notShow .carCheck .checkbox{
+  	background-size: 100%;
+  	border:none;
+}
+.goodsWrap{
+	position: relative;
+	clear: both;
+	height: 8rem;
+	padding: 10px;
+	padding-top: 4px;
+	padding-left: 0px;
+	width:100%;
+	margin-bottom: 10px;
+}
+.goodsWrap:after{
+	content: "."; 
+    display: block;
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.goodsWrap li{
+	float: left;
+	height: 7rem;
+}
+.carCheck{
+	width: 12%;
+	text-align: center;
+}
+.goodsImg{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	width: 27%;
+	overflow: hidden;
+	border: 1px solid #ccc;
+}
+.goodsImg img{
+	width: 90%;
+}
+.goodsInfo{
+	width: 59%;
+	padding-left: 10px;
+}
+.goodsWrap{
+	position: relative;
+}
+.del{
+	position: absolute;
+	border-bottom: 1px solid #fff;
+	top: 0;
+	color:#fff;
+	background: #F15352;
+	font-size: 16px;
+	text-align: center;
+	z-index: 33;
+}
+@media screen and (min-width:320px) and (max-width:359px){
+	html,body{
+ 	font-size:10px;
+ }
+.allcheckbox, .checkbox ,.allcheckbox_1{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .goodlist figcaption :nth-child(1) {
+    height: 3.2rem;
+	}
+}

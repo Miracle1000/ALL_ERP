@@ -1,0 +1,58 @@
+﻿@media (max-device-width:1500px) { body { zoom:1.85;}} 
+@media (max-device-width:1000px) { body { zoom:1.2 }} 
+@media (max-device-width:700px) { body { zoom:0.8 }} 
+@media (max-device-width:700px) and (-webkit-min-device-pixel-ratio:2){body{zoom: 1;}} /*兼容iphone 6*/
+@media (device-width:375px) and (-webkit-min-device-pixel-ratio:2){body{zoom: 1;}} /*兼容iphone 6*/
+@media (device-width:414px) and (-webkit-min-device-pixel-ratio:3.0){body{zoom: 1;}}  /*兼容iphone6 plus*/
+html{height:100%;-webkit-Overflow-Scrolling:touch}
+body {	margin:0;	background-color: #fff; color: #2F496E; font-size: 20px; overflow:auto; width:100%;height:100%;-webkit-Overflow-Scrolling:touch;}
+a{color:#2F496E;text-decoration:none;}
+a:hover{color:#2F496E;text-decoration: none;}
+h1, h2, h3, h4, h5, h6{font-size:23px; margin:5px 0px;}
+
+.menu{ height:100%; overflow:auto;}
+.nobd{border-bottom:none;}
+.show{display:block;}
+.hidden{display:hidden;}
+
+#divFrm{
+position:fixed; 
+top:0px; left:0;z-index:9999;display:none;
+background:#fff; 
+width:100%;height:100%;
+-webkit-Overflow-Scrolling:touch;
+font-size:22px;padding-top:10px;
+}
+#Ifrmv{ 
+	width:100%; height:100%;
+	overflow:auto;
+	-webkit-Overflow-Scrolling:touch;
+}
+#back{position:absolute; right:0; top:0; z-index:9999; width:60px; height:57px; background:url(back2.png) no-repeat center; cursor:pointer;}
+#tophead{
+	color: #2F496E; background:#fff url(../../../images/m_table_top.jpg) repeat-x;  font-weight: bold;
+	line-height:40px; padding:8px; padding-left:10px; font-size:24px; border:solid #c0ccdd 1px; 	
+	position:absolute; top:0; left:0;z-index:9999;width:100%;
+}
+
+ul{list-style-type:none; margin:0px; padding:0px; line-height:20px; background:#E0ECEC; color:#2F496E; font-weight:bold;font-size: 23px;}
+ul li{padding-left:0px;}
+ul li div{padding-left:10px; height:60px; line-height:60px; border-top:solid #CACACC 1px; cursor:pointer; background:url(arrow2.png) no-repeat right;}
+ul li ul{font-weight:normal; background:#ffffff;font-size:21px; display:none;}
+ul li.show ul{display:block; }
+ul li.show div{background:url(arrow1.png) no-repeat right;}
+ul li.show1 div{background:url(arrow1.png) no-repeat right;}
+ul li.show2 div{background:url(arrow2.png) no-repeat right;}
+ul li ul li {padding-left:10px;  }
+ul li ul li a{color:#2F496E;	text-decoration:none; display:block; height:60px; line-height:60px; padding-left:10px; 
+	border-bottom:solid #C0CCcE 1px; background:url(v2.png) no-repeat right;
+}
+
+
+#header{color: #2F496E; background:#fff url(../../../images/m_table_top.jpg) repeat-x;  font-weight: bold;
+	line-height:40px; padding:8px; padding-left:10px; font-size:24px; border:solid #c0ccdd 1px; visibility:hidden;	
+}
+#content{background-color:#FFFFFF; color:#5B7CAE; padding:8px; border:solid #c0ccdd 1px; border-top:0px; line-height:30px; min-height:30px; 
+	word-break:break-all; word-wrap:break-word;}
+#content p{margin:5px; padding:5px;}
+#content p strong{margin-right:8px;}

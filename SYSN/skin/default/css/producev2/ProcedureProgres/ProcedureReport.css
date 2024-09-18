@@ -1,0 +1,29 @@
+﻿div#chartContainer{overflow-x:auto;}
+div.chartlabel:nth-last-child(3){text-align:left!important;}
+div#subchildparent_MDID div.select_fa,div#subchildparent_WCID div.select_fa{max-width:100px!important;}
+div.productReport{clear:both;}
+div.productWorkshop,div.productWorkline,div.productWorkprogress,
+div.productWorkdate,div.productWorkdateExp,div.productWorksearch
+{float:left;margin-left:3px;}
+div.productReport div.productWorksearch{
+    margin-left:20px;
+}
+div.productWorkgap,div.productWorkstaticTab{
+    float:right
+}
+div.productWorkgap{width:6%;height:10px;}
+
+clearfix:after{
+    clear:both;
+    height:0;
+    content:"";
+    overflow:hidden;
+    display:block;
+}
+clearfix{zoom:1}
+
+@media screen and (max-width: 1000px) {
+    div.productReport div.productWorkgap {
+        width:0px;
+    }
+}

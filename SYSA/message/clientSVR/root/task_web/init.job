@@ -1,0 +1,17 @@
+﻿Sub Main
+	Set cn = app.getConnection
+	'验证待发送短息状态
+	'app("smsstateTask")=0
+	app("recsmsTask")=0
+	'If cn.execute("select top 1 1 from logmessage where stact1=908 and datediff(d,addtime,getdate())<10").eof = false Then
+		'状态等于908表示需要验证待发送的短息的状态
+		app("smsstateTask") = "1"
+		Call App.setTimeOut( "smsstate" , 4000 , "Main") '4s开始验证待发送的短息的状态
+	'End if
+
+	'短信接收定时器
+	If cn.execute("select top 1 1 from logmessage where needrec=1 and datediff(d,addtime,getdate())<5").eof = false Then
+		app("recsmsTask") = "1"
+		Call App.setTimeOut( "recsms" , 5000 , "Main") '5s开始接收短信
+	End if
+End sub

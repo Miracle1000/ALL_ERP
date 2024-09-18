@@ -1,0 +1,41 @@
+﻿html{
+    overflow: auto;
+}
+.big_top_bg {
+ background:url("../../../img/big_top_bg.png") repeat-x
+}
+.gxhb_add_left td{
+    height:40px;
+   
+}
+
+.gxhb_add_right {
+ width:100%
+}
+.left_top_title span.billfieldreadonlymodecont {
+ float:none;
+ font-weight:bold
+}
+.top_mid_bot {
+
+height:110px;
+}
+.gxhb_add_right .sub-thead td {
+     font-weight:bold
+}
+.gxhb_add_mid{width: 100%}
+.gxhb_add_mid .sub-field-children.gray{
+    display: block;
+    margin:0 auto
+}
+.gxhb_add_mid .sub-field.gray.f_htmlfield.editable .sub-field-childparent{
+    text-align: center;
+}
+.gxhb_add_mid .sub-field-children.gray textarea{
+    float: none;
+    margin: 0 auto;
+}
+.edit-body td.fcell td{line-height: 100%}
+.sub-field-children.gray.f_selectbox.editable{float:left;margin-top:9px}
+.sub-field-children {word-break:break-all;
+}

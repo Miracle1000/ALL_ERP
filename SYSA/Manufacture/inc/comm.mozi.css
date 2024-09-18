@@ -1,0 +1,1783 @@
+﻿* { margin:0; padding:0;font-family:宋体}
+html { 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box; 
+	padding:43px 0 0 0; 
+	overflow:hidden;
+	scrollbar-3dlight-color:#d0d0e8;
+	scrollbar-highlight-color:#fff;
+	scrollbar-face-color:#f0f0ff;
+	scrollbar-arrow-color:#c0c0e8;
+	scrollbar-shadow-color:#d0d0e8;
+	scrollbar-darkshadow-color:#fff;
+	scrollbar-base-color:#ffffff;
+	scrollbar-track-color:#fff;
+}
+
+html.standard { 
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box; 
+	padding:0 0 0 0; 
+	overflow:hidden;
+	scrollbar-3dlight-color:#d0d0e8;
+	scrollbar-highlight-color:#fff;
+	scrollbar-face-color:#f0f0ff;
+	scrollbar-arrow-color:#c0c0e8;
+	scrollbar-shadow-color:#d0d0e8;
+	scrollbar-darkshadow-color:#fff;
+	scrollbar-base-color:#ffffff;
+	scrollbar-track-color:#fff;
+}
+
+html,body {
+	height:100%;
+	font-size:13px;
+}
+div.bodydiv{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+}
+.divdlgBody div{
+	color:#333;
+}
+
+.full {
+	width:100%;
+	height:100%;
+}
+
+.full2 {
+	width:100%;
+	height:100%;
+	text-align:center;
+}
+input{outline:none;}
+td.hj{
+	color:red;
+}
+script {
+	display:none;
+}
+
+select {
+	font-size:13px;
+	height: 21px;
+	line-height:21px;
+  
+}
+.c_g{
+	color:#333;
+}
+.c_r {
+	color:#2a3ed3;
+}
+.c_red {
+	color:#ff0000;
+}
+td.c_r {
+	color:#333;
+}
+span.c_r{color:#333;}
+.c_b {
+	color:#333;
+}
+.c_c {
+	color:#333;
+}
+table {
+	border-collapse:collapse;
+}
+span.link{
+	color:#2a3ed3!important;
+	cursor:pointer;
+}
+
+center{
+	display:block;
+	text-align:center;
+}
+
+.center {
+	text-align:center;
+}
+.right {
+	text-align:right;
+}
+.right .edt0tb td {padding-right:2px;}
+.InselButton{
+	width:20px;
+	height:21px;
+	border-top:1px solid #e0e0e6;
+	border-left:1px solid white;
+	border-bottom:1px solid #e0e0e6;
+	border-right:1px solid #e0e0e6;
+	background-color:white;
+	padding:0px;
+	margin:0px;
+	margin-top:-1px;
+	vertical-align:middle;
+	*vertical-align:baseline;
+	overflow:hidden;
+	cursor:pointer;
+	
+	Filter:Chroma(color=#c2cbcf);
+}
+.InselButton img{margin-top:1px;*margin-top:0}
+.textitemtable .InselButton{margin-top:0}
+input.text {
+	height:17px;
+	border:1px solid #e0e0e6;
+	/*border-left:1px solid #bbbbcc;
+	border-bottom:1px solid #bbbbcc;
+	border-right:1px solid #bbbbcc;
+	*/
+	font-size:13px;
+	width:100px;
+	color:#333;
+	line-height:16px;
+	padding-left:2px;
+	overflow:hidden;
+}
+
+button.wavbutton {
+	border:1px solid #9FA3BC;
+	
+	font-size:13px;
+	background-color:white;
+	height:20px;
+	filter:wave(strength=0,freq=1,lightstrength=6,phase=0);
+	color:#333;
+	cursor:default;
+}
+button.wavbutton:hover{
+    background:#333;
+    color:#fff;
+}
+button.button {
+	border:1px solid #9FA3BC;
+	
+	font-size:13px;
+	background-color:#C6CBD8;
+	height:20px;
+	*line-height:18px;
+	color:#5B7CAE;
+	background-image:url(../../images/smico/m_an2.gif);
+	cursor:pointer;
+	padding:0px 3px;
+}
+
+button.button, button.billcmdButton{
+	color: #333;
+	background:#fff;
+	border: 1px solid #ccc;
+	font-size:13px;
+	cursor:pointer;
+	margin:0px 3px;
+	padding: 0 3px;
+	padding-top:0;
+	height: 21px;line-height:19px;
+	*line-height:17px;
+		/*background-size: 100% 100%;
+	transition:all 0.2s ease-in-out;
+	-moz-transition:all 0.2s ease-in-out;
+	-webkit-transition:all 0.2s ease-in-out;
+	-o-transition:all 0.2s ease-in-out;*/
+}
+#dlgbackdiv button.button{margin:0}
+button.button:hover, button.billcmdButton:hover{
+    border-color:#ccc;
+	color:#fff;
+	background:#333;
+}
+
+div.DisDivBgCss {
+	display:block;
+	position:fixed;
+	_position:absolute;
+	width:100%;
+	height:2000px;
+	z-index:100;
+	top:0px;
+	left:0px;
+	filter:Alpha(opacity=6);
+	-moz-opacity:0.1;  
+	-khtml-opacity: 0.1;  
+	opacity: 0.1; 
+	background-color:#98B0D6;
+	/*background-image:url(../../images/login_sample_bg.jpg);*/
+	background-repeat:repeat-x;
+	/*IE以下模式*/
+	
+}
+span.spitem{
+	color:#229922;
+	cursor:pointer;
+}
+table.divForm{
+	border-top:1px solid #dcdcdc;
+	border-left:1px solid #dcdcdc;
+	border-bottom:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc;
+	background:#f5f5f5;
+}
+.advanSearch,#searchitemsbutton2 u,#searchitemsbutton u{/* 售后管理-客户关怀-客户关怀列表  高级检索 */
+  color: #333;
+  margin-left:3px;
+  font-weight:bold;
+}
+font.advanSearch:hover,#searchitemsbutton2:hover u,#searchitemsbutton:hover u{color:#2a3ed3;}
+div#searchitemsbutton2{margin-left:5px;}
+div.divdlgb{
+	width:100%;
+	height:100%;
+}
+div.divdlgBody{
+	width:100%;
+	height:100%;
+	border:1px solid #cecece;
+	background-color:white;
+	padding:500px;
+	overflow:auto;
+
+	overflow-x:auto;
+	overflow-y:hidden;
+	scrollbar-3dlight-color:#ffffFF;
+	scrollbar-highlight-color:#ffffFF;
+	scrollbar-face-color:#eeeeFF;
+	scrollbar-arrow-color:#6666ff;
+	scrollbar-shadow-color:#ffffFF;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-base-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+}
+span.spmxitem{
+	color:#aaaaaa;
+	cursor:pointer;
+}
+/*实现SSTab*/
+.ssTabItem_select {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+	/*filter:Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+.ssTabItem {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+
+	/*Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+
+.divdlgBody .ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid  #cecece;
+	border-bottom:1px solid white;
+}
+.divdlgBody  .ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid  #cecece;
+	border-right:1px solid  #cecece;
+	border-bottom:1px solid white;
+	padding-right:3px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:13px;
+	font-family:宋体;
+}
+.divdlgBody  .ssTabItem_select .TabItemSlash{
+	background-image:url(../../images/smico/divdlgSlash.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid white;
+	padding:0px;
+}
+.divdlgBody .ssTabItem .TabItemSlash{
+	background-image:url(../../images/smico/bgdivbgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #cecece;
+	padding:0px;
+}
+.divdlgBody  .ssTabItem .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #cecece;
+	border-bottom:1px solid #cecece;
+}
+.divdlgBody  .ssTabItem .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #cecece;
+	border-right:1px solid #cecece;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #cecece;
+	cursor:default;
+	font-size:13px;
+	font-family:宋体;
+}
+.ssTabItem_select .TabItemSlash{
+	background-image:url(../../images/smico/Slash.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid white;
+	padding:0px;
+}
+.ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid white;
+}
+.ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	border-bottom:1px solid white;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:13px;
+	font-family:宋体;
+}
+.ssTabItem .TabItemSlash{
+	background-image:url(../../images/smico/BgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #A5A8D4;
+	padding:0px;
+}
+.ssTabItem .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid #A5A8D4;
+	background-image:url(../../images/smico/TabItemBg.bmp);
+}
+.ssTabItem .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #A5A8D4;
+	cursor:default;
+	font-size:13px;
+	font-family:宋体;
+	background-image:url(../../images/smico/TabItemBg.bmp);
+}
+/*实现SSTab完毕*/
+
+
+#spbilltitle{
+	width:146px;
+	height:27px;
+	background-image:url(../../images/smico/content_tab_sp.png);
+	padding-left:40px;
+	padding-top:4px;
+	font-weight:bold;
+	font-size:14px;
+	color:#444499;
+}
+
+#billtitle{
+	width:217px;
+	height:34px;
+	background:#e7e7e7 url(../../skin/default/images/MoZihometop/content/content_tab.png) no-repeat;
+	padding-left:60px;
+	font-weight:bold;
+	font-size:14px;
+	color:#333;
+}
+#bodyDiv{margin-top:12px !important}
+#billtopbardiv {	/*顶部div*/
+	position:absolute; 
+	top:0px;left:0px;width:100%;height:43px !important;
+	background:#e7e7e7;
+	overflow:hidden;
+}
+#billtopbardiv img{display:none;}
+
+#billBodyDiv{			/*内容根div*/
+	 overflow:auto; 
+	 height:100%;
+	 clear:both;
+}
+/* #billBodyDiv td,#billBodyDiv th{height:40px}售后管理-客户关怀-客户关怀列表-td高度 */
+#billBodyDiv td div.ctl_lvwadddiv td{height:22px;line-height:22px;}
+/* #billBodyDiv #kh{background:#f5fafe!important;heght:55px !important;line-height:55px !important;border-top:1px solid #dcdcdc}售后管理-客户关怀-客户关怀列表-检索区域 */
+/* #sfields_textlist_A_1 input{vertical-align:middle;}售后管理-客户关怀-客户关怀列表-文本框 */
+#sfields_date_ServerTime_1 input{vertical-align:middle;}/* 售后管理-客户关怀-客户关怀列表-文本框 */
+#searchitemsbutton{top:21px !important;}/* 售后管理-客户关怀-客户关怀列表-高级检索 */
+#LeftTreeArea{	/*div 导航树背景*/
+	 position:relative; 
+	 height:100%; 
+	 overflow:auto; 
+	 width:130px; 
+	 float:left; 
+	 margin-right:0 !important; 
+	 margin-right:-3px; 
+	 padding-left:20px;
+	 cursor:default;
+}
+.ctl_listview.ctl_listviewbgtable div{height:40px !important;line-height:40px !important;}/* 售后管理-客户投诉-客户投诉列表-检索区域高度 */
+#teBoxLeft {
+	width:100%;
+	height:100%;
+	overflow:visible;
+	margin-left:-20px;
+}
+
+
+#SpliterBar{		/*div  分隔栏按钮背景*/
+	 height:100%; 
+	 background:#e0e0e0; 
+	 overflow:hidden; 
+	 width:6px; 
+	 float:left; 
+	 margin-right:0 !important; 
+	 margin-right:-3px; 
+	 cursor:default;
+}
+
+#sptBar {		/*div  分隔栏按钮*/
+	width:5px;
+	height:68px;
+	top:200px;
+	background-image:url(../../skin/default/images/MoZihometop/content/btn_left.png);
+	cursor:pointer;
+}
+
+
+
+#billBodyTable{			/*内容表单*/
+	left:0px;
+	top:0px;
+	display:block;
+	width:100%;
+}
+
+
+#BillMainInfo{
+
+}
+
+#calendardiv {
+	position:absolute;
+	z-index:1000;
+	top:0px;
+    background:#fff!important;
+    border:1px solid #F1F2F2!important;
+    box-shadow:0px 2px 24px rgba(0,0,0,0.1);
+}
+
+#calendardiv td{
+	padding:3px;
+	margin:3px;
+}
+#calendardiv td.dlg_top{
+    border-bottom:1px solid #fff!important;
+    color:#999!important;    
+    background:#fff!important;
+}
+
+#calendardiv input{
+	padding:0px 3px 0px 5px;
+}
+div#calendardiv{overflow:visible!important;}
+div#calendardiv li{height:14px;line-height:14px;cursor:default;margin:0;padding:0;text-align:center;}
+div#calendardiv li.alSelected{background:#0091ED;color:#fff;}
+div#calendardiv li.alSelected1{background:#0091ED;color:#fff;}
+div#calendardiv ul#selectList{z-index:999999;text-align:center;position:absolute;width:65px;height:280px;border:1px solid #C1C1C1;overflow:auto;float:left;background:#ffffff;color:#000;list-style:none;margin:0;padding:0;}
+div#calendardiv input#tbSelYear{border:1px solid #D6D8DB;text-align:left;outline:none;background:#ffffff;box-sizing:border-box;padding:0 0 0 4px;cursor:default;-moz-user-select:none;user-select:none;-webkit-user-select:none;-ms-user-select:none;-webkit-touch-callout: none;}
+div#calendardiv td.defaultSelected{background:#2879FF}
+div#calendardiv td.defaultSelected>span{color:#fff!important;}
+div#calendardiv td>span.spanColor{color:#fff!important;}
+div#calendardiv select#tbSelMonth{border: 1px solid #D6D8DB;outline:none;}
+div#calendardiv table.datedlgbodytable{border-top:1px solid #fff!important;border-bottom:1px solid #dcdee0!important;}
+div#calendardiv select#datedlg_hour,div#calendardiv select#datedlg_mill,div#calendardiv select#datedlg_secd {
+    border: 1px solid #dcdee0!important;
+}
+div#calendardiv span.todayDate {
+    color: #2270FF!important;
+}
+div#calendardiv input.dateCloseBtn {
+    color: #fff!important;
+    background: #3078FE!important;
+}
+div#calendardiv input.dateClearBtn {
+    color: #ccc!important;
+    background: #fff!important;
+}
+div#calendardiv input.dateClearBtn,div#calendardiv input.dateCloseBtn{
+    border-radius:3px;
+    border:1px solid #dcdee0!important;
+}
+div#calendardiv input.dateClearBtn:hover, div#calendardiv  input.dateCloseBtn:hover {
+    border: 1px solid #3078ff!important;
+}
+div#calendardiv input#PrevMonth,div#calendardiv input#NextMonth {
+    background: #fff!important;
+    border: 1px solid #fff!important;
+    color: #999!important;
+}
+.PageItemBar td{
+	display:block;
+	padding-left:2px;
+	padding-right:2px;
+	padding-top:1px;
+	padding-bottom:1px;
+}
+
+#leftPanelExpBar {
+	position:absolute;
+	top:235px;
+	left:-5px;
+	width:24px;
+	height:22px;
+	overflow:hidden;
+	border:1px solid #dddddd;
+	background-color:#ffffff;
+	filter:Alpha(opacity=14) wave(strength=0,freq=1,lightstrength=12,phase=60);
+	cursor:pointer;
+	font-family:Webdings;
+	font-size:16px;
+	padding:0px;
+	color:#333;
+}
+
+textarea.billfieldtextarea {
+	width:86%;
+	font-size:13px;
+	height:30px;
+	margin-top:3px;
+	margin-bottom:3px;
+	/*border-top:1px solid #aaaaaa;
+	border-left:1px solid #aaaaaa;
+	border-right:1px solid #f0f0f0;
+	border-bottom:1px solid #f0f0f0;*/
+	border:1px solid #e0e0e6 ;
+	background-color:#ffffff;
+
+}
+
+button.billcmdButton{
+    color: #333;
+	background:#fff;
+	border: 1px solid #ccc;
+	font-size:13px;
+	cursor:pointer;
+	margin:0px 3px;
+	padding: 0 3px;
+	padding-top:0;
+	height: 21px;line-height:21px;
+	*line-height:19px;
+	/*background-size: 100% 100%;
+	transition:all 0.2s ease-in-out;
+	-moz-transition:all 0.2s ease-in-out;
+	-webkit-transition:all 0.2s ease-in-out;
+	-o-transition:all 0.2s ease-in-out;*/
+}
+button.billcmdButton:hover{background:#333;color:#fff;border-color:#ccc;}
+div.xDiatelScroll{
+	position:relative; /*滚动条是relative,所以容器必须是relative*/
+	width:100%;
+	display:block;
+	/*padding-top:16px\9;*/
+	padding-top:0px;
+	padding-bottom:16px\9;
+	padding-bottom:0px\0;
+	margin-left:-2px;
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+
+button.disbillcmdButton{
+color: #486D9E;
+	background:white url(../../images/anybutton_bg.gif) repeat-x center bottom;
+	border: 1px solid #9FA3BC;
+	text-align:36px;s
+	font-size:13px;
+	cursor:pointer;
+	margin:0px 3px;
+	padding: 0 3px;
+	padding-top:0;
+	height: 21px;line-height:21px;
+	*line-height:19px;
+	background-size: 100% 100%;
+	
+}
+
+
+
+#billbody{
+	 position:absolute;
+	 overflow:auto;
+	 top:43px;
+	 left:156px;
+	 right:0px;
+	 bottom:0px;
+	
+}
+
+.billfieldleft {
+	text-align:right;
+	height:30px;
+	border-top:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc;
+	color:#333;
+	padding-right:3px;
+}
+
+.billfieldright {
+	text-align:left;
+	height:40px;
+	border-top:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc; /*#f4f4fc;*/
+	padding-left:6px;
+	color:#333;
+	word-break:break-all
+	/*padding-top:5px;/*库存-仓库管理-库间调拨-库间精确移货 --行高*/
+	/*padding-bottom:5px; /*库存-仓库管理-库间调拨-库间精确移货 --行高*/
+}
+.billreadonlytext{
+	font-family:宋体;
+	font-size:13px;
+	border:0px;
+	color:#333;
+	background-color:transparent;
+}
+
+.billtext{
+	font-size:13px;
+	font-family:宋体;
+	background-color:#ffffff;
+}
+
+.selButton{
+	width:19px;
+	height:19px;
+	border:1px solid #cddcee;
+	background-color:white;
+	padding:0px;
+	cursor:pointer;
+	_filter:Chroma(color=#c2cbcf);
+}
+
+.smselButton{
+	width:16px;
+	height:16px;
+	border:1px solid #deedff;
+	background-color:white;
+	padding:0px;
+	cursor:pointer;
+}
+
+.smselButton img {width:10px;height:10px;}
+
+.textitemtable {
+	border-collapse:collapse;
+}
+
+.textitemtable td {
+	padding:0px;
+	height:29px!important;
+}
+.billgrouptool {
+	background:#f5f5f5;
+	height:40px;
+	padding:0px 0px 0px 0px;/* 售后管理-客户关怀-客户关怀添加-去掉padding */
+	border-top:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc;
+}
+#billBodyTable{background:#fff;}/* 售后管理-客户投诉-客户投诉添加-去掉table背景 */
+.billgrouptitle{
+	font-size:13px;
+	font-weight:bold;
+	color:#333;
+	cursor:pointer;
+}
+span.billgrouptitle{float:left;/* padding-top:12px;生产-生产设置-工价设置-自定义字段设置-去掉padding */}
+td.lvwscrollbarbg{
+	width:15px;
+	text-align:center;
+	padding:0px;
+	overflow:hidden;
+}
+
+div.lvwscrollbar{  /*滚动条*/
+	width:14px;
+	background-color:#edddff;
+	border-left:1px solid white;
+	border-top:1px solid white;
+	border-right:1px solid #bbbbcc;
+	border-bottom:1px solid #bbbbcc;
+	background:#c1c1c1;
+}
+.listviewframe{/*listview 框架*/
+	border:1px solid #dcdcdc;
+	width:100%;
+	width:auto\9;
+}
+#billistbody .listviewframe { width:100%; }
+
+.lvwautosum .lvcr{
+	color:red;
+}
+
+.ctl_listviewbgtable {
+	text-align:left;
+	padding:0px;
+	margin:0px;
+}
+.ctl_listview{
+	/* background-image:url(../../images/m_table_top.jpg);售后管理-客户投诉-客户投诉列表-检索区域背景 */
+	background-repeat:repeat-x;
+	padding:0px;
+}
+#listview_spmain{background:#fff;}
+.ctl_flatlistview{
+	background-repeat:repeat-x;
+	padding:0px;
+}
+
+td.flatlvx{
+	border:1px solid #dcdcdc;
+	text-align:center;
+	font-weight:bold;
+}
+
+ td.lvc{
+	border:1px solid #dcdcdc;
+	height:39px;/*人资—招聘管理—简历管理—简历添加  语言能力新增行，行高太小*/
+	overflow:hidden;
+	white-space:nowrap;
+	padding-left:4px;
+	color:#333!important;
+}
+
+ td.lvc2{
+	border:1px solid #dcdcdc;
+	height:39px;/*人资—招聘管理—简历管理—简历添加  语言能力新增行，行高太小*/
+	overflow:hidden;
+	padding-left:4px;
+	color:#5B7CAE;
+}
+
+#listview_spmain td.lvc{height:40px;}
+td.tnode{ 
+	height:24px;
+}
+
+
+td.tnode .edt0tb{
+	display:block;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	margin:0px;
+}
+td.tnode .edt0tb td{height:auto!important;}
+td.tnode .full{
+	height:100%;
+	margin:0px;
+}
+
+td.tnode td{
+	display:block;
+	padding-top:0px;
+	padding-bottom:0px;
+	height:100%;
+}
+
+td.lvcr{
+	border:1px solid #dcdcdc;
+	height:39px;/*库存-仓库管理-库间调拨-库间精确移货--td内的table的行高*/
+	text-align:right;
+	padding-right:4px;
+	color:#333;
+	overflow:hidden;
+}
+
+td.lvcc{
+	border:1px solid #dcdcdc;
+	height:24px;
+	text-align:center;
+	color:#5B7CAE;
+}
+
+th.lvc{
+	color:#333;
+	/*font-weight:normal;*/
+	border:1px solid #dcdcdc;
+	height:39px!important;/*库存-仓库管理-库间调拨-库间精确移货--td内的table的行高*/
+	font-family:arial;
+	cursor:default;
+	text-align:center;
+	/*padding:0px 4px 0px 4px;*/
+	background:#ebebeb!important;
+	word-break: keep-all;/*必须*/
+	overflow:hidden;
+}
+td.lvwbottomwhite{
+	height:25px;
+	display:inline-block;
+	border:2px solid red;
+}
+div.ctl_lvwadddiv{
+	text-align:center;
+	width:100%;
+	padding:4px 0 4px 0;/*人资-人资设置-调薪设置-审批流程设置-添加新行-高度*/
+	background:#f5f5f5;/*售后管理-客户投诉-客户投诉列表-检索区域背景 */
+
+}
+td.ctl_lvwadddiv{background:#fff}
+td.ctl_lvwadddiv td{color:#333;}
+#billBodyDiv .lvwborder1 div.ctl_lvwadddiv{
+	border-bottom:1px solid #dcdcdc;
+	*border-bottom:0px;
+}
+
+button.lvwReplaceCol { /*listview表头替换按钮*/
+	border:0px;
+	width:10px;
+	overflow:hidden;
+	background-image:url(../../skin/default/images/MoZihometop/content/r_down.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	height:11px;
+	cursor:pointer;
+	position:relative\0;
+	top:2px\0;
+}
+
+button.lvwpagebutton { /*分页按钮样式*/
+	width:19px;
+	height:19px;
+	*width:17px;
+	*height:17px;
+	font-size:13px;
+	line-height:12px;
+	padding-left:3px;
+	padding-top:1px;
+	font-family:Webdings;
+	background-color:white;
+	border:1px solid #A5A8D4;
+	filter:wave(strength=0,freq=1,lightstrength=5,phase=0);
+}
+button.lvwpagebutton img { /*分页按钮样式*/
+	width:16px;
+	height:16px;
+}
+
+.ctl_lvwaddrowlk{
+	color:#2f78fe;
+	cursor:pointer;
+}
+.lvx{
+	font-family:arial;
+	text-align:center;
+	border:1px solid #dcdcdc;
+	cursor:default;
+	/* background-color:#f8f8ff;
+	background-image:url(../../images/lvx.jpg);客户关怀列表注释 */
+	background-repeat:repeat-x;
+	color:#2f496e;
+}
+
+td.billfieldright table.lvwborder1 td.lvx, td.billfieldright table.lvwborder1 th.lvc{
+	border-left:0px;
+}
+
+.dbcheck{
+	display:block;
+	float:left;
+	width:20px;
+	height:20px;
+	overflow:hidden;
+	text-align:left;
+	line-height:20px;
+}
+.dbcheck input{
+	height:15px;
+	width:15px;
+	margin-top:3px;
+	margin-left:5px;
+}
+.dbcheckboxindex {
+	width:22px;
+	display:block;
+	text-align:right;
+	float:left;
+	height:20px;
+	line-height:20px;
+}
+.ctldelspan{
+	cursor:pointer;
+	color:#cc9999;
+	font-size:13px;
+	*position:static;
+}
+
+.edt0{
+	padding:1px;
+	height:22px;
+}
+
+.edt1{
+	padding:2px;
+	height:22px;
+}
+
+table.edt1 {
+	width:100%;
+}
+
+td.edtfocus {
+	background-image:url(../../images/smico/lvweditline.GIF);
+	background-position: center bottom; 
+	background-repeat: repeat-x;
+	padding:2px;
+}
+
+.ctllvwCurrInput {
+	width:100%;
+	border:0px solid #000;
+	font-size:13px;
+	background-color:transparent;
+	outline:none;
+}
+.edt0tb{
+	width:100%;
+	height:100%;
+}
+.edt0tb td.full2 span.c_r{color:#2a3ed3!important}
+.edt1tb{
+	display:inline;
+	width:100%;
+	height:100%;
+}
+.edtfocustb{
+	width:100%;
+	height:100%;
+}
+
+ul.tvw_child{
+	margin-left:18px;
+	margin-left:-25px\9;
+	+margin-left:18px;
+	_margin-left:18px;  /*IE兼容性写法*/
+	background-color:white;
+	text-indent:0px;
+}
+ul.treeview {
+	margin-left:0px;
+	padding-left:0px;
+	list-style-type:none;
+}
+
+ul.treeview ul{
+	margin-left:0px;
+	padding-left:20px;
+	list-style-type:none;
+}
+
+li.tvw_item {
+	list-style-type:none;
+	cursor:default;
+	font-size:13px;
+	font-family:宋体;
+	width:100%;
+	line-height:20px;
+	color:#2a3ed3;
+}
+
+li.tvw_selitem span.tvw_itemtext {
+	background-color:#5555aa;
+	border:1px dotted yellow;
+	color:white;
+	-moz-user-select:none;
+}
+li.tvw_selitem span.tvw_selitemtext {
+	background-color:#5555aa;
+	border:1px dotted yellow;
+	color:white;
+	-moz-user-select:none;
+}
+span.tvw_itemtext{
+	padding-left:3px;
+	padding-right:3px;
+	border:1px solid white;
+    color:#2a3ed3;
+}
+
+span.tvw_selitemtext{ /*鼠标移动到文本上状态*/
+	padding-left:3px;
+	padding-right:3px;
+	color:#555599;
+	Text-Decoration:underline;
+	border:1px solid white;
+}
+li.list {
+	list-style-type:none;
+	margin-left:18px;
+	height:20px;
+	cursor:default;
+	white-space: nowrap; 
+
+}
+span.key {
+	color:#2F49a1;
+}
+
+span.rem {
+	color:green;
+}
+
+span.cls {
+	color:red;
+}
+
+pre {
+	font-family:宋体;
+}
+
+br.f3 {
+	font-size:3px
+}
+br.f4 {
+	font-size:4px
+}
+br.f5 {
+	font-size:5px
+}
+
+div.spstatus0{
+	padding-top:6px;
+	width:100px;
+	height:18px;
+	background-color:#ffff00;
+	border:1px dashed #559955;
+	text-align:center;
+	/*filter:wave(strength=0,freq=1,lightstrength=10,phase=0);*/
+	cursor:default;
+}
+
+div.spstatus_1{
+	padding-top:6px;
+	width:100px;
+	height:20px;
+	background-color:white;
+	border:1px dashed #cccccc;
+	text-align:center;
+	/*filter:wave(strength=0,freq=1,lightstrength=4,phase=0);*/
+	cursor:default;
+}
+
+div.spstatus1{
+	padding-top:6px;
+	width:100px;
+	height:20px;
+	background-color:#55ee55;
+	border:1px solid #22aa22;
+	text-align:center;
+	/*filter:wave(strength=0,freq=1,lightstrength=4,phase=0);*/
+	cursor:default;
+}
+
+
+.RplOrderAttr {
+	width:140px;
+	text-align:right;
+	font-family:宋体;
+	color:#2F49a1;
+	display:inline-block;
+	padding-right:10px;
+}
+
+td.spMenuBar {
+	height:24px;
+	padding-top:2px;
+	padding-left:4px;
+	filter:wave(strength=0,freq=1,lightstrength=2,phase=90);
+	background-color:#ffffff;
+}
+
+
+td.menuLineV{
+	border-left:1px solid #aaaacc;
+	border-bottom:1px solid #aaaacc;
+	width:20px;
+}
+
+td.menuLineVstart{
+	border-top:1px solid #aaaacc;
+	border-left:1px solid #aaaacc;
+	border-bottom:1px solid #aaaacc;
+	width:20px;
+}
+
+div.spHomeSpman {
+	width:180px;
+	height:80px;
+	overflow:auto;
+	background-color:#fdfdff;
+	filter:wave(strength=0,freq=1,lightstrength=2,phase=90);
+	padding:5px;
+	font-family:Arial;
+	color:#333;
+	border:1px solid #ddddee;
+}
+a{color:#2F496E;}
+a:link {color: #2F496E;Text-Decoration:none}     /* 未访问的链接 */
+a:visited {color: #2F496E;Text-Decoration:none}
+a:hover {color: #FF0000;Text-Decoration:underline}    /* 当有鼠标悬停在链接上 */
+a:active {color: #2F496E}   /* 被选择的链接 */
+
+a.com {color:#2F496E;}
+a.com:link {color: #2F496E;Text-Decoration:underline}     /* 未访问的链接 */
+a.com:visited {color: #2F496E;Text-Decoration:underline}
+a.com:hover {color: #2F496E;Text-Decoration:underline}    /* 当有鼠标悬停在链接上 */
+a.com:active {color: #2F496E;} 
+
+div.rbdiv {
+	background-color:#ffffff;
+	color:red;
+	padding:5px;
+	border:1px solid #eeeeee;
+	filter:wave(strength=0,freq=1,lightstrength=4,phase=90);
+}
+
+div.gbdiv {
+	background-color:#ffffff;
+	color:#00aa00;
+	padding:5px;
+	border:1px solid #eeeeee;
+	filter:wave(strength=0,freq=1,lightstrength=4,phase=90);
+}
+
+div.cbdiv {
+	background-color:#ffffff;
+	color:#333;
+	padding:5px;
+	border:1px solid #eeeeee;
+	filter:wave(strength=0,freq=1,lightstrength=4,phase=90);
+}
+
+div.spNMItemDiv {
+	overflow:auto;
+	background-color:#fafffa;
+	filter:wave(strength=0,freq=1,lightstrength=2,phase=90);
+	padding:5px;
+	font-family:Arial;
+	border:1px solid #cccccc;
+}
+
+div.spRootDiv{
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:14px;
+	border:1px solid #000;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+
+table.lvwtoolbartable {
+	border-collapse:collapse;
+	margin-right:4px;
+	margin-top:10px;
+}
+
+table.lvwtoolbartable button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:transparent;
+	padding:0px;
+	text-align:center;
+	margin:1px;
+}
+
+table.lvwtoolbartable td.bommvbutton{
+	background-color:#b5b5cc;
+}
+
+table.lvwtoolbartable td.bommvbutton button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:#dddfff;
+	padding:0px;
+	margin:1px;
+}
+
+table.lvwtoolbartable td.mv{
+	background-color:#6666aa;
+}
+
+table.lvwtoolbartable td.mv button{
+	width:20px;
+	height:20px;
+	border:0px;
+	background-color:#dddfff;
+	padding:0px;
+	margin:1px;
+}
+.dlgbackdiv{
+	background-color:#e6e6e9;
+	margin:-5px;
+	position:absolute;
+	border-top:1px solid white;
+	border-left:1px solid white;
+	border-bottom:1px solid #999999;
+	border-right:1px solid #999999;
+	padding:6px;
+}
+
+
+.ProcNode{
+	position:absolute;
+	display:block;
+	margin:0px;
+	border:1px solid #73a6dF;
+	background-color:#ffffff;
+	background-image:url(../../images/smico/gpbg2.jpg);
+	overflow:hidden;
+	text-align:center;
+}
+
+.ProcNodeText {
+	font-family:arial;
+	font-size:13px;
+	display:block;
+	margin:4px;
+	padding-top:2px;
+}
+
+.currProcNode{
+	position:absolute;
+	display:block;
+	margin:0px;
+	background-color:#ffff00;
+	border:1px solid red;
+	background-image:url(../../images/smico/gpbg3.jpg);
+	overflow:hidden;
+	text-align:center;
+}
+
+.currProcNodeText {
+	font-family:arial;
+	font-size:13px;
+	display:block;
+	color:#330000;
+	margin:4px;
+	padding-top:2px;
+}
+.spFont{
+	font-size:24px;
+	font-family:隶书;
+}
+.mt1{
+	position:relative;
+	top:-1px;
+}
+.mt2{
+	position:relative;
+	top:-2px;
+}
+.mt3{
+	position:relative;
+	top:-3px;
+}
+.mt4{
+	position:relative;
+	top:-4px;
+}
+.mt5{
+	position:relative;
+	top:-5px;
+}
+div.datailalertRow{
+	height:24px;
+	display:block;
+	border-bottom:1px dotted #eeeeff;
+	margin-left:10px;
+	line-height:24px;
+	margin-right:10px;
+	cursor:default;
+	color:#000;
+}
+div.ReportItemText{
+	font-family:arial;
+	line-height:12px;
+	position:relative;
+	top:4px;
+	height:35px;
+	width:100px;
+	padding-top:2px;
+	overflow:hidden;
+	cursor:default;
+}
+Div.ReportItemICO{
+	float:left;
+	width:150px;
+	height:60px;
+}
+
+td.fcdlcell{
+	height:32px;
+	color:#000;
+	border:1px solid #ccccdd;
+	background-color:#fefefe;
+}
+
+th.fcdlcell{
+	height:32px;
+	color:#fff;
+	border:1px solid #888899;
+	background-color:#aaaacc;
+}
+
+.wtypebutton {
+	font-size:13px;
+	height:26px;line-height:18px;
+	font-family:宋体;width:60px;
+	cursor:pointer;
+}
+.datelistjtbutton{
+	float:right;
+	margin-right:5px;
+	margin-top:4px;
+	border-top:1px solid white;
+	border-left:1px solid white;
+	border-right:1px solid #bbb;
+	border-bottom:1px solid #bbb;
+	background-color:#eee;
+	cursor:pointer;
+}
+.blistbottomarea {
+	clear:both;
+	width:100%;
+	/* background-image:url(../../images/m_table_b.jpg); *//*  售后管理-客户投诉-添加投诉-去掉最下面的背景 */
+	height:30px;
+	top:-4px;
+}
+#bill_bottom_div_sign {
+	width:100%;
+}
+#MainTable {
+	display:auto;
+	background-repeat:repeat-x;
+	table-layout:fixed;
+	margin-top:-2px;
+	width:100%;
+}
+table.lvwtreenode  {
+	border-collapse:collapse;
+	table-layout:fixed;
+	margin:0px;
+	width:100%;
+	height:100%;
+}
+
+table.lvwtreenode td{
+	padding-left:0px;
+	padding-right:0px;
+	height:36px!important;
+	line-height:36px!important;
+	overflow:hidden;
+	display:table-cell;
+}
+table.lvwtreenode td img{
+	 vertical-align:middle;
+}
+/*编辑器详情图片和预览样式start*/
+.ewebeditorImg a{position: relative; display: inline-block;text-decoration: none; font-size:13px;z-index:10;}
+.ewebeditorImg a:hover{text-decoration: underline;z-index:11;}
+.ewebeditorImg a:hover .viewAndLoad{display: inline-block;cursor:pointer;}
+.ewebeditorImg a .viewAndLoad{
+      display: none;position: absolute;background: rgb(255, 246, 217);top: 18px;left: 50%;width:66px;border:1px solid rgb(220, 172, 108);
+      border-radius: 3px;z-index: 100;padding:4px 3px;color:#0066cc;
+}
+.ewebeditorImg a span{color:#0066cc;line-height:normal;}
+.ewebeditorImg a .preview{margin-right:8px;}
+.ewebeditorImg a .preview:hover{text-decoration:underline;color:blue;}
+.ewebeditorImg a .downloadL:hover{text-decoration:underline;color:blue;}
+span.darrow{
+      display: inline-block;border-bottom: 5px solid rgb(220, 172, 58);border-top: 5px solid transparent;border-left: 5px solid transparent;border-right: 5px solid transparent;
+      position: absolute;left: 40%;top: -10px;height:0px!important;
+    }
+.ewebeditorImg.gray a span.blank{width:46px;height:10px;position:absolute;top:-5px;left:3px;}
+/*编辑器详情图片和预览样式end*/
+td.lvc.edt0.tnode{height:24px!important;}
+td.full table.lvwtreenode td{
+    height:20px!important;
+	line-height:20px!important;
+}
+td.lvwtreenode1{
+	background-image:url(../../images/smico/gxlc5.gif);
+	background-position: 0px 8px;
+	background-repeat:no-repeat;
+	width:13px;
+	display:table-cell;
+}
+
+td.lvwtreenode2{
+	background-image:url(../../images/smico/sfolder.gif);
+	background-repeat:no-repeat;
+	background-position: 0px 10px;
+	width:16px;
+	display:table-cell;
+}
+
+td.lvwtreenode3{
+	background-image:url(../../images/smico/sfolder2.gif);
+	background-repeat:no-repeat;
+	background-position: 0px 8px;
+	width:16px;
+	display:table-cell;
+}
+
+td.lvwtndident {
+	width:16px;
+	padding:0px;
+}
+span.hidedeep{
+	display:none;
+}
+div.lvwvline{
+	width:4px;
+	height:100%;
+	border-right:1px dotted #7C5F1D;
+}
+div.dvt_closebar{
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-position:-16px 0px;
+	float:right;
+	margin-right:2px;
+}
+div.dvt_maxbar{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:2px;
+	background-repeat:no-repeat;
+	background-position:0px -16px;
+	overflow:hidden;
+}
+
+div.dvt_minbar{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+div.dvt_maxedbar{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-position:-16px -16px;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+
+div.dvt_closebar_out{
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-position:-16px 0px;
+	float:right;
+	margin-right:2px;
+}
+div.dvt_maxbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	margin-right:2px;
+	background-position:0px -16px;
+	overflow:hidden;
+}
+
+div.dvt_minbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	margin-right:2px;
+}
+
+div.dvt_maxedbar_out{
+	width:16px;
+	height:16px;
+	background-image:url(../../images/smico/panel_tools2.gif);
+	background-repeat:no-repeat;
+	float:right;
+	background-position:-16px -16px;
+	overflow:hidden;
+	margin-right:2px;
+}
+.sortBtn{
+	CURSOR: pointer;
+	color:#5B7CAE;
+	line-height:21px;
+	background-image: url(../../images/smico/sortBtn.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 21px;
+	width: 120px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.sortMune {
+	width: 100%;
+overflow:auto;height:450px
+}
+.sortMune  a{
+	color: #2F496E;
+	text-decoration: none;
+}
+.sortLine{
+	margin: 2px;
+	clear: both;
+}
+.sortTitle{
+	line-height: 28px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.sortList ul{
+	list-style-type: none;
+}
+.sortList td{
+	height: 28px;
+	line-height: 28px;
+	text-align: left;
+	margin: 2px;
+}
+.sortList ul li a{
+	display: block;
+	background-color: #FFFFFF;
+	padding-top: 2px;
+	padding-right: 8px;
+	padding-bottom: 2px;
+	padding-left: 8px;
+}
+.sortList ul li a:hover{
+	background-color: #E6EDFB;
+}
+.gateTb{
+	color:#5B7CAE;
+}
+.gateTb td{
+	background-color: #FFFFFF;
+	line-height: 26px;
+	padding-right: 8px;
+	padding-left: 8px;
+}
+input.anybutton {
+    color: #333!important;
+	background:#fff!important;
+	border: 1px solid #ccc!important;
+	height: 20px;
+	color: #486D9E;
+	font-size:13px;
+	margin:0 5px;
+}
+input.anybutton:hover{
+    background: #333!important;
+	color:#fff!important;
+    border-color:#ccc!important;
+}
+table.ProcessStatus .processHas{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 86px;
+	background-position: 0px -60px;
+}
+table.ProcessStatus .processNone{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 86px;
+	background-position: 0px -17px;
+}
+table.ProcessStatus .LastCssHas{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 14px;
+	height: 14px;
+background-position: -85px -60px;
+}
+table.ProcessStatus .LastCssNone{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 18px;
+	background-position: -85px -18px;
+}
+table.ProcessStatus .ProcessTile{
+	text-align: left;
+}
+table.ProcessStatus{
+	margin-top: 6px;
+	margin-bottom: 4px;
+}
+div.nextbill {
+	text-align:center;
+}
+/*库存移货-入库仓库弹层*/
+div#__AutoMenu_div div#RowContain{
+    max-height:202px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+div#RowContain::-webkit-scrollbar{
+    width:6px;
+    height:100%;
+    background:#E8E5E0;
+}
+div#RowContain::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius:5px;
+}
+div.nextbill img {width:9px;height:9px;}
+.oldbutton{color: #333;background: #fff;border: 1px solid #ccc;height: 20px;width: 49px;font-size:13px;padding-top:3px;padding:0px;}
+.oldbutton:hover{color: #fff;background: #333;border-color:#ccc}
+#searchitemspanel td { color:#333; height:40px;}/* 售后管理-客户关怀-客户关怀列表-td高度 */
+td.billfieldright div.xDiatelScroll {
+	margin-top:4px;padding-bottom:4px
+}
+#linkOrderDiv  div.ctl_lvwadddiv {display:none}
+#readbillbody td.billfieldright input.text {width:95%;}
+#billtitle{height:43px!important;width:220px !important;}/* 售后管理-售后设置-添加售后打印模板  表头*/
+#pageinfo{top:43px !important;border:1px solid #dcdcdc!important}/* 售后管理-售后设置-添加售后打印模板  表头*/
+#pageinfo td{background:#fff!important;color:#333!important;border-color:#dcdcdc!important;}
+#jsdiv{height:55px!important;background:#fff!important;border:1px solid #ccc}/*库存-库间调拨-库间精确移货-左边树-检索*/
+#jsdiv div{background:none!important;height:50px!important;line-height:50px!important;}/*库存-库间调拨-库间精确移货-左边树*/
+#listdata{top:126px!important}/*库存-库间调拨-库间精确移货-左边树*/
+#head div{height:42px!important;}
+#listtoolbar_spmain td{height:50px!important;line-height:50px;}/*生产-车间管理-生产下达-生产下达列表-检索区域高度*/
+#ctl_llvwframe_71 th.lvc{border-top:0!important;}/*生产设置-工厂日历-审批流程设置*/
+#ctl_llvwframe_71 .ctl_lvwadddiv{border-bottom:0!important;}
+#listtoolbar_71{border-bottom:1px solid #dcdcdc!important}/*人资-培训管理-培训考核-试卷管理-试卷添加-试题清单表头*/
+@media print {
+	#billbody { left:0px  !important; width:100%  !important; top:50px; overflow:visible;}
+	#billBodyDiv {overflow:visible;}
+	#billBodyDiv,#MainTable, #billBodyTable{width:99%  !important;left:0px  !important;}
+	#LeftTreeArea {display:None;}
+	#SpliterBar {display:none;}
+	#billtopbar {display:none;}
+	#billtopbardiv{background:#ffffff;height:60px;border:0px}
+	#billtopbardiv table.full, #billtitle{background:#ffffff;}
+	#billtitle {font-size:20px; color:#000;width:100% !important; text-align:center; height:62px;}
+	#billbody  td.billfieldleft, #billbody  td.billfieldright {border:0px; color:#000;}
+	#billbody td.billgrouptool{border:0px;background:#ffffff; } 
+	#billbody td.billgrouptool img {display:none;}
+	#billbody td.billgrouptool span.billgrouptitle {color:#000; font-weight:bold;font-size:14px;}
+	#blistbottomarea {display:none;}
+	#billbody  td.billfieldright input,  #billbody textarea {border:0px;color:#000;}
+	#billbody td.billfieldright button {display:none;}
+	#billbody  td.billfieldright a {color:#000;Text-Decoration:none;}
+	#billbody  td.billfieldleft {;}
+	#billbody  td.lvx, #billbody td.lvc, #billbody td.lvcr, #billbody td.lvcc, #billbody td.lvcl, #billbody  th.lvx, #billbody th.lvc{border:1px solid #000; background-color:#fff;color:#000;}
+	#billbody  td.lvx td, #billbody td.lvc td, #billbody td.lvcr td, #billbody td.lvcc td, #billbody td.lvcl td, #billbody  th.lvx td, #billbody th.lvc td{border:0px;}
+	#billbody  td.ctl_listview.ctl_listviewbgtable {display:none;}
+	#billbody  div.ctl_lvwadddiv {display:none;}
+	#billbody  table.listviewframe {border-width:0px !important; overflow:visible;}
+	#billbody  table.listviewframe  div.ctl_listview {margin:0px 4px;}
+	#billbody div.xDiatelScroll {overflow:visible;overflow-x:visible;}
+	#billbody td.billfieldright span.c_red{display:none;}
+	#billbody div.lvwscrollbar {display:none;}
+	
+}
+/*以下代码用来覆盖erp管理系统中的样式start*/
+table[background="../../images/m_mpbg.gif"]{background:#f5f5f5!important;border-color:#dcdcdc!important;}
+/*resetBorderColor 用于将元素的边框颜色重置为 #dcdcdc*/
+.resetBorderColor{border-color:#dcdcdc!important}
+/*resetBgWhite 用于将元素的背景重置为 #fff*/
+.resetBgWhite{background:#fff!important}
+/*resetBgF5 用于将元素的背景重置为 #f5f5f5*/
+.resetBgF5,#content tr.top td.resetBgF5{background:#f5f5f5!important}
+/*resetBgF5 用于将元素的背景重置为 #e0e0e0*/
+.resetBgE0{background:#e0e0e0!important}
+/*resetHeadBgImg 用于将顶部大标题的背景替换成 ../../skin/default/images/MoZihometop/content/content_tab.png*/
+.resetHeadBgImg{background:#e7e7e7 url(../../skin/default/images/MoZihometop/content/content_tab.png) left center no-repeat!important;}
+/*resetTextColor333 用于将元素的字体颜色重置为 #333*/
+.resetTextColor333,.reseetTextColor{color:#333!important}
+/*resetTextColor666 用于将元素的字体颜色重置为 #333*/
+.resetTextColor666{color:#333!important}
+/*resetElementHidden 用于将元素隐藏*/
+.resetElementHidden{display:none!important}
+/*resetElementShow用于将元素的展示状态切换为行内块并显示*/
+.resetElementShow{display:inline-block!important}
+/*resetElementShow用于将元素的展示状态切换为行内块并显示*/
+.resetElementShowNoAlign{display:inline-block!important}
+/*resetTransparent用于将元素背景覆盖为透明*/
+table.resetTransparent,.resetTransparent{background:transparent!important;}
+/*针对asp页面中左侧功能栏头部背景的覆盖，左侧留出padding*/
+.leftPageBgPd{background:#d6d6d6 url(../../skin/default/images/MoZihometop/content/m_placebg1.png) left center no-repeat!important;padding-left:40px;text-align:left;}
+/*针对asp页面中左侧功能栏头部背景图片是展开按钮的覆盖，左侧留出padding*/
+.leftPageExpandBgPd{background:#d6d6d6 url(../../skin/default/images/MoZihometop/leftNav/expand.png) 5px center no-repeat!important;text-align:left;}
+textarea{border-color:#dcdcdc!important;}
+textarea:focus{box-shadow:none!important;}
+/*resetBorderTop给元素添加一个顶部边框*/
+.resetBorderTop{border-top:1px solid #dcdcdc;}
+/*以上代码用来覆盖erp管理系统中的样式end*/
+
+/*以下样式用来覆盖billlist.asp中的同名样式start*/
+table[border='1'] tr>td {border: 1px solid #dcdcdc!important;}
+table#kh{border-color:#dcdcdc!important}
+#kh td, #kh select{color:#333!important}
+/*以上样式用来覆盖billlist.asp中的同名样式end*/

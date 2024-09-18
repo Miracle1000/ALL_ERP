@@ -1,0 +1,130 @@
+*{margin:0;padding: 0;}
+body{overflow: hidden;}
+/****************************** 生产设置选项卡 *****************************/
+div.sstab_div{
+	float: left;
+	border: 1px solid #c0ccdd;
+	height:32px;*height:31px;
+	line-height: 32px;
+	margin: 10px 5px 0px;
+	padding:0;
+	word-break: break-all;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+div.sstab_div a.sstab_a {
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+	background: #FAFBFF url(../../../../../../sysa/skin/default/images/tabstrip/newitembg.gif) repeat-x;
+	display: block;
+	height: 32px;
+	line-height: 32px;
+	width: 100px;
+	padding: 0 3px;
+	overflow: hidden;
+	text-align: center;
+}
+
+div.sstab_div a.sstab_a:hover {
+	background: #d2edff;
+	color: #2f496e;
+}
+div.sstab_sle{border-bottom: 1px solid #fff}
+div.sstab_sle a.sstab_a{
+	background: #FAFBFF url(../../../../../../sysa/skin/default/images/tabstrip/newbg002.gif) repeat-x;
+	font-weight: bold;
+}
+div.sstab_line{
+    height:42px;
+    min-width:1024px;
+    width:100%;
+	border-bottom:1px solid #c0ccdd ;
+	background: #FAFBFF url(../../../../../../sysa/skin/default/images/tabstrip/newbg002.gif) repeat-x;
+    margin: 0;
+	margin-right: -7px;
+	padding-left:25px;
+}
+
+div.lnkgp_nav {
+	width:100%;
+	overflow:visible;
+	padding-bottom:10px;  
+}
+
+div.lnkgp_cont{
+	overflow: hidden;
+}
+
+div.lnkgptit_nav a {
+	position:relative;
+	display:block;
+	float:left;
+	margin-top:-5px;
+}
+
+div.lnkgptit_nav, div.lnkgptitlast_nav {
+	text-align:center;
+	background-color:#0874cc;    
+	color:white;
+	height:37px;
+	line-height:37px;
+	padding:0px;
+	overflow:hidden;
+	font-family:微软雅黑;
+	font-size:16px;
+    font-weight:bold;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 4px 18px;  
+	-moz-box-shadow: rgba(0,0,0,0.3)  0px 4px 18px;  
+	box-shadow: rgba(0,0,0,0.3) 0px 4px 18px; 
+	filter: shadow(Color=red,Direction=225);
+
+}
+div.lnkgptit_nav {
+	width:899px;
+}
+div.lnkgptitlast_nav {
+	width:900px;
+}
+div.lnkgpheader{
+    width:100%;
+    color:#0075CE;
+    padding-left: 5px;
+    height:40px;
+    line-height: 40px;
+    border: 1px solid #c0ccdd;
+    background: #E4ECF7;
+    font-size:14px;
+    font-weight:bold;
+	overflow:hidden;
+}
+
+.group-fold {float:left;padding:0px 1px 0px 3px;*padding-top:9px;}
+.group-fold img {cursor:pointer;vertical-align:middle;height:5px; }
+.group-title{color:#000;font-weight:bold;float:left;padding-left:3px;padding-top:2px;z-index: 2;margin: 0}
+.group-title.billGroupTabTitle{padding:0;margin: 0;margin-left: 10px;height: 24px;line-height: 24px;width: 100px;border: 1px solid #abc1e6;background-color:#dae3f4;text-align: center;
+	cursor: pointer;
+}
+
+div.lnkgplnks{
+    width:100%;
+    overflow: hidden;
+    border: 1px solid #c0ccdd;
+    border-top:none ;
+	background:#FFF;
+}
+
+div.lnkgplnks .lnk{
+    float:left;
+    width:150px; 
+    height:50px;
+    line-height: 50px;
+    text-align:left;
+    margin-left:80px;
+	white-space:nowrap;/*[BUG:65091] 生产栏目自定义页面，设置自定义得义字显示不出*/
+}
+div.lnkgplnks .lnk a:hover,div.lnkgplnks .lnk:hover a{
+	color:red;
+	text-decoration: underline;
+}

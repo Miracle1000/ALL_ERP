@@ -1,0 +1,18 @@
+﻿html{height:100%;overflow:hidden;}
+.updateDlgDiv {
+	position:fixed;
+	_position:absolute;
+	top:180px;
+	width:435px;height:153px;
+	background:transparent url(../images/updatebg.png);
+	overflow:hidden;
+	z-index:12000;
+}
+#updateDlgDivBg {z-index:9999;position:fixed;_position:absolute;top:0px;left:0px;width:100%;height:100%;_height:1000px;filter:alpha(Opacity=40);-moz-opacity:0.8;opacity: 0.8;background-color:#7777aa;}
+.updateDlgDiv table {width:410px;font-size:12px;color:#000;table-layout:fixed}
+.updateDlgDiv .label{text-align:right;width:80px;color:#000}
+.updateDlgDiv td.procbg {width:230px;}
+.proccbg {border-top:1px solid #888;border-bottom:1px solid #888;border-right:1px solid #fff;border-bottom:1px solid #fff;width:226px;height:16px;overflow:hidden}
+.proccbg div{background-color:#3333dd;height:100%;width:50%;filter:alpha(Opacity=80) wave(freq=1,strength=0,lightStrength=40)}
+/*end window dlg*/
+

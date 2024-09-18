@@ -1,0 +1,112 @@
+﻿Sub Main	'接收短信
+	'On Error Resume Next '防止定时器中断
+	Dim cn, sn, r, data,hostUrl, ts
+	hostUrl=app.AppSettings("localserver")
+	Set cn = app.getConnection
+	sn = app.AppSettings("smssn") '短信账号
+	set net = App.getHttpRequest(1)
+	net.encode = "gb2312"
+	net.open "messageServer/sms/getrecv.asp"
+	net.regEvent "recsms"
+	net.addparam "regcode", sn
+	net.addparam "pwd", app.getsmspw(sn)
+	ts = 20000
+	r =  net.send()
+	r =  Replace(Replace(r, "<response><result>",""), "</result></response>","")
+	If Len(r) > 0 And InStr(r,"error")<>1 Then		
+		cn.execute("insert into smsRecvList(content,AddTime,Del) values('" & r & "','" &now& "',1)")
+		r=replace(r,"#####","$")
+		data = Split(r,"$")
+		for i=0 to ubound(data)
+			onedata=split(data(i),"|")
+			'回复类型
+			'回复id
+			RecvPhone=onedata(1)
+			if len(onedata(2))>0 then 
+				RecvClass=left(onedata(2),1)
+				RecvOrd=right(onedata(2),len(onedata(2))-1)
+			end if 
+			'回复内容
+                        '第一段是审批结果,Y/y表示：通过；N/n表示：不通过；如：“y,李鸿涛,审批通过”
+                        '第二段是下一级审批人:无则不填
+                        '第三段是审批意见：无则不填，如有，第二段必填，如第二段没有下一级审批人,则留空，并且用逗号隔开如：“y,,审批通过”
+                        '段与段之间用逗号隔开
+			logid=onedata(6)
+			cn.execute("update logmessage set needrec=2 where ord="&logid)
+			onedatastr=onedata(5)
+			if len(onedatastr)>0 then
+				RecvCont1=left(onedatastr,1)
+				if len(onedatastr)>1 then 
+					onedatastr=replace(onedatastr,"，",",")
+					RecvContarr=split(onedatastr,",")
+					recvCont2=RecvContarr(1)
+					recvCont3=RecvContarr(2)					
+				end If
+				Call SMSApproval(RecvClass,RecvOrd,RecvPhone,RecvCont1,recvCont3,recvCont2,hostUrl,cn)
+			end if 
+			cn.execute("insert into smsRecv(phone,recvtime,content,str1,strCompany,strMo,del,AddTime,logid) values('" & onedata(1) & "','" & onedata(4) & "','" & onedata(5) & "','" & onedata(0) & "','" & onedata(2) & "','" & onedata(3) & "',1,'" & now() & "',"&logid&")")
+		next
+	Else
+		If InStr(r,"error")=1 Then
+			ts = 120000  '服务器C出错的情况下120s检测一次
+		End if
+	End if
+	'还需要接受
+	If cn.execute("select top 1 1 from logmessage where needrec=1 and datediff(d,addtime,getdate())<5").eof = false Then
+		Call App.setTimeOut( "recsms" , ts , "Main") '60s接收一次短信
+		app("recsmsTask") = "1"
+	Else
+		app("recsmsTask") = "0"
+	End if
+End sub
+
+function SMSApproval(rclass,id, phone,result, content,nextcateid,hostUrl,cn)
+	Dim recvContent,clientGateSql,clientOrd
+	Dim net
+	if Len(rclass)> 0 and Len(id)> 0 And Len(phone)> 0 Then 
+		'获取回复人id
+		clientGateSql = "select ord from gate where mobile='" & phone & "'"
+		Set rs = cn.execute(clientGateSql)
+		if Not rs.eof Then 
+			clientOrd = rs("ord")
+			Select Case rclass 
+				case "A":
+				'合同审批
+				case "B":
+					on Error Resume Next 
+					spurl=hostUrl&"contract/SMSApproval.asp?smsid=" & id & "&phone=" & phone & "&jg=" & result & "&intro=" &content & "&clientOrd=" & clientOrd & "&nextcateid=" & nextcateid & "&key=" & mid(phone,2,3)&"zb"& id &""
+					Set Http=createobject("MSXML2.XMLHTTP")
+					Http.open "GET",spurl,False
+					Http.Send()
+					if http.readystate=4 then 
+						if http.status=200 then 
+							recvContent = http.responseText
+						end if 
+					end if 
+					If Err.number<>0 Then app.msgbox Err.number&Err.description
+					'set net = App.getHttpRequest(1)
+					'net.encode = "gb2312"
+					'net.open hostUrl&"contract/SMSApproval.asp?smsid=" & id & "&phone=" & phone & "&jg=" & result & "&intro=" &content & "&clientOrd=" & clientOrd & "&nextcateid=" & nextcateid & "&key=" & mid(phone,2,3)&"zb"& id &""
+					'net.regEvent ""
+					'recvContent =  net.send()
+					app.WriteAllText "F:\VSS2005_1029\ZBIntel.ERP\source\ZBIntel.ERP.Web\message\clientSVR\zbintelserverlog.txt",spurl
+					if instr(recvContent,"</noscript>")>0 Then 
+						con11_Arr = Split(recvContent,"</noscript>")
+						recvContent = con11_Arr(1)
+					End If 
+					recvContent = Replace(recvContent,"<.+?>","")
+					if recvContent <> "" Then					
+						cn.execute("insert into smsRecvLog(sortID,bllId,Phone,StrReturn,intro,SpReturn,AddTime,Del)values(1," &id & ",'" & phone & "','" & result & "','" & content & "','" & recvContent + "','"& now &"',1)")
+						'app.WriteAllText "F:\VSS2005_1029\ZBIntel.ERP\source\ZBIntel.ERP.Web\message\clientSVR\zbintelserverlog.txt","insert into smsRecvLog(sortID,bllId,Phone,StrReturn,intro,SpReturn,AddTime,Del)values(1," &id & ",'" & phone & "','" & result & "','" & content & "','" & recvContent + "','"&Now()&"',1)"
+					End If   			
+				'报价审批
+				case "C":				
+				'其他审批
+				Case Else
+
+			End Select 
+		End If 
+
+	end If 
+	SMSApproval=recvContent
+end function 

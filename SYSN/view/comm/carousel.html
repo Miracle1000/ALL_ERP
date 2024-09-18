@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmNzcw%3d%3d&n=zlib.comm.css&ver=3195" rel="stylesheet" />
+	<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmRpYWxvZy5jc3M%3d&n=zlib.comm.dialog.css&ver=3195" rel="stylesheet" />
+	<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmNzcw%3d%3d&n=zlib.comm.leftpage.css&ver=3195" rel="stylesheet" />
+	<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmJpbGwuY3Nz&n=zlib.comm.bill.css&ver=3195" rel="stylesheet" />
+	<link type="text/css" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5jc3M%3d&n=zlib.comm.fields.css&ver=3195" rel="stylesheet" />
+	<script type="text/javascript" src="../../../SYSN/skin/script/jquery-1.12.2.min.js?ver=3195"></script>
+	<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmpz&n=zlib.comm.js&ver=3195"></script>
+	<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmpz&n=zlib.comm.leftpage.js&ver=3195"></script>
+	<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5qcw%3d%3d&n=zlib.comm.fields.js&ver=3195"></script>
+	<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmJpbGxsYXlvdXQuanM%3d&n=zlib.comm.billlayout.js&ver=3195"></script>
+	<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmJpbGwuanM%3d&n=zlib.comm.bill.js&ver=3195"></script>
+	<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmNhcm91c2VsYm94Lmpz&n=zlib.comm.CarouselBox.js&ver=3195"></script>
+
+    <style>
+        body{background: #eee}
+        a.lb_download img{margin-top: 1px}
+        img{border:0}
+    </style>
+</head>
+<body>
+<div id="biger_lb" class="biger_lb"></div>
+</body>
+<script>
+    Bill.SV = {};
+    Bill.SV.addCarouselboxData = function () {
+    };
+</script>
+<script src="../../skin/script/zlib.comm.carouselbox.js"></script>
+<script>
+
+    function getField(dbname) {
+        var gps = window.opener.PageInitParams[0].groups;
+        var fd;
+        for (var j = 0; j < gps.length; j++) {
+            if (fd)break;
+            var curr = gps[j];
+            var fds = curr.fields;
+            for (var i = 0; i < fds.length; i++) {
+                var cur = fds[i];
+                if (cur.uitype == "htmlfield" && cur.children) {
+                    var children = cur.children;
+                    for (var q = 0; q < children.length; q++) {
+                        var c = children[q];
+                        if (c.dbname == dbname) {
+                            fd = c;
+                            break;
+                        }
+                    }
+                }
+                if (cur.dbname == dbname) {
+                    fd = cur;
+                    break;
+                }
+            }
+        }
+        return fd
+    }
+    function $ID(str) {
+        return document.getElementById(str)
+    }
+    function loadImgs()     {
+        window.SysConfig = window.opener.SysConfig;
+        var dbname = window.location.href.split("?")[1];
+        var href=window.location.href.toLocaleLowerCase().split("sysn")[0];
+//      var fd = getField(dbname);
+		var fd = window.opener.CCarouselData;
+        if (fd) {
+            var imgs = fd.images;
+            var div = $ID("biger_lb");
+            var htm = [];
+            var wid = document.documentElement.clientWidth || document.body.clientWidth;
+            var hei = document.documentElement.clientHeight || document.body.clientHeight;
+            div.style.height = hei + "px";
+            htm.push("<span class='bl_btn left' onmouseover='Bill.lb_changeBtnBg(this)' " + (wid < 800 ? "style='width:" + (30 * flag) + "px;height:" + (60 * flag) + "px;margin-top:-" + (60 * flag / 2) + "px'" : "") + "  onmouseout='Bill.lb_changeBtnBg(this)' onclick='Bill.lb_move(\"" + dbname + "\",1)'></span>");
+            htm.push("<span class='bl_btn right' onmouseover='Bill.lb_changeBtnBg(this)' " + (wid < 800 ? "style='width:" + (30 * flag) + "px;height:" + (60 * flag) + "px;margin-top:-" + (60 * flag / 2) + "px'" : "") + "  onmouseout='Bill.lb_changeBtnBg(this)'  onclick='Bill.lb_move(\"" + dbname + "\",2)'></span>");
+            htm.push("<div class='lb_big_imgs'  id='lb_" + dbname + "'>");
+            for (var i = 0; i < imgs.length; i++) {
+                var cur = imgs[i];
+         		if(cur.imagesrc.split(".")[0] == "*"){ continue;}
+         		var src = (cur.imagesrc || "").replace(/\.\.\//g, "");
+         		if (src.indexOf("~/sysa") == -1 && src.indexOf("~/SYSA") == -1) {
+         		    src = (href + src).toLowerCase().replace("//sysn", "/sysn");
+         		} else {
+         		    src = href + src.replace("~/", "").replace("~/", "");
+         		}
+                htm.push("<div class='lb_inner" + (i == 0 ? " selected" : "") + "'>");
+                if (!Bill.lb_exec_doc(src)) {
+                    var fn=cur.title||"";
+                    if(!fn){
+                        var arr=src.split("/");
+                        fn=arr[arr.length-1]
+                    }
+                    var smImg=app.createFileImg(fn).toLowerCase();
+					var aSrcAry=src.split("/sysn");
+					var iSrcAry=smImg.split("/sysn");
+                      iSrcAry[0]=aSrcAry[0];
+                       smImg= iSrcAry.join("/sysn")
+                    htm.push("<a class='lb_download' style='display: inline-block' title='"+fn+"' href='"+src+"' target='_blank'><img src='"+smImg+"'/>"+fn+"</a>");
+
+                } else {
+                    htm.push("<img src='" + src + "' wid='" + wid + "' hei='" + hei + "' title='" + (cur.title || "") + "' url='" + cur.url + "' onload='Bill.imgOnLoad(this," + wid + "," + hei + "," + i + ")' />");
+                }
+                htm.push("</div>");
+            }
+            htm.push("</div>");
+            htm.push("<p class='lb_big' onclick='window.close()' ><img src='" + href + "/SYSN/skin/default/img/lb_small.png' /></p>")
+            div.innerHTML = htm.join("");
+            div.style.display = "block";
+
+        }
+    }
+    function displayImg(){}
+    window.onload = function () {
+        loadImgs();
+        setTimeout(function () {
+            $(".lb_download").each(function () {
+                var w=$(this).width();
+                $(this).css({marginLeft:-w/2})
+            });
+            $(".lb_inner").each(function (index,item) {
+                if(index!=0){
+                    this.style.display="none"
+                }
+            })
+        },100)
+    }
+
+</script>
+</html>

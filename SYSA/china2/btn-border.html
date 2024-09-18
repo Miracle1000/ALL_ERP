@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    li{
+        list-style:none;
+    }
+    html,body{
+        font-size:14px;
+        width:100%;
+        height:100%;
+        background:#fff;
+        overflow:auto;
+    }
+    body{
+        width:99%;
+        border:1px solid #ccc;
+    }
+    ul,li{
+        padding-left:16px;
+        line-height:24px;
+        white-space:nowrap;
+    }
+    ul{
+        padding:10px 0px 10px 12px;
+    }
+    .up{
+        background:url(../skin/default/images/MoZihometop/content/r_right.png) 0px 8px no-repeat;
+
+    }
+    .down{
+        background:url(../skin/default/images/MoZihometop/content/r_down.png) 0px 8px no-repeat;
+
+    }
+    a{
+        color:#333;
+        text-decoration:none;
+    }
+     a.active{
+        color:#2f78fe;
+    }
+    .title{
+        position:fixed;
+        top:0;
+        height:43px;
+        line-height:43px;
+        background: #D5D6D7 url(../skin/default/images/MoZihometop/content/m_placebg1.png) -10px center no-repeat;
+        left: 0;
+        right:1px;
+        padding-left:20px;
+    }
+    #financeTree{
+        position:absolute;
+        left:0px;
+        top:43px;
+        right:1px;
+        bottom:0px;
+        overflow:auto;
+    }
+    #finace_ERP *{
+        font-size:12px;
+        font-family:"Source Han Sans","PingFangSC", "Microsoft Yahei", "微软雅黑", "Arial","宋体"
+    }
+    #finace_ERP .up{
+        background:url(../images/r_right.png) no-repeat left 10px;
+    }
+    #finace_ERP .down{
+        background:url(../images/r_down.png) no-repeat left 10px;
+    }
+    #finace_ERP ul{
+        padding:3px 0px;
+    }
+    #finace_ERP li{
+        line-height:26px;
+    }
+    #finace_ERP .title{
+        background:  #EFEFEF;
+        color:#000;
+        font-weight:bold;
+        padding-left:12px;
+        margin-left:1px;
+    }
+    #finace_ERP a{
+        font-size:13px;
+    }
+    #finace_ERP a:hover{
+        color:red;
+        text-decoration:underline;
+    }
+    #finace_ERP a.active{
+        color:#345593;
+        font-weight:bold;
+    }
+    #finace_ERP #financeTree{
+        padding-left:12px;
+        padding-top:10px
+    }
+    </style>
+    <script src="../inc/jQuery-1.7.2.min.js"></script>
+    <script>
+        if(window.top.SysConfig.SystemType!=3){
+        $("html")[0].id="finace_ERP"
+        };
+    </script>
+</head>
+<body>
+    <div class="title">生成凭证</div>
+    <div id="financeTree"></div>
+    <script>
+        var win = window.top;
+        function getNewNavData() {
+            // 遍历获取菜单树数据;生成凭证中的json数据title名字不能改变，否则拿不到finalData数据；
+            $.ajax({
+                url: "../../SYSN/json/comm/Home.ashx?actionName=GetLLeftMenuData",
+                success: function (res) {
+                    var data = res;
+                    win.PageInitParams[0].LeftLinkBars = res;
+                    var finalData, data1, data2, data3, data4;
+                    for (var i = 0; i < data.length; i++) {
+                        data1 = data[i]
+                        if (data1.Title == '财务') {
+                            for (var ii = 0; ii < data1.ChildMenus.length; ii++) {
+                                data2 = data1.ChildMenus[ii]
+                                if (data2.Title == '总账管理') {
+                                    for (var iii = 0; iii < data2.ChildMenus.length; iii++) {
+                                        data3 = data2.ChildMenus[iii];
+                                        if (data3.Title == '凭证管理') {
+                                            for (var iiii = 0; iiii < data3.ChildMenus.length; iiii++) {
+                                                data4 = data3.ChildMenus[iiii];
+                                                if (data4.Title == '生成凭证') {
+                                                    finalData = data4.ChildMenus
+                                                    break;
+                                                }
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    if ($('#financeTree')[0] && $('#financeTree').width()>100) {
+                        $('#financeTree').html(tree(finalData));
+                        eventInit();
+                        $(".final").eq(0).find('a')[0].click();
+                    }
+                }
+            });
+        }
+        // 财务生成凭证树结构
+        win.createFinanceTree = function () {
+             getNewNavData();
+        }
+        function tree(data) {
+            var html = $('<ul></ul>')
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].ChildMenus.length) {
+                    html.append($('<li class="middle down">' + data[i].Title + '</li>').append(tree(data[i].ChildMenus)));
+                } else {
+                    html.append($('<li class="final" url="../../' + data[i].Url + '"><a href="../../' + data[i].Url + '" target="mainFrame" >' + data[i].Title + '</a></li>'))
+                }
+            }
+            return html
+        }
+        function eventInit() {
+            $(".middle").click(function (e) {
+                if (e && e.stopPropagation) {
+                    e.stopPropagation();
+                } else {
+                    window.event.cancelBubble = true;
+                }
+                $(this).toggleClass('up down')
+                $(this).find('ul').toggle()
+            })
+            $(".middle>ul").click(function (e) {
+                if (e && e.stopPropagation) {
+                    e.stopPropagation();
+                } else {
+                    window.event.cancelBubble = true;
+                }
+            })
+            $(".final a").click(function (e) {
+                if (e && e.stopPropagation) {
+                    e.stopPropagation();
+                } else {
+                    window.event.cancelBubble = true;
+                }
+                $('.final a').removeClass('active')
+                $(this).addClass('active')
+            })
+        }
+    </script>
+</body>
+</html>

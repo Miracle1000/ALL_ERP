@@ -1,0 +1,162 @@
+.createWindow_boundingBox{overflow: hidden;}
+/****************************** 弹层标题部分 *******************************/
+.store_scanf_top{
+	width:100%;
+	height:40px;
+	line-height: 40px;
+	background: #4a88c9;
+}
+.store_scanf_title{
+	height:40px;
+	line-height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+	color:#FFFFFF;
+	margin-left: 20px;
+	float: left;
+}
+/*********** 单选 **********/
+.store_scanf_top_checkarea{
+	height:40px;
+	float: left;
+	margin-left:40px;
+}
+.checkarea_item{
+	height:40px;
+	float: left;
+	padding:0px 12px;
+	cursor: pointer;
+}
+.haschecked{
+	background: #346fad;
+}
+.checkarea_item_btn{
+	width:15px;
+	height:40px;
+	display: inline-block;
+	float: left;
+	background: url(../../../img/store/scanf_top_check.png) center center no-repeat;
+}
+.haschecked .checkarea_item_btn{
+	background: url(../../../img/store/scanf_top_checked.png) center center no-repeat;
+}
+.checkarea_item_tle{
+	height:40px;
+	line-height: 40px;
+	font-size:12px;
+	margin-left:5px;
+	color:#FFFFFF;
+	display: inline-block;
+	float: left;
+}
+/*********** 手动录入 **********/
+.top_hand{
+	height:40px;
+	line-height: 40px;
+	float: right;
+	margin-right: 15px;
+	cursor: pointer;
+}
+.top_hand_txt{
+	color:#FFFFFF;
+	font-size:12px;
+	height:40px;
+	line-height: 40px;
+	float:left;
+	display: inline-block;
+}
+.top_hand_btn{
+	width:16px;
+	display: inline-block;
+	height: 40px;
+	background: url(../../../img/store/scanf_top_hand.png) center center no-repeat;
+}
+/****************************** 弹层内容部分 *******************************/
+.store_scanf_cont{width:100%;height:350px;background: #FFFFFF;overflow: hidden;}
+.store_cont_look{width:100%;height:180px;margin-top:65px;}
+.store_cont_look *{font-family: sans-serif "微软雅黑";}
+.cont_item{float:left;overflow: hidden;}
+.cont_item_dl{overflow: hidden;margin:0px;}
+.it_1,.it_3{width:190px;height:116px;}
+.it_1 .cont_item_dl,.it_3 .cont_item_dl{width:100%;height: 110px;border-radius: 5px;}
+.it_1 .cont_item_dl dt,.it_3 .cont_item_dl dt{
+	width:100%;
+	height:36px;
+	line-height: 36px;
+	color:#FFFFFF;
+	text-align: center;
+	font-size:12px;
+	margin-top:18px;
+	display: block;
+}
+.it_1 .cont_item_dl dd,.it_3 .cont_item_dl dd{width:100%;height:36px;text-align: center;display: block;margin:0px;line-height: 36px;}
+.it_1 .cont_item_dl dd .num_front,.it_3 .cont_item_dl dd .num_front{font-size: 16px;color:#FFFFFF;font-weight: bold;}
+.it_1 .cont_item_dl dd .num_behind,.it_3 .cont_item_dl dd .num_behind{font-size: 14px;color:#FFFFFF;}
+.it_2{width:220px;height: 157px;}
+.it_2 .cont_item_dl{width:100%;height: 150px;border-radius: 5px;}
+.it_2 .cont_item_dl dt{
+	width:100%;
+	height:50px;
+	line-height: 50px;
+	color:#FFFFFF;
+	text-align: center;
+	font-size:16px;
+	margin-top:18px;
+	display: block;
+}
+.it_2 .cont_item_dl dd{width:100%;height:50px;text-align: center;display: block;margin:0px;line-height: 50px;}
+.it_2 .cont_item_dl dd .num_front{font-size: 26px;color:#FFFFFF;font-weight: bold;}
+.it_2 .cont_item_dl dd .num_behind{font-size: 16px;color:#FFFFFF;}
+.cont_item_btmline{height: 3px;border-radius: 2px;margin-top:4px;}
+.it_1{margin-left:54px;margin-top:20px;}
+.it_2{margin-left:30px;}
+.it_3{margin-left:30px;margin-top:20px;}
+.it_1 .cont_item_dl,.it_1 .cont_item_btmline{background: #8781ee;}
+.it_2 .cont_item_dl,.it_2 .cont_item_btmline{background: #57c98f;}
+.it_3 .cont_item_dl,.it_3 .cont_item_btmline{background: #e68b3a;}
+
+/**************** 扫描回调部分 ***************/
+.store_cont_operatearea{ width:100%;height:85px;}
+.ot_bg{width:100%;height: 40px;}
+.success .ot_bg{background: url(../../../img/store/scanf_success.png) center center no-repeat;}
+.ot_cont{width:100%;height: 45px;line-height: 45px;text-align: center;}
+.ot_txt{height: 45px;line-height: 45px;font-size:14px;margin-left:1px;}
+.ot_num{height:45px;line-height: 45px;text-align: center;margin-left:10px;}
+
+.ot_num_txt{height: 14px;line-height: 14px;font-size:14px;color:#508fd3;font-weight: bold;padding:0px 10px;}
+.modify_btn{height: 14px;width:20px;background: url(../../../img/store/scanf_modify_btn.png) center center no-repeat;display: inline-block;cursor:pointer;vertical-align: middle;margin-top:-3px;}
+
+.ot_ipt{height: 24px;line-height: 24px;font-size:14px;color:#508fd3;width:90px;text-align: left;border:1px solid #CCCCCC;outline: none;padding-left:10px;display: none;}
+.modify_confirm{display: none;margin-left:10px !important;padding:0px 15px !important;}
+
+.fail .ot_bg{background: url(../../../img/store/scanf_fail.png) center center no-repeat;}
+.fail .ot_cont{text-align: center;font-size:14px;color:red;}
+.load .ot_bg{background: url(../../../../../../SYSA/skin/default/images/proc.gif) center center no-repeat;}
+.load .ot_cont{text-align: center;font-size:14px;}
+/****************************** 弹层按钮部分 *******************************/
+.store_scanf_btm{width:100%;height:100px;border-top: 1px solid #b6c3d0;background: #dbe8f5;}
+.store_scanf_btn{
+	width:95%;
+	height:70px;
+	line-height: 70px;
+	margin: 15px auto;
+	background: #3a7ec6;
+	color:#FFFFFF;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 5px;
+}
+.store_scanf_load_logo {
+    text-align: center;
+}
+
+/****************************** 手动录入弹层部分 ********************************/
+.hand_tle{width:100%;height: 40px;line-height:40px;position:relative;background: #e4f1fe;}
+.hand_tle_txt{color:#2f496e;font-size:12px;margin-left:25px;font-weight: bold;}
+.hand_clbtn{position: absolute;width:14px;height:14px;top:15px;right:15px;background: url(../../../img/store/handle_clbtn.png) center center no-repeat;cursor: pointer;}
+.hand_ipt{height:22px;width:310px;margin:28px auto;}
+.hand_ipt .sub-field{float:left;}
+.hand_ipt input{height: 18px;margin-top:1px;width:225px;}
+.hand_ipt .zb-button{padding:0px 10px;margin-left:15px;float:left;}

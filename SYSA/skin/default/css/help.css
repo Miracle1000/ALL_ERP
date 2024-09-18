@@ -1,0 +1,7 @@
+﻿#treepanel {margin-top:5px;margin-left:5px;color:#000}
+#treepanel  .tree-folder{background:transparent url(../images/ico16/help_f_c.gif) no-repeat center center}
+#treepanel  .tree-folder-open {background:transparent url(../images/ico16/help_f_o.gif) no-repeat center center}
+#treepanel b{font-weight:normal;color:red}
+#treepanel  .tree-file{background:transparent url(../images/ico16/help_f_i.gif) no-repeat center center}
+#treepanel .tree-node-selected {background-color:#eeeeff;}
+#treepanel .tree-node-selected  .tree-title {color:white; background-color:#333388}

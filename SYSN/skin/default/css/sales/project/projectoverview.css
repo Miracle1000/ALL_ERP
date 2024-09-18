@@ -1,0 +1,614 @@
+*{font-family: "微软雅黑";}
+.panel{width:353px;}/*IE9兼容性问题*/
+/****************************************************** common ********************************************************/
+#window_line{width:100%;height:0px;}
+#window_top{width:100%;overflow: hidden;margin-bottom: 10px;min-width: 800px;}
+#window_btm{width:100%;overflow: hidden;min-width: 800px;background:#FFF}
+.pview-name{display: inline-block;height: 43px;line-height: 43px;position: absolute;left:345px;font-size: 12px;font-weight: bold;}
+#pcomm_itembarbg{
+    background-color: #EFEFEF;
+    width: 100%;
+    min-width: 400px;
+    height: 43px;
+    overflow: hidden;
+}
+#pcomm_itembarICO{
+	float: left;
+    height: 43px;
+    width: 54px
+}
+#pcomm_itembarText{
+	float: left;
+    letter-spacing: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 43px;
+    line-height: 44px;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    width: 200px;
+}
+#pcomm_itembarText span {
+    color: #000;
+    font-size: 14px;
+}
+#window_part1{
+	width:75.2%;
+	overflow: hidden;
+	float:left;
+	background-color:#FFF;
+}
+#window_part2{
+	width:24.2%;
+	overflow: hidden;
+	float:right;
+}
+
+.psub-thead{
+	background-color:#FFF;
+}
+.pfcell{
+	border: #c0ccdd 1px solid;
+	border-bottom: none;
+    height: 40px;
+    overflow: hidden;
+    line-height: 40px;
+    position: relative;
+}
+.pgroup-fold {
+    display:inline;
+    padding: 0px 1px 0px 3px;
+}
+.pgroup-fold img {
+    cursor: pointer;
+    vertical-align: middle;
+    height: 5px;
+}
+.pgroup-title {
+    color: #000;
+    font-weight: bold;
+    float: left;
+    padding-left: 4px;
+    z-index: 2;
+    margin: 0;
+}
+.pgroup-addbtn{
+	width:18px;
+	height:18px;
+	cursor: pointer;
+	position: absolute;
+	right:8px;
+	top:11px;
+	background: url(../../../../default/img/projectview/pgroup_addbtn.png) center center no-repeat;
+}
+/************************************************** part1 ************************************************/
+#part1_tb{
+	width:99.5%;
+	float: right;
+	border-collapse: collapse;
+}
+#part1_tb tr td{
+	border: #CCC 1px solid;
+	padding: 13px 0px;
+	font-size: 14px;
+	font-family: "微软雅黑";
+}
+#part1_tb tr td.part1_tb_tle{
+	color:#000;
+	text-align: right;
+	padding-right: 3px;
+}
+#part1_tb tr td.part1_tb_val{
+	color:#000000;
+	padding-left:2px ;
+}
+#part1_tb tr td.part1_tb_val *{border:none;}
+#part1_tb tr td.part1_tb_val table{width:80%;}
+/************************************************** part2 ************************************************/
+#part2_tab{
+	width:100%;
+	height:34px;
+	border: 1px solid #CCC;
+	border-top: none;
+}
+.p2_tab_part{
+	width:50%;
+	float:left;
+	height:34px;
+	position: relative;
+}
+.p2_tab_btn{
+	width:100%;
+	margin:0 auto;
+	height:34px;
+	line-height: 34px;
+	text-align: center;
+	border: 1px solid #CCC;
+	cursor: pointer;
+	background-color:#FFF;
+}
+.clicked {
+	color: #FFF;
+	background-color: @zbvar.leftbgcolor;
+}
+#p2_li_cont{
+	margin-top:10px;
+	width:100%;
+	height:195px;
+	border: 1px solid #CCC;
+	position: relative;
+	background-color:#FFF;
+}
+.p2_ul{
+	width:98%;
+	height: 195px;
+	overflow: hidden;
+	position: absolute;
+	padding:0px;
+	margin: 0px;
+	top:0px;
+	right:0px;
+}
+.p2_li{
+	width:96%;
+	padding-left:2%;
+	height:30px;
+	line-height: 30px;
+	float: right;
+	list-style: none;
+}
+.p2_li span{
+	display: inline-block;
+	float:left;
+}
+.p2_li_date,.p2_li_per{
+	width:16%;
+	margin-left:1%;
+	text-align: right;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.p2_li_date{
+	width:18%;
+	text-align: left;
+}
+.p2_li_txt{
+	width:62%;
+	height: 30px;
+    line-height:30px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.p2_li_txt p{
+    margin:0px;
+    overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.p2_more_btn{
+	width:200px;
+	height:40px;
+	line-height: 40px;
+	position: absolute;
+	text-align: right;
+	padding-right: 10px;
+	bottom: 0px;
+	color:red;
+	right:0px;
+}
+.p2_more_btn a{
+	color:red;
+	text-decoration: none;
+	height:40px;
+	line-height: 40px;
+	display: inline-block;
+	float:right;
+	color:red;
+}
+#p2_li_no_info{
+	width:100%;
+	height:190px;
+	line-height: 190px;
+	color:#AAAAAA;
+	font-size:14px;
+	text-align: center;
+}
+/********************************************* part3 *********************************************/
+.p3_line{width:2px;background: #72b4f1;position: absolute;left:29px;top:20px;z-index: -1;visibility: hidden;}
+#p3_dom{
+	width:100%;
+	min-width: 800px;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 100px;
+}
+.p3_item{
+	width:100%;
+	float:left;
+	position: relative;
+	height: auto;
+	margin-top:10px;
+}
+.p3_item_node{
+	width:20px;
+	height:20px;
+	left:20px;
+	top:20px;
+	position: absolute;
+	background: url(../../../../default/img/projview_node.png) center center no-repeat;
+}
+.ngray{
+	background: url(../../../../default/img/projview_node_gray.png) center center no-repeat;
+}
+.p3_item_left{
+	width:140px;
+	float: left;
+	min-height: 50px;
+	overflow: hidden;
+}
+.p3_item_left_dom{
+	width:80px;
+	overflow: hidden;
+	position: absolute;
+	left:50px;
+	top:20px;
+}
+.p3_item_title{
+	width:100%;
+	height:20px;
+	line-height: 20px;
+	font-size: 16px;
+	color:#333;
+}
+.p3_item_addbtn{
+	width:100%;
+	height:20px;
+	line-height: 20px;
+	color:#345593;
+	font-size:12px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.p3_item_dom{
+	position: absolute;
+	left: 140px;
+	overflow: hidden;
+	width:100%;
+	min-width: 640px;
+	top:0px;
+}
+.p3_item_cont{
+	margin-top: 5px;
+	border: 1px solid #72b4f1;
+	overflow: hidden;
+	float: left;
+	background: #FFFFFF;
+	width:100%;
+	min-width: 640px;
+	margin-bottom: 5px;
+}
+.p3_item_cont_top{
+	width:100%;
+	height:40px;
+	line-height: 40px;
+	margin-top:5px;
+	margin-bottom: 5px;
+}
+.p3_item_cont_top span{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	margin-left: 25px;
+	font-weight: bold;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.p3_item_cont_pres{
+	width:100%;
+	overflow: hidden;
+}
+/************************************************************ type1 ******************************************************/
+.p3_pres_item{
+	width:140px;
+	height:130px;
+	float:left;
+	margin:10px 0px 10px 10px;
+}
+.p3_pres_item_time{
+	width:100%;
+	height:25px;
+	line-height: 25px;
+	font-size:12px;
+	color:#999999;
+}
+.p3_pres_item_time a{
+	width:70px;
+	height:20px;
+	line-height: 20px;
+	display: block;
+	font-size: 14px;
+	color:#345593;
+	text-decoration: none;
+	text-align: center;
+}
+.p3_pres_item_cont{
+	width:70px;
+	height: 105px;
+	float:left;
+}
+.p3_pres_item_point{
+	width:100%;
+	height: 50px;
+	background: url(../../../../default/img/proj_item_node_green.png) center center no-repeat;
+}
+.noapprove .p3_pres_item_cont .p3_pres_item_point{
+	background: url(../../../../default/img/proj_item_node_gray.png) center center no-repeat;
+}
+.state3 .p3_pres_item_cont .p3_pres_item_point{
+	background: url(../../../../default/img/proj_item_node_s3.png) center center no-repeat;
+}
+.state4 .p3_pres_item_cont .p3_pres_item_point{
+	background: url(../../../../default/img/proj_item_node_s4.png) center center no-repeat;
+}
+.p3_pres_item_txt{
+	width:100%;
+	height:30px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.p3_pres_item_per{
+	width:100%;
+	height:20px;
+	line-height: 20px;
+	font-size: 12px;
+	color:#999999;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.p3_pres_item_arrow{
+	width:60px;
+	height:52px;
+	float:left;
+	background: url(../../../../default/img/proj_item_arrow_green.png) center center no-repeat;
+}
+.noapprove .p3_pres_item_cont .p3_pres_item_txt{ color:#999999;}
+.noapprove .p3_pres_item_arrow{
+	background: url(../../../../default/img/proj_item_arrow_gray.png) center center no-repeat;
+}
+.state3 .p3_pres_item_cont .p3_pres_item_txt{ color:#999999;}
+.state3 .p3_pres_item_arrow{
+	background: url(../../../../default/img/proj_item_arrow_bgray.png) center center no-repeat;
+}
+.state4 .p3_pres_item_cont .p3_pres_item_txt{ color:#999999;}
+.state4 .p3_pres_item_arrow{
+	background: url(../../../../default/img/proj_item_arrow_gray.png) center center no-repeat;
+}
+/******************************************************** type2 *************************************************/
+.p3_item2_title{
+	width:120px;
+	height:47px;
+	margin: 23px 30px;
+	float: left;
+}
+.bg_chancePayback{background: url(../../../../default/img/projectview/bg_chancePayback.png) center center repeat-x;}
+.bg_chancePaybackInvoice{background: url(../../../../default/img/projectview/bg_chancePaybackInvoice.png) center center repeat-x;}
+.bg_chanceKuout{background: url(../../../../default/img/projectview/bg_chanceKuout.png) center center repeat-x;border-radius: 30px;}
+.bg_chanceSend{background: url(../../../../default/img/projectview/bg_chanceSend.png) center center repeat-x;border-radius: 30px;}
+.bg_chanceKuin{background: url(../../../../default/img/projectview/bg_chanceKuin.png) center center repeat-x;border-radius: 30px;}
+.bg_chancePayout{background: url(../../../../default/img/projectview/bg_chancePayout.png) center center repeat-x;}
+.bg_chancePayoutInvoice{background: url(../../../../default/img/projectview/bg_chancePayoutInvoice.png) center center repeat-x;}
+.p3_item2_title_bg{
+	width:40px;
+	height:47px;
+	line-height: 47px;
+	margin-left:10px;
+	float:left;
+}
+.ico_chancePayback{background: url(../../../../default/img/projectview/ico_chancePayback.png) center center no-repeat;}
+.ico_chancePaybackInvoice{background: url(../../../../default/img/projectview/ico_chancePaybackInvoice.png) center center no-repeat;}
+.ico_chanceKuout{background: url(../../../../default/img/projectview/ico_chanceKuout.png) center center no-repeat;}
+.ico_chanceSend{background: url(../../../../default/img/projectview/ico_chanceSend.png) center center no-repeat;}
+.ico_chanceKuin{background: url(../../../../default/img/projectview/ico_chanceKuin.png) center center no-repeat;}
+.ico_chancePayout{background: url(../../../../default/img/projectview/ico_chancePayout.png) center center no-repeat;}
+.ico_chancePayoutInvoice{background: url(../../../../default/img/projectview/ico_chancePayoutInvoice.png) center center no-repeat;}
+.p3_item2_title_txt{
+	display: inline-block;
+	height: 47px;
+	line-height: 47px;
+	font-size:12px;
+	color:#FFFFFF;
+	float: left;
+}
+.p3_item2_dom{
+	width:120px;
+	height: 50px;
+	margin-top:22px;
+	margin-right: 30px;
+	float: left;
+}
+.p3_item2_dom_top{
+	width:100%;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+}
+.p3_item2_dom_btm{
+	display: block;
+	width:100%;
+	height:25px;
+	line-height: 25px;
+	text-decoration: underline;
+	text-align: center;
+}
+.color_chancePayback{color:#6293cb;}
+.color_chancePaybackInvoice{color:#db6448;}
+.color_chanceKuout{color:#7d6cd5;}
+.color_chanceSend{color:#4db2b5;}
+.color_chanceKuin{color:#cd7e5d;}
+.color_chancePayout{color:#737de4;}
+.color_chancePayoutInvoice{color:#b275e5;}
+.p3_item2_dom2{
+	width:200px;
+	height:58px;
+	border: 1px solid #a6bbc9;
+	float: left;
+	margin-right: 30px;
+	margin-top:19px;
+}
+.p3_item2_dom2_top{
+	width:100%;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+	font-size:12px;
+	color:#333;
+}
+.p3_item2_dom2_btm{
+	display: block;
+	width:100%;
+	height:24px;
+	line-height: 24px;
+	text-align: center;
+	color:#345593;
+	font-size:12px;
+}
+.p3_item_cont_noinfo{width:100%;height:100px;line-height: 100px;font-size:16px;text-align: center;color:#AAAAAA;}
+.bgray{background: #d6d6d6;}
+.pointer{cursor: pointer;}
+.hpointer{cursor: pointer;color:#345593;}
+.hpointer:hover{color:#6483bb;}
+/*************************************************** type3 ********************************************/
+.p3_item3_times{
+	width:90px;
+	height:80px;
+	text-align: center;
+	margin:30px 15px 30px 30px;
+	float:left;
+}
+.p3_item3_times_num{
+	text-align: center;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	font-size:14px;
+	font-weight: bold;
+	font-family: "黑体";
+	border-radius: 2px;
+	color:#0d5d9e;
+	padding:0px 10px;
+	border: 1px solid #0d5d9e;
+	margin:15px auto 10px;
+}
+.p3_item3_times_title{
+	width:100%;
+	height:20px;
+	line-height: 20px;
+	font-weight: bold;
+}
+.p3_item3_arrow{
+	width:30px;
+	height:80px;
+	margin-right:20px;
+	margin-top:30px;
+	float:left;
+	background: url(../../../img/projectview/p3_item3_arrow.png) center center no-repeat;
+}
+.p3_item3_cont{
+	width:110px;
+	height:80px;
+	float: left;
+	border-radius: 10px;
+	margin:30px 10px;
+}
+.p3_item3_cont_val{
+	height:30px;
+	width:100%;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color:#FFFFFF;
+	margin-top:14px;
+}
+.p3_item3_cont_title{
+	width:100%;
+	height:20px;
+	line-height: 20px;
+	font-size: 14px;
+	text-align: center;
+	color:#FFFFFF;
+	font-weight: bold;
+}
+.it1{background: #8690f2;}
+.it2{background: #5698df;}
+.it3{background: #c37759;}
+.it4{background: #96be57;}
+
+/********************************************************** Pview-scrollBar *************************************************************/
+.Pview-scrollBar{
+	width:110px;
+	height: auto;
+	position: fixed;
+	right:0px;
+	top:50%;
+	background: transparent;
+	z-index: 99;
+	overflow: hidden;
+} 
+#spreadbtn{
+	width:30px;
+	height: 80px;
+	position: absolute;
+	top:30%;
+	left:0px;
+	background: #4884c5;
+	cursor: pointer;
+}
+#spreadbtntxt{
+	width:30px;
+	height:45px;
+	padding:0px 8px;
+	text-align: center;
+	font-size: 14px;
+	color:#FFFFFF;
+	line-height: 18px;
+	margin-top: 10px;
+}
+.spreadbtnbg{
+	width:30px;
+	height:10px;
+	background: url(../../../img/projectview/sarrow-right.png) center center no-repeat;
+}
+.turn-left{
+	background: url(../../../img/projectview/sarrow-left.png) center center no-repeat;
+}
+#scrollviewDom{
+	width:80px;
+	height: auto;
+	margin-left: 30px;
+	border-collapse: collapse;
+}
+#scrollviewDom tr td{
+	height:25px;
+	width:100%;
+	color:#000;
+	text-align: center;
+	border: 1px solid #ccc;
+	background: #FFFFFF;
+	cursor: pointer;
+}
+#scrollviewDom tr td:hover{
+	background: #5188c3;
+	color:#FFFFFF;
+}

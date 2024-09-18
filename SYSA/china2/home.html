@@ -1,0 +1,1115 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden;
+      overflow-y: auto;
+      *overflow-y: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul,
+    li,
+    h1 {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body,
+    table#homePage {
+      height: 100%;
+    }
+
+    body {
+      *height: 770px;
+    }
+
+    table#homePage {
+      width: 100%;
+      border-collapse: collapse;
+      background: #f4f7fc;
+    }
+
+    table#homePage td.blankGp {
+      width: 15px;
+      overflow: hidden;
+    }
+
+    table#homePage tr.topGp td,
+    table#homePage tr.bottomGp td {
+      height: 15px;
+    }
+
+    div.leftPageCon {
+      width: 76%;
+      *width: 74.5%;
+      height: 100%;
+      padding-right: 15px;
+      box-sizing: border-box;
+      float: left;
+    }
+
+    div#homeContain {
+      height: 100%;
+      min-height: 710px;
+      overflow: hidden;
+      *height: 740px !important;
+      *min-height: 740px;
+    }
+
+    div.rightPageCon {
+      width: 24%;
+      height: 100%;
+      *height: 720px;
+      float: right;
+      background: #fff;
+      padding-top: 20px;
+      position: relative;
+    }
+
+    div.leftPageCon h1.title {
+      font-size: 16px;
+      color: #333;
+      height: 25%;
+      *height: 24px;
+    }
+
+    div#commonHandles {
+      height: 20%;
+      *height: 120px;
+      min-height: 142px;
+      *min-height: 120px;
+      padding: 20px 5px 0px 20px;
+      box-sizing: border-box;
+      background: #fff;
+      position:relative;
+    }
+
+    ul#commonHandlesBills {
+      min-height: 90px;
+      overflow: hidden;
+      height: 75%;
+      *height: 91.5px;
+    }
+
+    ul#commonHandlesBills li {
+      min-height: 30px;
+      width: 33.3%;
+      line-height: 30px;
+      font-size: 14px;
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+      float: left;
+      height: 33.3%;
+      padding-left: 10px;
+    }
+
+    ul#commonHandlesBills li a {
+      color: #333;
+      cursor:pointer;
+    }
+
+    ul#commonHandlesBills .billIco {
+      display: inline-block;
+      width: 6px;
+      height: 10px;
+      margin-right: 8px;
+      vertical-align: middle;
+      transition: color 0.3s;
+      background: url(../skin/default/images/MoZihometop/home/billico.png) no-repeat left top;
+    }
+
+    ul#commonHandlesBills li a:hover {
+      color: #407af6;
+    }
+
+    ul#commonHandlesBills li a:hover .billIco {
+      background-position: -8px top;
+    }
+
+    #moziModule {
+      height: 60%;
+      *height: 436px;
+      min-height: 426px;
+      padding: 5px 0px 15px;
+    }
+
+    #moziModule .moziModuleItem {
+      height: 100%;
+    }
+
+    #moziModule .moziModuleItem li {
+      float: left;
+      width: 33.3%;
+      height: 33.3%;
+      *width: 32.5%;
+      *height: 135.1px;
+      padding-right: 10px;
+      padding-top: 10px;
+      text-align: center;
+      *zoom: 1;
+      *overflow: hidden;
+    }
+
+    #moziModule .moziModuleItem li.except {
+      padding-right: 0px;
+    }
+
+    #moziModule .moziModuleItem li a.moduleBox {
+      display: block;
+      height: 100%;
+      *height: 132px;
+      background: #fff;
+      border: 1px solid #fff;
+      font-size: 14px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox .box {
+      position: relative;
+      top: 50%;
+      height: 66px;
+      margin-top: -33px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox .img,
+    #moziModule .moziModuleItem li a.moduleBox,
+    #moziModule .moziModuleItem li a.moduleBox div {
+      transition: color, border 0.3s;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox .img {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto;
+      margin-bottom: 12px;
+    }
+
+    #moziModule .img1 {
+      background: url(../skin/default/images/MoZihometop/home/m1.png) no-repeat 0px 0px;
+    }
+
+    #moziModule .img2 {
+      background: url(../skin/default/images/MoZihometop/home/m1.png) no-repeat -32px 0px;
+    }
+
+    #moziModule .img3 {
+      background: url(../skin/default/images/MoZihometop/home/m1.png) no-repeat -64px 0px;
+    }
+
+    #moziModule .img4 {
+      background: url(../skin/default/images/MoZihometop/home/m2.png) no-repeat 0px 0px;
+    }
+
+    #moziModule .img5 {
+      background: url(../skin/default/images/MoZihometop/home/m2.png) no-repeat -32px 0px;
+    }
+
+    #moziModule .img6 {
+      background: url(../skin/default/images/MoZihometop/home/m2.png) no-repeat -64px 0px;
+    }
+
+    #moziModule .img7 {
+      background: url(../skin/default/images/MoZihometop/home/m3.png) no-repeat 0px 0px;
+    }
+
+    #moziModule .img8 {
+      background: url(../skin/default/images/MoZihometop/home/m3.png) no-repeat -32px 0px;
+    }
+
+    #moziModule .img9 {
+      background: url(../skin/default/images/MoZihometop/home/m3.png) no-repeat -64px 0px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover {
+      background: #f2f7fd;
+      border: 1px solid #407af7;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover div {
+      color: #407af6;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img1 {
+      background-position: 0px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img2 {
+      background-position: -32px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img3 {
+      background-position: -64px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img4 {
+      background-position: 0px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img5 {
+      background-position: -32px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img6 {
+      background-position: -64px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img7 {
+      background-position: 0px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img8 {
+      background-position: -32px -32px;
+    }
+
+    #moziModule .moziModuleItem a.moduleBox:hover .img9 {
+      background-position: -64px -32px;
+    }
+
+    #commonTools {
+      height: 20%;
+      *height: 142px;
+      min-height: 142px;
+      background: #fff;
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-right: 18px;
+    }
+
+    #commonTools ul {
+      height: 60%;
+      *height: 72px;
+    }
+
+    #commonTools li {
+      float: left;
+      width: 14.2%;
+      text-align: center;
+      height: 100%;
+    }
+
+    #commonTools li a.toolBox div.img {
+      width: 24px;
+      height: 24px;
+      margin: 0 auto;
+      margin-bottom: 14px;
+    }
+
+    #commonTools li a.toolBox {
+      display: block;
+      height: 100%;
+      color: #333;
+      transition: all 0.3s;
+      position: relative;
+      top: 0px;
+      cursor:pointer;
+    }
+
+    #commonTools li a.toolBox:hover {
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      top: -5px;
+    }
+
+    #commonTools a.toolBox div.box {
+      position: relative;
+      top: 50%;
+      *margin-top: -36px;
+      transform: translateY(-50%);
+    }
+
+    #commonTools .setTools {
+      width: 20px;
+      height: 20px;
+      float: right;
+      background: url(../skin/default/images/MoZihometop/home/set.png) no-repeat left top;
+    }
+
+    #commonTools .setTools:hover {
+      background-position: left -21px;
+    }
+
+    /*通知*/
+    .rightPageCon .moziNotices {
+      height: 33.3%;
+      *height: 229.8px;
+    }
+
+    .rightPageCon .moziNotices ul.notices {
+      height: 100%;
+      max-height: 206px;
+      overflow: hidden;
+    }
+
+    @media screen and (max-height: 760px) {
+      .rightPageCon .moziNotices ul.notices {
+        max-height: 170px;
+      }
+    }
+
+    .rightPageCon .moziNotices .title {
+      cursor: move;
+      margin: 0px;
+      padding: 0px;
+      font-size: 16px;
+      color: #333;
+      text-align: left;
+      height: 50px;
+      line-height: 50px;
+    }
+
+    #currMoveDiv {
+      display: none;
+      position: absolute;
+      height: 50px;
+      overflow: hidden;
+      border: 1px solid #abc1e6;
+      filter: Alpha(style=0, opacity=60);
+      background-color: #ffffff;
+      z-index: 10000;
+      padding: 0 20px;
+      line-height: 40px;
+      box-sizing: border-box;
+    }
+
+    #currMoveDiv li {
+      height: 40px;
+      line-height: 40px;
+      color: #333;
+      border-bottom: 1px solid #eaedf7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .rightPageCon .moziNotices .setNotice {
+      float: right;
+      width: 20px;
+      height: 20px;
+      margin-top: 15px;
+      background: url(../skin/default/images/MoZihometop/home/set.png) no-repeat left top;
+    }
+
+    .rightPageCon .moziNotices .setNotice:hover {
+      background-position: left -21px;
+    }
+
+    .rightPageCon .moziNotices {
+      border-bottom: 1px solid #E9EDF8;
+    }
+
+    .rightPageCon .moziNotices.last {
+      border-bottom: 0px;
+    }
+
+    .rightPageCon .moziNotices li {
+      line-height: 38px;
+      border-bottom: 1px solid #eaedf7;
+      color: #333666;
+      font-size: 14px;
+    }
+
+    #setNotices {
+      height: 100%;
+      *height: auto;
+      position:relative;
+    }
+
+    #setNotices .noticeItem {
+      border: 1px solid #fff;
+      padding: 0px 20px;
+      box-sizing: border-box;
+    }
+
+    table.noticeDetail {
+      table-layout: auto;
+      width: 100%;
+    }
+
+    table.noticeDetail td.date {
+      width: 90px;
+    }
+
+    table.noticeDetail table {
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    table.noticeDetail table td {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    table.noticeDetail a {
+      color: #333;
+      font-size: 14px;
+      cursor:pointer;
+    }
+
+    .rightPageCon .line {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      height: 1px;
+      background: #eaedf7;
+    }
+
+    .rightPageCon .line1 {
+      top: 33.3%;
+    }
+
+    .rightPageCon .line2 {
+      top: 66.6%;
+    }
+
+    .clearfix:after {
+      overflow: hidden;
+      height: 0;
+      clear: both;
+      display: block;
+      visibility: hidden;
+      content: "";
+    }
+
+    .clearfix {
+      zoom: 1;
+    }
+    .hidden{display:none;}
+    div#commonHandles div#CommRightConer{
+      position: absolute;
+      right:10px;
+      left:auto;
+      top:32px;
+      text-align: right;
+    }
+    div#commonHandles div#CommRightConer a{
+      position: static;
+      font-size: 12px;
+      text-align: right;
+      margin-left: 10px;
+      color:#407af5;
+    }
+    ul#commonHandlesBills a.sysHelp{
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin-top:-8px;
+        margin-left:-34px;
+        font-size:16px;
+        color:#407af5;
+    }
+    div#CommRightConer a:hover,.tipsNum:hover{
+        text-decoration:underline;
+    }
+    div#noColumnMesages{
+        position:absolute;
+        text-align:center;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+    }
+    div.noNoticeIcon{
+        background:url(../../SYSA/skin/default/images/MoZihometop/home/nomes.png) no-repeat center;
+        height:46px;
+    }
+    div.moMessage{
+        color:#999;
+        text-align:center;
+    }
+    a.columnBarSetting{
+        padding-left:16px;
+        background:url(../../SYSA/skin/default/images/MoZihometop/content/lvw_addrow_btn.png)  no-repeat no-repeat left;
+        cursor:pointer;
+        color:#444;
+    }
+    a.columnBarSetting:hover{
+       color:#407af6;
+       text-decoration:underline;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="home" id="homePage">
+    <tr class="topGp">
+      <td colspan="5"></td>
+    </tr>
+    <tr>
+      <td class="blankGp"></td>
+      <td>
+        <div id="homeContain">
+          <div class="leftPageCon">
+            <div class="commonHandles clearfix" id="commonHandles">
+              <h1 class="title">常用操作</h1>
+              <ul id="commonHandlesBills"></ul>
+              <div id="CommRightConer"></div>
+            </div>
+            <div class="moziModule" id="moziModule">
+              <ul class="moziModuleItem clearfix">
+                <li>
+                  <a class="moduleBox" onclick='linkLeftNav("bar_63")'>
+                    <div class="box">
+                      <div class="img img1"></div>
+                      <div>销售管理</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="moduleBox" onclick='linkLeftNav("bar_4463")'>
+                    <div class="box">
+                      <div class="img img2"></div>
+                      <div>采购管理</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="except">
+                  <a class="moduleBox" onclick='linkLeftNav("bar_3176")'>
+                    <div class="box">
+                      <div class="img img3"></div>
+                      <div>生产管理</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="moduleBox" onclick='linkLeftNav("bar_438")'>
+                    <div class="box">
+                      <div class="img img4"></div>
+                      <div>库存管理</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="moduleBox" onclick='linkLeftNav("bar_124",this)'>
+                    <div class="box">
+                      <div class="img img5"></div>
+                      <div>企业经营分析</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="except">
+                  <a class="moduleBox" onclick='linkLeftNav("bar_178")'>
+                    <div class="box">
+                      <div class="img img6"></div>
+                      <div>财务管理</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="moduleBox" onclick='linkLeftNav("bar_654")'>
+                    <div class="box">
+                      <div class="img img7"></div>
+                      <div>办公管理</div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="moduleBox" onclick='linkLeftNav("bar_2737")'>
+                    <div class="box">
+                      <div class="img img8"></div>
+                      <div>营销管理</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="except">
+                  <a class="moduleBox" onclick='linkLeftNav("bar_835")'>
+                    <div class="box">
+                      <div class="img img9"></div>
+                      <div>人资管理</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="commonTools" id="commonTools">
+              <h1 class="title clearfix">常用工具<a class='setTools' href="./homeseting/index.asp?index=2"
+                  target="mainFrame"></a></h1>
+              <ul class="ulTools clearfix">
+              </ul>
+            </div>
+          </div>
+          <div class="rightPageCon">
+            <div id="setNotices">
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="blankGp"></td>
+    </tr>
+    <tr class="bottomGp">
+      <td colspan="5"></td>
+    </tr>
+  </table>
+  <div id="currMoveDiv"></div>
+  <script src="../inc/jQuery-1.7.2.min.js"></script>
+  <script>
+    var data = window.top.PageInitParams && window.top.PageInitParams[0] ? window.top.PageInitParams[0].CommonOpBars : [];
+    creatNoticesHtml() //通知dom
+    creatTollHtml(); //工具栏
+    creatComBill(data); //常用
+    //页面缩放比例
+    window.uizoom = top.uizoom
+    window.onpageinit = function () {
+        if ((top == window || (top.app && top.app.IeVer >= 100)) && uizoom != 1) {
+            document.write("<style>body{position:relative;zoom:" + window.uizoom + "}</style>");
+        }
+        if (window.onCommPageInit) { window.onCommPageInit(); }
+    }
+    if (window.onpageinit) { onpageinit(); }
+    //首页右侧通知提醒
+    function creatNoticesHtml() {
+      var str = "";
+      $.ajax({
+        type: "GET",
+        url: "./mainMZReminder.asp",
+        success: function (data) {
+          try {
+              var json = eval("(" + data + ")")
+              if (!json || !json.data || !json.data.length) {
+                  str = "<div id='noColumnMesages'><div class='noNoticeIcon columnBar'></div><div class='moMessage'>无数据信息！</div><a class='columnBarSetting' target='mainFrame' href='../../SYSA/china2/homeseting/index.asp?index=5'>去设置</a></div>"
+                $("#setNotices").append(str)
+              return;
+            }
+            for (var i = 0; i < json.data.length; i++) {
+              dat = json.data[i];
+              str += "<div class='moziNotices" + (i == json.data.length - 1 ? " last" : "") + "'>\n" +
+                      "<div id='" + dat.ID + "' class=\"noticeItem\">\n" +
+                        "<h1 class=\"title\" onmousedown=\"dragNoticesBar(this)\"><a onmousedown='stopProp()' target='mainFrame' href='../../SYSA/china2/homeseting/index.asp?index=5'  class=\"setNotice\"></a>" + dat.Name + "（<a onmousedown='stopProp()' target='mainFrame' href='" +
+                          dat.MoreUrl+ "' style='color:"+(dat.Num==0?"#999!important":"#2f78fe")+";' class='tipsNum' >" + dat.Num + "</a>）" + "</h1>\n" +
+                        "<ul class=\"notices\">\n"
+              var time, content, detail;
+              if (!dat.detail.length) { str += "<li style='border-bottom:0px;height:200px;position:relative'><div id='noColumnMesages'><div class='noNoticeIcon'></div><div class='moMessage'>无数据信息！</div></div></li>" }
+              for (var ii = 0; ii < dat.detail.length; ii++) {
+                  detail = dat.detail[ii];
+                time = detail.Time.split(" ")[0].replace("<img","");
+                content = ConvertForEntity(detail.Title);
+                str += "<li><table class='noticeDetail'><tr>" + "<td class='date'>" + time + "</td>" + "<td>" + content + "</td>" + "</tr></table></li>"
+              }
+              str += "  </ul>\n" +
+                " </div>\n" +
+                "</div>\n"
+            }
+            document.getElementById("setNotices").innerHTML = str;
+          } catch (err) {}
+        },
+        error: function (err) {
+          console.log(err)
+        }
+      })
+    }
+
+    //工具栏
+    function creatTollHtml() {
+      if (!window.top.PageInitParams || !window.top.PageInitParams[0] || !window.top.PageInitParams[0].CommonFunBars) {
+        return;
+      }
+      var HomeObj = window.top.PageInitParams[0];
+      var itemWidth = 24,
+          itemHeight = 24;
+      var html = new Array();
+      var id = "topbar";
+      var pagesize = 7;
+      var dsize = HomeObj.CommonFunBars.length;
+      for (var i = 0; i < (dsize > pagesize ? pagesize : dsize); i++) {
+        var bn = HomeObj.CommonFunBars[i];
+        html.push(creatLi(bn));
+      }
+      if (dsize > pagesize) {
+        var moredata = "";
+        for (var i = pagesize; i < dsize; i++) {
+          var bn = HomeObj.CommonFunBars[i];
+          moredata = moredata + "$%#4" + bn.Title + "#-#" + (bn.Otype + "??" + bn.Url.replace("\"", "&#34;") + "??" + bn.Tipurl + "??" + bn.Id) + "#-#" + bn.Ico + "#-#0#-#" + i + "#-#" + id;
+        }
+      }
+      if ($("#commonTools ul.ulTools")[0]) {$("#commonTools ul.ulTools")[0].innerHTML = html.join("");}
+      function creatLi(obj) {
+        var str = '<li class="tools">' +
+                    "<a href='javascript:void(0);' class='toolBox' value='" + obj.Title.replace("\"", "&#34;") + "#-#" + obj.Otype + "??" + obj.Url.replace("\"", "&#34;") + "??" +
+                        obj.Tipurl + "??" + obj.Id + "#-#" + obj.Ico +"#-#0#-#" + i + "#-#" + "topbar" + "'  onclick='toolbarclick(this)'>" +
+                      '<div class="box">' +
+                          '<div class="img" style="background:url(../../SYSA/skin/default/images/MoZihometop/home/' + obj.Ico +') no-repeat center center;background-size:100% 100%;'+
+                            'FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="' +window.top.SysConfig.VirPath + "SYSA/skin/default/images/MoZihometop/home/" + bn.Ico +'",sizingMethod="scale");">'+
+                          '</div>' +
+                          '<div>' + obj.Title + '</div>' +
+                      '</div>' +
+                    '</a>' +
+                  '</li>'
+        return str;
+      }
+    }
+
+    //创建常用操作
+    function creatComBill(obj) {
+        // obj = []
+      var htm = [];
+      $.get("../../SYSN/json/comm/MoZiBoardApi.ashx?actionName=CanAccessBoard", function (data, status) {
+          if (data * 1) {
+              obj.CanAccessBoard = true;
+          }
+          creatComRightConer(obj);
+      });
+      if (!obj || !obj.length) {return;}
+      for (var i = 0; i < obj.length; i++) {
+        var bill = obj[i];
+        if (bill.Url == '@menu2link') {
+          htm.push("<li class='bills'>"+
+                      "<a href='javascript:void(0);' onclick='" +
+                        'window.top.borderFrame.css({ width: "206px" });window.top.spliter.addClass("childremenu1").removeClass("childremenu0");window.top.createFinanceTree();' +"' >"+
+                        "<span class='billIco'></span>" + bill.Title +
+                      "</a>"+
+                    "</li>")
+        } else {
+          htm.push("<li class='bills'>"+
+                      "<a onclick='window.top.hideLeftNav()' href='../../" + bill.Url +"' target='mainFrame'>"+
+                        "<span class='billIco'></span>" + bill.Title +
+                      "</a>"+
+                   "</li>")
+        }
+
+      }
+
+      $("#commonHandlesBills")[0] ? $("#commonHandlesBills")[0].innerHTML = htm.join("") : "";
+    }
+
+    function creatComRightConer(obj){
+      if (obj.CanAccessBoard) { $("#CommRightConer").append("<a class='businessMarket rightConer' href='javascript:void(0);' onclick='window.open(\"./busiMarket.html \",\"guidewin\",\"height=800,width=1200,scrollbars=1,resizable=1,top=100,left=60\");'>企业经营大盘</a>") };
+      var isShowGuidePage=window.top.PageInitParams && window.top.PageInitParams[0] && window.top.PageInitParams[0].FrontShowGuidePage
+      if(!isShowGuidePage){return}
+      if(!obj||!obj.length){
+        $("#commonHandlesBills")[0].innerHTML = "<a class='sysHelp' href='javascript:void(0);' onclick='window.open(\"../../SYSN/view/init/guide.ashx \",\"guidewin\",\"height=800,width=1200,scrollbars=1,resizable=1,top=100,left=300\");'>系统引导</a>"
+      }else{       
+        $("#CommRightConer").append("<a class='sysHelp rightConer' href='javascript:void(0);' onclick='window.open(\"../../SYSN/view/init/guide.ashx \",\"guidewin\",\"height=800,width=1200,scrollbars=1,resizable=1,top=100,left=300\");'>系统引导</a>")
+      }
+    }
+
+    //九宫格联动左侧导航
+    function linkLeftNav(id,a) {
+      if (!id) {
+        return;
+      }
+      if (a) {
+          $.ajax({
+              url: "../../SYSN/view/statistics/mozidefault.ashx?actionName=CheckRight ",
+              success: function (res) {
+                  if (res.length) {
+                      window.open("../../SYSN/view/statistics/mozidefault.ashx ", "static", "height=800,width=1200,scrollbars=1,resizable=1,top=100,left=300")
+                  } else {
+                      alert("您无权限访问，请联系管理员。")
+                  }
+              }
+          })
+          return;
+      }
+      var leftIframe = window.parent.document.getElementById("leftFrame");
+      if (!leftIframe) {
+        return
+      }
+      var navBar = leftIframe.contentWindow.document.getElementById(id);
+      if (!navBar) {
+        return
+      }
+      navBar.click();
+    }
+
+    //工具栏点击
+    function toolbarclick(a) {
+      var v = a.getAttribute("value").split("#-#");
+      var ontoolbarclick = window.top.ontoolbarclick
+      if (ontoolbarclick) {
+        var data = {
+          "id": v[5],
+          "sort": v[4],
+          "text": v[0],
+          "value": v[1],
+          "setattr": getBtnclickEvntHandle(a)
+        };
+        window.top.ontoolbarclick(data)
+      }
+    }
+
+    function getBtnclickEvntHandle(btn) {
+      return function (key, value) {
+        switch (key) {
+          case "ico":
+            var v = btn.getAttribute("value");
+            var vl = v.split("#-#");
+            vl[2] = value;
+            btn.setAttribute("value", vl.join("#-#"));
+            btn.setAttribute("ico1", value);
+            break;
+          case "ico2":
+            btn.setAttribute("ico2", value);
+            btn.children[0].children[0].style.backgroundImage = "url(" + window.sysskin + "/images/toolbar/" + value +")";
+            break;
+          case "value":
+            var v = btn.getAttribute("value");
+            var vl = v.split("#-#");
+            vl[1] = value;
+            btn.setAttribute("value", vl.join("#-#"));
+            break;
+          case "text":
+            var divs = btn.getElementsByTagName("div");
+            btn.title = value;
+            for (var i = 0; i < divs.length; i++) {
+              if (divs[i].getAttribute("istext") == 1) {
+                divs[i].innerText = value;
+                break;
+              }
+            }
+            break;
+        }
+      }
+    }
+
+    //通知栏拖动
+    function dragNoticesBar(a) {
+      if (window.event.srcElement.tagName == "SPAN") {
+        return
+      }
+      var bodydiv = a.nextElementSibling || a.nextSibling;
+      window.beginDragCardObject = a.parentNode;
+      window.defonselectstart = document.onselectstart;
+      window.defonmouseup = document.onmouseup;
+      window.defonmousemove = document.onmousemove;
+      window.currDragEle = document.getElementById("currMoveDiv");
+      document.body.style.cursor = "move";
+      var movediv = currDragEle;
+      movediv.innerHTML = "<div style='height:" + a.offsetHeight + "px;font-size:16px;color:#333;font-weight:800'>" + a
+        .innerText + "</div>" + bodydiv.outerHTML
+      movediv.style.height = a.parentNode.offsetHeight + "px";
+      movediv.style.width = a.parentNode.offsetWidth + "px";
+      var divs = document.getElementById("setNotices").getElementsByTagName("div");
+      window.cardsPosArray = new Array();
+      var index = 0;
+      for (var i = 0; i < divs.length; i++) {
+        var domDiv = divs[i];
+        var classn = $(domDiv).attr("class");
+        if (classn && classn.toLocaleLowerCase() == "noticeitem") {
+          var xy = GetObjectPos(domDiv);
+          var ndiv = domDiv.nextElementSibling;
+          window.cardsPosArray[index] = {
+            obj: domDiv,
+            x1: xy.left,
+            y1: xy.top,
+            x2: (xy.left * 1 + domDiv.offsetWidth),
+            y2: (xy.top * 1 + domDiv.offsetHeight)
+          }
+          index++;
+        }
+      }
+      document.onselectstart = function () {
+        return false;
+      }
+      document.onmousemove = function () {
+        var div = window.currDragEle;
+        if (div.style.display != "block") {
+          div.style.display = "block"
+        }
+        var x = window.event.clientX;
+        var y = window.event.clientY + document.documentElement.scrollTop * 1;
+        div.style.left = parseInt(x - div.offsetWidth / 2) + "px";
+        div.style.top = parseInt(y - 5) + "px";
+        for (var i = 0; i < window.cardsPosArray.length; i++) {
+          var o = window.cardsPosArray[i];
+          if (x > o.x1 && x < o.x2 && y > o.y1 && y < o.y2) {
+            if (window.hotCardObject != o.obj) {
+              var candrag = true
+              if (window.canCardviewItemDragEnd) {
+                candrag = window.canCardviewItemDragEnd(beginDragCardObject, o.obj)
+              }
+              if (window.hotCardObject) {
+                window.hotCardObject.style.borderColor = "#fff";
+              }
+              if (candrag == true) {
+                o.obj.style.borderColor = "#4fa1e5";
+                window.hotCardObject = o.obj;
+              } else {
+                window.hotCardObject = null;
+                return;
+              }
+            }
+            return;
+          }
+        }
+      }
+      document.onmouseup = function () {
+        document.onselectstart = null;
+        document.body.style.cursor = "";
+        document.onmousemove = window.defonmousemove;
+        document.onmouseup = window.defonmouseup;
+        window.currDragEle.style.display = "none";
+        window.currDragEle.innerHTML = "";
+        if (window.hotCardObject) {
+          if (window.beginDragCardObject == window.hotCardObject) {
+            window.hotCardObject.style.borderColor = "#fff";
+          } else {
+            if (window.onCardNoticeItemDragEnd) {
+              window.onCardNoticeItemDragEnd(window.beginDragCardObject, window.hotCardObject)
+            }
+          }
+        }
+      }
+    }
+
+    function GetObjectPos(element, model) {
+      if (arguments.length > 2 || element == null) {
+        return null;
+      }
+      var elmt = element;
+      var offsetTop = elmt.offsetTop;
+      var offsetLeft = elmt.offsetLeft;
+      var offsetWidth = elmt.offsetWidth;
+      var offsetHeight = elmt.offsetHeight;
+      elmt = elmt.offsetParent;
+      while (elmt) {
+        offsetTop += elmt.offsetTop - elmt.scrollTop;
+        offsetLeft += elmt.offsetLeft - elmt.scrollLeft;
+        elmt = elmt.offsetParent;
+      }
+      return {
+        top: offsetTop,
+        left: offsetLeft,
+        width: offsetWidth,
+        height: offsetHeight
+      };
+    }
+
+    //元素位置更换
+    window.onCardNoticeItemDragEnd = function (ele1, ele2) {
+      var eleparent1 = ele1.parentNode;
+      var eleparent2 = ele2.parentNode;
+      ele2.style.borderColor = "#fff";
+      ele1.style.borderColor = "#fff";
+      var eleContain1 = ele2.outerHTML;
+      var eleContain2 = ele1.outerHTML;
+      if (eleContain1 == eleContain2 || !eleparent1 || !eleparent2) {
+        return;
+      }
+      eleparent1.innerHTML = eleContain1;
+      eleparent2.innerHTML = eleContain2;
+      var domContain = document.getElementById("setNotices"),
+        id = "",
+        child;
+      for (var i = 0; i < domContain.children.length; i++) {
+        child = domContain.children[i];
+        id += child && child.children[0] && (child.children[0].id + "") ? (i == domContain.children.length - 1 ? child
+          .children[0].id : (child.children[0].id + ",")) : "";
+      }
+      $.ajax({
+        type: "GET",
+        url: window.top.SysConfig.VirPath + "/sysn/json/comm/Home.ashx",
+        data: {
+          actionName: "InsertAllMenu",
+          allMenuId: id
+        },
+        success: function (res) {}
+      })
+      window.hotCardObject = null; //规避拖动完成再次点击触发的拖动事件，及时销毁活动对象。
+    }
+
+    //拖动结束
+    window.canCardviewItemDragEnd = function (srcElement, newElement) {
+      if (srcElement == newElement) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    //窗口高度自适应;
+    window.onresize = function () {
+      resetHei();
+    }
+
+    function resetHei() {
+      var docHei = window.top.document.documentElement.clientHeight;
+      if (!docHei) {
+        return;
+      }
+      if ($("#homeContain")[0] && $("#homeContain")[0].offsetHeight) {
+        var h = docHei - 90;
+        $("#homeContain").height(h);
+      }
+    }
+    resetHei()
+
+    //html反转义
+    function ConvertForEntity(html) {
+      html += "";
+      html = html.replace(/\&lt\;/g, "\<");
+      html = html.replace(/\&gt\;/g, "\>");
+      html = html.replace(/\&quot\;/g, "\"");
+      html = html.replace(/\&\#39\;/g, "\'");
+      html = html.replace(/\&sup2\;/g, "²");
+      html = html.replace(/\&sup3\;/g, "³");
+      return html;
+    }
+
+    //工具栏内容点击跳转
+    var RemObj = {
+      wList: [],
+      getNewWinPos: function (winName) {
+        if (this.wList.length == 0) {
+          var o = {
+            name: winName,
+            left: 100,
+            top: 100
+          }
+          this.wList.push(o);
+          return o;
+        }
+
+        for (var i = 0; i < this.wList.length; i++) {
+          if (this.wList[i].name == winName) {
+            return this.wList[i];
+          }
+        }
+
+        var w = {
+          name: winName,
+          left: this.wList[this.wList.length - 1].left + 20,
+          top: this.wList[this.wList.length - 1].top + 20
+        }
+        this.wList.push(w);
+        return w;
+      },
+      openWin: function (url, winName) {
+        var pos = this.getNewWinPos(winName);
+        var winStyle = 'width=900,height=500,fullscreen =no,scrollbars=1,toolbar=0,resizable=1,left=' + (pos.left) +
+          ',top=' + (pos.top)
+        window.open(url, pos.name, winStyle);
+      }
+    }
+
+    //阻止冒泡
+    function stopProp() {
+      var e = window.event;
+      if (e && e.stopPropagation) {
+        e.stopPropagation();
+      } else {
+        window.event.cancelBubble = true;
+      }
+    }
+  </script>
+</body>
+
+</html>

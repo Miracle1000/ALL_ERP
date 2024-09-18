@@ -1,0 +1,6 @@
+﻿#set_bg, #down_bg, div.notice,#white_space, #mb_cont{display:none;}
+#main_login {top:0px;margin-top:0px}
+#main_login #main_login_body {box-shadow:none;}
+#maincn {background-color:white;}
+#maincn #ieShadow {display:none; }
+#cont_body #user_icon {background-color:transparent;}

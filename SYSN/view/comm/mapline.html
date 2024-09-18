@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .anchorBL {
+            display: none
+        }
+
+        #map {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+<body>
+<div id="map" style="width: 987px;height:497px;"></div>
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=DI6BZ-HEL3Q-6WB5L-GLK4J-SGLDE-GKFHC"></script>
+<script>
+    var iframId = window.location.href.split("?")[1].split("=")[1];
+    var field = eval(window.parent.document.getElementById(iframId).getAttribute("field"));
+    var myLatlng = new qq.maps.LatLng(39.982163, 116.306070);
+    var colorObj={
+        red:"#FF0000",
+        lightred:"#F08080",
+        darkred:"#8B0000",
+        green:"#008000",
+        lightgreen:"#90EE90",
+        darkgreen:"#006400",
+        blue:"#0000FF",
+        lightblue:"#87CEFA",
+        darkblue:"#00008B",
+        black:"#000000",
+        lightblack:"#778899",
+        purple:"#800080",
+        lightpurple:"#FF00FF",
+        darkpurple:"#8B008B",
+        orange:"#FFA500",
+        lightorange:"#FFA07A",
+        darkorange:"#FF8C00",
+        yellow:"#FFFF00",
+        lightyellow:"#FFFFE0",
+        darkyellow:"#B8860B",
+        pink:"#FFC0CB",
+        lightpink:"#FFB6C1",
+        deeppink:"#FF1493",
+        gray:"#808080",
+        lightgrey:"#D3D3D3",
+        darkgray:"#A9A9A9"
+    };
+    for (var i = 0; i < field.length; i++) {//不能将中心位置定为北京，以上传的第一个地址为中心；如果没有上传地址就以北京为中心
+        var nodes = field[i].nodes;
+        for (var j = 0; j < nodes.length; j++) {
+            if (nodes[j].data.latitude) {
+                myLatlng = new qq.maps.LatLng(parseFloat(nodes[j].data.latitude), parseFloat(nodes[j].data.longitude));
+                break;
+            }
+        }
+    }
+    var myOptions = {
+        zoom: 9,
+        center: myLatlng,
+        mapTypeId: qq.maps.MapTypeId.ROADMAP
+    };
+    var map = new qq.maps.Map(document.getElementById("map"), myOptions);
+    for (var i = 0; i < 2; i++) {//创建折线；
+        var line = field[i];
+        var nodes2 = line.nodes;
+        var path1 = [];
+        for (var j = 0; j < nodes2.length; j++) {
+            var point = new qq.maps.LatLng(parseFloat(nodes2[j].data.latitude), parseFloat(nodes2[j].data.longitude));
+            path1.push(point);
+            var title = (nodes2[j].remark || "") + (nodes2[j].title || "");
+            var marker = new qq.maps.Marker({
+                position: point,
+                map: map
+            });
+            marker.setTitle(title);
+        }
+        var polyline = new qq.maps.Polyline({
+            path: path1,
+            strokeColor:colorObj[line.color]||"#00FFFF",
+            strokeWeight: 3,
+            editable: false,
+            map: map
+        });
+
+    }
+</script>
+</body>
+</html>

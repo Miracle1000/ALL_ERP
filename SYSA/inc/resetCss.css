@@ -1,0 +1,9 @@
+﻿#content #content,#content #content td {
+    border: 1px solid #ccc;
+}
+#content #content td::before, #content #content td::after {
+    display: none !important;
+}
+#content #content .top td {
+    background: @zbvar.tableheaderbg !important;
+}

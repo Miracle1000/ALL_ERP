@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .anchorBL{display: none}
+		html, body {margin:0px;padding:0px;height:100%;width:100%}
+    </style>
+</head>
+<body>
+<div id="map" style="width: 100%;height:100%"></div>
+<script src="jquery-1.12.2.min.js"></script>
+<script src="http://api.map.baidu.com/api?v=2.0&ak=LfGdXDPYrseQPmslbBpxdSPh&qq-pf-to=pcqq.temporaryc2c"></script>
+<script>
+    var field=eval(window.parent.document.getElementById("result").getAttribute("field"));
+        map = new BMap.Map("map" );    // 创建Map实例
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                map.centerAndZoom(new BMap.Point(r.point.lng, r.point.lat), 11);//浏览器定位，显示当前位置
+            } else {
+                map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 获取不到地理位置时显示北京
+            }
+        }, {enableHighAccuracy: true});
+        var timer=setTimeout(function () {
+            var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+            var top_left_navigation = new BMap.NavigationControl();
+            map.addControl(top_left_control);
+            map.addControl(top_left_navigation);
+            var nodes=field;
+            for(var i=0;i<nodes.length;i++){
+                var node=nodes[i];
+                var data=node.data;
+                var title = node.title?node.title:"";
+                var remark = node.remark?node.remark:"";
+                var address=data.address?data.address:"";
+                var str=title+remark+address;
+                var point = new BMap.Point(data.longitude, data.latitude);
+                addMarker(point,str);
+            }
+            function addMarker(point,s){
+                var marker = new BMap.Marker(point);
+                map.addOverlay(marker);
+                marker.str=s;
+                var label = new BMap.Label(remark,{offset:new BMap.Size(-20,25)});
+                marker.setLabel(label);
+                marker.setTitle(marker.str);
+            }
+        },1000);
+
+
+
+</script>
+</body>
+</html>

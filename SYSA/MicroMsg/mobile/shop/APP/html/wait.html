@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>订单列表</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/base.css?112"/>
+		<link rel="stylesheet" type="text/css" href="../css/order.css"/>
+	</head>
+	<body style="background: #F5F5F4;">
+		<div id="loadDiv" style="background: #fff;height: 100%;width: 100%;position: fixed;z-index: 9999;">	
+			<img src="../img/load.gif" style="display: block;margin: 80px auto; width: 30px;">
+		</div>
+		<div id="payDiv" style="display: none;background-color:rgba(0,0,0,0)">
+			<div id="confirmDiv">
+				<div>
+				<p>您确认要收货吗？</p>
+				<p style="overflow: hidden;clear: both;" class="btnGroups">
+					<span class="fl btn btn-danger" id="confirm">确定</span>
+					<span class="fr btn btn-danger" id="cancel">取消</span>
+				</p>
+				</div>
+			</div>
+		</div>
+		<header class="container">
+			<ul class="row">
+				<li class="col-xs-3 hd-back text-center"> <img src="../img/back.png" id="back" style="margin-left:6px"/> </li>
+				<li class="col-xs-6 text-center" style="font-size: 16px;" id="orderKind">
+					订单列表
+				</li>
+				<li class="col-xs-3"></li>	
+			</ul>
+		</header>
+		<!--搜索框-->
+	    <div class="search">
+	        <div class="input-group">
+	          <input type="text" placeholder="搜索所有订单" class="form-control searchTxt" />
+	          <span class="input-group-addon glyphicon glyphicon-search searchBtn" style="top: 0;"></span>
+	        </div>
+	    </div>
+	    <!--定单列表-->
+		<div id="orderList" style="display: block;background: #fff;padding-bottom: 80px;">
+			<img src="../img/load.gif" style="display: block;margin: 0.5rem auto; width: 0.45rem;">
+		</div>
+		<!--订单详情列表-->
+		<div id="detailsListDiv" style="background: #F5F5F4;display:none;">
+			<div class="container" style="margin-bottom: 10px;">
+				<ul class="row">
+					<li class="col-xs-2 hd-back text-center"> <img src="../img/back.png" id="exitDetail" style="margin-left:6px"/> </li>
+					<li class="col-xs-8 text-center" style="font-size: 16px;" id="orderKind">
+						订单详情
+					</li>
+					<li class="col-xs-2 orderAllNum" ></li>	
+				</ul>
+			</div>
+			<div id="orderInfo" style=""></div>
+			<div id="logisticsInfo" style="margin-bottom: 10px;display: none;"></div>
+			<div style="background: #fff;margin-bottom: 10px;">	
+				<em class="line"></em>
+				<div id="receiveInfo" ></div>
+				<em class="line" ></em>
+			</div>
+			<div>
+				<div id="detailsList" style="margin-bottom: 10px;"></div>
+				<p id="loadMore" style="display: none;padding-bottom:15px">查看更多∨</p>
+			</div>
+			<div id="payInfo" style="margin: 0; margin-bottom: 10px;"></div>
+			<div id="timeInfo" style="margin-bottom: 10px;"></div>
+		</div>
+		<!--物流详情列表-->
+		<div id="logisticsListDiv" style="background: #F5F5F4;">
+			<div class="container" style="margin-bottom: 10px;">
+				<ul class="row">
+					<li class="col-xs-2 hd-back text-center"> <img src="../img/back.png" id="exitLogistics" style="margin-left:6px"/> </li>
+					<li class="col-xs-8 text-center" style="font-size: 16px;" id="orderKind">
+						物流详情
+					</li>
+					<li class="col-xs-2 orderAllNum" ></li>	
+				</ul>
+			</div>
+			<div id="logisticInfo" style="margin: 0; margin-bottom: 10px;"></div>
+		</div>
+		<!--税票信息弹出-->
+		<div style="position: fixed;top: 0;left: 0;background: #fff; display: none;z-index: 99999;height: 100%;width: 100%;" id="taxDiv">
+			<div style="margin:0rem auto;width: 100%;" class="container" >
+				<ul class="row" style='background:rgba(227,227,227,0.8);'>
+					<li class="col-xs-2 hd-back" id="exit">
+						<img src="../img/back.png"  style="width:12px;margin:0rem;margin-top:0.2rem;margin-left:0.1rem"/> 
+					</li>
+					<li class="col-xs-8 text-center" style="font-size: 16px;line-height:53px">
+						发票信息
+					</li>
+					<li class="col-xs-2 orderAllNum" ></li>	
+				</ul>
+				<ul class="orderDetails" id="taxUl" style="margin-bottom: 0;font-size: 13px;">
+				</ul>
+				<button class="btn btn-danger" id="exit" style="display: block;margin: 0.2rem auto;width:80%;">关闭</button>
+			</div>
+		</div>
+		<img src="../img/totop.png" id="top" style="position: fixed;bottom: 30px;right: 10px; z-index: 999;width: 50px;">
+		<script src="../../GlobalSettings.asp"></script>
+		<script src="../../../../../inc/formatnumber.js"></script>
+		<script src="../../../js/jweixin-1.0.0.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../js/jquery-1.11.2.min.js" ></script>
+		<script>
+			document.write('<script type="text/javascript" src="../js/global.js?'+Math.random()+'"></scr'+'ipt>'); 	
+		</script>
+		<script>
+			document.write('<scr'+'ipt src="../js/wait.js?'+randcode+'"></scr'+'ipt>');
+		</script>
+		
+	</body>
+</html>

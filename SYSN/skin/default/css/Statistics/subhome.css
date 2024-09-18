@@ -1,0 +1,449 @@
+﻿body {
+overflow:visible;
+}
+
+div.clear{clear:both;}
+
+div.HeadBg {
+	height:38px;
+	background: url(../../../../../SYSA/skin/default/images/l_t_bg.gif) bottom repeat-x;
+	border-bottom:1px solid #C9D6E9;
+}
+
+div.HeadBg2 {
+	height:38px;
+	background : url(../../../../../SYSA/images/m_table_top.jpg)  top repeat-x;
+	border-bottom:2px solid #C1CCDC;
+	box-sizing:border-box;
+	overflow:hidden;
+}
+
+div.HeadTabCaption {
+	position:absolute;
+	top:7px; left:25px;
+	height:31px;
+	padding:6px 32px;
+	box-sizing:border-box;
+	overflow:hidden;
+	border-top:1px solid #bAcBe9;
+	border-right:1px solid #bAcBe9;
+	border-left:1px solid #bAcBe9;
+	background:#FAFBFF url(../../../../../SYSA/skin/default/images/tabstrip/newbg002.gif) repeat-x;
+	color: #0062B3;
+	font:bold 15px 微软雅黑,黑体;
+	overflow:hidden;
+}
+
+div.HeadTabCaption a {
+	font:bold 15px 微软雅黑,黑体;
+	color: #0062B3;
+}
+
+div.HeadTabCaption2, div.HeadTabCaption2sel {
+	float:left;
+	margin:6px 25px 0px 25px;
+	box-sizing:border-box;
+	line-height:28px;
+	font-size:13px;
+}
+div.HeadTabCaption2 a {
+	color : #578AC3;
+}
+div.HeadTabCaption2sel {
+	color:#0062B3;
+	font-weight:bold;
+}
+
+div.HeadSplit  {
+	height:13px;width:1px;
+	overflow:hidden;
+	background-color:#A5B4CB;
+	margin-top:13px;
+	float:left;
+}
+div.selsign {
+	height:3px;overflow:hidden;
+	background-color:red;
+	display:inline-block;
+}
+
+#currseldivsign {
+	position:absolute;
+	width:10px;
+	height:8px;
+	top:66px;
+	border-left:5px solid white;
+	border-right:5px solid white;
+	border-bottom:5px solid #94A9C8;
+}
+
+#bodytitle {
+	text-align:  center;
+	font-weight:bold;
+	font-family: 微软雅黑, 黑体;
+	padding-top: 32px;
+	padding-bottom:15px;
+	font-size:16px;
+	line-height:16px;
+	color:#000000;
+}
+#bodydescription {
+	color:#7A7e81;
+	text-align:  center;
+	font-family: 微软雅黑, 黑体;
+}
+
+#linkbody {
+	margin: 0px auto;
+	clear:both;
+}
+
+div.lnkgp {
+	float:left;
+	width:200px;
+	overflow:hidden;
+	margin-right:1px;
+}
+
+#linkbody div.bg0 { background-color: #E1EAF3; }
+#linkbody div.bg1 { background-color: #F8F9FB; }
+
+div.lnkgptit, div.lnkgptitlast {
+	text-align:center;
+	background-color:#0874cc;
+	color:white;
+	height:37px;
+	line-height:37px;
+	padding:0px;
+	overflow:hidden;
+	font-family:微软雅黑;
+	font-size:14px;
+    font-weight:bold;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 4px 18px;  
+	-moz-box-shadow: rgba(0,0,0,0.3)  0px 4px 18px;  
+	box-shadow: rgba(0,0,0,0.3) 0px 4px 18px; 
+	filter: shadow(Color=red,Direction=225);
+
+}
+div.lnkgptit {
+	width:199px;
+}
+div.lnkgptitlast {
+	width:200px;
+}
+div.lnk {
+	text-align:center;
+	padding:0px;
+	overflow:hidden;
+	width:200px;
+	background-color:transparent;
+	line-height:29px;
+	color:#000000;
+	font-family:微软雅黑;
+}
+
+div.lnk a:hover {
+	 text-decoration:underline;  
+	 color:red;
+}
+
+div.lnkgpspliter {
+	height:15px;
+	overflow:hidden;
+}
+
+
+/*统计报表总导航 样式*/
+div.lnkgp_nav {
+	width:900px;
+	overflow:visible;
+	padding-bottom:10px; 
+}
+
+div.lnkgptit_nav, div.lnkgptitlast_nav {
+	text-align:left;
+	color:#1276CE;
+	height:37px;
+	line-height:37px;
+	padding:0px;
+	overflow:hidden;
+	font-family:微软雅黑,黑体;
+	font-size:14px;
+	border-bottom:solid #D8DCE5 2px;
+	font-weight:bold;
+}
+div.lnkgptit_nav {
+	width:899px;
+}
+
+div.lnkgptit_nav a {
+	position:relative;
+	display:block;
+	float:left;
+	margin-top:-5px;
+}
+div.lnkgptitlast_nav {
+	width:900px;
+}
+div.lnkgpheader{
+    width:95%;
+    margin:0 auto;
+    padding-bottom:10px;
+    border-bottom:solid #D9DDE6 2px;
+    color:#0075CE;
+    font-size:14px;
+    font-weight:bold;
+}
+
+div.lnkgplnks{
+    width:95%;
+    margin:0 auto;
+    margin-left:20px;
+    margin-top:10px;
+}
+
+div.lnkgplnks .lnk{
+    float:left;
+    width:150px; 
+    text-align:left;
+    margin-left:20px;
+    margin-bottom:5px;
+}
+
+table.controltable {
+	width:898px;
+	border-collapse:collapse;
+	text-align:center;
+}
+
+table.controltable th {
+	width:110px;
+	height:35px;
+	color:white;
+	background-color:#0874cc;
+	border:1px solid #d8d7ec;
+	font-size:13px;
+	font-family:微软雅黑,黑体;
+	font-weight:normal;
+}
+table.controltable td {
+	height:35px;
+	border:1px solid #d8d7ec;
+	font-size:13px;
+	font-family:微软雅黑,黑体;
+	color:#4a4a4a;
+}
+div.objectdiv {
+	margin-left:-20px;
+}
+
+td.ct_label {
+	background-color:#f6f7fb;
+}
+
+span.zore {
+	color:#e0e0e0;
+	font-size:13px;
+	font-family:微软雅黑,黑体;
+}
+div.moneychartbody {
+	  clear:both;
+	  text-align:center;
+	  position:relative;
+	  height:180px;
+}
+#moneychartImg {
+	width:172px;
+	height:172px;
+	border:0px;
+	position:absolute;
+	top:6px;
+	left:300px;
+}
+
+#moneyinv {
+	position:absolute;
+	top:70px;
+	left:336px;
+	width:105px;
+	text-align:center;
+	color:#000;
+	font-family:微软雅黑,宋体;
+	font-size:13px;
+	line-height:20px;
+}
+
+span.mnychartnum {
+	font-family:微软雅黑,arial;
+	font-weight:bold;
+	color:#000;
+	font-size:14px;
+	line-height:24px;
+}
+div.mchartsearchbar {
+   width:450px;
+   height:27px;
+   float:right;
+   margin-top:-44px;
+   margin-right:-20px;
+}
+div.seritem { 
+	float:left; background-color:#f9fafe; font-size:12px;
+	border:1px solid #d8dce5;
+	height:25px;
+	margin-left:3px;
+	box-sizing:border-box;
+	line-height:25px;
+	overflow:hidden;
+	padding-left:5px;
+	padding-right:5px;
+	border-radius:2px;
+}
+div.seritem input {
+	border:0px;
+	width:70px;
+	font-size:12px;
+	background-color:transparent;
+}
+
+.pointer {
+	cursor:pointer;
+}
+
+#mc_mtlist_list {
+	width:100px;
+	border:1px solid #dedfe6;
+	background-color:white;
+	padding:5px;
+	position:absolute;
+}
+
+#mc_mtlist_list div {
+	text-align:center;
+	line-height:24px;
+	font-size:12px;
+	cursor:pointer;
+}
+
+#mc_mtlist_list div.sell {
+	background-color: #0874cc;
+	color: white;
+}
+
+#line1, #line2, #linelabel1, #linelabel2 {
+	position:absolute;
+	display:none;
+}
+
+#linelabel1, #linelabel2 {
+	font-family:微软雅黑,宋体;
+	font-size:14px;
+}
+
+#linelabel1 {
+	color:#000;
+}
+#linelabel2 {
+	color:red;
+}
+#linelabel2 span.mnychartnum {
+	color:red;
+}
+
+#moneyinv a:hover, #linelabel1 a:hover, #linelabel2 a:hover {
+	text-decoration:underline;
+}
+
+
+#clssearchbar {
+	position:absolute;
+	top:10px;
+	left:700px;
+	width:200px;
+}
+ #clssearchbarLabelT {
+	line-height:20px;
+	font-family:微软雅黑, 黑体;
+	font-size:14px;
+	color:#000;
+}
+#clssearchbarLabel, #clssearchbarbox {
+	float:left;
+}
+#clssearchbarlist {
+	position:absolute;
+	top:22px;
+	background-color:white;
+	border:1px solid #c0ccdc;
+	padding:5px 5px;
+	left:0px;
+	display:none;
+}
+#clssearchbarlist div {
+	font-family:微软雅黑, 黑体;
+	font-size:13px;
+	line-height:25px;
+	padding:0px 10px;
+	color:#000;
+	cursor:pointer;
+}
+
+#clssearchbarlist div.sell {
+	background-color: #0874cc;
+	color: white;
+}
+
+#clssrcbox {
+	width:90px;
+	border:1px solid #c0ccdc;
+	line-height:19px;
+	border-radius:2px;
+	padding-right:16px;
+	box-sizing:content-box;
+	background: white url(../../img/search.gif) no-repeat right center;
+	height:20px;
+	font-family:微软雅黑, 黑体;
+	padding-left:2px;
+}
+
+#menugrouplink {
+	width:50px;
+	position:fixed;
+	_position:absolute;
+	right:20px;
+	top:70px;
+	border:1px solid #edefee;
+	box-shadow: 0px 0px 10px #edefee;  
+}
+
+#menugrouplink div.item , #menugrouplink div.itemsel {
+	padding:10px 10px;
+	overflow:hidden;
+	text-align:center;
+	box-sizing:border-box;
+}
+
+#menugrouplink div.itemsel {
+	background-color:#0874cc;
+}
+
+#menugrouplink div.item a {
+	font-size:12px;
+	font-weight:bold;
+	line-height:14px;
+	color:#666;
+}
+
+#menugrouplink div.itemsel a {
+	font-size:12px;
+	font-weight:bold;
+	line-height:14px;
+	color:white;
+}
+
+div.splkitem {
+	height:1px;
+	overflow:hidden;
+	width:30px;margin:0 auto;
+	background-color:#f1f1f1;
+}

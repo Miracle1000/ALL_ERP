@@ -1,0 +1,132 @@
+﻿body {margin:0px;padding:0px; overflow:visible;}
+body * {font-family:微软雅黑;}
+#bigtitle {
+	padding-top:60px;
+	text-align:center;
+	color:#000;
+	line-height:21px;
+	font-family:微软雅黑; 
+	font-size:20px;
+	padding-bottom:20px;
+	font-weight:bold;
+}
+#smltitle {
+	text-align:center;
+	color:#000;
+	font-size:14px;
+	padding-bottom:25px;
+}
+div.BigGroupTitle {
+	background-color:#3e7ee4;
+	padding:12px 0px;
+	font-size:16px;
+	line-height:17px;
+	text-align:center;
+	color:white;
+	clear:both;
+}
+div.GPItem {
+	clear:both;
+	width:1100px;
+	margin:0px auto;
+	padding:55px 0px 30px 0px;
+	border-bottom:1px solid #ccc;
+	overflow:hidden;
+}
+
+
+div.grouptitletb {
+	width:200px;
+	height:50px;
+	background-color: #E5F2ff;
+	overflow:hidden;
+	font-weight:bold;
+	margin-right:25px;
+	float:left;
+}
+
+div.grouptitletb table {
+	margin:0 auto;
+	display:table;
+	width:auto;
+	table-layout:auto;
+	border-collapse:collapse;
+}
+
+div.grouptitletb td {
+	display:table-cell;
+	font-size:16px;
+	line-height:50px;
+	color:#0075cd;
+}
+
+div.linkitembg {
+	width:874px;
+	overflow:hidden;
+}
+div.linkitembg div {
+	float:left;
+}
+
+div.linkitem {
+	height:50px;
+	text-align:center;
+	line-height:30px;
+	box-sizing:border-box;
+	background-repeat:no-repeat;
+}
+
+div.linkitem.v00 { background-image: url(../../../img/guide/f00.png); }
+div.linkitem.v11 { background-image: url(../../../img/guide/f11.png); }
+div.linkitem.v10 { background-image: url(../../../img/guide/f10.png); }
+div.linkitem.v01 { background-image: url(../../../img/guide/f01.png); }
+
+div.linkitem.isfirst {
+	width:155px;
+	background-position:-85px bottom;  /*图片总长300*/
+}
+
+div.linkitem.isend {
+	width:155px;
+	background-position:-60px bottom;
+}
+
+div.linkitem.iscomm {
+	width:180px;
+	background-position:center bottom;
+}
+
+div.linkitembg div.rpadding { float:right; width:25px;height: 40px; }
+div.linkitembg div.lpadding { float:left; width:25px;height: 40px; }
+
+div.linkitem a {
+	font-size:14px;
+	color:#2f486e;
+}
+div.linkitem a:hover {
+	text-decoration:underline;
+}
+
+img.qu { position:relative; top:2px; left:6px; cursor:pointer; }
+
+#bill_help_expaln{display: none;border-radius: 3px;border:1px solid #c0ccdd;overflow: hidden;position: fixed;top:0;left:0;background: #f4fafe;box-shadow: 3px 3px 3px #888;word-break: break-all;white-space: normal;margin: 0;line-height: 20px;z-index: 1000}
+span.help_explan_ico{float:left;display:block;width: 20px;height:20px;cursor: pointer;margin-left: 3px;background: url(../../../../SYSN/skin/default/img/explan_blue.png) no-repeat center center;}
+div.bill_help_expaln_top{height:17px;padding:4px 3px 0 0;float:right;}
+div.bill_help_expaln_top .bill_help_expaln_close{display: block;float: right;margin-right: 3px;width: 16px;height:16px;cursor: pointer;font-size: 14px;  background-position: -48px 32px;text-decoration: none;}
+div.bill_help_expaln_top .bill_help_expaln_close:hover{color:red;font-weight:bold;font-size:16px;margin-right:4px;}
+#bill_help_expaln_text div.bill_help_expaln_top a { position:absolute;top:8px;left:225px; font-size: 18px;}
+#bill_help_expaln_text {padding:25px 15px;background-color:#b2dbfd; font-size:14px; line-height:22px;color:#2e496e;}
+
+#fixedmenubody { position:fixed; right:40px; top:50%; border:1px solid #ccc; width:100px;background-color:white;overflow:hidden;}
+a.fixedmenuitem { display:block; height: 35px; font-size:15px;line-height:35px;padding:0px;text-align:center;border-bottom:1px  solid #d7d7d7;cursor:pointer;color:#000;}
+a.fixedmenuitem:hover  {  background-color:#3e7ee4; color:white; }
+a.fixedmenuitem.isend { border-bottom-width:0px;}
+a.mmmlink { height:1px;width:1px;border:0px;overflow:hidden;}
+#gotoTopLink {
+	position:fixed; display:block;   bottom:22px; right:55px;  width:72px;height:72px;  
+	background-image:url(../../../img/guide/gotop1.png); 
+	background-color:white; cursor:pointer;
+}
+#gotoTopLink:hover {
+	background-image:url(../../../img/guide/gotop2.png); 
+}

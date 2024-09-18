@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+<script language="javascript">
+var lichunDate=0;var lunarInfo=new Array(19416,19168,42352,21717,53856,55632,91476,22176,39632,21970,19168,42422,42192,53840,119381,46400,54944,44450,38320,84343,18800,42160,46261,27216,27968,109396,11104,38256,21234,18800,25958,54432,59984,28309,23248,11104,100067,37600,116951,51536,54432,120998,46416,22176,107956,9680,37584,53938,43344,46423,27808,46416,86869,19872,42416,83315,21168,43432,59728,27296,44710,43856,19296,43748,42352,21088,62051,55632,23383,22176,38608,19925,19152,42192,54484,53840,54616,46400,46752,103846,38320,18864,43380,42160,45690,27216,27968,44870,43872,38256,19189,18800,25776,29859,59984,27480,21952,43872,38613,37600,51552,55636,54432,55888,30034,22176,43959,9680,37584,51893,43344,46240,47780,44368,21977,19360,42416,86390,21168,43312,31060,27296,44368,23378,19296,42726,42208,53856,60005,54576,23200,30371,38608,19415,19152,42192,118966,53840,54560,56645,46496,22224,21938,18864,42359,42160,43600,111189,27936,44448,84835);
+var yearInfo=[1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049];
+var solarMonth=new Array(31,28,31,30,31,30,31,31,30,31,30,31);var Gan=new Array("甲","乙","丙","丁","戊","己","庚","辛","壬","癸");var Zhi=new Array("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥");
+var Animals=new Array("鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗","猪");var solarTerm=new Array("小寒","大寒","立春","雨水","惊蛰","春分","清明","谷雨","立夏","小满","芒种","夏至","小暑","大暑","立秋","处暑","白露","秋分","寒露","霜降","立冬","小雪","大雪","冬至");
+var sTermInfo=new Array(0,21208,42467,63836,85337,107014,128867,150921,173149,195551,218072,240693,263343,285989,308563,331033,353350,375494,397447,419210,440795,462224,483532,504758);
+var nStr1=new Array("日","一","二","三","四","五","六","七","八","九","十");var nStr2=new Array("初","十","廿","卅","□");var monthName=new Array("JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC");
+var sFtv=new Array("0101 *元旦","0102 *","0103 *","0214 情人节","0305 雷锋日","0308 妇女节","0312 植树节","0315 315","0401 愚人节","0407 卫生日","0422 地球日","0501*劳动节","0502*","0503*","0504 青年节","0512 护士节","0531 无烟日","0601 儿童节","0605 环保日","0606 爱眼日","0625 土地日","0626 禁毒日","0701 建党日","0801 建军节","0910 教师节","0918 九一八","0920 爱牙日","1001*国庆节","1002*","1003*","1031 万圣节","1224 平安夜","1225 圣诞节");
+var lFtv=new Array("0115 元宵节","0505 端午节","0707 七夕","0715 鬼节","0815 中秋节","0909 重阳节","1208 腊八","1223 小年","0100 除夕","0101 春节");var wFtv=new Array("0630 父亲节","1144 感恩节");
+var fFtv2011=new Array("0101 *元旦","0102 *","0103 *","0130 _","0202 *除夕","0203 *春节","0204 *立春","0205 *","0206 *","0207 *","0208 *","0212 _","0402 _","0403 *","0404 *","0405 *清明节","0430 *","0501 *劳动节","0502 *","0604 *端午节","0605 *","0606 *","0910 *教师节","0911 *","0912 *中秋节","1001 *国庆节","1002 *","1003 *","1004 *","1005 *","1006 *","1007 *","1008 _","1009 _","1231 _");
+var fFtv2016=new Array("0101 *元旦","0102 *","0103 *","0206 _","0207 *除夕","0208 *春节","0209 *","0210 *","0211 *","0212 *","0213 *","0214 _","0402 *","0403 *","0404 *清明节","0430 *","0501 *劳动节","0502 *","0609 *端午节","0610 *","0611 *","0612 _","0910 *教师节","0915 *中秋节","0916 *","0917 *","0918 _","1001 *国庆节","1002 *","1003 *","1004 *","1005 *","1006 *","1007 *","1008 _","1009 _");
+function lYearDays(c){var a,b=348;for(a=32768;a>8;a>>=1){b+=(lunarInfo[c-1900]&a)?1:0;}return(b+leapDays(c));}function leapDays(a){if(leapMonth(a)){return((lunarInfo[a-1900]&65536)?30:29);
+}else{return(0);}}function leapMonth(a){return(lunarInfo[a-1900]&15);}function monthDays(b,a){return((lunarInfo[b-1900]&(65536>>a))?30:29);}function Lunar(d){var c,b=0,a=0;
+var e=(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(1900,0,31))/86400000;for(c=1900;c<2050&&e>0;c++){a=lYearDays(c);e-=a;}if(e<0){e+=a;c--;
+}this.year=c;b=leapMonth(c);this.isLeap=false;for(c=1;c<13&&e>0;c++){if(b>0&&c==(b+1)&&this.isLeap==false){--c;this.isLeap=true;a=leapDays(this.year);}else{a=monthDays(this.year,c);
+}if(this.isLeap==true&&c==(b+1)){this.isLeap=false;}e-=a;}if(e==0&&b>0&&c==b+1){if(this.isLeap){this.isLeap=false;}else{this.isLeap=true;--c;}}if(e<0){e+=a;
+--c;}this.month=c;this.day=e+1;}function solarDays(b,a){if(a==1){return(((b%4==0)&&(b%100!=0)||(b%400==0))?29:28);}else{return(solarMonth[a]);}}function cyclical(a){return(Gan[a%10]+Zhi[a%12]);
+}function calElement(a,g,j,b,f,d,e,h,c,i,k){this.isToday=false;this.sYear=a;this.sMonth=g;this.sDay=j;this.week=b;this.lYear=f;this.lMonth=d;this.lDay=e;
+this.isLeap=h;this.cYear=c;this.cMonth=i;this.cDay=k;this.color="";this.className="";this.lunarFestival="";this.solarFestival="";this.solarTerms="";}function sTerm(c,b){var a=new Date((31556925974.7*(c-1900)+sTermInfo[b]*60000)+Date.UTC(1900,0,6,2,5));
+return(a.getUTCDate());}function calendar(j,t,h){var B,l,A,b,g=1,e,C=0,s,p,o;var z,a,f;var d=new Array(3);var r=0;var c=0;B=new Date(j,t,1,0,0,0,0);this.length=solarDays(j,t);
+this.firstWeek=B.getDay();if(t<2){z=cyclical(j-1900+36-1);}else{z=cyclical(j-1900+36);}var v=sTerm(j,2);lichunDate=v;var u=sTerm(j,t*2);a=cyclical((j-1900)*12+t+12);
+var q=Date.UTC(j,t,1,0,0,0,0)/86400000+25567+10;for(var w=0;w<this.length;w++){if(g>C){B=new Date(j,t,w+1);l=new Lunar(B);A=l.year;b=l.month;g=l.day;e=l.isLeap;
+C=e?leapDays(A):monthDays(A,b);if(r==0){c=b;}d[r++]=w-g+1;}if(t==1&&(w+1)==v){z=cyclical(j-1900+36);}if((w+1)==u){a=cyclical((j-1900)*12+t+13);}f=cyclical(q+w);
+this[w]=new calElement(j,t+1,w+1,nStr1[(w+this.firstWeek)%7],A,b,g++,e,z,a,f);}s=sTerm(j,t*2)-1;p=sTerm(j,t*2+1)-1;if(j===2011&&t===10){this[7].solarTerms="立冬";
+this[22].solarTerms="小雪";}else{if(j===2013&&t===1){this[3].solarTerms="立春";this[17].solarTerms="雨水";}else{if(j===2012&&t===0){this[5].solarTerms="小寒";this[20].solarTerms="大寒";
+}else{if(j===2012&&t===4){this[19].solarTerms="小满";}else{solarTerm[t*2]&&(this[s].solarTerms=solarTerm[t*2]);solarTerm[t*2+1]&&(this[p].solarTerms=solarTerm[t*2+1]);
+}}}}if(true){for(w in sFtv){if(sFtv[w].match(/^(\d{2})(\d{2})([\s\*])(.+)$/)){if(Number(RegExp.$1)==(t+1)){if(RegExp.$4.indexOf("*")!==-1){this[Number(RegExp.$2)-1].solarFestival+=RegExp.$4.split("*")[1]+"";
+}else{this[Number(RegExp.$2)-1].solarFestival+=RegExp.$4+"";}}}}}var k=Number(document.getElementById("current-data").innerHTML);if(k==2011){for(w in fFtv2011){if(fFtv2011[w].match(/^(\d{2})(\d{2})([\s\*])(.+)$/)){if(Number(RegExp.$1)==(t+1)){if(RegExp.$4.indexOf("*")!==-1){this[Number(RegExp.$2)-1].solarFestival=RegExp.$4.split("*")[1]+"";
+this[Number(RegExp.$2)-1].className="holidays";}else{if(RegExp.$4.indexOf("_")!==-1){this[Number(RegExp.$2)-1].solarFestival=RegExp.$4.split("_")[1]+"";
+this[Number(RegExp.$2)-1].className="works";}else{this[Number(RegExp.$2)-1].solarFestival+=RegExp.$4+"";}}}}}}else{if(k==2016){for(w in fFtv2016){if(fFtv2016[w].match(/^(\d{2})(\d{2})([\s\*])(.+)$/)){if(Number(RegExp.$1)==(t+1)){if(RegExp.$4.indexOf("*")!==-1){this[Number(RegExp.$2)-1].solarFestival=RegExp.$4.split("*")[1]+"";
+this[Number(RegExp.$2)-1].className="holidays";}else{if(RegExp.$4.indexOf("_")!==-1){this[Number(RegExp.$2)-1].solarFestival=RegExp.$4.split("_")[1]+"";
+this[Number(RegExp.$2)-1].className="works";}else{this[Number(RegExp.$2)-1].solarFestival+=RegExp.$4+"";}}}}}}}for(w in wFtv){if(wFtv[w].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/)){if(Number(RegExp.$1)==(t+1)){s=Number(RegExp.$2);
+p=Number(RegExp.$3);if(s<5){this[((this.firstWeek>p)?7:0)+7*(s-1)+p-this.firstWeek].solarFestival+=RegExp.$5+" ";}else{s-=5;o=(this.firstWeek+this.length-1)%7;
+this[this.length-o-7*s+p-(p>o?7:0)-1].solarFestival+=RegExp.$5+" ";}}}}for(w in lFtv){if(lFtv[w].match(/^(\d{2})(.{2})([\s\*])(.+)$/)){s=Number(RegExp.$1)-c;
+if(s==-11){s=1;}if(s>=0&&s<r){p=d[s]+Number(RegExp.$2)-1;if(p>=0&&p<this.length&&this[p].isLeap!=true){this[p].lunarFestival+=RegExp.$4+" ";if(RegExp.$3=="*"){this[p].color="red";
+}}}}}if(j==tY&&t==tM){this[tD-1].isToday=true;}}function easter(g){var b=sTerm(g,5);var d=new Date(Date.UTC(g,2,b,0,0,0,0));var a=new Lunar(d);if(a.day<15){var f=15-a.day;
+}else{var f=(a.isLeap?leapDays(g):monthDays(g,a.month))-a.day+15;}var e=new Date(d.getTime()+86400000*f);var c=new Date(e.getTime()+86400000*(7-e.getUTCDay()));
+this.m=c.getUTCMonth();this.d=c.getUTCDate();}function cDay(b){var a;switch(b){case 10:a="初十";break;case 20:a="二十";break;break;case 30:a="三十";break;break;
+default:a=nStr2[Math.floor(b/10)];a+=nStr1[b%10];}return(a);}var cld;function drawCld(d,m){var f,a,o,p,l,g;if(m!=0){l=new calendar(d,m-1);}else{l=new calendar(d-1,11);
+}if(m!=11){g=new calendar(d,m+1);}else{g=new calendar(d+1,0);}cld=new calendar(d,m);if(d>1874&&d<1909){yDisplay="光绪"+(((d-1874)==1)?"元":d-1874);}if(d>1908&&d<1912){yDisplay="宣统"+(((d-1908)==1)?"元":d-1908);
+}var b=$("#current-data-month").text();if(b!="1"){document.getElementById("GZ").innerHTML='<span class="gznl">『'+Animals[(d-4)%12]+"年』"+cyclical(d-1900+36)+"年 </span>";
+}else{if(b=="1"){document.getElementById("GZ").innerHTML='<span class="gznl">『'+Animals[(d-5)%12]+"年』"+cyclical(d-1901+36)+"年 </span>";}}if((cld.length+cld.firstWeek)>35){document.getElementById("lastLine").style.display="";
+}else{document.getElementById("lastLine").style.display="none";}for(f=0;f<42;f++){sObj=document.getElementById("SD"+f);lObj=document.getElementById("LD"+f);
+gObj=document.getElementById("GD"+f);sObj.className="";gObj.className="";a=f-cld.firstWeek;if(f<cld.firstWeek){var j=Number(l.length)-Number(cld.firstWeek)+f;
+if(l[j]&&l[j].className){if(l[j].className.indexOf("holidays")!=-1){lObj.parentNode.className+="holidays2";}else{if(l[j].className.indexOf("works")!=-1){lObj.parentNode.className+="works2";
+}}}lObj.parentNode.innerHTML="<div><strong id='SD"+f+"' class='grad' rel='up'>"+(j+1)+"</strong></div><span id='LD"+f+"'><font color='#8dc4db'>"+cDay(l[j].lDay)+"</font></span>";
+}if(f>(cld.firstWeek+cld.length-1)){if(cld.firstWeek+cld.length<36&&f<35){var j=f-(cld.firstWeek+cld.length-1);if(g[j-1]&&g[j-1].className){if(g[j-1].className.indexOf("holidays")!=-1){lObj.parentNode.className+="holidays2";
+}else{if(g[j-1].className.indexOf("works")!=-1){lObj.parentNode.className+="works2";}}}lObj.parentNode.innerHTML="<div><strong id='SD"+f+"' class='grad' rel='down'>"+j+"</strong></div><span id='LD"+f+"'><font color='#8dc4db'>"+cDay(g[j-1].lDay)+"</font></span>";
+}if(cld.firstWeek+cld.length>35){var j=f-(cld.firstWeek+cld.length-1);if(g[j-1]&&g[j-1].className){if(g[j-1].className.indexOf("holidays")!=-1){lObj.parentNode.className+="holidays2";
+}else{if(g[j-1].className.indexOf("works")!=-1){lObj.parentNode.className+="works2";}}}lObj.parentNode.innerHTML="<div><strong id='SD"+f+"' class='grad' rel='down'>"+j+"</strong></div><span id='LD"+f+"'><font color='#8dc4db'>"+cDay(g[j-1].lDay)+"</font></span>";
+}}if(a>-1&&a<cld.length){sObj.innerHTML=a+1;if(cld[a].isToday){sObj.parentNode.parentNode.className+="now";to_day.id=f;to_day.jin=cld[a].sYear+"-"+cld[a].sMonth+"-"+cld[a].sDay;
+to_day.N_Date=cld[a].lYear+"-"+cld[a].lMonth+"-"+cld[a].lDay;to_day.click_Date=cld[a].sMonth+"_"+cld[a].sDay;var h;if(cld[a].solarTerms==""&&cld[a].solarFestival==""&&cld[a].lunarFestival==""){h="";
+}else{h='<div class="festival">'+cld[a].solarTerms+" "+cld[a].solarFestival+" "+cld[a].lunarFestival+"</div>";}var c="";if(h!=""){document.getElementById("info_letter").innerHTML=h;
+}else{document.getElementById("info_letter").innerHTML="";}document.getElementById("info_all").innerHTML=cld[a].sYear+"-"+(cld[a].sMonth)+"-"+cld[a].sDay+"  星期"+cld[a].week;
+document.getElementById("info_today").innerHTML=cld[a].sDay;var e=["","正","二","三","四","五","六","七","八","九","十","冬","腊"],k=["","初一","初二","初三","初四","初五","初六","初七","初八","初九","初十","十一","十二","十三","十四","十五","十六","十七","十八","十九","二十","廿一","廿二","廿三","廿四","廿五","廿六","廿七","廿八","廿九","三十","三十一","三十二"];
+document.getElementById("info_nong").innerHTML="农历"+e[parseInt(cld[a].lMonth)]+"月"+k[parseInt(cld[a].lDay)];document.getElementById("info_chang").innerHTML=cld[a].cYear+"年 "+cld[a].cMonth+"月 "+cld[a].cDay+"日";
+}else{sObj.style.color=cld[a].color;sObj.parentNode.parentNode.className+=cld[a].className;}if(cld[a].lDay==1){lObj.innerHTML="<b>"+(cld[a].isLeap?"":"")+cld[a].lMonth+"月"+(monthDays(cld[a].lYear,cld[a].lMonth)==29?"小":"大")+"</b>";
+}else{lObj.innerHTML=cDay(cld[a].lDay);}o=cld[a].lunarFestival;if(o.length>0){if(o.length>6){o=o.substr(0,4)+"...";}o=o.fontcolor("red");}else{var n=cld[a].solarFestival;
+if(n=="国庆节"){if(parseInt(cld[a].sYear)>1948){o=cld[a].solarFestival;}}else{o=cld[a].solarFestival;}if(o.length>0){p=(o.charCodeAt(0)>0&&o.charCodeAt(0)<128)?8:4;
+if(o.length>p+2){o=o.substr(0,p)+"...";}}else{o=cld[a].solarTerms;}}if(cld[a].solarTerms=="小寒"){o="小寒".fontcolor("red");}if(cld[a].solarTerms=="大寒"){o="大寒".fontcolor("red");
+}if(cld[a].solarTerms=="立春"){o="立春".fontcolor("red");}if(cld[a].solarTerms=="雨水"){o="雨水".fontcolor("red");}if(cld[a].solarTerms=="惊蛰"){o="惊蛰".fontcolor("red");
+}if(cld[a].solarTerms=="春分"){o="春分".fontcolor("red");}if(cld[a].solarTerms=="清明"){o="清明".fontcolor("red");}if(cld[a].solarTerms=="清明"){o="清明".fontcolor("red");
+}if(cld[a].solarTerms=="谷雨"){o="谷雨".fontcolor("red");}if(cld[a].solarTerms=="立夏"){o="立夏".fontcolor("red");}if(cld[a].solarTerms=="小满"){o="小满".fontcolor("red");
+}if(cld[a].solarTerms=="芒种"){o="芒种".fontcolor("red");}if(cld[a].solarTerms=="夏至"){o="夏至".fontcolor("red");}if(cld[a].solarTerms=="小暑"){o="小暑".fontcolor("red");
+}if(cld[a].solarTerms=="大暑"){o="大暑".fontcolor("red");}if(cld[a].solarTerms=="立秋"){o="立秋".fontcolor("red");}if(cld[a].solarTerms=="处暑"){o="处暑".fontcolor("red");
+}if(cld[a].solarTerms=="白露"){o="白露".fontcolor("red");}if(cld[a].solarTerms=="秋分"){o="秋分".fontcolor("red");}if(cld[a].solarTerms=="寒露"){o="寒露".fontcolor("red");
+}if(cld[a].solarTerms=="霜降"){o="霜降".fontcolor("red");}if(cld[a].solarTerms=="立冬"){o="立冬".fontcolor("red");}if(cld[a].solarTerms=="小雪"){o="小雪".fontcolor("red");
+}if(cld[a].solarTerms=="大雪"){o="大雪".fontcolor("red");}if(cld[a].solarTerms=="冬至"){o="冬至".fontcolor("red");}if(o.length>0){lObj.innerHTML=o;}}else{sObj.innerHTML="";
+lObj.innerHTML="";}}}function changeCld(){var b,a;b=Number(document.getElementById("current-data").innerHTML);a=Number(Number(document.getElementById("current-data-month").innerHTML)-1);
+drawCld(b,a);}function pushBtm(a){if(document.getElementById("date_count").style.display==="block"){document.getElementById("date_count").style.display="none";
+document.getElementById("date_show").style.display="block";if(document.getElementById("date_count_btn").className.indexOf("a_4")!="-1"){document.getElementById("date_count_btn").className=document.getElementById("date_count_btn").className.replace("a_4","");
+}}switch(a){case"MU":if(Number(document.getElementById("current-data-month").innerHTML)>1){document.getElementById("current-data-month").innerHTML=Number(document.getElementById("current-data-month").innerHTML)-1;
+}else{document.getElementById("current-data-month").innerHTML=12;if(document.getElementById("current-data").innerHTML-1901>0){document.getElementById("current-data").innerHTML=Number(document.getElementById("current-data").innerHTML)-1;
+}}break;case"MD":if(document.getElementById("current-data-month").innerHTML<12){document.getElementById("current-data-month").innerHTML=Number(document.getElementById("current-data-month").innerHTML)+1;
+}else{document.getElementById("current-data-month").innerHTML=1;if(document.getElementById("current-data").innerHTML-1900<149){document.getElementById("current-data").innerHTML=Number(document.getElementById("current-data").innerHTML)+1;
+}}break;default:document.getElementById("current-data").innerHTML=tY;document.getElementById("current-data-month").innerHTML=tM+1;}changeCld();}var Today=new Date();
+var tY=Today.getFullYear();var tM=Today.getMonth();var tD=Today.getDate();var width="200";var offsetx=2;var offsety=8;var x=0;var y=0;var snow=0;var sw=0;
+var cnt=0;var to_day={id:null,N_Date:"",ip:"",Y_Date:"",click_Date:"",jin:null};function mOvr(v){var lichun_mon=parseInt($("#current-data-month").text()),lichun_year=parseInt($("#current-data").text()),curDate=parseInt($("#GD"+v).find("strong").text());
+if(lichun_mon==2){if(curDate<lichunDate){document.getElementById("GZ").innerHTML='<span class="gznl"> 『'+Animals[(lichun_year-5)%12]+"年』"+cyclical(lichun_year-1901+36)+"年</span>";
+}else{document.getElementById("GZ").innerHTML='<span class="gznl"> 『'+Animals[(lichun_year-4)%12]+"年』"+cyclical(lichun_year-1900+36)+"年</span>";}}var sdStrong=document.getElementById("SD"+v);
+if(sdStrong.innerHTML==""&&document.getElementById("LD"+v).innerHTML==""){return;}if(sdStrong.className.indexOf("grad")!==-1){if(sdStrong.getAttribute("rel")&&sdStrong.getAttribute("rel")=="up"){pushBtm("MU");
+}else{pushBtm("MD");}return;}if(to_day.id!=null&&v===to_day.id){return;}else{if(to_day.id!=null){document.getElementById("GD"+to_day.id).className=document.getElementById("GD"+to_day.id).className.replace("today","");
+}to_day.id=v;}var s,festival;var sObj=document.getElementById("SD"+v);sObj.parentNode.parentNode.className+=" today";var d=sObj.innerHTML-1;if(sObj.innerHTML!=""){if(cld[d].solarTerms==""&&cld[d].solarFestival==""&&cld[d].lunarFestival==""){festival="";
+}else{festival="";var v="";if(parseInt(cld[d].sYear)>1948){v=cld[d].solarFestival;}festival='<div class="festival">'+cld[d].solarTerms+" "+v+" "+cld[d].lunarFestival+"</div>";
+}var hltxt="";document.getElementById("info_all").innerHTML=cld[d].sYear+"-"+cld[d].sMonth+"-"+cld[d].sDay+"  星期"+cld[d].week;var nongMonth=["","正","二","三","四","五","六","七","八","九","十","冬","腊"],nongRi=["","初一","初二","初三","初四","初五","初六","初七","初八","初九","初十","十一","十二","十三","十四","十五","十六","十七","十八","十九","二十","廿一","廿二","廿三","廿四","廿五","廿六","廿七","廿八","廿九","三十","三十一","三十二"];
+document.getElementById("info_nong").innerHTML="农历"+(cld[d].isLeap?"闰 ":" ")+nongMonth[parseInt(cld[d].lMonth)]+"月"+nongRi[parseInt(cld[d].lDay)];document.getElementById("info_today").innerHTML=cld[d].sDay;
+document.getElementById("info_chang").innerHTML=cld[d].cYear+"年 "+cld[d].cMonth+"月 "+cld[d].cDay+"日";document.getElementById("info_letter").innerHTML=festival;
+to_day.click_Date=cld[d].sMonth+"_"+cld[d].sDay;$.ajax({url:"action.php",type:"post",data:"date="+cld[d].sYear+"-"+cld[d].sMonth+"-"+cld[d].sDay+"&type=unload",cache:false,success:function(data){try{var data=eval("("+data+")");
+var list_good="";if(data.good!=500&&data.good!="500"){for(var i=0;i<data.good.length;i++){list_good+="<span>"+data.good[i]+"</span>";}}else{list_good="<span>暂无</span>";
+}$(".yi").html(list_good);var list_bad="";if(data.bad!=500&&data.bad!="500"){for(var i=0;i<data.bad.length;i++){list_bad+="<span>"+data.bad[i]+"</span>";
+}}else{list_bad="<span>暂无</span>";}$(".ji").html(list_bad);}catch(ex){$(".yi").html("<span>暂无</span>");$(".ji").html("<span>暂无</span>");}}});}}function initial(){document.getElementById("CLD").SY.selectedIndex=tY-1900;
+document.getElementById("CLD").SM.selectedIndex=tM;document.getElementById("current-data").innerHTML=yearInfo[tY-1900];document.getElementById("current-data-month").innerHTML=tM+1;
+drawCld(tY,tM);pushBtm("");}
+</script>
+
+</head>
+<body onload="initial()" style='background-color:#E3E7F0'>
+<script language="javascript">
+	lck = 0;
+	function r(hval) {
+		if(lck == 0) {
+			document.body.style.background = hval;
+		}
+	}
+</script>
+<form name="CLD" id="CLD">
+<div class=""  id="divBor" style='position:absolute;top:-90px;left:-10px;width:500px;background-color:#E3E7F0;'>
+<div id="wrap">
+<!-- <div id="YMBG" style="display:none;">2034<br/>FEB</div> -->
+<div class="wnl-title">
+<div class="p">
+	<a class="t" href="" target="_blank"></a>
+	<span id="GZ" class="p-span">
+		<span class="gznl"></span>
+		<!-- <span class="gzage"></span> 
+		<span class="gznl"></span> -->
+	</span>
+	<span class="tq"></span>
+</div>
+<div class="title clear">
+	<span class="jin">
+		<a class="a_1" onclick="pushBtm('')">&nbsp;</a>
+	</span>
+	<div class="select-data">
+		<ul>
+			<li class="pre"  onclick="pushBtm('MU')"><a href="javascript:void(0)"></a></li>
+			<li class="year-data">
+				<div class="current-data" id="current-data" onclick=""></div>
+				<div class="select-wrap" id="select-year-option">
+					<ul class="select-year" id="select-year"></ul>
+					<script type="text/javascript">
+						var list='';
+						for(var i=0; i<yearInfo.length; i++){
+							list += '<li>'+yearInfo[i]+'</li>'
+						}
+						document.getElementById('select-year').innerHTML = list;
+					</script>
+				</div>
+			</li>
+			<li class="month-data" id="month-data">
+				<div class="current-data" id="current-data-month" onclick=""></div>
+				<div class="select-wrap" id="select-month-option">
+					<ul class="select-year">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li>10</li>
+						<li>11</li>
+						<li>12</li>
+					</ul>
+				</div>
+			</li>
+			<li class="next" onclick="pushBtm('MD')"><a href="javascript:void(0)"></a></li>
+		</ul>
+	</div>
+	<div class="todays" >
+		<a class="a_2" href="">&nbsp;</a>
+		<a class="a_3" id="date_count_btn" href="">&nbsp;</a>
+		<ul class="holidays_ul">
+			<li rel="1">元旦</li>
+			<li rel="1">春节</li>
+			<li rel="4">清明节</li>
+			<li rel="4">劳动节</li>
+			<li rel="6">端午节</li>
+			<li rel="9">中秋节</li>
+			<li rel="10">国庆节</li>
+		</ul>
+		<!-- <a class="a_5" href="">&nbsp;</a> -->
+	</div>
+ 
+<div style="display:none">
+公历
+<select onchange="changeCld()" name="SY">
+<script language="javascript">
+		  <!--
+            for(i=1900;i<2050;i++) document.write('<option>'+i)
+          //-->
+		  </script>
+</select>
+年
+<select onchange="changeCld()" name="SM">
+<script language="javascript">
+		  <!--
+            for(i=1;i<13;i++) document.write('<option>'+i)
+          //-->
+		  </script></select>
+月 
+</div>
+
+</div>
+</div>
+
+<div class="mian clear">
+<div class="content-c">
+<div class="content-tb" style="/*display: none;*/" id="date_show">
+<div  class="nav-tlt clear">
+<span>日</span>
+<span>一</span>
+<span>二</span>
+<span>三</span>
+<span>四</span>
+<span>五</span>
+<span class="last">六</span>
+</div>
+<table border="0" cellspacing="0" cellpadding="0" class="calendar">
+<tbody>
+<script language="javascript">
+		<!--
+            var gNum
+            for(i=0;i<6;i++) {
+            	if(i==5){
+            		document.write('<tr id="lastLine">')
+            	}else{
+            		document.write('<tr>')
+            	}
+               for(j=0;j<7;j++) {
+                  gNum = i*7+j
+                  document.write('<td id="GD' + gNum +'" onclick="mOvr(' + gNum +')" class=""><div')
+                  if(j == 0){
+                  	document.write(' class="red"><strong id="SD' + gNum +'"> </strong></div><span id="LD' + gNum + '" class="red"> </span></td>')
+                  }else if(j == 6){
+                  	document.write(' class="red"><strong id="SD' + gNum +'"> </strong></div><span id="LD' + gNum + '" class="red"> </span></td>')
+                  }else{
+                  	document.write('><strong id="SD' + gNum +'"> </strong></div><span id="LD' + gNum + '"> </span></td>')
+                  }
+               }
+               document.write('</tr>')
+            }
+        //-->
+		</script>
+</tbody>
+</table>
+</div>
+
+<div class="calculation" style="display:none;" id="date_count">
+<div class="reckon-c">
+<h3>推算几天后的日期:</h3>
+<div class="reckon-input">
+<span class="reckon-sp">和<input type="text"class="w-40" value="2011" maxlength='4'  size='4' id='inYear' />年<input type="text" value="4" maxlength='2'  size='2' id='inMonth' />月<input type="text" value="30" maxlength='2'  size='2' id='inData'/>日<span class="color-or">( 默认为今天 )</span></span>
+<span class="reckon-sp">相差<input type="text" value=""class="w-80" maxlength='4'  size='4' id='decday' />天<span class="color-or">( 可输入负数 )</span>
+	<a href="javascript:void(0)" class="countDate" onclick="callA()"></a>
+</span>
+<span class="reckon-sp">是<span class="f14"  id='result1'>显示结果</span></span>
+</div>
+</div>
+<div class="line"></div>
+<div class="reckon-c">
+
+<h3>计算日期差:</h3>
+<div class="reckon-input">
+<span class="reckon-sp"><input class="w-40" type="text" value="2011" maxlength='4'  size='4' id='inYear2'/>年<input type="text" value="4"  maxlength='2'  size='2'  id='inMonth2'/>月<input type="text" value="30"  maxlength='2'  size='2' id='inData2' />日<span class="color-or">( 默认为今天 )</span></span>
+<span class="reckon-sp">和<input type="text"class="w-40" value=""  maxlength='4'  size='4'  id='inYear3'  />年<input type="text" value="" maxlength='2'  size='2' id='inMonth3' />月<input type="text" value="" maxlength='2'  size='2' id='inData3' />日
+	<a href="javascript:void(0)" class="countDate" onclick="callB()"></a>
+</span>
+<span class="reckon-sp">相差<span class="color-or f14" id='result2'>显示结果</span></span>
+</div>
+</div>
+</div>
+</div>
+	<div class="subar">
+		<div class="sub-icon">
+			<div class="icon">
+				<span class="gday" id="info_all">加载中...</span>
+				<span class="tday" id="info_today"></span>
+				<span class="nday" id="info_nong"></span>
+				<span class="ganzhi" id="info_chang"></span>
+				<span class="jieri" id="info_letter"></span>
+			</div>
+		</div>
+		<div class="yiji clear">
+			<div class="yi" id="yi" style='text-align:center;width:100%'>
+				<B id='t01'>00</B> 时 <B id='t02'>00</B> 分 <B id='t03'>00</B> 秒
+			</div>
+			
+		</div>
+	</div>
+</div>
+	<div class="weather clear">
+		
+	</div>
+</div>   
+</div>
+<div style="width:640px;text-align:center;margin:auto;font:12px/18px Arial;padding:8px; display:none;">
+<input type="button" onclick="pushBtm(&#39;YU&#39;)" value="年↑"/>
+<input type="button" onclick="pushBtm(&#39;YD&#39;)" value="年↓"/>
+<input type="button" onclick="pushBtm(&#39;MU&#39;)" value="月↑"/>
+<input type="button" onclick="pushBtm(&#39;MD&#39;)" value="月↓"/>
+<input type="button" onclick="pushBtm(&#39;&#39;)" value="今日"/>
+</div>
+</form>
+<script src="js/jquery.js" type='text/javascript'></script>
+<script src="js/oper.js" type='text/javascript'></script>
+<script>
+if(window.location.toString().indexOf('canvas_pos=search') === -1){
+$('#divBor').addClass('app-bg');
+}
+
+function $ID(id){
+	return  document.getElementById(id);
+}
+
+window.isOnece = false;
+function setTimeSpan(){
+	var myDate = new Date();
+	var h = myDate.getHours();       //获取当前小时数(0-23)
+	var m = myDate.getMinutes();     //获取当前分钟数(0-59)
+	var s = myDate.getSeconds();     //获取当前秒数(0-59)
+	var yy = myDate.getFullYear();
+	var mm = myDate.getMonth()*1+1;
+	var  dd= myDate.getDate();
+	if(h<10) {h = "0" + h;}
+	if(m<10) {m = "0" + m;}
+	if(s<10) {s = "0" + s;}
+	$ID("t01").innerHTML = h;
+	$ID("t02").innerHTML = m;
+	$ID("t03").innerHTML = s;
+	if(window.isOnece == false){
+		window.isOnece  = true;
+		$ID("inYear").value = yy;
+		$ID("inMonth").value = mm;
+		$ID("inData").value = dd;
+		$ID("inYear2").value = yy;
+		$ID("inMonth2").value = mm;
+		$ID("inData2").value = dd;
+	}
+}
+setTimeSpan();
+setInterval("setTimeSpan()",1000);
+</script>
+
+</body>
+</html>

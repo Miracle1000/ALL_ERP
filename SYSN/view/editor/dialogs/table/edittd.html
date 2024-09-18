@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	 <script type="text/javascript" src="../internal.js"></script>
+    <style type="text/css">
+        .section {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .section input {
+            margin-left: 5px;
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+<div class="section" style="line-height:26px;text-align:left;padding-left:20px">
+    <span><var id="lang_tdBkColor"></var></span><input type="text" id="J_tone" style="width:100px"/><br>
+	单元格宽:<input type="text" id="Jw_tone" /> 像素<br>
+	单元格高:<input type="text" id="Jh_tone" /> 像素<br>
+</div>
+<script type="text/javascript">
+	var tone = $G("J_tone"), jwtone = $G("Jw_tone"), jhtone = $G("Jh_tone"),
+            colorPiker = new UE.ui.ColorPicker({
+                editor:editor
+            }),
+            colorPop = new UE.ui.Popup({
+                editor:editor,
+                content:colorPiker
+            });
+    domUtils.on(tone, "click", function () {
+        colorPop.showAnchor(tone);
+    });
+    domUtils.on(document, 'mousedown', function () {
+        colorPop.hide();
+    });
+    colorPiker.addListener("pickcolor", function () {
+        tone.value = arguments[1];
+        colorPop.hide();
+    });
+    colorPiker.addListener("picknocolor", function () {
+        tone.value="";
+        colorPop.hide();
+    });
+    dialog.onok=function(){
+    	editor.execCommand("edittd", tone.value);
+    	if (cell) {
+    		cell.height = jhtone.value;
+    		var tr =  cell.parentNode;
+    		var cellindex  = cell.cellIndex;
+    		for(var i = 0; i<tr.cells.length; i++){
+    			if(tr.cells[i]==cell){  cellindex=i; break; }
+    		}
+    		var rows = tr.parentNode.rows;
+    		for (var i = 0; i < rows.length; i++) {
+    			if (tr.cells.length == rows[i].cells.length) {
+    				rows[i].cells[cellindex].width = jwtone.value;
+    			}
+    		}
+    	}
+    };
+
+    var start = editor.selection.getStart(),
+        cell = start && domUtils.findParentByTagName(start, ["td", "th"], true);
+    if(cell){
+        var color = domUtils.getComputedStyle(cell,'background-color');
+        if(/^#/.test(color)){
+            tone.value = color
+        }
+        jwtone.value = cell.offsetWidth;
+        jhtone.value = cell.offsetHeight;
+    }
+
+</script>
+</body>
+</html>

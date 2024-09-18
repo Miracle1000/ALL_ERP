@@ -1,0 +1,312 @@
+﻿#editbody * { font-family:微软雅黑;color:#000; }
+#editbody div.chartlabel {color:#41454C;}
+
+#editbody   td.fcell { border:0px; }
+#editbody { margin-top:10px; }
+#editbody .sub-thead { background:transparent; }
+#editbody .group-title { font-size:16px; font-family:微软雅黑;  margin-left: 12px;}
+#editbody div.group-fold img { height:1px; width: 1px; overflow: hidden; }
+#editbody div.group-fold { width:1px; height:16px; background-color:#31353E; border-radius:1px; position:relative; top:8px; }
+#editbody td.GroupTabtitle {padding-top:  15px; padding-bottom: 10px;}
+#bill_bottomdiv { display:none;}
+
+/*年份选择区域*/
+#yearboxtbbg *{ font-size:16px; }
+#yearboxtbbg { width: 100%;  border-bottom:1px solid #e6e6e6; border-collapse:collapse; table-layout:fixed;}
+#yearboxtb { border-collapse: collapse; }
+#yearboxtbbg td {padding:0px;}
+#yearboxtbbg a:hover {color:#332Ed4; text-decoration:none;}
+#yearboxcell0 { width: 20%;  }
+#yearboxcell1 { width: 30%;  }
+#yearboxcell2 { width: 50%; }
+#yearboxcell0 div {
+	float:left;
+	color:white;
+	background-color:#31353E;
+	font-weight:bold;
+	padding: 0px  20px 0px 12px;
+	height:35px;
+	line-height:34px;
+	overflow:hidden;
+	border-radius:2px;
+	cursor:default;
+}
+
+#yearboxcell1 select {
+	background-color: #e6e6e6;
+	border:0px;
+	width:140px;
+	line-height:16px;
+	box-sizing: border-box;
+	vertical-align:central;
+	padding: 6px  5px;
+}
+
+
+/*子公司选择区域*/
+#companyboxbg {width: 100%; margin:15px 0px 17px 0px; table-layout:fixed;}
+#companyboxbg * {font-size:14px; }
+#companyboxbg {border-collapse:collapse;}
+#companyboxbg #split1 {width: 5px;}
+#companyboxbg #split2 {width: 25px;}
+#companyboxbg input[type=radio] {
+	-webkit-appearance:none;
+	border:1px solid #000;
+	border:0px\9;
+	width:14px; height:14px;
+	border-radius:7px;
+	color:#000;
+}
+#companyboxbg input[type=radio]:checked {
+	width:14px; height:14px;
+	border-radius:7px;
+	border:5px solid #31353E;
+	border:0px\9;
+	background-color:white;
+	background-color:transparent\9;
+}
+#companyboxbg label {
+	position:relative;
+	top:-1px;	
+	margin-left: 3px;
+	cursor:pointer;
+}
+#companyboxbgcell0 {
+	width:150px;
+	height:60px;
+	background:#eee;
+	text-align:center;
+	overflow:hidden;
+	line-height:60px;
+	box-sizing:border-box;
+	margin-left:5px;
+}
+
+#companyboxbgcell1 { border: 1px solid #ccc; }
+#companyboxbgcell1 input { margin-left: 48px;}
+div.anysbodyspliter { height: 10px; background-color:#eee;}
+div.anysbodyspliter.islast { height: 20px; background-color:#eee; }
+
+table.anysgroupitem { table-layout:fixed; width: 100%; border-collapse:collapse; margin-bottom: 20px; }
+td.anysgroupcell { padding:0px; }
+td.anysgroupcell.r { height: 100%;}
+td.anysgroupcell.r div.anysgroupcelldiv { background-color:#ECEEFF; overflow:hidden; margin-left:10px; height:100%; border-radius: 6px;  }
+td.anysgroupcell.l div.anysgroupcelldiv { background-color:#DBF8FF; overflow:hidden; margin-right:10px; background-color:#DBF8FF; overflow:hidden; border-radius: 6px; }
+td.anysgroupcell.lt div.anysgroupcelldiv {margin-right:10px; }
+td.anysgroupcell.lt div.anysgroupcelldiv div.sub-field-children.gray.f_textbox.readonly { height:150px;overflow:hidden;}
+
+div.AnysNumerPanel { height:140px; display:block;  position:relative;  margin-bottom: 10px; border-radius: 6px; }
+#editbody div.AnysNumerPanel div.anynumv {
+	font-size:40px;  
+	font-family:微软雅黑;   
+	transform: scale(1.1,1);
+	color:white;
+	position:absolute;
+	text-align:center;
+	top:35%;
+	width:100%;
+}
+#editbody div.AnysNumerPanel span.anyunit {
+	color:white;
+	font-size: 13px;
+	display:inline-block;
+	font-weight:normal;
+}
+#editbody div.AnysNumerPanel  div.anytitlebox { 
+	position:absolute;
+	text-align:center;
+	bottom:10%;
+	width:100%;	
+ }
+#editbody div.AnysNumerPanel div.anytitle {
+	color:white;
+	font-size:14px;
+	display:inline-block;
+	border:1px solid #fff;
+	border-radius:20px;
+	padding: 5px 25px;
+}
+#editbody div.BottomChartCaption tr {background-color:transparent;}
+#editbody div.BottomChartCaption td {background-color:transparent;padding:0px;}
+#editbody div.BottomChartCaption table { display:inline-block;margin: 0 auto;width:auto; }
+
+#editbody div.ChartCaption { top:10%; font-size:14px; }
+#editbody td.anysgroupcell.l div.ChartCaption  {top:4%;}
+#editbody td.anysgroupcell.l div.BottomChartCaption {padding-bottom:15px;}
+/*饼图区域样式*/
+#editbody table.anysgrouppieitem { width: 100%;  }
+#editbody table.anysgrouppieitem * {font-family:微软雅黑; font-size:14px;}
+div.anysgrouppiecelldiv { background-color:#FFF4e7;border-radius:6px;}
+td.anysgrouppiecell.l {padding-right:10px;}
+td.anysgrouppiecell.r {padding-left:10px;}
+
+table.msginfolabel {
+	margin:10px;
+	background-color:white;
+	width:340px;
+	border-collapse:collapse;
+}
+
+table.msginfolabel td {
+	border:1px solid #c0ccdc;
+	padding:5px;
+}
+
+table.msginfolabel td.valuecell {
+	font-size:15px;
+	font-family:微软雅黑;
+	color:#000;
+	padding: 8px 0px;
+}
+
+/* ===各个业务性质的单元块样式定义=== */
+
+/*销售分析模块*/
+div.AnysNumerPanel.salesmoney1 {
+	background: #5f96DA url(../../images/homeanalysis/ht.png) no-repeat;
+	background-position: 9% 20%;
+}
+div.AnysNumerPanel.salepaybackmoney1 {
+	background: #AC78F8 url(../../images/homeanalysis/hk.png) no-repeat;
+	background-position: 9% 20%;
+}
+table.profitsumbg {
+	width:100%;
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+table.profitsumbg td.bgcell {
+	padding:0px;	
+}
+
+/*利润板块*/
+#zbservices_centers_view_home_analysis_profitanalysis td.anysgroupcell.l div.anysgroupcelldiv,
+#zbservices_centers_view_home_analysis_profitanalysis td.anysgroupcell.l div.anysgroupcelldiv
+{
+	background-color: #efffdd;
+}
+
+#SaleDataTypebg { display:inline-block;margin-right:30px;  position:relative; top:2px;}
+#SaleDataTypebg label { font-size:15px;  margin-right: 10px;}
+#SaleDataTypebg input { position:relative;top:2px;} 
+
+div.AnysNumerPanel.maolimoney1 {
+	background: #5f96DA url(../../images/homeanalysis/mlr.png) no-repeat;
+	background-position: 9% 10%;
+	margin-right:5px;
+}
+
+div.AnysNumerPanel.maolirate1 {
+	background: #C582Fa url(../../images/homeanalysis/mll.png) no-repeat;
+	background-position: 9% 10%;
+}
+
+div.AnysNumerPanel.jinglimoney1 {
+	background: #63cd60 url(../../images/homeanalysis/jlr.png) no-repeat;
+	background-position: 9% 10%;
+	margin-right:5px;
+}
+
+div.AnysNumerPanel.jinglirate1 {
+	background: #f89f48 url(../../images/homeanalysis/mll.png) no-repeat;
+	background-position: 9% 10%;
+}
+
+/*现金流模块*/
+div.AnysNumerPanel.castflow1 {
+	background: #7876f7 url(../../images/homeanalysis/yhzh.png) no-repeat;
+	background-position: 9% 15%;
+	width:435px;
+	height:300px;
+	margin:0 auto;
+	margin-top:50px;
+}
+div.AnysNumerPanel.castflow1 div {zoom:1.2;}
+#AYSFAD786C353_fbg div.anysgrouppiecelldiv {
+	height:400px;
+}
+#AYSFAD786C353_fbg  div.AnysNumerPanel.castflow1 div.anytitlebox {
+	bottom:70px;
+}
+#AYSFAD786C353_fbg td.anysgrouppiecell.l div.anysgrouppiecelldiv {
+	background-color:#ddddfe;
+	height:400px;
+}
+
+#moneystreambg { table-layout:fixed; width:100%; border-collapse:collapse ;}
+#moneystreambg td.r1, #moneystreambg td.r2 { width:50%; padding:0px;}
+#moneystream { table-layout:fixed; width:99%;  height:460px; border-collapse:collapse; box-sizing:border-box;margin-bottom:10px;}
+#moneystream td, #moneystream th { border:1px solid #DDD; text-align:center; font-size:14px;  }
+#moneystream td.r { text-align:right;padding-right:2%;  }
+#moneystream th { background-color:#e6e6e6; }
+#moneystream tr.sumrr td { color:#332ed4; }
+#moneystreambg div.anysgroupcelldiv { height: 460px;margin-bottom:5px;}
+
+#subchildparent_CurrDateTime1 * {font-size:12px; }
+#subchildparent_CurrDateTime1 {zoom: 1.2;margin-bottom:2px;}
+
+div.AnysNumerPanel.payinout1 {
+	background: #9e6df6 url(../../images/homeanalysis/yf.png) no-repeat;
+	background-position: 9% 20%;
+}
+div.AnysNumerPanel.payinout2 {
+	background: #fd7143 url(../../images/homeanalysis/ys.png) no-repeat;
+	background-position: 9% 20%;
+}
+div.AnysNumerPanel.costmoney1 {
+	background: #7286f7 url(../../images/homeanalysis/fy.png) no-repeat;
+	background-position: 9% 20%;
+}
+div.AnysNumerPanel.wagesmoney1 {
+	background: #f49653 url(../../images/homeanalysis/gz.png) no-repeat;
+	background-position: 9% 20%;
+}
+
+#zbservices_centers_view_home_analysis_cashflowanalysis td.anysgroupcell.r div.anysgroupcelldiv {
+	background-color: #EFFFE6;
+}
+
+#zbservices_centers_view_home_analysis_payinandpayoutanalysis td.anysgroupcell.l div.anysgroupcelldiv {
+	background-color: #FFFBDA;
+}
+#zbservices_centers_view_home_analysis_payinandpayoutanalysis td.anysgroupcell.r div.anysgroupcelldiv {
+	background-color: #D5F7F4;
+}
+#zbservices_centers_view_home_analysis_costanalysis   td.anysgroupcell.l div.anysgroupcelldiv {
+	background-color: #DDFFEF;
+}
+
+#zbservices_centers_view_home_analysis_subsidiarypkanalysis div.sub-field.f_chartgraph {
+	background-color:#DDF3FF;
+	border-radius:6px;
+	margin:0px;
+}
+
+#pk1_fbg, #pk22_fbg, #pk32_fbg, #pk4_fbg {
+	padding-bottom:30px;
+}
+#pk1_fbg, #pk4_fbg  {
+	padding-top:10px;
+}
+#pk21_fbg, #pk31_fbg  {
+	padding-bottom:10px;
+}
+#zbservices_centers_view_home_analysis_subsidiarypkanalysis  #pk21_div {background-color:#DFE9FF;}
+#zbservices_centers_view_home_analysis_subsidiarypkanalysis #pk22_div {background-color:#FFFADE;}
+#zbservices_centers_view_home_analysis_subsidiarypkanalysis #pk31_div {background-color:#F4E7FF;}
+#zbservices_centers_view_home_analysis_subsidiarypkanalysis #pk32_div {background-color:#DAFFF8;}
+#zbservices_centers_view_home_analysis_subsidiarypkanalysis #pk4_div {background-color:#FFF0E9;}
+#saledataVType_div { border:1px solid #ccc;padding:15px 40px;margin:10px 0px;}
+#saledataVType_div label {font-size:14px; margin-right:30px;}
+/* ====end=====*/
+
+
+body {
+	max-width:1600px;
+	margin:0px auto;
+}
+/*
+svg {
+	border:1px solid red;
+}
+*/

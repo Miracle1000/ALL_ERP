@@ -1,0 +1,7 @@
+直接
+1.使用cmd命令方式
+例如；
+pnputil -i -a d:\\TelMateWDM.inf
+
+2.使用windows驱动安装向导的方式选择该目录下的TelMateWDM.inf
+

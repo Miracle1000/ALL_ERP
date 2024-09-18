@@ -1,0 +1,15 @@
+﻿body {
+    background-color: #fff;
+}
+#zbservices_view_sysn_view_sales_project_projectcompany {
+    background-color: #fff;
+}
+div.listview table {
+    border: 1px solid #ccc !important;
+}
+td.fcell[uitype='listview']{
+    padding:0px!important;
+}
+#editbody{
+    margin:0px!important;
+}

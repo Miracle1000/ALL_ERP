@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理软件</title>
+  <link href="../../skin/default/css/comm.css?ver=3205.20220706.213521.16195985" rel="stylesheet" type="text/css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+        height:100%;
+        overflow:hidden;
+    }
+    body{padding-left:10px;padding-top:10px;box-sizing:border-box;}
+    ul,li{
+      list-style: none;
+      font-size: 0px;
+    }
+    li.tabList{
+      float: left;
+      font-size: 12px;
+    }
+    body.mozi div.setPageTitle{
+      display: none;
+    }
+    div.setPageTitle{
+      height: 61px;
+      background: #fff;
+      box-sizing:border-box;
+      border-bottom:1px solid #CCC;
+    }
+    ul.muneTab{
+      width: 100%;
+    }
+    ul.muneTab,li.tabList{
+      height: 60px;
+    }
+    li.tabList{
+      width: 120px;
+      text-align: center;
+      line-height: 60px;
+      color: #000;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      position:static;
+    }
+    li.tabList.active{
+      color:#1A58AA;
+      position:relative;
+    }
+    div.tabPanel{
+      position: absolute;
+      left: 10px;
+      right: 0px;
+      bottom: 0px;
+      top: 71px;
+    }
+    body.mozi div.tabPanel{
+      top: 0px;
+    }
+    iframe.tabFrame{
+      height: 100%;
+      width: 100%;
+    }
+    div.ShaDiv {
+     position: fixed;
+     _position: absolute;
+     top: 0px;
+     left: 0px;
+     width: 100%;
+     height: 43px;
+     filter: alpha(Opacity=60);
+     -moz-opacity: 0.5;
+     opacity: 0.5;
+     background-color: #9999aa;
+   }
+  </style>
+</head>
+
+<body>
+  <div class="setPageTitle">
+      <ul class="muneTab">
+          <li onclick="changeUrl(this)" url="./index.asp" id="tabListFrist" class="tabList active baseFontColor">首页设置</li>
+          <script>
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.open("get", "../../../SYSN/json/comm/Home.ashx?actionName=GetSettingTabPower&t=" + (new Date()).getTime(), false);
+              xmlhttp.send();
+              var obj = eval("(" + xmlhttp.responseText + ")")
+              if (obj && obj.HasGuidPower == 1) {
+                  document.write('<li onclick="changeUrl(this)" url="../../../SYSN/view/init/guide.ashx" class="tabList">系统启用引导</li>');
+              }
+              if (obj && obj.HasParSettingPower == 1) {
+                  document.write('<li onclick="changeUrl(this)" url="../../../SYSN/view/comm/syssettings.ashx?isTitleHide=1" class="tabList">系统参数设置</li>');
+              }
+          </script>
+          <li onclick="changeUrl(this)" url="../myNavSetting.html?isTitleHide=1" class="tabList last">我的常用设置</li>
+      </ul>
+  </div>
+  <div class="tabPanel">
+    <iframe id="tabPanel" class="tabFrame" src="" frameborder="0"></iframe>
+  </div>
+</body>
+<script src="../../inc/jQuery-1.7.2.min.js"></script>
+<script>
+  function init(){
+    var uizoom = top.uizoom ? top.uizoom : 1;
+    if ((top == window || (top.app && top.app.IeVer >= 100)) && uizoom != 1) {
+        $("body").css({ "position": "relative", "zoom": uizoom })
+    }
+    if (window.onCommPageInit) { window.onCommPageInit(); }
+    var type=getQueryVariable("type");
+    var li=$("#tabListFrist")
+    var url=li.attr("url");
+    li.attr("url",url+"?index="+type)
+    var sysType=top.SysConfig?top.SysConfig.SystemType:"";
+    if(sysType==3){$("body").addClass("mozi")}else{$("body").removeClass("mozi")}
+    changeUrl(li[0])
+  }
+  function changeUrl(a){
+    if(!a){return}
+    $(a).addClass("active baseFontColor").siblings().removeClass("active baseFontColor");
+    var url = a.getAttribute("url");
+    $(tabPanel).attr("src",url)
+  }
+  //获取地址上某个参数
+  function getQueryVariable(variable){
+    var query = window.location.search.substring(1);
+    if(!variable||!query){return false}
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        if(!vars[i]&&vars[i]!="0"){continue;}
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+   }
+    init();
+</script>
+</html>

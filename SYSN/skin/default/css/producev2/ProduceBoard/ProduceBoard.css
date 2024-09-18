@@ -1,0 +1,374 @@
+﻿html,body{height:100%;color:#333;}
+body,div,span,a,i,input,h1,h2,label{color:#333;font-family:"微软雅黑";}
+body{background:#efefef!important;overflow-y:auto;*overflow-y:visible}
+table#editbody{margin-left:0!important;margin-bottom:0px!important;width:100%!important;height:100%!important;}
+table#editbody>tbody>tr>td{border:0!important;margin:0!important;padding:0 20px!important;overflow:hidden;}
+table#editbody tr[colspan="3"]{display:none;}
+table#editbody td#LastRefreshTimeHtml_fbg{line-height:normal!important;}
+td#LastRefreshTimeHtml_fbg div{line-height:normal!important;}
+table#editbody div.sub-field.gray.f_htmlfield{height:100%;overflow:hidden;}
+td#LastRefreshTimeHtml_fbg div#itemTitle span#latelyRefresh{display:inline-block;zoom:1;*display:inline;}
+td#LastRefreshTimeHtml_fbg div#itemTitle div,span#latelyRefresh{/*min-height:32px;*/}
+/*第一部分*/
+table#editbody td#LastRefreshTimeHtml_fbg{height:3%;}
+table#editbody td#LastStatusHtml_fbg{height:16%;}
+table#editbody td#LastRefreshTimeHtml_fbg,td#LastStatusHtml_fbg{background:#fff;padding:0px 20px!important;}
+table#editbody td#LastRefreshTimeHtml_fbg div.sub-field.gray.f_htmlfield.editable{min-height:40px;}
+div#subchildparent_LastTime{display:inline-block;zoom:1;*display:inline;width:auto;}
+table.headline{border-collapse:collapse;}
+table.headline td div#spaceHeight{height:40px;width:1px;}
+table.headline div.headline span.title,div.orderprogress div.orderList div.title, div#timeProduction div.title,
+td#WorkshopProducedStatisticsHtml_fbg div.title,table#StatisticsDate2 div.title,div#MachineWatch div.machinetitle{font-size:16px;font-weight:bold;color:#333;*position:relative;}
+table.headline div.sub-field-children span{color:#333;font-size:14px;}
+table.headline div.setRefreshTime{width:16px;min-height:40px;background:url(../../../../default/img/board20201228/setTime_1.png) no-repeat 0px center;background-size:16px 16px;z-index:999;position:relative;}
+table.headline div.headline.title_fullscreen{position:absolute;width:100%;height:100%;text-align:center;top:0px;display:flex;align-items:center;justify-content:center;z-index:1}
+table.headline div.headline.title_fullscreen span.linesign{display:none;}
+span#latelyRefresh{color:#333;font-size:14px;vertical-align:middle;margin-right:6px;}
+span.linesign{display:inline-block;width:2px;height:16px;background:#000;margin-right:16px;vertical-align:text-bottom;}
+table.headline div.pro_fullscreen,div.pro_fullscreen img{width:14px;height:14px;line-height:normal;position:relative;z-index:999;}
+table#editbody tr.zb-table-blankgap{display:none;}
+table#editbody div.outProPanel{width:100%;height:100%;padding-bottom:10px;box-sizing:border-box;min-height:130px;}
+table#editbody div.proOverview{width:25%;float:left;padding-left:14px;box-sizing:border-box;*width:24.2%;height:100%;}
+table#editbody div.proOverview.nopadding{padding:0px;}
+table#editbody div.proOverview a.bgcolor2,table#editbody div.proOverview a.bgcolor4{background:#5279d3;}
+table#editbody div.proOverview a.bgcolor1,table#editbody div.proOverview a.bgcolor3{background:#6c45e9;}
+table#editbody div.proOverview a.bgcolor1,a.bgcolor2,a.bgcolor3,a.bgcolor4{height:100%;overflow:hidden;min-height:110px;display:block;}
+table#editbody div.panel_4 div.proOverview a.bgcolor1{background:#595fd8;}
+table#editbody div.panel_4 div.proOverview a.bgcolor2{background:#29b5c2;}
+table#editbody div.panel_4 div.proOverview a.bgcolor3{background:#e3763a;}
+table#editbody div.panel_4 div.proOverview a.bgcolor4{background:#9e6cdb;}
+div.proViewIcon ,div.proViewData{float:left;}
+div.proViewIcon{width:40%;line-height:110px;text-align:center;height:100%;}
+div.proViewData{box-sizing:border-box;height:100%;}
+div.proViewData div.blankGap{height:16%}
+div.panel_1 div.proViewIcon.viewicon_1{background:url(../../../../default/img/board20201228/order_1.png) no-repeat 50% 50%;}
+div.panel_1 div.proViewIcon.viewicon_2{background:url(../../../../default/img/board20201228/order_2.png) no-repeat 50% 50%;}
+div.panel_1 div.proViewIcon.viewicon_3{background:url(../../../../default/img/board20201228/order_3.png) no-repeat 50% 50%;}
+div.panel_1 div.proViewIcon.viewicon_4{background:url(../../../../default/img/board20201228/order_4.png) no-repeat 50% 50%;}
+div.panel_2 div.proViewIcon.viewicon_1{background:url(../../../../default/img/board20201228/workorder_1.png) no-repeat 50% 50%;}
+div.panel_2 div.proViewIcon.viewicon_2{background:url(../../../../default/img/board20201228/workorder_2.png) no-repeat 50% 50%;}
+div.panel_2 div.proViewIcon.viewicon_3{background:url(../../../../default/img/board20201228/workorder_3.png) no-repeat 50% 50%;}
+div.panel_2 div.proViewIcon.viewicon_4{background:url(../../../../default/img/board20201228/workorder_4.png) no-repeat 50% 50%;}
+div.panel_3 div.proViewIcon.viewicon_1{background:url(../../../../default/img/board20201228/outpro_40.png) no-repeat 50% 50%;}
+div.panel_3 div.proViewIcon.viewicon_2{background:url(../../../../default/img/board20201228/outpro_30.png) no-repeat 50% 50%;}
+div.panel_3 div.proViewIcon.viewicon_3{background:url(../../../../default/img/board20201228/outpro_1.png) no-repeat 50% 50%;}
+div.panel_3 div.proViewIcon.viewicon_4{background:url(../../../../default/img/board20201228/outpro_2.png) no-repeat 50% 50%;}
+div.panel_4 div.proViewIcon.viewicon_1{background:url(../../../../default/img/board20201228/workshop_1.png) no-repeat 50% 50%;}
+div.panel_4 div.proViewIcon.viewicon_2{background:url(../../../../default/img/board20201228/workshop_2.png) no-repeat 50% 50%;}
+div.panel_4 div.proViewIcon.viewicon_3{background:url(../../../../default/img/board20201228/workshop_3.png) no-repeat 50% 50%;}
+div.panel_4 div.proViewIcon.viewicon_4{background:url(../../../../default/img/board20201228/workshop_4.png) no-repeat 50% 50%;}
+table#editbody div.proViewData div{color:#fff;text-align:left;}
+table#editbody div.proViewData div.title{font-size:12px;margin-bottom:10px;}
+table#editbody div.proViewData div.num{font-size:40px;font-family:"微软雅黑";*line-height:44px;}
+/*第二部分*/
+table#editbody tr.s_f_d0 td#ProgressHtml_fbg{height:50%;padding-top:10px!important;background:#efefef;}
+table#editbody td#ProgressHtml_fbg div.sub-field.gray.f_htmlfield.editable{min-height:320px;height:100%;box-sizing:border-box;}
+div.orderprogress{height:100%;}
+div.orderprogress div.orderList,div#timeProduction div.productToday{width:50%;overflow:hidden;box-sizing:border-box;height:100%;*width:49.6%;}
+div.orderprogress div.orderList.orderTable,div#timeProduction div.leftData{padding-right:5px;float:left;}
+div.orderprogress div.orderList.orderTable{height:100%;}
+div.orderprogress div.orderList.cartogram,div#timeProduction div.rightData{padding-left:5px;float:right;}
+div.listLeft,div.cartogramright{background:#fff;padding-left:30px;height:100%;padding-top:34px;box-sizing:border-box;min-height:300px;}
+div.listLeft{padding-right:30px;}
+div.orderprogress div#listTitle{margin-bottom:30px;}
+div.orderprogress div#listTitle div.title{float:left;}
+div#listTitle div.selectList{float:right;}
+div#listTitle input#BillTypeRadio_0check,div#listTitle #BillTypeRadio_1check{visibility:hidden;}
+div#listTitle div#BillTypeRadio_div label.checkLabel{height:30px;line-height:30px;padding:8px;margin-right:0px;}
+div#BillTitleSelect_div div.select_fa,div#BillTitleSelect_div div.select_dom{width:230px!important;height:24px!important;line-height:24px;}
+div#BillTitleSelect_div div.select_arrow{height:24px;line-height:24px;}
+div#BillTitleSelect_div div.select_fa #BillTitleSelect_0{height:24px!important;line-height:24px!important;}
+/*listview表格*/
+div#order_listview{height:380px;overflow:hidden;}
+div#order_listview div.lvw_tbody_bg{border:1px solid #dedede;}
+table#lvw_dbtable_ProgressLvw td,table#lvw_dbtable_ProgressLvw th{border-left:0px!important;border-top:0!important;border-right:0!important;border-color:#dedede}
+table#lvw_dbtable_ProgressLvw td{height:30px;line-height:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+table#lvw_dbtable_ProgressLvw .lvwheader{background:#eaedf1;height:36px}
+table#lvw_dbtable_ProgressLvw div,table#lvw_dbtable_ProgressLvw span,table#lvw_dbtable_ProgressLvw td,table#lvw_dbtable_ProgressLvw a{color:#333;}
+div#lvwbtmtooldiv_ProgressLvw{display:none;}
+div#subchildparent_ProgressGraph div.legend{top:-20px!important;text-align:right!important;}
+div#subchildparent_ProgressGraph div.legend span{border-radius:0!important;}
+/*第三部分*/
+table#editbody td#BillRollHtml_fbg{height:30%;padding-top:10px!important;overflow:hidden;*height:200px;background:#efefef;}
+table#editbody td#BillRollHtml_fbg div.sub-field.gray.f_htmlfield.editable{background:#fff;}
+table#editbody td#BillRollHtml_fbg div.sub-field{overflow:hidden;position:relative;padding:0 30px;min-height:120px;height:100%;}
+table#editbody td#BillRollHtml_fbg div.sub-field div.leftbtn,table#editbody td#BillRollHtml_fbg div.sub-field div.rightbtn{position:absolute;top:0px;width:30px;height:100%;}
+table#editbody td#BillRollHtml_fbg div.sub-field div.leftbtn{left:0px;background:#fff url(../../../../default/img/board20201228/left_btn.png) no-repeat 50% 50%;}
+table#editbody td#BillRollHtml_fbg div.sub-field div.rightbtn{right:0px;background:#fff url(../../../../default/img/board20201228/right_btn.png) no-repeat 50% 50%;}
+div#carousel{height:100%;*height:200px;background:#fff;}
+div#orderCarousel,div#orderCarousel2{height:100%;float:left;}
+div.orderForm{width:290px;height:100%;cursor:default;}
+div.orderForm table{width:100%;height:100%;border-collapse:collapse;border:0;table-layout:fixed;}
+div.orderForm table td{text-align:center;}
+div.orderForm{float:left;}
+div.progressbar div.ListProTxt_item{display:none}
+div.orderForm div.orderTxt{width:130px;margin:0 auto;}
+div.orderForm div.orderTxt p{font-family:"微软雅黑";color:#333;width:100%;margin:0;text-align:left;}
+div.orderForm div.orderTxt p.title{margin-bottom:12px;margin-top:8px;font-size:16px;line-height:22px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+div.orderForm div.orderTxt p.ordersernum{font-size:14px;font-family:"微软雅黑";line-height:14px;}
+div.orderForm div.orderTxt p.order_percent{font-size:36px;margin-top:26px;}
+div.orderForm div.orderTxt p.order_percent span{font-size:16px;color:#333;font-family:"微软雅黑";font-weight:600;}
+div#bill_bottomdiv{display:none;}
+div.orderForm.hover table td,div.orderForm.hover table td div.ListProBarAnlar_con path.innerCircle{fill:#f1f5ff!important;background:#f1f5ff!important;}
+div.orderForm.hover table td div.ListProBarAnlar_con path.activeTrack{fill:#4472e8!important;}
+div#outerCon{width:100%;overflow:hidden;height:100%;}
+/*其他*/
+/*浮层去除*/
+div#DefAjaxProcDiv_div{display:none!important;}
+/*清除浮动*/
+ .clearfix:after{/*伪元素是行内元素 正常浏览器清除浮动方法*/
+        content: "";
+        display: block;
+        height: 0;
+        clear:both;
+        visibility: hidden;
+    }
+ .clearfix {*zoom: 1;}/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+ div#sys_win_billlayer_SettingRefrenshDate.createWindow_boundingBox{right:20px!important;left:auto!important;top:24px!important;}
+ /*生产车间*/
+ table#editbody td#PersonnelProducedStatisticsHtml_fbg{height:464px;box-sizing:border-box;}
+ table#editbody td#PersonnelProductionAndDistributionHtml_fbg div.sub-field.gray.f_htmlfield.editable{height:486px;box-sizing:border-box;}
+ td#WorkshopProducedStatisticsHtml_fbg div.sub-field.gray.f_htmlfield.editable{height:450px;box-sizing:border-box;}
+ td#MachineHtml_fbg{height:260px;box-sizing:border-box;}
+ table#editbody td#PersonnelProducedStatisticsHtml_fbg,table#editbody td#PersonnelProductionAndDistributionHtml_fbg{padding-top:10px!important;*height:540px!important;}
+ table#yieldBar,table#yieldStatic,table#StatisticsDate2{border-collapse:collapse;border:0px;table-layout:fixed;width:100%;background:#fff;}
+ table#yieldBar{table-layout:auto;}
+ table#yieldBar td{border:0;padding:16px 0;overflow:hidden;}
+ table#yieldStatic td.yieldTd{padding-top:30px;}
+ table#yieldStatic td{border:0px;}
+ table#yieldBar td.dateBoxBar div.qickSearch{width:850px;}
+ table#yieldBar td.dateBoxBar div.searchInfo{float:left;/*margin-left:12px;*/}
+ table#yieldBar td.dateBoxBar div.searchInfo.workshop{margin-left:18px;}
+ table#yieldBar td.dateBoxBar div.searchInfo.searchbtn{margin-left:0px;}
+ table#yieldBar div#subchildparent_Type{min-width:220px!important;}
+ td.dateBoxBar div.searchInfo div.searchDateInfo{width:440px;vertical-align:top;display:inline-block;zoom:1;*display:inline;}
+ td.dateBoxBar div.searchInfo div.searchDateInfo div{}
+ td.dateBoxBar div.searchInfo div.searchDateInfo div#subchildparent_StatisticsDate>div ,
+ td div#subchildparent_StatisticsDate2>div
+ {
+     float:right!important;
+     height:24px!important;
+     line-height:24px!important;
+ }
+ td.dateBoxBar div.searchInfo div.searchDateInfo div#subchildparent_StatisticsDate>div.rangefieldbg{width:299px!important;}
+ div.searchInfo div.searchDateInfo div.dateTimeDiv,input#StatisticsDate{width:130px!important;}
+ td input.billfieldbox ,td span.fieldDateBtn {height:24px;line-height:24px;box-sizing:border-box;}
+ td.dateBoxBar div.searchInfo  div.dateRangeTxt{width:32px!important;}
+ table#yieldBar #Type_0check,table#yieldBar #Type_1check{visibility:hidden;}
+ table#lvw_dbtable_ProcedureDetailsListView{border:0px!important;}
+ table#lvw_dbtable_ProcedureDetailsListView td{background:#fff;}
+ table#lvw_dbtable_ProcedureDetailsListView td{color:#333;font-size:14px;}
+ table#lvw_dbtable_ProcedureDetailsListView td span.orderNum{
+     display:inline-block;
+     zoom:1;
+     *display:inline;
+     width:18px;
+     height:18px;
+     background:#4472e8;
+     color:#fff;text-align:center;
+     line-height:18px;
+     margin-right:14px;
+     font-size:14px;
+ }
+ div#subchildparent_ProcedureDetailsListView{height:330px;padding-top:30px;box-sizing:border-box;}
+ table#yieldStatic div#subchildparent_ProcedureDetailsListView table#lvw_dbtable_ProcedureDetailsListView div, 
+ table#yieldStatic div#subchildparent_ProcedureDetailsListView table#lvw_dbtable_ProcedureDetailsListView span
+ {
+     font-size:14px;
+
+ } 
+ table#yieldStatic div#subchildparent_ProcedureDetailsListView table#lvw_dbtable_ProcedureDetailsListView td{height:50px;}
+ table#yieldStatic div#subchildparent_ProcedureDetailsListView table#lvw_dbtable_ProcedureDetailsListView tr[pos='3'] span.orderNum{background:#ccc;}
+  table#yieldStatic div#subchildparent_ProcedureDetailsListView table#lvw_dbtable_ProcedureDetailsListView tr[pos='4'] span.orderNum{background:#ccc;}
+ #lvw_ProcedureDetailsListView div.lvw_tbody_bg{border:0px;}
+ input:checked + label{background:#32353d!important;color:#fff!important;}
+ table#yieldBar label.checkLabel{padding:6px 24px;color:#333;font-size:14px;background:#f0f0f0;margin:0px;vertical-align:unset;font-weight:bold;}
+ table#yieldBar label.checkLabel.last{padding:6px 20px; }
+ table#yieldBar div#subchildparent_StatisticsDate div a,table#StatisticsDate2 div a{font-weight:bold;color:#333;font-family:"微软雅黑";margin-right:14px;}
+ table#yieldBar div.dateTimeDiv input,table#StatisticsDate2 div.dateTimeDiv input{font-family:"微软雅黑";}
+ table#yieldBar div.select_fa{width:100px!important;height:24px!important;line-height:24px!important;}
+ table#yieldBar div.select_fa select.billfieldselbox,table#yieldBar div.select_fa .select_dom,table#yieldBar div.select_fa .select_arrow{height:24px;line-height:24px;font-size:14px;font-weight:bold;}
+ table#yieldBar button#SearchBtn{width:50px;height:24px;line-height:24px;background:#000;color:#fff;border:1px solid #000; }
+ div#cut_off{width:100%;height:2px;background:#eaedf1;}
+ table#yieldStatic td{padding-left:30px;overflow:hidden;}
+ table#yieldStatic td span.title{color:#333;font-size:16px;font-weight:bold;}
+ table#yieldStatic div#lvwbtmtooldiv_ProcedureDetailsListView,div#lvwjsnscrollbar_ProcedureDetailsListView{display:none!important;}
+ table#yieldStatic div#chart_ChartGraph div.legend{top:0!important;text-align:right!important;}
+ td#BillRollHtml_fbg div.sub-field.gray.f_htmlfield.editable div#carousel.workshop{height:200px!important;}
+ 
+ div#timeProduction{width:100%;height:100%;}
+ div#timeProduction div.productToday{height:100%;*position:relative;}
+ div#timeProduction div.productToday div{background:#fff;overflow:hidden;}
+ div#timeProduction div#productsdtb{height:100%;}
+ div#timeProduction div.products{width:100%;margin-top:40px;}
+ div#timeProduction div.products div.productsData{float:left;text-align:left;padding-left:20px;box-sizing:border-box;cursor:default;}
+ div#timeProduction div.products div.productsData:hover{color:#4472e8}
+ div#timeProduction div.products div.productsData.data1{width:40%;border-right:1px #ccc dashed;*width:36%;}
+ div#timeProduction div.products div.productsData.data2{width:30%;border-right:1px #ccc dashed;*width:24%;}
+ div#timeProduction div.products div.productsData.data3{width:30%;*width:24%}
+ div#timeProduction div.products div.productsData p.info{font-family:"微软雅黑";font-weight:bold;margin:0;line-height:12px;}
+ div#timeProduction div.products div.productsData p.num{font-size:30px;font-family:"微软雅黑";margin:14px 0 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;*line-height:38px;}
+ div#leftStatic,div#productsdtb{padding:33px 0px 0px 30px;}
+ div#leftStatic{min-width:540px;}
+
+ table#editbody td#WorkshopProducedStatisticsHtml_fbg,table#editbody td#MachineHtml_fbg{padding-top:10px!important;}
+ td#WorkshopProducedStatisticsHtml_fbg div.sub-field.gray.f_htmlfield.editable{background:#fff;padding:30px 0px 0px 30px;box-sizing:border-box;}
+ div#millCounts{box-sizing:border-box;padding-top:24px;}
+ div#millCounts div.leftTrend{float:left;width:24%;padding-left:40px;box-sizing:border-box;cursor:default;min-width:288px;}
+ div#millCounts div.rightTrend{float:right;width:70%;*width:68%;box-sizing:border-box;padding-left:40px;margin-top:-10px;}
+ div#millCounts  p.label{font-weight:bold;color:#333;text-align:left;margin:0;line-height:12px;cursor:default}
+ div#millCounts  div.dashLine{margin-bottom:20px;}
+ div#millCounts  p.dayHgInfo{margin-bottom:25px;}
+ div#millCounts  p.dayHgInfo span{display:inline-block;}
+ div#millCounts  p.dayHgInfo span.dayHgNum{
+     font-size:30px;
+     line-height:30px;
+     *line-height:38px;
+     font-family:"微软雅黑";
+     margin-right:14px;
+     white-space:nowrap;
+     overflow:hidden;
+     text-overflow:ellipsis;
+     min-width:110px;
+     width:46%;
+ }
+ div#millCounts  p.dayHgInfo span.huanbi{font-weight:bold;color:#333;}
+ div#millCounts  p.dayHgInfo span.trdimg{width:32px;height:24px;display:inline-block;vertical-align:middle}
+ div#millCounts  p.dayHgInfo span.trdimg.dayup{background:url(../../../../default/img/board20201228/up.png) no-repeat 50% 50%;}
+ div#millCounts  p.dayHgInfo span.trdimg.daydown{background:url(../../../../default/img/board20201228/down.png) no-repeat 50% 50%;}
+ div#millCounts  p.dayHgInfo span.percentNum{font-family:"微软雅黑";font-size:16px;}
+ div.dashLine{border-bottom:1px dashed  #ccc;width:auto;}
+
+ div#MachineWatch{background:#fff;padding-left:30px;padding-top:30px;min-height:210px;box-sizing:border-box;}
+ div#machineContain div.monitorState {padding:28px;float:left;padding-top:0px;}
+ div#machineContain{width:100%;padding-top:28px;}
+ div#machineContain div.ListProTxt_item_num{font-size:16px;line-height:16px;padding-top:10px;padding-top:24px\9\0;font-size:18px;line-height:18px;box-sizing:border-box}
+ div#machineContain div.ListProTxt_item_num span.ListProTxt_pernum{font-size:14px;line-height:14px;}
+ div#machineContain div.ListProTxt_item_txt{padding:8px 8px 0px;font-size:16px;line-height:16px;box-sizing:border-box}
+ div.rightTrend div#chart_ChartGraphAreaLine,table#yieldStatic div#chart_ChartGraph{margin:0!important;}
+
+ table#StatisticsDate2 div.title{font-size:12px;}
+#subchildparent_ChartGraphLine {margin-top:6px;}
+#subchildparent_ChartGraphLine div#ChartGraphLine_div div.legend{display:none;}
+
+/*统计图宽度自适应*/
+@media screen and (min-width: 0px){
+    div.chart_graph_box#chart_ProgressGraph_hgbf,div.chart_graph_box#chart_ProgressGraph_fg{
+        width:560px!important;
+    }
+    div.chart_graph_box#chart_ChartGraph{
+        width:600px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphLine{
+        width:300px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphPie{
+        width:300px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphAreaLine{
+        width:700px!important;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    div.chart_graph_box#chart_ProgressGraph_hgbf,div.chart_graph_box#chart_ProgressGraph_fg{
+        width:600px!important;
+    }
+    div.chart_graph_box#chart_ChartGraph{
+        width:660px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphLine{
+        width:500px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphPie{
+        width:500px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphAreaLine{
+        width:660px!important;
+    }
+}
+
+@media screen and (min-width: 1300px){
+    div.chart_graph_box#chart_ProgressGraph_hgbf,div.chart_graph_box#chart_ProgressGraph_fg{
+        width:600px!important;
+    }
+    div.chart_graph_box#chart_ChartGraph{
+        width:720px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphLine{
+        width:620px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphPie{
+        width:580px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphAreaLine{
+        width:860px!important;
+    }
+}
+
+@media screen and (min-width: 1560px){
+    div.chart_graph_box#chart_ProgressGraph_hgbf,div.chart_graph_box#chart_ProgressGraph_fg{
+        width:700px!important;
+    }
+    div.chart_graph_box#chart_ChartGraph{
+        width:800px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphLine{
+        width:700px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphPie{
+        width:700px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphAreaLine{
+        width:1000px!important;
+    }
+}
+
+@media screen and (min-width: 1700px){
+    div.chart_graph_box#chart_ProgressGraph_hgbf,div.chart_graph_box#chart_ProgressGraph_fg{
+        width:800px!important;
+    }
+    div.chart_graph_box#chart_ChartGraph{
+        width:1000px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphLine{
+        width:800px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphPie{
+        width:800px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphAreaLine{
+        width:1000px!important;
+    }
+}
+
+@media screen and (min-width: 2000px){
+    div.chart_graph_box#chart_ProgressGraph_hgbf,div.chart_graph_box#chart_ProgressGraph_fg{
+        width:1200px!important;
+    }
+    div.chart_graph_box#chart_ChartGraph{
+        width:1200px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphLine{
+        width:1200px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphPie{
+        width:1200px!important;
+    }
+    div.chart_graph_box#chart_ChartGraphAreaLine{
+        width:1200px!important;
+    }
+/*2k订单/进度/委外*/
+    /*table#editbody div.proViewData div.title{
+        font-size:20px;
+        line-height:20px;
+    }
+    table#editbody div.proViewData div.num{
+        font-size:60px;
+        line-height:60px;
+    }*/
+ }
+#editbody.edit-body td.fcell {
+    line-height: 28px;
+}
+

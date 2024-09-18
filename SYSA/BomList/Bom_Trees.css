@@ -1,0 +1,171 @@
+﻿.__bom_tree{
+	width:100%;height:100%;
+	font-size:12px;
+}
+.__bom_tree_header{
+	background:url("../images/m_table_top.jpg") repeat-x left top;
+	border:1px solid #c0ccdd;
+	height:18px; line-height:18px;
+	padding:5px 0px;
+	color:#2f496e;
+	font-weight:bold;
+}
+.__bom_tree_header span.pic{
+	background:transparent url("../../../images/smico/spliter.gif") repeat-y scroll center center;
+	height:15px;width:10px;
+	display:block;float:left;
+	margin-top:1px;
+}
+.__bom_tree_body{
+	border:1px solid #c0ccdd;
+	border-top:none 0px;
+	height:420px;
+	overflow:hidden;
+	overflow-x:auto;
+	position:relative;
+}
+.__bom_tree_title{
+	background:url("../images/m_table_top.jpg") repeat-x left top; 
+	background-color: #efefef;
+	height:28px; line-height:28px;
+	overflow:hidden;
+	border-bottom:1px solid #c0ccdd;
+	font-size:0px;
+}
+.__bom_tree_title span{
+	display:inline-block;
+	margin:0px;
+	height:16px;line-height:16px;
+	padding:6px 10px;
+	vertical-align:top;
+	font-size:12px;
+	/*border-right:1px dotted #ccc;*/
+	border-right:1px solid #c0ccdd;
+	overflow:hidden;
+	text-align:center;
+	color:#2f496e;
+}
+.__bom_tree_title span:hover{
+	background:#eaf2ff none repeat scroll 0 0;
+}
+.__bom_tree_content{
+	height:380px;
+	overflow:auto;
+}
+.__bom_tree_nodes{
+	height:31px;line-height:31px;overflow:hidden;
+	font-size:0px;
+}
+.__bom_tree_nodes span.h1{
+	margin:0px;padding:0px 10px;
+	height:30px;line-height:30px;font-size:12px;text-align:center;
+	background:url("../images/m_table_top.jpg") repeat-x left top; 
+	background-color: #efefef;
+	display:inline-block;
+	vertical-align:top;
+	border-bottom:1px solid #c0ccdd;
+	border-right:1px solid #c0ccdd;
+	font-weight:normal;
+}
+.__bom_tree_nodes span{
+	border-bottom:1px solid #c0ccdd;
+	border-right:1px solid #c0ccdd;
+	margin:0px;padding:0px 10px;
+	height:30px;line-height:30px;
+	display:inline-block;
+	vertical-align:top;
+	font-size:12px;
+	color:#2f496e;
+}
+.__bom_tree_nodes:hover span{
+	background:#eaf2ff none repeat scroll 0 0;
+}
+.__bom_tree_nodes_selected span{
+	background:#dce5f2 none repeat scroll 0 0;
+}
+
+.__bom_tree_nodes span.title{
+	font-size:0px;line-height:30px;
+}
+.__bom_tree_nodes span.title a{
+	margin:0px;padding:0px;
+	height:30px;line-height:32px;
+	display:inline-block;
+	vertical-align:top;
+	width:60px;
+	font-size:12px;
+}
+.__bom_tree_nodes span.title a.ico{
+	background:url("img/tree_folder.gif") no-repeat center center;
+	margin:0px;padding:0px;
+	width:18px;
+	margin-right:2px;
+}
+.__bom_tree_nodes span.title a.ico1{
+	background:url("img/tree_line60_s.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:pointer;
+}
+.__bom_tree_nodes span.title a.ico1_nochild{
+	background:url("img/tree_line50_s.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:pointer;
+}
+.__bom_tree_nodes span.title input{
+	margin-top:4px;
+}
+.__bom_tree_nodes span.opened a.ico{
+	background:url("img/tree_folder_open.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	margin-right:2px;
+}
+.__bom_tree_nodes span.opened a.ico1{
+	background:url("img/tree_line60.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:pointer;
+}
+.__bom_tree_nodes span.opened a.ico1_nochild{
+	background:url("img/tree_line50.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:pointer;
+}
+.__bom_tree_nodes span.product a.ico{
+	background:url("img/tree_file.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	margin-right:2px;
+}
+.__bom_tree_nodes span.product a.ico1{
+	background:url("img/tree_line40.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:default;
+}
+.__bom_tree_nodes span.product a.ico1_nochild{
+	background:url("img/tree_line20.gif") no-repeat scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:default;
+}
+.__bom_tree_nodes span a.space{
+	background:none;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:default;
+}
+.__bom_tree_nodes span a.space1{
+	background:url("img/tree_line30.gif") repeat-y scroll center center;
+	margin:0px;padding:0px;
+	width:18px;
+	cursor:default;
+}
+
+.__bom_tree_nodes span input.number{
+	width:60px;
+	margin-top:3px;
+}

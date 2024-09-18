@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>订单确认页面</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/order.css?87"/>
+		 <link href="../css/mobiscroll.core-2.5.2.css" rel="stylesheet" type="text/css" />
+		 <link href="../css/mobiscroll.android-ics-2.5.2.css" rel="stylesheet" type="text/css" />
+		<style>
+			.alert{
+				position: fixed;
+				display: none;
+				width:100%;
+				height: 100%;
+				background: rgba(0,0,0,0.4);
+				z-index: 999;
+			}
+			#telForm{
+				border-radius:0.12rem ; 
+				margin: 1rem auto;
+				padding: 0.2rem;
+				height: 2.3rem;
+				width: 80%;
+				border: 1px solid #ccc;
+				background: #F3F3F3;
+				line-height: 2;
+			}
+			.number{
+				height: 0.2rem;
+				width: 0.2rem;
+				line-height: 0.2rem;
+				background:#F15352;
+				font-size: 0.2rem;
+				color: #fff;
+				border-radius: 50%;
+				position: absolute;
+				transform: translate(0.2rem,-0.2rem);
+			}
+			.erroTg{
+				display: block;
+				width: 90%;
+				position: absolute;
+				padding:0.1rem 0.35rem;
+				color: #fff;
+				bottom: -10px;
+				left: 15px;
+				background: rgba(241,81,82,0.6);
+				height: 0.25rem;
+				font-size: 11px;
+				line-height: 0.3;
+				text-align: left;
+				display: none;
+			}
+			.col-sm-10{
+				margin-bottom: 0.15rem;
+			}
+			
+			/*********新增收货地址********/
+			.submit{
+				display: block;
+				border: none;
+				height: 0.4rem;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				color: #fff;
+				background: #F15352;
+			}
+			
+			.newAddress{
+				padding: 0.1rem;
+				color: #F3F5F7;
+				background: #F15352;
+				margin: 0.2rem auto;
+				border-radius: 0.12rem;
+				font-size: 16px;
+				text-align: center;
+				width: 80%;
+			}
+		</style>
+	</head>
+	<body style="background: #f8f8f8;">
+	<!--手机转用户-->
+	<div class="alert">
+		<form class="form-horizontal" role="form" id="telForm">
+		  <div class="form-group" style="position: relative; margin-bottom: 15px !important;">
+		    <label for="tel" class="col-sm-2 control-label">请输入手机号:</label>
+		    <div class="col-sm-10" style="margin-top:0.25rem">
+		      <input type="number" dataType="number" class="form-control" id="tel" placeholder="输入手机号">
+		    </div>
+		    <p class="erroTg">请输入有效的11位数的手机号码</p>
+		  </div>
+		  <div class="rows" style="margin-top: 8px;">
+			  <p class="col-xs-6 text-center" style="margin-top:5px"><input type="button" value="提交" id="submit" class="btn btn-danger" style="width:1rem"/></p>
+			  <p class="col-xs-6 text-center" style="margin-top:5px"><input type="button" value="返回" id="return" class="btn btn-danger" style="width:1rem"/></p>
+		  </div>
+		</form>
+	</div>
+	<!--加载页面-->
+	<div id="loadDiv" style="background: #fff;height: 100%;width: 100%;position: fixed;z-index: 9999;">	
+		<img src="../img/load.gif" style="display: block;margin: 80px auto; width: 30px;">
+	</div>
+	<div id = "main">
+		<header class="container">
+			<ul class="row">
+				<li class="col-xs-3 hd-back text-center"> <img src="../img/back.png" id="back" style="margin-left:6px"/>  </li>
+				<li class="col-xs-6 text-center search-li">
+					确认订单
+				</li>
+				<li class="col-xs-3"></li>	
+			</ul>
+		</header>
+		<div style="background: #FFFAF4;margin-top: 10px;">
+			<em class="line" style=""></em>
+			<div class="order_info" addrFlag = "0"></div>
+			<em class="line"></em>			
+		</div>
+		<!--商品信息-->
+		<ul class="orderG">
+			
+		</ul>
+		<!--库存不足等提示框-->
+		<div style="color: #fff;background: #F15352;font-size: 12px;text-align: center;" id="shortMsg"></div>
+		<!--发票信息-->
+		<p class="ov bill">发票信息<span class="glyphicon glyphicon-chevron-right fr" style="line-height: 0.45rem;color: #999;"></span><span class="fr billKinds" id="billKinds">选择(默认不开发票)</span></p>
+		<!--收货时间-->
+		<div class="sendTime">
+			<!--<span style="line-height: 2.5;">：</span>-->
+			<ul>
+				<li style="margin-top: 10px;">期望送货日期:</li>
+				<li class="timeLi"><input type='text'  id='sendDate1'/></li>
+				<li class="clearTime" id="clearTime"><img src="../img/clearTime.png"></li>
+			</ul>
+		</div>
+		<!--价格信息-->
+		<ul class="order_price cl ov">
+		</ul>
+		<!--付款方式-->
+		<div id="payWayBtn" style="background: #fff;">
+			<p style="font-size: 12px;color: #646869;padding-bottom: 5px;padding-left: 2%;padding-top: 10px;">付款方式</p>
+			<ul class="checkWay cl" id="payWay">
+			</ul>
+		</div>
+		
+		<!--给商家留言-->
+		<p class="ov sayAbout"><input type="text" placeholder="给商家留言(50字以内)" class="order_txt" id="buyerMsg"/></p>
+		<p id="msgTig">最多输入50字!</p>
+		
+		<footer>
+			<a href="javascript:void(0)" class="factPrice">实付款：￥<span class="allPrice">0.00</span></a>
+			<a href="javascript:void(0)" class="checkOrder">提交订单</a>
+		</footer>
+	</div>
+		<!--发票信息-->
+		<div id="orderBillDiv">
+			<header class="container">
+				<ul class="row">
+					<li class="col-xs-3 hd-back text-center"> <img src="../img/back.png" id="billback" style="margin-left:6px"/>  </li>
+					<li class="col-xs-6 text-center search-li">发票类型</li>
+					<li class="col-xs-3"></li>
+				</ul>
+			</header>
+			
+			<h2 class="headerH"><b>请选择发票类型:</b></h2>
+			<ul class="bill_kinds">  
+			</ul>
+			<span class="bill_ok">确定</span>
+		</div>
+		<!--发票信息结束-->
+		<!--商品清单-->
+		<div style="position: absolute;padding-bottom:20px;top:0;left:0;width: 100%;height: 100%;z-index:9999;background: #fff;display: none;" id="orderAllDiv">
+			<header class="container">
+				<ul class="row">
+					<li class="col-xs-3 hd-back text-center"> <img src="../img/back.png" id="orderAllback" style="margin-left:6px"/>  </li>
+					<li class="col-xs-6 text-center search-li">商品清单</li>
+					<li class="col-xs-3 text-right countAll">共0件</li>
+				</ul>
+			</header>
+			<div class="orderAll cb ov">
+				<img src="../img/load.gif" style="display: block;margin: 1.5rem auto; width: 0.45rem;">
+			</div>
+			<p id="loadMore" style="padding: 10px;display: none;">查看更多∨</p>
+			<img src="../img/totop.png" id="top" style="position: fixed;bottom: 30px;right: 10px; z-index: 999991;width: 50px;">
+		</div>
+		<!--商品清单结束-->
+		<!--地址选择-->
+		<div id="addressDiv" style="position: absolute;padding-bottom:20px;top:0;left:0;width: 100%;height: 100%;z-index:9999;background: #F3F4F6;display: none;">
+			<header class="container">
+				<ul class="row">
+					<li class="col-xs-3 hd-back text-center"> <img src="../img/back.png" id="addressBack" style="margin-left:6px"/>  </li>
+					<li class="col-xs-6 text-center search-li">收货地址列表</li>
+					<li class="col-xs-3"></li>
+				</ul>
+			</header>
+			<div id="addressList">
+				<img src="../img/load.gif" style="display: block;margin: 1.5rem auto; width: 0.45rem;">
+			</div>
+			<div style="width:100%;background: #F3F4F6;box-shadow: 0px -10px 33px #F3F4F6;" id="addrWrap">
+				<span class="btn btn-success newAddress" id="newAddress">新建收货地址</span>
+			</div>
+			
+		</div>
+		<!--地址选择结束-->
+		<script src="../../GlobalSettings.asp"></script>
+		<script src="../../../../../inc/formatnumber.js"></script>
+		<script src="../../../js/jweixin-1.0.0.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../js/jquery-1.11.2.min.js" ></script>
+		<script src="../js/moment-with-locales.js"></script>
+		<script src="../js/bootstrap-datetimepicker.js?1"></script>
+		<script src="../js/global.js?9" type="text/javascript"></script>
+		<!--时间插件-->
+		<script src="../js/mobiscroll.core-2.5.2.js" type="text/javascript"></script>
+		<script src="../js/mobiscroll.core-2.5.2-zh.js" type="text/javascript"></script>
+		<script src="../js/mobiscroll.datetime-2.5.1.js" type="text/javascript"></script>
+		<script src="../js/mobiscroll.datetime-2.5.1-zh.js" type="text/javascript"></script>
+		<script src="../js/mobiscroll.android-ics-2.5.2.js" type="text/javascript"></script>
+		<!--时间插件结束-->
+		<script>
+			document.write('<script src="../js/check.js?'+randcode+'"></scr'+'ipt>'+
+						'<scr'+'ipt src="../js/order.js?'+randcode+'"></scr'+'ipt>');
+		</script>
+		
+	</body>
+</html>

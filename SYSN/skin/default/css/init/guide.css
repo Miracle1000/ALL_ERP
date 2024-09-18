@@ -1,0 +1,25 @@
+﻿html { overflow: auto;}
+#mypage {width:80%; min-width:910px;margin:0 auto; }
+#mypage *{color:#000;font-family:微软雅黑; }
+#maintitle{font-size:20px;text-align:center;line-height:21px;padding-top:45px;font-weight:bold;}
+#titleremark{font-size:14px;text-align:center;padding-top:14px;color:#333}
+div.hsplit {overflow:hidden;}
+div.linkareabar{ margin:0px 0px 22px 0px;border:1px solid #ccc; }
+div.linkareabartitle{ 
+	background-repeat:no-repeat;
+	height:50px;line-height:50px;
+	font-size:16px;
+	vertical-align:middle;
+}
+#mypage div.linkareabartitle {color:white;  }
+div.linkareabartitle img { height:100%;border:0px;margin-right:16px;float:left;}
+div.linkareabody { padding-left:50px; padding-top:15px;padding-bottom:23px; overflow:hidden; }
+div.linkitem { float:left; height:50px; overflow:hidden;  box-sizing:border-box;  border:0px solid red;margin-top:10px;}
+#mypage div.linktitle, #mypage div.linkremark {  margin-left: 40px; } 
+#mypage div.linktitle * {  font-size:14px;  }
+#mypage div.linktitle { padding-bottom:8px;}
+#mypage div.linktitle.jt  { background:url(../../img/guide/jt.png) no-repeat right 6px; }
+#mypage div.linkremark {  font-size:12px;  padding-bottom:14px;}
+#mypage div.linkremark { color:#bbb }
+#mypage span.linkcount  { color: #1447DB; font-size:14px;margin-left:6px;}
+#baklistlink { color:#3AA0e6;}

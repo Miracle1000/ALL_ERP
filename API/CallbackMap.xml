@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  public enum BillEventTypeEnum
+	{
+		EVT_新增 = 900,
+		EVT_修改前= 901,
+		EVT_修改后 = 902,
+		EVT_删除 = 903,
+		EVT_恢复 = 905,
+		EVT_彻底删除前 = 907,
+		EVT_彻底删除后= 908,
+		EVT_变更前 = 909,
+		EVT_变更后 = 910,
+		EVT_审核通过 = 930,
+		EVT_取消审核 = 931,
+	}
+-->
+<MessageHandlers>
+  <BillMessageHandlers>
+    <!--BillInfo.Type 默认为空不请求 54002-->
+    <BillInfo Type="54002">  Type的值见BillApplyType枚举
+      <Info BillMessageIDs="900,902,903" Url="http://loclahost:9081/worksheet/" Method="POST" ContextType="application/json" EnCodeType="UTF-8">  
+        <ParamsText>
+          <![CDATA[id=@BillOrds,source=BD239708-2874-417C-8292-7E335A537FAD]]>
+        </ParamsText>
+      </Info>
+      MessageID的值见BillEventTypeEnum枚举
+    </BillInfo>
+  </BillMessageHandlers>
+  <CommMessageHandlers>
+    <!--<Info MessageID="54002010" Url="http://loclahost:9081/worksheet/" Method="POST" ContextType="application/json" EnCodeType="UTF-8">
+      <ParamsText>
+        <![CDATA[id=@BillOrds,source=BD239708-2874-417C-8292-7E335A537FAD]]>
+      </ParamsText>
+    </Info>-->
+  </CommMessageHandlers>
+</MessageHandlers>

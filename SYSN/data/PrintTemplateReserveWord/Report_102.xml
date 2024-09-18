@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--询价打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="102" DBViewName="FUN_XunJiaTemplateData" DBDetailViewName="P_XunJiaDetailTemplateData" >
+  <Items Title="公共字段">
+    <Items Title="询价信息">
+      <Column Name="询价主题" dbName="RFQ_title" Description="询价主题" LocationType="All"/>
+      <Column Name="询价编号" dbName="RFQ_bh" Description="询价编号" LocationType="All"/>
+      <Column Name="询价日期" dbName="RFQ_date" Description="询价日期" LocationType="All"/>
+      <Column Name="定价人员" dbName="RFQ_fixer" Description="定价人员" LocationType="All"/>
+      <Column Name="询价人员" dbName="RFQ_person" Description="询价人员" LocationType="All"/>
+      <Column Name="添加日期" dbName="RFQ_time" Description="添加日期" LocationType="All"/>
+      <Column Name="询价状态" dbName="RFQ_state" Description="询价状态" LocationType="All"/>
+      <Column Name="预购状态" dbName="pre_state" Description="预购状态" LocationType="All"/>
+      <Column Name="采购状态" dbName="po_state" Description="采购状态" LocationType="All"/>
+      <Column Name="询价概要" dbName="RFQ_intro" Description="询价概要" LocationType="All"/>
+    </Items>
+    <Items Title="关联单据">
+      <Column Name="报价主题" dbName="quote_title" Description="收货人" LocationType="All"/>
+      <Column Name="预购主题" dbName="pre_title" Description="固定电话" LocationType="All"/>
+      <Column Name="采购主题" dbName="po_title" Description="手机" LocationType="All"/>
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="关联供应商">
+      <Column Name="供应商姓名" dbName="gys_titile" Description="供应商姓名" LocationType="Detail" GroupBy="true" />
+      <Column Name="供应商编号" dbName="gys_bh" Description="供应商编号" LocationType="Detail" GroupBy="true" />
+      <Column Name="供应商办公电话" dbName="gys_tel" Description="供应商办公电话" LocationType="Detail" GroupBy="true" />
+      <Column Name="供应商传真" dbName="gys_fax" Description="供应商传真" LocationType="Detail" GroupBy="true" />
+      <Column Name="供应商地址" dbName="gys_addr" Description="供应商地址" LocationType="Detail" GroupBy="true" />
+      <Column Name="供应商邮箱" dbName="gys_email" Description="供应商邮箱" LocationType="Detail" GroupBy="true" />
+      <Column Name="联系人手机" dbName="preson_phone" Description="联系人手机" LocationType="Detail" GroupBy="true" />
+      <Column Name="联系人传真" dbName="person_fax" Description="联系人传真" LocationType="Detail" GroupBy="true" />
+      <Column Name="联系人邮箱" dbName="person_email" Description="联系人邮箱" LocationType="Detail" GroupBy="true" />
+      <Column Name="联系人电话" dbName="person_tel" Description="联系人电话" LocationType="Detail"  GroupBy="true" />
+    </Items>
+    <Items Title="产品明细">
+      <Column Name="产品序号" dbName="sortnum" Description="产品序号" LocationType="Detail" OrderNum="true" />
+      <Column Name="产品名称" dbName="pro_name" Description="产品名称" LocationType="Detail" GroupBy="true" />
+      <Column Name="产品编号" dbName="pro_code" Description="产品编号" LocationType="Detail" GroupBy="true" />
+      <Column Name="产品型号" dbName="pro_type" Description="产品型号" LocationType="Detail" GroupBy="true" />
+      <Column Name="数量" dbName="pro_num" Description="数量" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="产品单位" dbName="pro_unit" Description="产品单位" LocationType="Detail" GroupBy="true" />
+      <Column Name="票据类型" dbName="Invoice_type" Description="票据类型" LocationType="Detail" GroupBy="true" />
+      <Column Name="税率" dbName="pro_sl" Description="税率" LocationType="Detail" GroupBy="true" />
+      <Column Name="单价" dbName="pro_price_ws" Description="单价" LocationType="Detail" GroupBy="true" />
+      <Column Name="折扣" dbName="pro_zk" Description="折扣" LocationType="Detail" GroupBy="true" />
+      <Column Name="折后单价" dbName="pro_price_zh" Description="折后单价" LocationType="Detail" GroupBy="true" />
+      <Column Name="未税总价" dbName="pro_price_ws1" Description="未税总价" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="含税单价" dbName="pro_price_hs" Description="含税单价" LocationType="Detail" GroupBy="true" />
+      <Column Name="未税折后总价" dbName="pro_price_zh1" Description="未税折后总价" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="含税折后单价" dbName="pro_price_hszh" Description="含税折后单价" LocationType="Detail" GroupBy="true" />
+      <Column Name="金额" dbName="pro_amount" Description="金额" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="含税总价" dbName="pro_price_hs1" Description="含税总价" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="含税折后总价" dbName="pro_price_hszh1" Description="含税折后总价" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="税额" dbName="pro_tax" Description="税额" LocationType="Detail" SumaryCalculate="true" />
+      <Column Name="交货日期" dbName="pro_datejh" Description="交货日期" LocationType="Detail" GroupBy="true" />
+      <Column Name="备注" dbName="pro_allintro" Description="备注" LocationType="Detail" />
+    </Items>
+  </Items>
+</Report>

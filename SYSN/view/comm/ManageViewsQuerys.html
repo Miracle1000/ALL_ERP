@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>智邦国际企业管理软件</title>
+    <link type="text/css" href="../../../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmNzcw%3d%3d&n=zlib.comm.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmRpYWxvZy5jc3M%3d&n=zlib.comm.dialog.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmNzcw%3d%3d&n=zlib.comm.leftpage.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLnJlcG9ydC5jc3M%3d&n=zlib.comm.report.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5jc3M%3d&n=zlib.comm.fields.css&ver=3194" rel="stylesheet" />
+    <link type="text/css" href="../../../../../SYSN/skin/default/css/ligerui/skins/css/ligerui-common.css" rel="stylesheet" />
+    <link type="text/css" href="../../../../../SYSN/skin/default/css/ligerui/skins/css/ligerui-grid.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/zlib.comm.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/zlib.comm.dialog.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/zlib.comm.leftpage.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/zlib.comm.report.bill.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/zlib.comm.fields.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/zlib.comm.report.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/ligerui/js/Chinese_Simplified.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/ligerui/js/core/base.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/ligerui/js/plugins/ligerDrag.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/ligerui/js/plugins/ligerResizable.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/ligerui/js/plugins/ligerGrid.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/ligerui/js/plugins/ligerToolBar.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/statistics/store/purchase/supplierpursoa.js"></script>
+    <script type="text/javascript" src="../../../../../SYSN/skin/script/zlib.dateCalender.js"></script>
+    <script type="text/javascript">
+        window.SysConfig = { "VirPath": "../../" };
+        window.UserInfo = {};
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        //显示高级检索
+        var hidval = $("#ConditionTxt_0", window.opener.document).val();
+        if (window.opener.opener.opener.Report.Data.isenabledadvancedsearch) {
+            var querydata = window.opener.opener.opener.Report.Data.advancedsearchquery;
+            var data = JSON.parse(JSON.stringify(querydata));
+            var htm = [];
+            htm.push("<table id='advancedqueryfields' cellspacing='0' style='z-index:100;width:100%;_width:99%;height:100px' border=0 class='edit-body' id='editbody'>");
+            Bill.uistate = "add";
+            Bill.CanEdit = true;
+            var defaultVal = "";
+            if (hidval)
+                defaultVal = JSON.parse(hidval);
+            for (var i = 0; i < data.length; i++) {
+                var cur = data[i];
+                if (i == 0) {
+                    var bor = "style='border-top:0'"
+                }
+                if (defaultVal) {
+                    for (var j = 0; j < defaultVal.length; j++) {
+                        if (defaultVal[j].DBName == cur.dbname) {
+                            cur.value = defaultVal[j].Value;
+                        }
+                    }
+                }
+                htm.push("<tr onmouseenter='Report.addBg(this)' onmouseleave='Report.removeBg(this)'>");
+                htm.push("<td class='fcell' width='150px' align='right' isfield='0' " + bor + " >" + cur.title + "：</td>");
+                htm.push("<td class='fcell' dbname='" + cur.dbname + "' uiskin='" + cur.uiskin + "' uitype='" + cur.uitype + "' isfield='1' " + bor + ">");
+                htm.push(Bill.GetFieldHtml(cur, null));
+                htm.push("</td>");
+                htm.push("</tr>");
+            }
+            htm.push("<tr>");
+            htm.push("<td style='padding:6px 0px;border-bottom:1px solid #c0ccdc' >");
+            htm.push("</td>");
+            htm.push("<td style='padding:6px 0px;border-bottom:1px solid #c0ccdc' >");
+            htm.push('<input type="button" id="btn_advancedquery" value=" 保存 " onclick="GenerateCondion()" style="" class="zb-button"/>');
+            htm.push('<input type="button" id="btn_advancedquery" value=" 重填 " onclick="location.reload()" style="" class="zb-button"/>');
+            htm.push("</td>");
+            htm.push("</tr>");
+            htm.push("</table>");
+            document.write(htm.join(""));
+        }
+
+        function GenerateCondion() {
+            var titles = $("#advancedqueryfields").find("td[isfield=0]");
+            var datas = $("#advancedqueryfields").find("td[isfield=1]");
+            var ary = [];
+            var showC = [];
+            for (var i = 0; i < datas.length; i++) {
+                var field = datas[i];
+                var uitype = field.getAttribute("uitype");
+                Bill.getBillDataItem(field, function (dbname, value) {
+                    switch (uitype) {
+                        case "gatestree": value = value.split("|")[1]; break;
+                    }
+                    if ($.trim(value) != "" && $.trim(value) != ",") {
+                        showC.push("【" + titles[i].innerText.substring(0, titles[i].innerText.length - 1) + "】 ");
+                        var json = {};
+                        json.Title = titles[i].innerText.substring(0, titles[i].innerText.length - 1);
+                        json.DBName = dbname;
+                        json.Value = value;
+                        ary.push(json);
+                    }
+                })
+            }
+            $("#showCondition", window.opener.document).html(showC);
+            $("#ConditionTxt_0", window.opener.document).val(JSON.stringify(ary));
+            window.close();
+        };
+    </script>
+</body>
+</html>

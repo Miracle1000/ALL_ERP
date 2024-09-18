@@ -1,0 +1,137 @@
+*{margin:0px;padding: 0px;}
+html, body, #navContain {
+  height: 100%;
+  font-family: "宋体";
+  font-size: 12px;
+}
+body {
+  background: white url(../images/bg_left_l_line2.gif) repeat-y;
+}
+h1{font-weight: 400;}
+#navTitle {
+  margin-left: 6px;
+  background: url(../images/l_t_bg.png) repeat-x center;
+}
+#navTitle li {
+  color: #345593;
+  font-weight: 600;
+  font-size: 14px;
+  height: 42px;
+  line-height: 43px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#navTitle li.standardNav span {
+  background: url(../images/lmt1.gif) no-repeat 12px center;
+  display: inline-block;
+  padding-left: 32px;
+}
+#leftMuneNav {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 42px;
+  bottom: 0px;
+  margin-left: 6px;
+}
+#leftMune {
+  position: absolute;
+  width: 25px;
+  top: 0px;
+  left: 5px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  *overflow: auto;
+  bottom: 0px;
+  z-index: 2;
+}
+#leftMune ul.leftmune li:first-child {
+  border-top: 0px!important;
+}
+#leftMune ul.leftmune li.navActived, #leftMune ul.leftmune li.navActived:hover {
+  background: white url(../images/lmt4.gif);
+  border-top: 1px solid #3085cb;
+  border-bottom: 1px solid #3085cb;
+}
+#leftMune ul.leftmune li {
+  padding: 9px 7px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-bottom: 5px;
+  background: #3085cb;
+  line-height: 14px;
+  border-top: 1px solid #3085cb;
+  border-bottom: 1px solid #3085cb;
+}
+.setHeight #leftMune ul.leftmune li{
+    padding:2px;
+    margin-bottom:3px;
+}
+#leftMune ul.leftmune li.navActived h1, #leftMune ul.leftmune li.navActived:hover h1 {
+  color: #345593;
+  font-weight: 900;
+}
+#muneMainNav {
+  position: absolute;
+  left: 29px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  overflow: auto;
+  border-left: 1px solid #3085cb;
+}
+#leftNavFoldIcon {
+  height: 30px;
+  width: 136px;
+  margin: 0 auto;
+  line-height: 30px;
+  text-align: center;
+  background: url(../images/lmt5.png);
+  color: #345593;
+  margin: 10px 0px 8px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid #599fd9;
+}
+.secondBarTitle {
+  color: #345593;
+  text-decoration: none;
+}
+#muneMainNav div.menuPanel.hide {
+  display: none;
+}
+/*树节点样式修改*/
+#muneMainNav ul.tree_view span.tvw_icon.icon_n1{
+  background: url(../images/leftm/bx.gif) no-repeat center;
+}
+#muneMainNav ul.tree_view1>li:first-child>div.title span.tvw_icon.icon_n1{
+  background: url(../images/leftm/bx_b.gif) no-repeat center;
+}
+#muneMainNav ul.tree_view span.tvw_icon.icon_n1.last{
+  background: url(../images/leftm/bx_e.gif) no-repeat center;
+}
+#muneMainNav ul.tree_view .shink span.tvw_icon.icon_n1{
+  background:url(../images/leftm/bs.gif) no-repeat center;
+}
+#muneMainNav ul.tree_view1>li:first-child>div.shink span.tvw_icon.icon_n1{
+  background:url(../images/leftm/bs_b.gif) no-repeat center;
+}
+#muneMainNav ul.tree_view .aspectSpace.n1.tvw_l{
+  background: url(../images/leftm/tree_line30_f.gif) repeat-y center;
+}
+#muneMainNav ul.tree_view .shink span.tvw_icon.icon_n1.last {
+  background: url(../images/leftm/bs_e.gif) no-repeat center;
+}
+#muneMainNav span.add_btn,#add_table_body div.cancle,
+#add_table_body .node_up,#add_table_body .node_down{
+  background: url(../images/myNavSet/add.png) no-repeat center;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+}
+#muneMainNav span.add_btn.duihao{
+  background: url(../images/myNavSet/duihao.png) no-repeat center;
+}
+#muneMainNav span.aspectSpace.n0.tvw_nl{display: none;}
+#muneMainNav .tree_view1{margin-left: 10px;}

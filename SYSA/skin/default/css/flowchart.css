@@ -1,0 +1,4 @@
+﻿text {font-weight: 300;font-size: 12px;fill:white;}
+.node rect {stroke: #000;}
+.edgePath path {stroke: #000;fill: none;}
+@media print{text {fill:#000;}}

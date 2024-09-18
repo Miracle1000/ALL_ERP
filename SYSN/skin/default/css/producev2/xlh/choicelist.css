@@ -1,0 +1,14 @@
+﻿body {
+}
+/*控制选择区间列的input样式隐藏*/
+#lvw_dbtable_MainList input.billfieldbox {
+    padding-left: 2px;
+    margin: 0;
+    cursor:pointer;
+    background:transparent;
+    height: 16px;
+    
+    line-height: 16px;
+    border: 0px solid #b6c0c9;
+}
+

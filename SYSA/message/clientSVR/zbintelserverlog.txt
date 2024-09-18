@@ -1,0 +1,6 @@
+
+[2016-02-22 16:31:37]消息:启动818端口正常
+[2016-02-22 16:31:43]Provider=SQLOLEDB.1;Data Source=.;User ID=sa;Password=zbintel;Initial Catalog=old:
+[2016-02-22 16:31:44]定时执行脚本出错:任务文件F:\VSS2005_1029\ZBIntel.Tools\Work平台短信服务源码\ZbintelServer\bin\root\task_web\remind.job不存在
+[2016-02-22 16:31:44]服务重启动:30s后重启...
+[2016-02-22 16:31:44]服务重启动, 邮件发送失败 , 请设置邮件发送账号SendReLoadEmail:任务文件F:\VSS2005_1029\ZBIntel.Tools\Work平台短信服务源码\ZbintelServer\bin\root\task_web\remind.job不存在

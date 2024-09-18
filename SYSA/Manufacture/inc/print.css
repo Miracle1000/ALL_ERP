@@ -1,0 +1,65 @@
+﻿html{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+}
+body{
+	width:190mm;
+	margin-top:16mm;
+	margin-left:10mm;
+	margin-right:10mm;
+	overflow:hidden;
+	font-size:12px;
+}
+
+table.lvwcss{border:1px solid #000;border-collapse:collapse;width:100%}
+td.lvc , td.lvx, td.lvcr {border:1px solid #000;text-align:center;font-weight:Normal;height:7mm;}
+table.lvwcss th.lvc {border:1px solid #000;font-weight:Normal;height:22px;overflow:hidden;text-align:center;height:7mm;}
+table.lvwcss th.lvc td{height:auto;background-color:red}
+table.lvwcss th.lvc table{height:auto;background-color:red}
+table.lvwtoolbartable{display:none;}
+td.ctl_listviewbgtable {display:none;}
+a{color:#000;Text-Decoration:none;}
+table.lvwcss  td.lvw_edt0_center{border:1px solid #000;}
+span.billgrouptitle{font-weight:bold;padding-top:2mm;display:block;}
+div.ctl_lvwadddiv {display:none;}
+td.billfieldleft{text-align:right;width:20mm;}
+td.billfieldright{text-align:left;width:40mm;}
+button{border:0px;background-color:white;}
+p{display:inline;}
+table.ProcessStatus .processHas{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 82px;
+	background-position: 0px -60px;
+}
+table.ProcessStatus .processNone{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 82px;
+	background-position: 0px -17px;
+}
+table.ProcessStatus .LastCssHas{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 14px;
+	height: 14px;
+background-position: -85px -60px;
+}
+table.ProcessStatus .LastCssNone{
+	background-image: url(../../images/smico/bg_state.jpg);
+	background-repeat: no-repeat;
+	width: 100px;
+	height: 18px;
+	background-position: -85px -18px;
+}
+table.ProcessStatus .ProcessTile{
+	text-align: left;
+}
+table.ProcessStatus{
+	margin-top: 6px;
+	margin-bottom: 4px;
+}
+
+#w-rule td{display:none;}

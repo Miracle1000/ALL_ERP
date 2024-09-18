@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmNzcw%3d%3d&n=zlib.comm.css&ver=3194">
+    <link rel="stylesheet" href="../../SYSN/skin/default/css/WebSource.ashx?f=emxpYi5jb21tLmZpZWxkcy5jc3M%3d&n=zlib.comm.fields.css&ver=3194">
+    <style>
+        div.biger_lb{background: #fff}
+        #flow_chartlcbox{margin: 0 auto}
+        span.flowtitle_box{z-index: 1000}
+    </style>
+</head>
+<body>
+<div id="biger_lb" class="biger_lb"></div>
+</body>
+<script src="../../skin/script/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmRlYnVnLmpz&ver=3193"></script><!--zlib.comm.js-->
+<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmxlZnRwYWdlLmpz&ver=3193"></script><!--zlib.comm.leftpage.js-->
+<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmJpbGwuanM%3d&ver=3193"></script><!--zlib.comm.bill.js-->
+
+<script>
+    Bill.SV = {};
+    Bill.SV.addFlowchartData=function () { };
+</script>
+<script type="text/javascript" src="../../../WebSource.ashx?f=emxpYi5jb21tLmZsb3djaGFydC5qcw%3d%3d&ver=3193"></script><!--zlib.comm.flowchart.js-->
+<script>
+    window.SysConfig = window.opener.SysConfig;
+    var dbname=window.location.href.split("?")[1];
+    var fd = window.opener["flowchart" + dbname];
+    document.getElementById("biger_lb").innerHTML=Bill.CflowchartBox(fd);
+</script>
+</html>

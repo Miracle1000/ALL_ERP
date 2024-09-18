@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>系统错误号定义</title>
+    <style>
+        td,th{font-size:12px;font-family:宋体;border:1px solid #888899;line-height:16px;}
+        td.en {text-align:center;}
+    </style>
+</head>
+<body>
+<div style='margin:0 auto;width:800px'>
+<center><h2>部分枚举定义说明</h2></center>
+<div style='background-color:#f8f8f8;border:1px solid #aaa;padding:10px'>
+<pre>    //字段数据类型
+    public enum BillFieldDataType
+    {
+        Text = 0,
+        Num = 1,
+        Money = 2,
+        Date = 3,
+        Bool = 4,
+        Int = 5,
+        Url = 6,
+        Phone = 7,   //电话
+        MPhone = 8,  //手机
+        Virtual = 9  //虚拟字段
+    }
+</pre>
+</div><br>
+<div style='background-color:#f8f8f8;border:1px solid #aaa;padding:10px'>
+<pre>
+    //字段UI类型    
+    public enum BillFieldUIType
+    {
+        //下拉框
+        combo = 0,
+        //单选框
+        radio = 1,
+        //复选框
+        checkbox = 2,
+        //文本框
+        text = 3,
+        //日期框
+        date = 4,
+        //html备注
+        html = 5,
+        //单据
+        bill = 6,
+        //单据集合
+        table = 7,
+        //树形选择框
+        treeSelBox = 8,
+        //隐藏字段
+        Hidden = 9,
+        //时间
+        datetime = 10,
+        //组织架构
+        gates = 11,
+        //单据链接
+        billLink = 12,
+        //金额类型
+        money = 13,
+        //其它
+        other = 100,
+    }
+</pre>
+</div></div>
+</body>
+</html>

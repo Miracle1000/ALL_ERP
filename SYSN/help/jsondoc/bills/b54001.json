@@ -1,0 +1,4 @@
+window.__PHelp={
+	gProductDetail:"订单添加选择不同来源的明细时，保存后会根据来源自动生成多个订单。",
+	gProductDetailM:"温馨提示：合并订单后，原订单已合并产品不允许修改。"
+}

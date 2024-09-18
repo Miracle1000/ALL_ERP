@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>无标题文档</title>
+	<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=LfGdXDPYrseQPmslbBpxdSPh">
+		//v1.5版本的引用方式：src="https://api.map.baidu.com/api?v=1.5&ak=您的密钥"
+		//v1.4版本及以前版本的引用方式：src="https://api.map.baidu.com/api?v=1.4&key=您的密钥&callback=initialize"
+	</script>
+	<style type="text/css">
+		html{height:100%}    
+		body{height:100%;margin:0px;padding:0px}    
+		#container{height:100%} 
+        .noTraceMessge{text-align:center;height:400px;line-height:400px;font-size:15px;color:#2f496e;}
+	</style>
+	</head>
+	<body>
+		<div style="width:100%; height:100%;">
+			<div id="container"></div>
+		</div>
+		<script type="text/javascript">
+		var map = null;
+		function CreatePointsLine(intro, state) {
+			var Points = [];
+			var x = "";
+			var startaddress ="起点：";
+			var endaddress = "终点：";
+			var olat = 0;
+			var flat = 0;
+			var op = null;
+			var canadd = true;
+			for (var i = 0; i < intro.length; i++){
+				if (intro[i].longitude && intro[i].latitude && intro[i].longitude.toString().toLowerCase().indexOf("e")==-1 && intro[i].latitude.toString().toLowerCase().indexOf("e")==-1)
+				{	
+					if (i==0)
+					{
+						startaddress += intro[i].address;
+						if (intro[i].address==""||intro[i].address=="null" || intro[i].address ==undefined){startaddress = "起点";}
+						canadd = true ;
+					}else if (i == intro.length-1)
+					{
+						endaddress += intro[i].address;
+						if (intro[i].address==""||intro[i].address=="null" || intro[i].address ==undefined){endaddress = "终点";}
+						canadd = true ;
+					}else
+					{
+						if(intro[i].latitude-olat > 0.05 ||intro[i].latitude-olat < -0.05){
+							if (canadd ==false)
+							{
+								//补上上一个点
+								canadd = true
+								Points.push(op);
+								op = null;
+							}
+							else
+							{
+								op =  new BMap.Point(intro[i].longitude, intro[i].latitude);
+								flat = intro[i].latitude ;
+								canadd=  false;
+							}
+						}else{
+							canadd = true ;
+							flat = 0;
+							op= null;
+						}
+					}
+					if (canadd ==true)
+					{
+						olat = intro[i].latitude;
+						Points.push(new BMap.Point(intro[i].longitude, intro[i].latitude));
+					}
+					
+				}
+			}
+			if(!map) { map = new BMap.Map("container"); }			// 创建地图实例
+			var point =new BMap.Point(116.404, 39.915);
+			var opts = null;
+			var label = null;
+			if (Points.length > 0)
+			{
+				var point = Points[0];	// 创建点坐标
+				if(state==0||state==3) { 
+					var opts = {
+					  position : point,    // 指定文本标注所在的地理位置
+					  offset   : new BMap.Size(20, -30)    //设置文本偏移量
+					}
+					label = new BMap.Label(startaddress, opts);  // 创建文本标注对象
+					label.setStyle({
+						 color : "blue",
+						 fontSize : "12px",
+						 height : "20px",
+						 lineHeight : "20px",
+						 fontFamily:"微软雅黑",
+						 borderColor:"white"
+					 });
+					map.addOverlay(label);
+					var marker = new BMap.Marker(point);
+					map.addOverlay(marker);
+				}
+
+				if(state==2||state==3) { 
+					var point = Points[Points.length-1];	// 创建点坐标
+					opts = {
+					  position : point,    // 指定文本标注所在的地理位置
+					  offset   : new BMap.Size(10, -20)    //设置文本偏移量
+					}
+					label = new BMap.Label(endaddress, opts);  // 创建文本标注对象
+					label.setStyle({
+						 color : "red",
+						 fontSize : "12px",
+						 height : "20px",
+						 lineHeight : "20px",
+						 fontFamily:"微软雅黑",
+						 borderColor:"white"
+					 });
+					map.addOverlay(label);
+					var marker = new BMap.Marker(point);
+					map.addOverlay(marker);
+				}
+			}
+			if(state==0 || state==3) {
+				map.centerAndZoom(point, 15);					// 初始化地图，设置中心点坐标和地图级别
+				map.enableScrollWheelZoom();					// 开启滚轮缩放地图
+				map.enableKeyboard();							// 开启键盘操作（方向键和小键盘区移动地图）
+				map.addControl(new BMap.NavigationControl());
+			}
+			var polyline = new BMap.Polyline(Points,
+				{strokeColor:"#333388", strokeWeight:10, strokeOpacity:1}
+			);
+		   map.addOverlay(polyline);
+
+		   //var sym = new BMap.Symbol
+		   //  (
+		   // 	 BMap_Symbol_SHAPE_BACKWARD_OPEN_ARROW, //百度预定义的 箭头方向向下的非闭合箭头
+		   // 	 {
+		   // 	 	fillColor: '#8888cc', //设置矢量图标的填充颜色。支持颜色常量字符串、十六进制、RGB、RGBA等格式
+		   // 	 	fillOpacity: 1, //设置矢量图标填充透明度,范围0~1
+		   // 	 	scale: 0.4, //设置矢量图标的缩放比例
+		   // 	 	rotation: 90, //设置矢量图标的旋转角度,参数为角度
+		   // 	 	strokeColor: '#fff', //设置矢量图标的线填充颜色,支持颜色常量字符串、十六进制、RGB、RGBA等格式
+		   // 	 	strokeOpacity: 0.9, //设置矢量图标线的透明度,opacity范围0~1
+		   // 	 	strokeWeight: 1.5, //旋设置线宽。如果此属性没有指定，则线宽跟scale数值相
+		   // 	 }
+		   //  );
+		   //var iconSequence = new BMap.IconSequence
+		   //(
+		   //    sym, //symbol为符号样式
+		   //    '5%', //offset为符号相对于线起点的位置，取值可以是百分比也可以是像素位置，默认为"100%"
+		   //    '5%', //repeat为符号在线上重复显示的距离，可以是百分比也可以是距离值，同时设置repeat与offset时，以repeat为准
+		   //    false //fixedRotation设置图标的旋转角度是否与线走向一致，默认为true
+		   //);
+			var polyline = new BMap.Polyline(Points,
+				{ strokeColor: "#8888cc", strokeWeight: 8, strokeOpacity: 1 }
+			);
+
+			map.addOverlay(polyline);
+		}
+
+		Date.prototype.datediff = function(interval,objDate2) 
+		{ 
+			 var d=this, i={}, t=d.getTime(), t2=objDate2.getTime(); 
+			 i['y']=objDate2.getFullYear()-d.getFullYear(); 
+			 i['q']=i['y']*4+Math.floor(objDate2.getMonth()/4)-Math.floor(d.getMonth()/4); 
+			 i['m']=i['y']*12+objDate2.getMonth()-d.getMonth(); 
+			 i['ms']=objDate2.getTime()-d.getTime(); 
+			 i['w']=Math.floor((t2+345600000)/(604800000))-Math.floor((t+345600000)/(604800000)); 
+			 i['d']=Math.floor(t2/86400000)-Math.floor(t/86400000); 
+			 i['h']=Math.floor(t2/3600000)-Math.floor(t/3600000); 
+			 i['n']=Math.floor(t2/60000)-Math.floor(t/60000); 
+			 i['s']=Math.floor(t2/1000)-Math.floor(t/1000); 
+			 return i[interval]; 
+		} 
+		
+		function main(){
+			var f = false;
+			var datas = [];
+			if (parent.window.GPS_Points)
+			{
+				datas = parent.window.GPS_Points;
+			} 
+			if (datas.length>0)
+			{
+				var t1 = new Date(datas[0].datetime.replace("-","/"))
+				var lns = [];
+				for (var i = 0; i< datas.length; i ++ )
+				{
+					var t0 = new Date(datas[i].datetime.replace("-","/"));
+					//if(confirm(t0 + "===" + t1 + "===" + t0.datediff("n",t1))==false){return;}
+					if(t1.datediff("n",t0)>500) {
+						CreatePointsLine(lns,f?1:0);
+						f = true;
+						lns = [];
+						lns[0] = datas[i];
+					} else {
+						lns[lns.length] = datas[i]; 
+					}
+					t1 = t0;
+				}
+				CreatePointsLine(lns,f?2:3);
+			} else {
+			    var container = document.getElementById("container");
+			    container.innerHTML = "<div class='noTraceMessge'>暂无轨迹</div>"
+			}
+		}
+		main();
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--质检打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="28" DBViewName="P_CaigouQCTempLateData" DBDetailViewName="P_CaigouQCTemplateDetailData" >
+  <Items Title="公共字段">
+    <Items Title="来料质检">
+      <Column Name="质检主题" dbName="QCtitle" Description="质检主题" LocationType="All"/>
+      <Column Name="质检编号" dbName="QCid" Description="质检编号" LocationType="All"/>
+      <Column Name="入库状态" dbName="QCrkState" Description="入库状态" LocationType="All"/>
+      <Column Name="质检状态" dbName="QCcomplete" Description="质检状态" LocationType="All"/>
+      <Column Name="申请人员" dbName="QCsqname" Description="申请人员" LocationType="All"/>
+      <Column Name="申请时间" dbName="QCsqdate" Description="申请时间" LocationType="All"/>
+      <Column Name="添加时间" dbName="QCsqAdddate" Description="添加时间" LocationType="All"/>
+      <Column Name="质检人员" dbName="QccateName" Description="质检人员" LocationType="All"/>
+      <Column Name="质检时间" dbName="QCTime" Description="质检时间" LocationType="All"/>
+      <Column Name="审批人员" dbName="QcspNAME" Description="审批人员" LocationType="All"/>
+      <Column Name="审批时间" dbName="qcSPDATE" Description="审批时间" LocationType="All"/>
+      <Column Name="概要" dbName="QCintro" Description="概要" LocationType="All"/>
+    </Items>
+    <Items Title="质检产品信息">
+      <Column Name="产品名称" dbName="pDtitle" Description="产品名称" LocationType="All"/>
+      <Column Name="产品编号" dbName="pdorder" Description="产品编号" LocationType="All"/>
+      <Column Name="产品型号" dbName="pdtype" Description="产品型号" LocationType="All"/>
+      <Column Name="产品单位" dbName="QCunit" Description="产品单位" LocationType="All"/>
+      <Column Name="产品属性1名称" dbName="ProductAttr1Title" Description="产品属性1名称" LocationType="All"/>
+      <Column Name="产品属性2名称" dbName="ProductAttr2Title" Description="产品属性2名称" LocationType="All"/>
+      <Column Name="产品属性1值" dbName="ProductAttr1" Description="产品属性1值" LocationType="All"/>
+      <Column Name="产品属性2值" dbName="ProductAttr2" Description="产品属性2值" LocationType="All"/>
+      <Column Name="产品图片100px" dbName="pro_img_100" Description="产品图片100px" LocationType="All"/>
+      <Column Name="产品图片200px" dbName="pro_img_200" Description="产品图片200px" LocationType="All"/>
+      <Column Name="产品图片300px" dbName="pro_img_300" Description="产品图片300px" LocationType="All"/>
+      <Column Name="产品图片自定义" dbName="pro_img_size" Description="产品图片自定义" LocationType="All"/>
+      <Column Name="产品说明" dbName="pdintro1" Description="产品说明" LocationType="All"/>
+      <Column Name="产品参数" dbName="pdintro2" Description="产品参数" LocationType="All"/>
+      <Column Name="图片与附件" dbName="pdintro3" Description="图片与附件" LocationType="All"/>
+      <Column Name="产品自定义4" dbName="pdzdy4" Description="产品自定义4" LocationType="All"/>
+      <Column Name="产品自定义5" dbName="pdzdy5" Description="产品自定义5" LocationType="All"/>
+      <Column Name="产品批号（条码）" dbName="Bar_code_QCPH" Description="产品批号（条码）" Type="BarCode" LocationType="All"/>
+      <Column Name="产品批号（数字）" dbName="QCPH" Description="产品批号（数字）" LocationType="All"/>
+      <Column Name="产品序列号（条码）" dbName="Bar_code_QCxlh" Description="产品序列号（条码）" Type="BarCode" LocationType="All"/>
+      <Column Name="产品序列号（数字）" dbName="QCxlh" Description="产品序列号（数字）" LocationType="All"/>
+      <Column Name="产品条形码（图文）" dbName="Bar_code" Description="产品条形码（图文）" Type="Image" LocationType="All"/>
+      <Column Name="产品条形码（数字）" dbName="pro_bars" Description="产品条形码（数字）" Type="BarCode" LocationType="All"/>
+      <Column Name="产品二维码" dbName="Qr_url_code" Description="产品二维码" LocationType="All"/>
+      <Column Name="生产日期" dbName="QCdatesc" Description="生产日期" LocationType="All"/>
+      <Column Name="有效日期" dbName="QCdateyx" Description="有效日期" LocationType="All"/>
+      <Column Name="到货日期" dbName="QCdatedh" Description="到货日期" LocationType="All"/>
+      <Column Name="备注" dbName="QCintro2" Description="备注" LocationType="All"/>
+      <Column Name="包装" dbName="Qcbz" Description="包装" LocationType="All"/>
+      <Column Name="产品明细自定义1" dbName="Qczdy1" Description="产品明细自定义1" LocationType="All"/>
+      <Column Name="产品明细自定义2" dbName="Qczdy2" Description="产品明细自定义2" LocationType="All"/>
+      <Column Name="产品明细自定义3" dbName="Qczdy3" Description="产品明细自定义3" LocationType="All"/>
+      <Column Name="产品明细自定义4" dbName="Qczdy4" Description="产品明细自定义4" LocationType="All"/>
+      <Column Name="产品含税折后单价" dbName="priceAfterDiscountTax" Description="产品含税折后单价" LocationType="All"/>
+      <Column Name="产品含税折后总价" dbName="moneyAfterDiscountTax" Description="产品含税折后总价" LocationType="All"/>
+    </Items>
+    <Items Title="关联供应商">
+      <Column Name="供应商名称" dbName="TelName" Description="供应商名称" LocationType="All" />
+      <Column Name="供应商编号" dbName="TelKhid" Description="供应商编号" LocationType="All" />
+      <Column Name="供应商单位电话" dbName="TelPhone" Description="供应商单位电话" LocationType="All" />
+      <Column Name="供应商地址" dbName="TelAddress" Description="供应商地址" LocationType="All" />
+      <Column Name="供应商传真" dbName="TelFax" Description="供应商传真" LocationType="All" />
+      <Column Name="供应商邮箱" dbName="TelEmail" Description="供应商邮箱" LocationType="All" />
+    </Items>
+    <Items Title="关联采购单">
+      <Column Name="采购主题" dbName="CgTitle" Description="采购主题" LocationType="All" />
+      <Column Name="采购编号" dbName="CgID" Description="采购编号" LocationType="All" />
+      <Column Name="采购分类" dbName="Cgsort" Description="采购分类" LocationType="All" />
+      <Column Name="采购人员" dbName="CgcateName" Description="采购人员" LocationType="All" />
+      <Column Name="采购日期" dbName="Cgdate" Description="采购日期" LocationType="All" />
+      <Column Name="采购概要" dbName="cgintro" Description="采购概要" LocationType="All" />
+      <Column Name="自定义1" dbName="cgzdy1" Description="自定义1" LocationType="All" />
+      <Column Name="自定义2" dbName="cgzdy2" Description="自定义2" LocationType="All" />
+      <Column Name="自定义3" dbName="cgzdy3" Description="自定义3" LocationType="All" />
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表头表尾字段">
+    <Items Title="质检基本信息">
+      <Column Name="到货数量" dbName="QCrenum" Description="到货数量" LocationType="All"/>
+      <Column Name="质检总数量" dbName="AllQcNum" Description="质检总数量" LocationType="All"/>
+      <Column Name="合格数量" dbName="OKnum" Description="合格数量" LocationType="All"/>
+      <Column Name="不合格数量" dbName="failnum" Description="不合格数量" LocationType="All"/>
+      <Column Name="合格率" dbName="pass_rate" Description="合格率" LocationType="All"/>
+      <Column Name="质检类型" dbName="qc_type" Description="质检类型" LocationType="All"/>
+      <Column Name="质检方案" dbName="qc_sort" Description="质检方案" LocationType="All"/>
+      <Column Name="质检结果" dbName="QcResult" Description="质检结果" LocationType="All"/>
+      <Column Name="入库数量" dbName="num_storage" Description="入库数量" LocationType="All"/>
+      <Column Name="拒收数量" dbName="num_refused" Description="拒收数量" LocationType="All"/>
+      <Column Name="审批结果" dbName="spresult" Description="审批结果" LocationType="All"/>
+      <Column Name="审批意见" dbName="spremark" Description="审批意见" LocationType="All"/>
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="关联入库">
+      <Column Name="入库主题" dbName="zb_rk_title" Description="入库主题" LocationType="Detail"  GroupBy="true"/>
+      <Column Name="入库编号" dbName="zb_rkbh" Description="入库编号" LocationType="Detail"  GroupBy="true"/>
+      <Column Name="入库状态" dbName="zb_state" Description="入库状态" LocationType="Detail"  GroupBy="true"/>
+    </Items>
+    <Items Title="质检明细信息">
+      <Column Name="序号" dbName="sortnum" Description="序号" LocationType="Detail" OrderNum="true" TableName="#Kuin#" />
+      <Column Name="质检数量" dbName="num_qc" Description="质检数量" LocationType="Detail" SumaryCalculate="true" TableName="#Kuin#" />
+      <Column Name="质检结果" dbName="qcmx_result" Description="质检结果" LocationType="Detail"  GroupBy="true" TableName="#Kuin#" />
+      <Column Name="质检等级" dbName="qcrank" Description="质检等级" LocationType="Detail"  GroupBy="true" TableName="#Kuin#" />
+    </Items>
+    <Items Title="扩展自定义">
+      <Column Name="颜色是否均匀[001]" dbName="QCList_Extended_131" Description="颜色是否均匀[001]" LocationType="Detail" OrderNum="true"/>
+      <Column Name="003[001]" dbName="QCList_Extended_122" Description="003[001]" LocationType="Detail"  GroupBy="true"/>
+      <Column Name="002[001]" dbName="QCList_Extended_121" Description="002[001]" LocationType="Detail"  GroupBy="true"/>
+      <Column Name="有坑[电子产品]" dbName="QCList_Extended_111" Description="有坑[电子产品]" LocationType="Detail"  GroupBy="true"/>
+      <Column Name="损坏[电子产品]" dbName="QCList_Extended_110" Description="损坏[电子产品]" LocationType="Detail"  GroupBy="true"/>
+      <Column Name="合格[电子产品]" dbName="QCList_Extended_32" Description="合格[电子产品]" LocationType="Detail"  GroupBy="true"/>
+    </Items>
+  </Items>
+</Report>

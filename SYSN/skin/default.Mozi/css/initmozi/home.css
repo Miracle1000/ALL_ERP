@@ -1,0 +1,419 @@
+﻿*{
+    padding:0px;
+    margin:0px;
+}
+ul,li{
+    list-style:none;
+}
+html{
+	overflow:auto;
+	height:100%;
+    min-height:620px;
+}
+body{
+	overflow:hidden;
+	height:100%;
+	margin:0px;
+	background-color:#313133;
+}
+#topdiv{
+	left:0px;
+	top:0px;
+	height:60px;
+	width:100%;
+	position:relative;
+	z-index:10;
+}
+#bodydiv{
+	position:absolute;
+	left:0px;
+	top:60px;
+	bottom:0px;
+	width:100%;
+	overflow:hidden;
+	z-index:-1000;
+}
+
+#frmbody{
+	width:100%;
+    height:100%;
+}
+div{font-size:12px}
+div#sys_comm_dlg_body_userconfig{margin:0px auto;}
+div#sys_comm_dlg_body_userconfig center{display:none}
+div#sys_comm_dlg_body_userconfig div{margin:54px auto 0!important;text-align:center!important;}
+/* common styling */
+#logoBox {position:absolute;z-Index:100;width:200px;height:48px;left:5px;top:6px;border:0;cursor:pointer;}
+#top{cursor:default; height:100%;min-width:1000px;}
+#top .t-m-menu{width:auto;height:100%;}
+#top .t-m-menu .t-m{width:auto;height:100%;float:right;}
+#top .t-m-menu .t-m .link-right{width:684px;height:100%;text-align:right;padding-right:8px;font-size:0px;}
+#top .t-m-menu .t-m .link-right a{line-height:60px;display:inline-block;*display:inline;height:100%;font-size:16px;vertical-align:middle;width:76px;text-align:center;*zoom:1;*padding-top:22px;}
+#top .t-m-menu .t-m .link-right a.user{width:142px;}
+#top .t-m-menu .t-m .link-right a.actived{background:#141413}
+#top .t-m-menu .t-m .link-right a.VersionEnv{width:0px;}
+#top .t-m-menu .t-m .link-right span.imgIco{position:relative;vertical-align:middle;line-height:1;font-size:0px;}
+#top .t-m-menu .t-m .link-right img.ico{vertical-align:middle;border:none;}
+/*#top .t-m-menu .t-m .link-right a.remind img.ico{width:16px}*/
+#top .t-m-menu .t-m .link-right span.newRemindIco{position:absolute;width:12px;height:12px;top: -14px;left: 16px;}
+#top .t-m-menu .t-m .link-right span.newRemindIco img{width:100%;height:100%;border:none;display:''}
+span.newRemindIco img.hidden{display:none;}
+#top .t-m-menu .t-m .link-right a.user img.ico{width:30px;height:30px}
+#top .t-m-menu .t-m .link-right span.imgIco img.pulldown{width:8px;height:5px;position:absolute;right:-14px;top:50%;margin-top:-2px;}
+#top .t-m-menu .t-m .link-right a.user span.userName{vertical-align:middle;margin-left:8px;color:#fff;font-size:14px;font-family:"微软雅黑";}
+#top .t-m-menu .t-s  {width:auto;height:60px;z-index:10000;float:right;}
+#top .t-m-menu .t-s .link-search-right{width:172px;height:60px;float:right;margin-top:4px;overflow:hidden;margin-right:5px;}
+#top .t-m-menu .t-s .search-right{width:330px;_width:205px;height:30px;float:right;margin-right:5px;margin-left:1px;  background-size:auto  100% }
+/*折叠/展开忘记用在哪里了暂时先不删*/
+.menu3 {
+	background-image: url(../../../images/folder3.gif);
+	background-repeat: no-repeat;
+	height: 17px;
+	left: 32px;
+	padding-left: 32px;
+	cursor: hand;
+}
+.menu4 {
+	background-image: url(../../../images/folder4.gif);
+	background-repeat: no-repeat;
+	height: 17px;
+	left: 32px;
+	padding-left: 32px;
+	cursor: hand;
+}
+
+@keyframes debuganimation
+{
+    0%   { transform: rotateZ(0deg); right:900px;  }
+    25% { transform: rotateZ(-360deg); }
+    50% { transform: rotateZ(-720deg); right:1100px }
+    75% { transform: rotateZ(-360deg); }
+    100%  {  transform: rotateZ(0deg);  right:900px; }
+}
+#debugsignbar{
+    width:30px;height:30px;text-align:center;padding:0px;
+    border-radius:27px;line-height:30px;font-size:10px;
+    z-index:1000;position:absolute;top:10px;
+    right:800px;border:1px solid #fff;color:white;
+    margin-top:6px;
+    background-color:#fff;
+    font-family:微软雅黑;
+    text-shadow:0px 0px 2px #000, 0px 0px 1px #000, 0px 0px 6px #000;
+    box-shadow: 0px 0px 18px #ffff44, 0px 0px 18px #ffff44, 0px 0px 18px #ffff44, 0px 0px 80px #000 inset, 0px 0px 20px #000 inset;;
+    animation:debuganimation 12s;
+    animation-iteration-count:100000000;
+    animation-timing-function:linear;
+}
+#debughandle{
+    width:30px;
+    height:30px;
+    text-align:center;
+    padding:0px;
+    border-radius:27px;
+    line-height:30px;font-size:10px;
+    margin-top:6px;
+    z-index:1000;
+    position:absolute;
+    top:10px;
+    right:900px;
+    border:1px solid #fff;color:white;
+    background-color:#fff;
+    font-family:微软雅黑;
+    text-shadow:0px 0px 2px #000, 0px 0px 1px #000, 0px 0px 6px #000;
+    box-shadow: 0px 0px 18px #ffff44, 0px 0px 18px #ffff44, 0px 0px 18px #ffff44, 0px 0px 80px #000 inset, 0px 0px 20px #000 inset;;
+    animation:debuganimation 12s;
+    animation-iteration-count:100000000;
+    animation-timing-function:linear;
+    animation-delay:4s;
+}
+
+/*顶部导航下拉框*/
+.sysdlg{display:none;position:absolute}
+#topSearchForm{
+    height: 60px;
+    position: relative;
+    color:#fff;
+    font-size:0px;
+}
+#topSearchForm.searched{
+    /*background:#141414;*/
+}
+#topSearchForm input{
+    height:32px;
+    line-height:32px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    box-sizing:border-box;
+    color:#fff;
+    vertical-align:middle;
+    font-size:14px;
+    font-family:"微软雅黑";
+}
+input::-webkit-input-placeholder{/*chrome*/
+    color:#fff;
+    opacity:0.4;
+}
+#topSearchText::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:#fff;
+    opacity:0.4;
+}
+#topSearchText:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:#fff;
+   opacity:0.4;
+}
+#topSearchText::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:#fff;
+   opacity:0.4;
+}
+#topSearchText:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:#fff;
+   opacity:0.4;
+}
+#topSearchText::-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:#fff;
+   opacity:0.4;
+}
+#topSearchText{
+    margin-top:-16px;
+    position: absolute;
+    top: 50%;
+    /*transform: translateY(-50%);*/
+    width: 330px;
+    padding-left: 100px;
+    *width:230px;
+    background:#5a5a5c;
+}
+#topSelectBox{
+    width: 100px;
+    cursor: pointer;
+    position: absolute;
+    margin-top:-16px;
+    top: 50%;
+    /*transform: translateY(-50%);*/
+}
+#topSelectBox input{
+    width: 100%;
+    display: block;
+    padding-left: 10px;
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    background:transparent;
+    outline: none;
+}
+#topSelectBox input:focus{
+    box-shadow:none;
+    border:0px;
+    outline:none;
+}
+:focus{
+    outline:none;
+}
+#selectedSearchTitle{
+    text-align:center;
+    padding-right:26px;
+    *text-align:left;
+}
+i.arrow-edge{
+    position: absolute;
+    width: 6px;
+    height: 4px;
+    background:url(../../../../../SYSA/skin/default/images/MoZihometop/topNav/sarrow.png) no-repeat;
+    overflow: hidden;
+    right:18px;
+    top:50%;
+    margin-top:-2px;
+}
+i.line{
+    position:absolute;
+    height:20px;
+    width:1px;
+    overflow:hidden;
+    top:50%;
+    right:10px;
+    margin-top:-10px;
+    background:#fff;
+    opacity:0.5;
+    /*background:url(../../../../../SYSA/skin/default/images/MoZihometop/topNav/sarrow.png) repeat;*/
+}
+#TopSearchSelectList{
+    width:333px;
+    z-index:9999;
+    position:absolute;
+    left:835px;
+    top:60px;
+    background:#fff;
+    box-sizing:border-box;
+    box-shadow:0px 6px 10px rgba(0,0,0,0.1);
+    border:1px solid #dadada;
+    border-radius:4px;
+    display:none;
+}
+#TopSearchSelectList div.list{
+    float:left;
+    width:150px;
+    max-height:300px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background: #fff;
+}
+/* 滚动条宽度 */
+div.list::-webkit-scrollbar{width:6px;}
+/* 滚动条轨道颜色 */
+div.list::-webkit-scrollbar-track{
+    background-color: #eee;
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.2);
+    border-radius: 3px;
+}
+/* 滚动条颜色 */
+div.list::-webkit-scrollbar-thumb{
+    background-color: #ccc;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 6px RGBA(0,0,0,0.2);
+}
+/* 鼠标移动到滚动条上后显示的颜色 */
+div.list::-webkit-scrollbar-thumb:hover {background-color: #999}
+/* 点击时滚动条的颜色 */
+div.list::-webkit-scrollbar-thumb:active {background-color: #999}
+/*滚动条按钮*/
+/*div.list::-webkit-scrollbar-button{
+    background:red;
+}*/
+#TopSearchSelectList  div.billTitle{
+    width:180px;
+}
+#TopSearchSelectList div.list li{
+    height:40px;
+    line-height:40px;
+    text-align:left;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    cursor:default;
+    padding-left:35px;
+    font-size:14px;
+}
+#TopSearchSelectList div.list li:hover{
+    background:#f0f0f0;
+}
+#TopSearchSelectList div.list li.actived{
+    background:#407af5;
+    color:#fff;
+    font-weight:800;
+}
+#topShowList {
+    width:146px;
+    background:#fff;
+    position:absolute;
+    left:0px;
+    top:-1000px;
+    z-index:99999;
+    box-shadow:0px 1px 16px rgba(0,0,0,0.2);
+    transition:height 0.3s linear;
+}
+#topShowList li{
+    width:100%;
+    text-align:left;
+}
+#topShowList li a{
+    display:block;
+    padding:0 6px;
+    padding-left:24px;
+    box-sizing:border-box;
+    color:#333;
+    text-decoration:none;
+    overflow:hidden;
+    height:40px;
+    line-height:40px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size:14px;
+    cursor:pointer;
+    font-family:"微软雅黑";
+}
+#topShowList li:hover,#topShowList li:hover a{
+    background: #f0f0f0;
+    color: #2f78fe;
+}
+/*重登陆窗口*/
+#__sys_rlg_win{
+    width:auto!important;
+    padding:0!important;
+    border:0!important;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+#__sys_rlg_win #winTitle{
+    display:none;
+}
+#curraccountname{
+    display:none!important;
+}
+#FinaceYearList{
+    display: none;
+    z-index: 999999;
+    position: absolute;
+    top: 0px;
+    background: #fff;
+    left: 0px;
+    width: 100px;
+    text-align: center;
+    box-shadow:0px 3px 10px rgba(0,0,0,0.1)
+}
+#FinaceYearList #FinaceYearListBody div{
+    height:40px;
+    line-height:40px;
+    cursor:default;
+    border-bottom:1px solid #eee;
+}
+#FinaceYearList #FinaceYearListBody div:hover{
+    background: #f0f0f0;
+    color: #2f78fe;
+}
+#financeAcount{
+    position:relative;
+}
+#finacelistico{
+    font-family: "宋体";
+    position: absolute;
+    right: 7px;
+    top: 0px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    cursor:pointer;
+}
+#TopSearchSelectList div.list_arrow{
+    position:absolute;
+    top:-16px;
+    left:70px;
+    border-top:8px solid transparent;
+    border-left:8px solid transparent;
+    border-right:8px solid transparent;
+    border-bottom:8px solid #fff;
+}
+/*版本弹层*/
+#versioninfodlg * {
+    font-family: 微软雅黑;
+}
+#versioninfodlg span.jt2 {
+    background: transparent url(../../../../../SYSN/skin/default/img/jt2.gif) no-repeat center center;
+    width: 12px;
+}
+#versioninfodlg table{
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+#versioninfodlg table td{
+    text-align:center;
+}
+/*顶部导航自适应*/
+ @media screen and (max-width:1440px){
+    #top .t-m-menu .t-m .link-right{width:572px}
+    #top .t-m-menu .t-m .link-right a{
+        width: 60px;
+    }
+    #top .t-m-menu .t-s .search-right,#topSearchText{
+        width:300px;
+    }
+}

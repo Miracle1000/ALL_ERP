@@ -1,0 +1,172 @@
+﻿html {
+	padding: 0px 10px 0;
+	background: #efefef;
+	box-sizing: border-box;
+}
+
+body {
+	background: #ffffff;
+}
+body.defcomm{_overflow:visible;height:auto;}
+#PageSizeBox
+	{ position:relative; font-weight:bold;top:1px;margin-top:12px;margin-top:14px;}
+#PageSizeBox option
+	{ color: #2f496e; }
+#toparea
+	{ height:auto; overflow:visible;border-top:/*组装拆装（增强）-组装清单列表-加上toparea*//* height:55px;line-height:48px; */}/*售后知识库-知识库分类，检索区域因为有高级检索，不能设置toparea的高度*/
+div.sfield {
+	float: left;
+	width: auto;
+	cursor: default;
+	min-height:1px;
+}
+div.sfield table {
+	width: auto;
+	table-layout: auto;
+	margin-right: 5px;
+}
+#sfields_date1{	/*检索条件中的日期*/
+	margin-top:-1px;
+}
+#sfields_datetype{	/*检索条件中的单选框*/
+	height:28px;
+}
+#sfields_datetype table {
+	height: 100%;
+}
+div.sfield td {
+	color: #000;
+}
+div.sfield div{
+	color: #000;
+	margin-right:5px;
+}
+
+#searchitemspanel table
+	{ background-color:white;}
+
+#comm_itembarright #btnsdiv{padding-top:14px !important;}/*客户管理-客户列表-客户资质列表-导出打印按钮*/
+#comm_itembarright #btnsdiv input[type=text]{height:13px;}
+
+#lvwbody {
+	background-color: white;
+	/* float:left; 财务-总账设置-设置会计科目属性-360浏览器极速模式列表挤到一块，注释该行 */
+	/*border-top:1px solid #ccc;*/
+	/* margin-top:-1px;  财务-总账设置-设置会计科目属性-360浏览器极速模式列表挤到一块，注释该行*/
+	*margin-top: -2px; /*采购高级检索ie7下粗线条*/
+	padding:0 22px;
+}
+#sfields_{*padding-top:2px}
+
+#sfields_searckKey input {height: 28px;line-height: 28px;box-sizing: border-box;}/*售后维修-维修受理-受理单列表，检索区域最右边文本框*/
+#fieldsBox{background:#fff}
+th.lvwheader {height:40px;padding:0;}
+.lvwheader th{height:40px !important;padding:0;font-size:14px!important;}
+#sfields_date1 table{*margin-top:-2px;}/*财务-总账管理-财务账表-现金日记账-ie8下检索区域的日期框没有上边框*/
+#sfields_date1 input {height: 28px;line-height: 26px;box-sizing: border-box;vertical-align: middle;}/*联系人管理-- 联系间隔分析  检索区域文本框*/
+#searchitemsbutton{display:none;float:left;_padding-top:5px;} /*该链接默认隐藏，靠js显示*/
+#lvw_sbar_mlistvw{display:none;}
+#sfields_date3 td{
+	*height:33px;*line-height:33px;
+	padding-top:0px!important;
+}/*售后知识库-知识库分类，检索区域文本框*/
+#sfields_keytxt input,#sfields_date3 td input{
+	height:28px;
+	padding:0;line-height:28px;*height:28px;*line-height:26px;
+}/*售后知识库-知识库分类，检索区域文本框*/
+th.lvwheader.h_1{background:url('../../../sysa/images/tb_top_td_bg.gif')}
+@media print
+{
+	#comm_itembarText span{color:#000;}
+	#comm_itembarright{display:none;}
+	#fieldsBox{display:none;}
+	th.lvwheader {border-color:#000;color:#000;border-top:2px solid #000;}
+	td.lvw_cell {border-color:#000;}
+	td.lvw_cell td{color:#000;}
+	th.lvwheader th{color:#000}
+	div.lvw_pagebar{display:none;}
+	div.lvw_tablebg{border-top:0px;}
+	div.listview {border-top:0px;border-left:1px solid #000;border-bottom:0px;border-right:0px;}
+	#toparea{display:none}
+}
+
+#ImageGroupArea { width:1120px; margin:0 auto;}
+#ImageGroupArea>div.resetTableBg{background:#fff!important;}
+div.gmitem {float:left;margin:20px 0px 0px 20px;width:535px;height:310px;}
+table.rpt_grm_lb {table-layout:fixed;border-collapse:collapse;width:120px;height:20px;line-height:12px;cursor:default;}
+table.rpt_grm_lb td.lb {text-align:right;padding:0px;height:20px;}
+table.rpt_grm_lb td.dv {color:#2f496e;padding:0px;padding-left:2px;text-align:left;height:20px;}
+#bottomdiv {position:relative;}
+
+.lvw_pagebar {
+	height:40px;
+	padding-top:3px;
+	background-repeat:repeat-x;
+
+	
+}
+.lvwframe2 {top:0px}
+
+#rptsortlist {
+	position:absolute;top:11px; 
+	left:100px;background-color:#fff;
+	-moz-box-shadow:1px 1px 7px #8888aa;
+    -webkit-box-shadow:1px 1px 7px #8888aa;
+	box-shadow:1px 1px 7px #8888aa;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#a0acbc')";
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#a0acbc');
+	z-index:100;
+}
+.rptsortitem {
+	line-height: 40px;
+	color: #000;
+	height: 40px;
+	padding: 0 20px;
+}
+.rptsortitem:hover{
+	background-color:#EFEFEF;
+}
+.top-reverse-arrow{
+	position:absolute;
+	width:0;
+	height:0;
+	border:6px solid transparent;
+	border-bottom-color:#fff;
+	top:-12px;
+	left:50%;
+	margin-left:-6px;
+}
+button.batbtn {
+	margin-left: 10px;
+}
+
+#__ReportPostFrm {position:absolute;top:0px;left:0px;width:100%;height:100%;padding:0px;z-index:1000000;}
+#__ReportPostFrm_box{width:100%;height:100%;}
+
+.rpt_cfg_panel .lvwhead {padding-top:3px;padding-bottom:3px}
+.rpt_cfg_panel .lvw_cell {padding-top:3px;padding-bottom:3px} 
+.rpt_cfg_panel .lvw_cell input {text-align:center;border: 1px solid #CCC;} 
+#showReportSettings {overflow:hidden;background:#fff!important}
+
+.lvwbg0010{height:40px;line-height:40px;}
+.lvw_ywrow input{height:26px;line-height:26px;}
+#c_dtype_1,#c_dtype_0{height:13px;}
+/**********************   团队管理-日程管理-上级指派给我日程 检索区域  *********************/
+
+
+#asearchlinkBg{height:43px;line-height:43px;}
+#sfields_keytype select{height:28px;*height:21px;line-height:28px;}
+#sfields_keytype #fsitem_keytype{*height:22px;}
+
+/**********************   团队管理-日程管理-上级指派给我日程  检索区域 *********************/
+
+/**********************   团队管理-日程管理-我指派给下属日程  检索区域 *********************/
+
+#searchitemsbutton{height:35px;line-height:35px;padding-top:4px!important;}
+/**********************   团队管理-日程管理-我指派给下属日程  检索区域 *********************/
+/*营销-微信用户-用户列表-*/
+#sfields_datetype input{height:13px;}
+#sfields_nickname{height:auto;}
+#searchitemspanel td.ad_sear_td{height:40px;}/*高级检索*/
+#searchitemsbutton2{height:55px;line-height:55px;}
+/*营销-微信用户-用户列表-*/

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #map {
+            margin: 0;
+            padding: 0
+        }
+    </style>
+</head>
+<script language="JavaScript">
+    window.onerror = function () {
+    return true;
+   } ;
+    var qq=null;
+</script>
+<body>
+<div id="map" style="width: 1100px;height:513px;"></div>
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=DI6BZ-HEL3Q-6WB5L-GLK4J-SGLDE-GKFHC"></script>
+<script>
+    (function () {
+        if (!qq) {
+            var div = document.getElementById("map");
+            div.style.textAlign="center";
+            div.style.padding = "50px";
+            div.style.color = "red";
+            div.style.fontSize = "12px";
+            div.innerHTML = "网络有故障，请检查您的网络，然后再试。。。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        } else {
+            var myLatlng = new qq.maps.LatLng(39.982163, 116.306070);//(默认地图中心点)纬度在前经度在后；
+            var iframId = window.location.href.split("?")[1].split("=")[1];
+            if (!window.parent.document.getElementById(iframId))return;
+            var field = eval(window.parent.document.getElementById(iframId).getAttribute("field"));
+            for (var i = 0; i < field.length; i++) {//不能将中心位置定为北京，以上传的第一个地址为中心；如果没有上传地址就以北京为中心
+                var jingdu=field[i].data.longitude,weidu=field[i].data.latitude;
+                if(jingdu&&jingdu!=0&&weidu&&weidu!=0){
+                    myLatlng = new qq.maps.LatLng(weidu, jingdu );
+                    break;
+                }
+            }
+            var myOptions = {
+                zoom: 9,
+                center: myLatlng,
+                mapTypeId: qq.maps.MapTypeId.ROADMAP
+            };
+            var map = new qq.maps.Map(document.getElementById("map"), myOptions);
+            var infoWin = new qq.maps.InfoWindow({map: map, height: "100px"});
+            for (var i = 0; i < field.length; i++) {//创建多个标记；
+                var lon = parseFloat(field[i].data.longitude);
+                var lat = parseFloat(field[i].data.latitude);
+                if (lon) {
+                    var center = new qq.maps.LatLng(lat,lon);
+                    var marker = new qq.maps.Marker({
+                        position: center,
+                        map: map,
+                        flat: true
+                    });
+                    (function (i, centerCurr) {
+                        qq.maps.event.addListener(marker, 'mouseover', function () {
+                            //open()打开信息窗口
+                            var html = [];
+                            html.push("<div style='width: 200px'>");
+                            var remark = field[i].remark || "", personName = "", personTime = "";
+                            if (remark) {
+                                var ary = remark.split("$888$");
+                                if (ary.length == 2) {
+                                    personName = ary[0];
+                                    personTime = ary[1]
+                                }
+                            }
+                            html.push("<div style='text-align: center;font-size: 14px;line-height: 20px;font-weight: bold'><span>" + personName + "</span>&nbsp;<span style='font-size: 12px;color:#666'>" + personTime + "</span></div>");
+                            html.push("<div style='font-size: 12px;text-align: left;line-height: 18px;'>" + (field[i].data.address || "") + "</div>");
+                            html.push("</div>");
+                            infoWin.open();
+                            infoWin.setMap(map);
+                            infoWin.setPosition(centerCurr);
+                            infoWin.setContent(html.join(""));
+                        });
+                        qq.maps.event.addListener(marker, 'mouseout', function () {
+                            infoWin.close();
+                        });
+                    })(i, center)
+                }
+            }
+        }
+    })();
+</script>
+</body>
+</html>

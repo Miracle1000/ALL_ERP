@@ -1,0 +1,211 @@
+﻿*{margin:0;padding:0;font-family:宋体;box-sizing:border-box;}
+#comm_itembarbg{height:60px!important;background:#fff;border:1px solid #ededed;width:100%!important;}
+#comm_itembarICO{height:60px;width:45px;background:url(../../../../../../SYSA/skin/default/images/bench_arrow.png) no-repeat right center}
+#comm_itembarText{padding:0 0 0 10px;height:60px;line-height:60px;background:#fff;margin-right:90px;width:auto!important;cursor:default;}
+#comm_itembarText span{font-size:16px;color:#333!important;font-weight:bolder;letter-spacing:0px;}
+#comm_itembarText{color:#333!important;}
+#comm_itembarspc{display:none;}
+table#editbody{margin-left:0!important;width:100%!important;}
+#comm_itembarrightfieldarea{padding:0!important;float:none!important;}
+#comm_itembarrightfieldarea  div.sub-field.gray.f_radionavigation.editable{padding:0;}
+/*公共样式*/
+html#zbservices_view_sysn_view_sales_customer_customerintercourse{overflow-x:auto;}
+#zbservices_view_sysn_view_sales_customer_customerintercourse body{min-width:1200px;*width:99.9%;}
+#zbservices_view_sysn_view_sales_customer_customerintercourse div.listview table{table-layout:auto;}
+table#editbody{background:#eaedf1;}
+table#editbody tr{background:#fff;}
+table#editbody td.fcell.GroupTabtitle.titleHide{display:none;}
+table#editbody td.fcell.GroupTabtitle {padding:13px  30px 0px;border:none;box-sizing:border-box;}
+table#editbody td.fcell{padding:0 30px;border:none;}
+table#editbody td.fcell.GroupTabtitle div.group-fold{display:none;}
+table#editbody div.lvw_add_row.sub-field,table#editbody div.lvwbtmtooldiv,div.lvw_je_XScrlbar{display:none!important;}
+td.lvw_notnullcell{background:url(../img/td_bg0.png) right bottom no-repeat;}
+table#editbody td.fcell.GroupTabtitle div.group-title{font-size:14px;font-weight:bold;padding:0 0 0 6px;line-height:18px;border-left:2px solid #333333;color:#333;margin-top:8px;}
+table#editbody td.fcell.GroupTabtitle button{background:#dadada url(../../../../../../SYSA/skin/default/images/bench_01.png) no-repeat 88% center;width:auto;height:auto;*width:140px;margin:0;padding:8px 36px 8px 15px;color:#333;font-size:12px;text-align:left;line-height:12px;border:0;transition:all 0.5s}
+table#editbody div.lvwtooldiv {height:auto;background:#fff;}
+table#editbody div.lvw_toptoolbtn{padding:0;}
+table#editbody div.lvw_toptoolbtn input{display:none;}
+table#editbody button#customBusiness_btn{*width:170px;}
+table#editbody td.fcell.GroupTabtitle button:hover{color:#fff;background:#333 url(../../../../../../SYSA/skin/default/images/bench_02.png) no-repeat 88% center;}
+table#editbody td.fcell div.lvwbtmtooldiv_rep{display:none;}
+table#editbody td.fcell div.lvw_tbody_bg{border:none;}
+table#editbody td.fcell table.lvwframe2{border-top:1px solid #c0ccdd!important;width:100%!important;}
+table#editbody tr.zb-table-blankgap{display:none}
+table#editbody tr.zb-table-blankgap.blankshow{display:table-row;*display:block;}
+table#editbody td.fcell div.listview{margin-top:10px;}
+div.sub-field input{height:22px;line-height:22px;}
+div.sub-field div.dateAndsearch{margin:8px 0px;text-align:center;}
+div.sub-field div.dateAndsearch div.txt,div.dateAndsearch div.date,div.dateAndsearch div.search{display:inline-block;*display:inline;zoom:1}
+div.sub-field input#Company_tit{width:210px;padding-right:14px!important;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+div.sub-field #changeCus{display:inline-block;zoom:1;padding-left:17px;height:23px;line-height:22px;color:#333;background: url(../../../../../../SYSA/skin/default/images/bench_03_1.png) no-repeat left center;}
+div.sub-field  div.autocplclear{display:none;}
+button#sub{margin-left:12px!important;}
+/*待办业务事项*/
+div.businessPengding{height:130px;zoom:1;margin-top:12px;}
+div.businessPengding.last{margin:20px 0;}
+.noProductNum #productPending,.noGoodsTest #goodsTest{display:none;}
+.noToCheckFor  div#receivePending.pending,.noToCheckFor  div#openPending.pending{
+    width:50%;
+    *width:49%;
+}
+.noToCheckFor  div#receivePending.pending{
+    padding-right:10px!important;
+}
+.noToCheckFor  #receivePending .stockPending a{
+    width:49%;
+}
+.noToCheckFor  div#openPending.pending{
+    padding-left:10px!important;
+}
+.clearfix:after{
+    content:"";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+.noProductNum .pending{
+    width:50%;
+    *width:49.1%;
+}
+.noProductNum #stockPending{
+    padding-right:10px;
+}
+.noProductNum #goodsPending{
+    padding-left:10px;
+    padding-right:0px;
+}
+.noGoodsTest #stockApply{
+    width:100%!important;
+    *width:97.9%!important;
+    padding-right:0!important;
+}
+.noOutSource #goodsTest a.stockLeftLink .stockNum.border{border:0px}
+.noGoodsInspect #goodsTest a.stockRightLink,.noOutSource #goodsTest a.stockLeftLink{
+    width:100%;
+}
+.pending{
+    height:130px;
+    width:39.6%;
+    *width:38.18%;
+    box-sizing:border-box;
+    padding-right:20px;
+    *padding-right:17px;
+    float:left;
+}
+.stockPending{
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
+    background:#6a70e5;
+}
+.stockPending a{
+    display:block;
+    float:left;
+    padding:28px 0 37px 35px;
+    *padding:0px;
+}
+.stockPending a.stockLeftLink{
+    width:49%;
+}
+.stockPending a.stockRightLink{
+    width:50%;
+}
+div.stockPending div.stockTxt{
+    text-align:left;
+    font-size:12px;
+    line-height:12px;
+    color:#fff;
+    font-weight:bold;
+    *padding:28px 0 0 35px;
+}
+div.stockPending div.stockNum{
+    text-align:left;
+    font-size:40px;
+    font-family:微软雅黑;
+    color:#fff;
+    height:52px;
+    line-height:40px;
+    *line-height:44px;
+    padding-top:13px;
+    *padding-left:35px;
+}
+div.stockPending span.unit{
+    display:none;
+}
+div.stockPending div.stockNum.border{
+    border-right:1px solid #cfcfcf;
+}
+div#goodsPending div.stockPending{
+    background:#4390cb;
+}
+div#productPending.pending{
+    padding:0;
+    width:20.7%;
+    float:right;
+}
+div#productPending div.stockPending{
+    background:#dc9524;
+}
+div#receivePending.pending{
+    width:59.8%;
+    *width:58.3%;
+}
+div#receivePending div.stockPending a{
+    width:33.3%;
+}
+div#receivePending div.stockPending{
+    background:#e3763a;
+}
+div.stockPending span.unit{
+    font-weight:normal;
+    font-size:12px;
+    margin-left:6px;
+    color:#fff;
+}
+div#receivePending.pending div.stockNum span.unit{
+    display:inline;
+}
+div#openPending.pending div.stockNum span.unit{
+    display:inline;
+}
+div#openPending.pending{
+    width:40.2%;
+    padding:0;
+    float:right;
+}
+div#openPending div.stockPending{
+    background:#249ab3;
+}
+div.businessPengding div.pending a:hover{text-decoration:none;}
+div.group-title span.balance{color:#333;font-size:14px;}
+
+/*供应商业务总览*/
+html#zbservices_view_sysn_view_store_supplier_supplierintercourse{overflow-x:auto;}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse body{min-width:1200px;*width:99.9%;}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse div.listview table{table-layout:auto;}
+table#editbody button#supplier_btn{*width:170px;}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse div.pending{
+    width:50%;
+    *width:48.3%;
+    padding-right:10px;
+}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse #goodsTest div.stockPending{
+    background:#dc9524;
+}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse #accountPay div.stockPending{
+    background:#e3763a;
+}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse #receiveTicket div.stockPending{
+    background:#249ab3;
+}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse #goodsTest,
+#zbservices_view_sysn_view_store_supplier_supplierintercourse #receiveTicket
+{
+    padding:0 0 0 10px;
+}
+#zbservices_view_sysn_view_store_supplier_supplierintercourse #accountPay div.stockPending span.unit,
+#zbservices_view_sysn_view_store_supplier_supplierintercourse #receiveTicket div.stockPending span.unit
+{
+    display:inline;
+}

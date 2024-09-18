@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html style="overflow-x: hidden;width: 100%;word-break: break-all; word-wrap:break-word;">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>商品详情</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+	    <link rel="stylesheet" href="css/commen.css" />
+	    <link rel="stylesheet" href="css/detail.css?9s2312asdasd234dd" />
+	</head>
+	<body style="width: 100%;word-break: break-all; word-wrap:break-word;">
+		<div id="loadDiv" style="background: #fff;height: 100%;width: 100%;position: fixed;z-index: 9999;">	
+			<img src="img/load.gif" style="display: block;margin: 80px auto; width: 30px;">
+		</div>
+		<div style="" id="mainDiv">
+			<header class="container">
+				<ul class="row">
+					<li class="col-xs-1 hd-back text-center"> <img src="img/back.png" id="back" style="margin-left:-8px"/> </li>
+					<li class="col-xs-10 text-center" >
+						<ul class="nav nav-tabs" id="tabBt" style="border-bottom: none; font-family: '微软雅黑';">
+							<li class="active " style="width: 48%;float: left; margin-bottom:0px;"><a href="#goodsDiv" data-toggle="tab" style="font-size: 16px;float: right;">商品</a> </li>		
+							<li  style="width: 48%; float: left; margin-bottom:0px;"><a href="#detailDiv" data-toggle="tab" style="font-size: 16px;">详情</a> </li>			
+						</ul>
+					</li>
+					<li class="col-xs-1"></li>	
+				</ul>
+			</header>
+			<!--tab content商品-->
+			<div class="tab-content">
+					<section class="tab-pane active" id="goodsDiv">
+					<div class="container-fluid pst">
+						 <!--商品图片展示-->
+						<div class="carousel slide">
+					        <ul  class="carousel-inner" id="detailCarousel">
+					     		
+					        </ul>
+				        </div>
+				        <div class="imgsNum">0/0</div>   
+					</div>
+					<div>
+			        <!--商品基本信息简介-->
+			        <div class="intro" style="border-bottom: none;">
+			          
+			      	</div>
+			      	<div class="ads" style="font-size: 12px;color:#848689;padding: 0 1rem;">
+			          
+			      	</div>
+			      	<div class="cb priceDiv">
+			      		
+			        </div>	
+			        <p  id="chooseBtn">
+			 			<span style="display: inline-block;width: 100%;text-align: right;color: #000;font-size: 14px;">选择属性<em class="moreImg"></em></span>
+			        </p>   
+				</div>
+				</section>
+				<!-----商品详情DIV---->
+				<section class="container-fluid tab-pane" id="detailDiv">
+					<ul class="row nav nav-tabs">
+						<li class="col-xs-4 text-center active"><a href="#goodsIntro" data-toggle="tab">商品介绍</a></li>
+						<li class="col-xs-4 text-center"><a href="#param" data-toggle="tab">规格参数</a></li>
+						<li class="col-xs-4 text-center"><a href="#service" data-toggle="tab">包装售后</a></li>
+					</ul>
+					<div class="tab-content">
+						<div id="goodsIntro" class="tab-pane active"></div>
+						<div id="param" class="tab-pane"></div>
+						<div id="service" class="tab-pane"></div>
+					</div>
+				</section>
+			</div>   
+		</div>
+		<!--点击更多>出现的更多页面-->
+		<div id="moreWrap" style="background: rgba(0,0,0,0.6);width: 100%; height: 100%;position: fixed; z-index: 779;display: none;">
+			<div class="container-fluid moreDiv" id="moreDiv">
+				<p class="exit"></p>
+				<ul class="cb" id="showImg">
+	
+				</ul>
+				<div id="unitDiv">
+				</div>
+				<div class="goodsStyle1 cb">
+					<p class="">购买数量</p>
+					<div class="changeNum" >
+						<span class="cut"></span>
+						<input type="number" dataType="number" value="1" class="list-num" id="number"/>
+						<span class="add"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="display:none;background-size: 100%;border-radius:50%;color: #fff;position: absolute;top: 30%;left:50%;height: 80px;width: 80px;z-index:99999" id="intoCarTig">
+			<!--<ul  style="line-height:1.5;color: #fff;background:rgba(0,0,0,0.5);height: 80px;width: 200px;border-radius: 5px;">-->
+				<!--<li class="fl" style="text-align:center;width:25%;height:80px;line-height: 80px;"><img src="img/success.png" style="width: 40px;"></li>
+				<li class="fr" style="width: 74%;height: 80px;line-height: 30px;">
+					<div style="font-size: 16px;padding-top: 10px;text-align:center">添加成功！</div>
+					<div style="font-size: 12px;text-align:center">商品已成功加入购物车</div>
+				</li>-->
+			<!--</ul>-->
+		</div>
+		
+		<!--底部-->
+		<footer class="container-fluid detailFooter">
+			<ul class="row">
+				<li class="col-xs-2 pst" id="carDiv">
+					<span class="glyphicon glyphicon-shopping-cart"></span>
+					<p class="carNum">0</p>
+				</li>
+				<li class="col-xs-5" id="intoCar">加入购物车</li>
+				<li class="col-xs-5" id="buyNow">立即购买</li>
+			</ul>
+		</footer>
+	</body>
+	<script src="../GlobalSettings.asp"></script>
+	<script src="../../../../inc/formatnumber.js"></script>
+	<script src="../../js/jweixin-1.0.0.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script>
+		document.write('<script type="text/javascript" src="js/global.js?'+Math.random()+'"></scr'+'ipt>'); 	
+    </script>
+	<script type="text/javascript" src="js/jquery.touchSwipe.min.js" ></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="js/commen.js" ></script>
+	<script>
+		document.write('<scr'+'ipt type="text/javascript" src="js/detail.js?'+randcode+'" ></scr'+'ipt>');
+	</script>
+</html>

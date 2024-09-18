@@ -1,0 +1,196 @@
+﻿
+body{
+	border:0px;
+	background-image:url(../images/playlistbg.jpg);
+	background-color:#e1e3f0;
+	background-repeat:repeat-x;
+	bottom:0px;
+	right:0px;
+	overflow:hidden;
+}
+
+.pagediv{
+	position:absolute;
+	left:5px;
+	top:26px;
+	border:1px solid #aaaacc;
+	border-bottom:1px solid #777799;
+	border-right:1px solid #777799;
+	background-color:white;
+}
+
+td{
+	font-size:12px;
+	height:24px;
+}
+th{
+	font-size:12px;
+	height:24px;
+}
+
+input.text {
+	font-size:12px;font-family:宋体;
+	border:1px solid #ccc;background-color:white;
+	height:20px;
+}
+
+input.btext {
+	font-size:12px;font-family:宋体;
+	border:1px solid #ccc;background-color:white;
+	height:24px;
+	line-height:20px;
+}
+
+#jsToolTab{
+	background-color:white;
+	filter:wave(strength=0,freq=1,lightstrength=3,phase=0);
+}
+
+button.wav{
+	font-size:12px;
+	font-family:宋体;
+	border:1px solid #ccc;
+	background-color:white;
+	height:24px;
+	line-height:24px;
+	filter:wave(strength=0,freq=1,lightstrength=6,phase=0);
+}
+div {color:white;font-size:12px;font-family:宋体}
+
+/*实现SSTab*/
+.ssTabItem_select {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+	/*filter:Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+.ssTabItem {
+	position:relative;
+	padding-right:1px;
+	padding-top:1px;
+	/*Shadow(color=#AAAADD,direction=45,Strength=0);*/
+}
+
+.divdlgBody .ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid  #cecece;
+	border-bottom:1px solid white;
+}
+.divdlgBody  .ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid  #cecece;
+	border-right:1px solid  #cecece;
+	border-bottom:1px solid white;
+	padding-right:3px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+.divdlgBody  .ssTabItem_select .TabItemSlash{
+	background-image:url(../../images/smico/divdlgSlash.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid white;
+	padding:0px;
+}
+.divdlgBody .ssTabItem .TabItemSlash{
+	background-image:url(../../images/smico/bgdivbgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #cecece;
+	padding:0px;
+}
+.divdlgBody  .ssTabItem .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #cecece;
+	border-bottom:1px solid #cecece;
+}
+.divdlgBody  .ssTabItem .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #cecece;
+	border-right:1px solid #cecece;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #cecece;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+.ssTabItem_select .TabItemSlash{
+	background-image:url(../../images/smico/Slash.gif);
+	background-repeat:no-repeat;
+	height:24px;
+	width:25px;
+	border-bottom:1px solid white;
+	padding:0px;
+}
+.ssTabItem_select .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid white;
+}
+.ssTabItem_select .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	border-bottom:1px solid white;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	font-weight:bold;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+}
+.ssTabItem .TabItemSlash{
+	background-image:url(../../images/smico/BgSlash.gif);
+	height:24px;
+	width:25px;
+	border-bottom:1px solid #A5A8D4;
+	padding:0px;
+}
+.ssTabItem .TabItemImage {
+	height:24px;
+	background-color:white;
+	padding:0px;
+	width:17px;
+	border-top:1px solid #A5A8D4;
+	border-bottom:1px solid #A5A8D4;
+	background-image:url(../../images/smico/TabItemBg.bmp);
+}
+.ssTabItem .TabItemText {
+	height:22px;
+	background-color:white;
+	border-top:1px solid #A5A8D4;
+	border-right:1px solid #A5A8D4;
+	padding-right:4px;
+	padding-left:1px;
+	padding-top:2px;
+	padding-bottom:0px;
+	border-bottom:1px solid #A5A8D4;
+	cursor:default;
+	font-size:12px;
+	font-family:宋体;
+	background-image:url(../../images/smico/TabItemBg.bmp);
+}
+/*实现SSTab完毕*/

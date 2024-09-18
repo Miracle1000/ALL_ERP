@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--客户对账表打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="74" DBViewName="" DBDetailViewName="" IsReport="true">
+  <Items Title="公共字段">
+    <Items Title="基本信息">
+      <Column Name="开始日期" dbName="sta_date" Description="开始日期" LocationType="All"/>
+      <Column Name="截止日期" dbName="end_date" Description="截止日期" LocationType="All"/>
+      <Column Name="期初余额" dbName="open_balance" Description="期初余额" LocationType="All"/>
+      <Column Name="期末余额" dbName="end_balance" Description="期末余额" LocationType="All"/>
+      <Column Name="币种" dbName="this_currency" Description="币种" LocationType="All"/>
+    </Items>
+    <Items Title="客户信息">
+      <Column Name="客户名称" dbName="zb_company" Description="客户名称" LocationType="All"/>
+      <Column Name="客户编号" dbName="zb_code" Description="客户编号" LocationType="All"/>
+      <Column Name="客户地址" dbName="zb_address" Description="客户地址" LocationType="All"/>
+      <Column Name="客户电话" dbName="zb_kphone" Description="客户电话" LocationType="All"/>
+      <Column Name="客户手机" dbName="zb_sjphone" Description="客户手机" LocationType="All"/>
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表头表尾字段">
+    <Items Title="合计信息">
+      <Column Name="实收小计" dbName="SUM_PAGE([money3])" Description="实收合计" LocationType="All" IsFunction="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="实收合计" dbName="SUM_ALL([money3])" Description="实收合计" LocationType="All" IsFunction="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="应收小计" dbName="SUM_PAGE([money2])" Description="应收合计" LocationType="All" IsFunction="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="应收合计" dbName="SUM_ALL([money2])" Description="应收合计" LocationType="All" IsFunction="true" TableName="#CustomStateMentDZInfo#" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="关联联系人">
+      <Column Name="联系人姓名" dbName="zb_person" Description="联系人姓名" LocationType="Detail" />
+      <Column Name="联系人电话" dbName="zb_phone " Description="联系人电话" LocationType="Detail"/>
+      <Column Name="联系人传真" dbName="zb_fax" Description="联系人传真" LocationType="Detail"/>
+      <Column Name="联系人手机" dbName="zb_mobile" Description="联系人手机" LocationType="Detail"/>
+      <Column Name="联系人邮件" dbName="zb_emaile" Description="联系人邮件" LocationType="Detail"/>
+      <Column Name="联系人qq" dbName="zb_qq" Description="联系人qq" LocationType="Detail"/>
+      <Column Name="联系人微信" dbName="zb_WeChat" Description="联系人微信" LocationType="Detail"/>
+      <Column Name="联系人所在部门" dbName="zb_Department" Description="联系人所在部门" LocationType="Detail"/>
+      <Column Name="联系人职位" dbName="zb_Position" Description="联系人职位" LocationType="Detail"/>
+    </Items>
+    <Items Title="销售人员">
+      <Column Name="销售人姓名" dbName="sales_name" Description="销售人姓名" LocationType="Detail"/>
+      <Column Name="销售人电话" dbName="sales_phone " Description="销售人电话" LocationType="Detail"/>
+      <Column Name="销售人传真" dbName="sales_fax" Description="销售人传真" LocationType="Detail"/>
+      <Column Name="销售人手机" dbName="sales_mobile" Description="销售人手机" LocationType="Detail"/>
+      <Column Name="销售人邮件" dbName="sales_email" Description="销售人邮件" LocationType="Detail"/>
+      <Column Name="销售人部门" dbName="sales_branch" Description="销售人部门" LocationType="Detail"/>
+      <Column Name="销售人小组" dbName="sales_team" Description="销售人小组" LocationType="Detail"/>
+    </Items>
+    <Items Title="收货地址">
+      <Column Name="收货人" dbName="consignee_name1" Description="收货人" LocationType="Detail"/>
+      <Column Name="固定电话" dbName="consignee_phone1 " Description="固定电话" LocationType="Detail"/>
+      <Column Name="手机" dbName="consignee_mobiel" Description="手机" LocationType="Detail"/>
+      <Column Name="所在区域" dbName="consignee_area1" Description="所在区域" LocationType="Detail"/>
+      <Column Name="详细地址" dbName="consignee_address1" Description="详细地址" LocationType="Detail"/>
+      <Column Name="邮编" dbName="consignee_code" Description="邮编" LocationType="Detail"/>
+    </Items>
+    <Items Title="对账信息">
+      <Column Name="行号" dbName="inx" Description="行号" LocationType="Detail" OrderNum="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="日期" dbName="date1" Description="日期" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="主题" dbName="billtitle" Description="主题" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="业务类型" dbName="billTypeNameC" Description="业务类型" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="产品名称" dbName="cptitle" Description="产品名称" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="产品编号" dbName="order1" Description="产品编号" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="产品型号" dbName="type1" Description="产品型号" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="单位" dbName="unitname" Description="单位" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="数量" dbName="num1" Description="数量" LocationType="Detail" SumaryCalculate="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="单价" dbName="price1" Description="单价" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="金额" dbName="money1" Description="金额" LocationType="Detail" SumaryCalculate="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="明细备注" dbName="mxintro" Description="明细备注" Type="Image" GroupBy="true" LocationType="Detail" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="出库主题" dbName="zb_ck_title" Description="出库主题" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="出库编号" dbName="zb_ckbh" Description="出库编号" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="关联单据" dbName="zb_title" Description="关联单据" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="关联单据编号" dbName="zb_bh" Description="关联单据编号" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="备注" dbName="intro" Description="备注" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="应收金额" dbName="money2" Description="应收金额" LocationType="Detail" SumaryCalculate="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="实收金额" dbName="money3" Description="实收金额" LocationType="Detail" SumaryCalculate="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="应收余额" dbName="money4" Description="应收余额" LocationType="Detail" SumaryCalculate="true" TableName="#CustomStateMentDZInfo#" />
+      <Column Name="状态" dbName="status" Description="状态" LocationType="Detail" GroupBy="true" TableName="#CustomStateMentDZInfo#" />
+    </Items>
+  </Items>
+</Report>

@@ -1,0 +1,16 @@
+﻿.menu ul li a.hide, .menu ul li a:visited.hide {display:none;}
+.menu ul li a.hides, .menu ul li a:visited.hides {display:none;}
+.menu ul li a:hover ul li a.hide {display:none;}
+.menu ul li a, .menu ul li a:visited {text-decoration:none; color:#000;width:65px;padding-right:12px; height:22px; text-align:center; color:#000;line-height:18px;padding-top:5px; font-size:12px;}
+.menu ul li a:hover {color:#000;background:url(../images/bg_main_menu2.gif) center no-repeat;font-weight:bold;}
+.menu ul li a:hover ul {display:block; position:absolute; top:23px; left:0; width:121px;background:url(../images/bg_f_menu_01_top.gif) top left no-repeat;padding-top:9px;z-index:2000;}
+.menu ul li a:hover ul li.bottom {background:url(../images/bg_f_menu_01_bottom.gif) top no-repeat;width:121px;height:6px;margin-bottom:-9px;}
+.menu ul li a:hover ul li a.sub {background:; color:#000;width:103px;padding-left:9px;padding-right:9px;padding-top:2px;font-weight:normal;}
+.menu ul li a:hover ul li a.subs {background:url(../images/ico_f_menu_arrow.gif) 94px 8px no-repeat; color:#000;width:103px;padding-left:9px;padding-right:9px;padding-top:2px;font-weight:normal;}
+.menu ul li a:hover ul li a.subs:hover {background:#7A91BA url(../images/ico_f_menu_arrows.gif) 94px 8px no-repeat; color:#FFF;width:103px;padding-left:9px;padding-right:9px;padding-top:2px;font-weight:normal;}
+.menu ul li a:hover ul li a {display:block; background:; color:#000;width:103px;padding-left:9px;padding-right:9px;padding-top:2px;font-weight:normal;}
+.menu ul li a:hover ul li a ul {visibility:hidden;}
+.menu ul li a:hover ul li a ul li.bottom {background:url(../images/bg_f_menu_01_bottom.gif) top no-repeat;width:121px;height:6px;margin-bottom:-9px;}
+.menu ul li a:hover ul li a:hover {background:#7A91BA; color:#FFF;padding-left:9px;padding-right:9px;font-weight:normal;}
+.menu ul li a:hover ul li a:hover ul {visibility:visible; position:absolute; left:121px; top:0; color:#000;background:url(../images/bg_f_menu_02_top.gif) top left no-repeat;z-index:3000;}
+.menu ul li a:hover ul li a:hover ul.left {left:-105px;}

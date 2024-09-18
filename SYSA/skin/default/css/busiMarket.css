@@ -1,0 +1,547 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "微软雅黑";
+  color: #fff;
+}
+html,body{width: 100%;}
+body{
+  background: url(../images/busiMarket/bg.png) repeat;
+  min-width: 1270px;
+}
+.clearfix:after{
+  content: "";
+  clear: both;
+  height: 0;
+  display: block;
+  visibility: hidden;
+}
+.clearfix{
+  zoom:1;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+.topContainer {
+    height: 94px;
+    width:100%;
+    line-height: 56px;
+    font-size: 14px;
+    background:url(../images/busiMarket/title.png) no-repeat center;
+    background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/busiMarket/title.png',sizingMethod='scale');
+    position:relative;
+}
+#chengeTime,#setComponent{
+  height: 55px;
+}
+#chengeTime{
+  padding-left: 47px;
+}
+#chengeTime span{
+  margin-right: 36px;
+}
+#setComponent{
+  padding-right: 35px;
+}
+#setComponent span{
+  display: inline-block;
+  vertical-align: middle;
+}
+#setComponent .fullscreen,#setComponent .setRefreshTime{
+  height: 22px;
+  width: 22px;
+}
+#setComponent .fullscreen{
+  background: url(../images/busiMarket/nofullscreen.png) no-repeat center;
+  margin: 0px 46px;
+}
+#setComponent .fullscreen.nofullscreen{
+  background: url(../images/busiMarket/fullscreen.png) no-repeat center;
+}
+#setComponent .setRefreshTime{
+  background: url(../images/busiMarket/set.png) no-repeat center;
+}
+#dpTitle{
+  height: 94px;
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  margin-left: -233px;
+}
+#dpTitle .title{
+  background: url(../images/busiMarket/t.png) no-repeat center bottom;
+  font-size:35px;
+  height: 56px;
+  width: 466px;
+  margin: 0 auto;
+}
+.areasContainer .blank{
+  width: 1.25%;
+  height: 1px;
+}
+.areasContainer .areaboxs{
+  width: 97.5%;
+}
+.areasContainer .area{
+  width: 32.6%;
+  overflow: hidden;
+}
+.gap{
+  width: 1%;
+  height: 1px;
+}
+.areaBorder{
+  border: 1px solid #1663B4;
+  box-shadow: 0px 0px 28px #042B5B inset;
+}
+.areaboxs .title{
+  height: 48px;
+  line-height: 48px;
+  background: #042B5B;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.areaboxs .title b{
+  font-size: 22px;
+}
+.area .title span.text{
+  font-size: 12px;
+}
+.area>div{
+  position: relative;
+}
+.contentc{
+  padding: 0 22px;
+  box-sizing: border-box;
+}
+.areaboxs div.degree{
+  position: absolute;
+  width: 23px;
+  height: 25px;
+}
+.areaboxs  div.degree.dlt{
+  left: -1px;
+  top: -1px;
+  background:url(../images/busiMarket/tl.png) no-repeat left top;
+}
+.areaboxs  div.degree.drt{
+  right: -1px;
+  top: -1px;
+  background:url(../images/busiMarket/tr.png) no-repeat right top;
+}
+.areaboxs  div.degree.dlb{
+  left: -1px;
+  bottom: -1px;
+  background:url(../images/busiMarket/bl.png) no-repeat left bottom;
+}
+.areaboxs div.degree.drb{
+  right: -1px;
+  bottom: -1px;
+  background:url(../images/busiMarket/br.png) no-repeat right bottom;
+}
+.totalNums,.units{
+  color:#FCFF0C;
+}
+.totalNums{
+  font-size: 22px;
+}
+.stockTotalCost {
+  margin-right: 20px;
+}
+.chartTitInfo .chartTitle{
+  font-size: 14px;
+}
+.chartTitInfo .changeCus{
+  font-size: 14px;
+  margin-right: 16px;
+}
+.list{
+  font-size: 14px;
+}
+.list .listTitle{
+  font-weight: bold;
+}
+.yearSaleTol{
+  font-size: 12px;
+  width:34%
+}
+.blue{
+  color: #11FFFC;
+}
+.pink{
+  color: #FF7F6A;
+}
+.green{
+  color: #5BBD2B;
+}
+.orange{
+  color: #D34320;
+}
+.yearSaleTol .yearsaleTit{
+  line-height: 16px;
+}
+.yearSaleTol .yearMoney{
+  font-size: 20px;
+  margin: 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.yearSaleTol .yearMoney .unit{
+  font-size: 12px;
+}
+.yearSaleTol #peopleTol{
+  color: #FFE00C;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.yearSaleTol .averageEff,.warnMoneyStyle{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.yearSaleTol .personTotal{
+  border-bottom:1px dashed  #1663B4;
+  margin-bottom: 16px;
+  padding-bottom: 18px;
+}
+.yearSaleTol .averageEff #average,
+#monIncome,#monCost,#monProfit,#monProfitMargin
+{font-size: 18px;}
+.personnels .list{
+  width: 64%;
+}
+.lastThreemons #receivable{
+  width: 49%;
+  border-right: 1px dashed #2A396C;
+  text-align: center;
+  font-size: 12px;
+}
+.lastThreemons #payable{
+  width: 50%;
+  text-align: center;
+  font-size: 12px;
+}
+.lastThreemons .receivcon{
+  display: inline-block;
+  text-align: left;
+}
+.lastThreemons #receivableTotal,.lastThreemons #payableTotal{
+  font-size: 20px;
+}
+.lastThreemons .pyTitle,.lastThreemons .reTitle{
+  margin-bottom: 7px;
+}
+.cashFlowTrend{
+  margin-top: 28px;
+}
+table.profitAnalysisTable{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0px 24px;
+  table-layout: fixed;
+}
+table.profitAnalysisTable td{
+  border-collapse: collapse;
+  border-left: 1px dashed #2A396C;
+  border-right: 1px dashed #2A396C;
+  padding-left: 10px;
+  font-size: 12px;
+  line-height: 24px;
+}
+table.profitAnalysisTable td.firstCell{
+  border-left-color: transparent;
+}
+table.profitAnalysisTable td.lastCell{
+  border-right-color: transparent;
+}
+table.profitAnalysisTable .analyTrend{
+  display: inline-block;
+  width: 11px;
+  height: 15px;
+  vertical-align: middle;
+}
+div.analysis>p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+span.analyTrend.up{
+  background: url(../images/busiMarket/up.png) no-repeat;
+}
+span.analyTrend.down{
+  background: url(../images/busiMarket/down.png) no-repeat;
+}
+div.orders{
+  font-size: 12px;
+  width: 18%;
+}
+div.orders .orderNum{
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+div.orders .orderNum.blue2{
+  border-bottom: 1px dashed #2A396C;
+}
+div.orders .blue2{
+  color: #6AC9FF;
+}
+div.orders .urgentOrder,div.orders .overdueOrder{
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+div.orders .overdueOrder{
+  margin-top: 20px;
+}
+div.orders .urgentOrder{
+  margin-top: 6px;
+}
+.area .product .title{
+  margin-bottom: 20px;
+}
+.area .productTrend{
+  width: 80%;
+}
+.manageWarn {
+  margin-top: 16px;
+  min-height: 148px;
+  position: relative;
+}
+.manageWarn .mangeTarget{
+  text-decoration: none;
+  margin-left: 10px;
+}
+.manageWarn .mangeTarget:hover{
+  text-decoration: underline;
+}
+.manageWarn .warnLegend{font-size: 12px;}
+.manageWarn .warnLegend>span{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+.manageWarn .manageStatus table.warnTable{
+    width:100%;
+    table-layout:fixed;
+}
+.manageWarn .manageStatus div.con{
+  width: 122px;
+  height: 76px;
+  text-align: center;
+  font-size: 12px;
+  margin:0 auto 10px;
+}
+.manageStatus div.normal{
+  background: url(../images/busiMarket/normal.png) no-repeat center bottom;
+}
+.manageStatus div.warning{
+  background: url(../images/busiMarket/warn.png) no-repeat center bottom;
+}
+.manageStatus div.danger{
+  background: url(../images/busiMarket/der.png) no-repeat center bottom;
+}
+.manageStatus .completeNum{
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.customer,.goods{
+  margin-bottom: 16px;
+  height: 540px;
+}
+.personnels,.product{
+  height: 240px;
+}
+.finance {
+  height: 798px;
+}
+.areaboxs .manageWarn .title{
+  margin-bottom: 18px;
+}
+.topRank{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.ranking1{
+  background: url(../images/busiMarket/one.png) no-repeat center;
+}
+.ranking2{
+  background: url(../images/busiMarket/two.png) no-repeat center;
+}
+.ranking3{
+  background: url(../images/busiMarket/three.png) no-repeat center;
+}
+/*弹层*/
+#setTimeLayer{
+  position: absolute;
+  top: 56px;
+  right: 10px;
+  z-index: 100;
+  background: url(../images/busiMarket/bg.png) repeat;
+  border: 1px solid #1663B4 ;
+  box-shadow: 0px 0px 28px #042b5b inset;
+  font-size: 12px;
+  display: none;
+}
+#setTimeLayer .setTitle{
+  font-size: 14px;
+  padding-left:10px;
+  font-weight: 600;
+  line-height: 28px;
+  border-bottom: 1px solid #1663B4;
+  background: #042b5b;
+}
+#setTimeLayer .close{
+  overflow: hidden;
+  clear: both;
+  margin-right: 10px;
+  cursor: pointer;
+}
+#setTimeLayer .close:hover{
+  color: red;
+}
+#setTimeLayer .setDetail{
+  text-align: left;
+  padding: 0 10px;
+  margin:16px 0px 4px;
+}
+#setTimeLayer .setDetail input{
+  height: 18px;
+  line-height: 18px;
+  width: 30px;
+  padding-left: 2px;
+  box-sizing: border-box;
+  border: 1px solid #1663B4;
+  outline: none;
+  background: #051B43;
+}
+#setTimeLayer .exTips{
+  margin-top: 6px;
+  display: none;
+}
+#setTimeLayer .setBtn{
+  text-align: center;
+  padding:2px 0px 4px;
+}
+.setBtn input{
+  background: #042B5B;
+  border: 1px solid #1663B4;
+  padding:1px 8px;
+  margin:4px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+/*排名*/
+table.rankTop3{
+  table-layout: fixed;
+}
+table.rankTop3 td{
+  padding: 0 2px;
+}
+table.rankTop3 td>div{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 40px;
+}
+table.rankTop3 td.rank{
+    height: 40px;
+    width:15%
+}
+table.rankTop3 td.name{
+    text-align:left;
+    width:33%
+}
+table.rankTop3 td.money{
+    text-align:right;
+    width:30%
+}
+table.rankTop3 td.other{
+    text-align:right;
+    width:22%;
+}
+table#personRank.rankTop3 td>div{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 40px;
+}
+table#personRank.rankTop3 td.rank{
+    height: 40px;
+    width:15%
+}
+table#personRank.rankTop3 td.name{
+    text-align:left;
+    width:22%
+}
+table#personRank.rankTop3 td.money{
+    text-align:right;
+    width:28%
+}
+table#personRank.rankTop3 td.other{
+    text-align:right;
+    width:27%;
+}
+/*媒体查询*/
+@media screen and (max-width: 1700px) {
+  .stockTotalCost {
+      margin-right: 10px;
+  }
+  .personnels .list{
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .totalNums {
+      font-size: 20px;
+  }
+  .yearSaleTol .averageEff #average, #monIncome, #monCost, #monProfit, #monProfitMargin{
+    font-size: 16px;
+  }
+  .contentc{
+    padding: 0 16px;
+  }
+  .personnels .list{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .totalNums {
+      font-size: 17px;
+  }
+  .yearSaleTol .averageEff #average, #monIncome, #monCost, #monProfit, #monProfitMargin{
+    font-size: 14px;
+  }
+  .contentc{
+    padding: 0 10px;
+  }
+  .personnels .list{
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1360px) {
+  .totalNums {
+      font-size: 13px;
+      font-weight: 800;
+  }
+  .yearSaleTol .averageEff #average, #monIncome, #monCost, #monProfit, #monProfitMargin{
+    font-size: 12px;
+  }
+  .contentc{
+    padding: 0 5px;
+  }
+  .personnels .list{
+    font-size: 12px;
+  }
+}

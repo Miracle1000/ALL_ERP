@@ -1,0 +1,21 @@
+﻿div#_div {
+    margin-left: 300px;
+}
+.reportTable {
+    margin: 0 auto;
+}
+.td_right {
+    text-align: right !important;
+}
+.td_left{
+    text-align:left!important;
+}
+.report_td{
+    padding:9px;
+}
+.lvw_cell{
+    padding:9px;
+}
+#report_top_btns{
+    position:relative !important;
+}

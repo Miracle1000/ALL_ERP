@@ -1,0 +1,43 @@
+﻿<!Doctype html>
+<html>
+    <head>
+        <meta http-equiv='content-type' content='text/html;charset=utf-8'/>
+        <title>系统脚本错误</title>
+        <style type="text/css">
+            div{font-size:12px;font-family:宋体;}
+            td {height:20px;font-family:宋体;}
+            pre{display:inline;font-family:宋体;}
+            pre.curr{color:Red;background-color:Yellow;}
+            table.code {border-collapse:collapse;table-layout:fixed;width:100%}
+            table.code td{height:16px;}
+            td.line{background-color:#eaeef5;width:30px;text-align:right;font-weight:bold;padding-right:8px;font-family:Arial}
+        </style>
+    </head>
+    <body>
+        <div style='background-color:#fafcff;line-height:30px;border:1px solid #ddddee;width:100%'>
+            <table style='width:100%;border-collapse:collapse'>
+                <tr>
+                    <td><b style='color:red'>&nbsp;&nbsp;脚本运行错误</b></td>
+                    <td style='text-align:right;color:blue'><a href="http://zbintel.com" target="_blank" style='Text-Decoration:none;color:red'>智邦国际</a> - zbintelserver&nbsp;&nbsp;</td>
+                </tr>
+            </table>
+         </div>
+         <div style='height:12px'></div>
+         <div style='padding:10px;border:1px dashed #ccccee;background-color:#fcfafe'>
+            <div><b>错误报告：</b></div>
+            <table id='errordata' style='margin-left:20px'>
+                <tr><td align='right'><pre>平台：</pre></td><td>visual basic script(zbintel server version 1.0)</td></tr>
+                <tr><td align='right' valign='top'><pre>代码片段：</pre></td>
+                    <td>
+                        <div style='border:1px solid #bbbccc;background-color:White;width:100%;overflow:auto'>
+                           [@errCodeText]
+                        </div>
+                    </td>
+                </tr>
+                <tr><td align='right'><pre>源位置：</pre></td><td>[@line]行，[@colnum]列</td></tr>
+                <tr><td align='right'><pre>错误描述：</pre></td><td>[@number]，[@description]</td></tr>
+                <tr><td align='right'><pre>.Net描述：</pre></td><td>[@dotneterrtext]</td></tr>
+            </table>
+         </div>
+    </body>
+</html>

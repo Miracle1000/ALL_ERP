@@ -1,0 +1,220 @@
+html,
+body,#navContain {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li,
+h1 {
+  list-style: none;
+  font-size: 14px;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+#leftMuneNav {
+  width: 230px;
+  height: 100%;
+  position: relative;
+}
+
+#leftMune {
+  position: absolute;
+  width: 60px;
+  top: 0;
+  left: 0px;
+  background: #232325;
+  text-align: center;
+  color: #fff;
+  overflow:hidden;
+  *overflow:auto;
+  bottom:36px;
+  z-index:2;
+}
+#leftMune::-webkit-scrollbar-thumb {
+background-color: #ccc;
+border-radius: 3px;
+-webkit-box-shadow: inset 0 0 6px RGBA(0,0,0,0.2);
+}
+#leftMune::-webkit-scrollbar-track {
+  background-color: #eee;
+  -webkit-box-shadow: inset 0 0 6px rgb(255 255 255 / 20%);
+  border-radius: 3px;
+}
+#leftMune ul.leftmune li {
+  height: 78px;
+  *height: 50px;
+  padding: 15px 0px;
+  *padding: 15px 0px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#leftMune ul.leftmune li.navActived,
+#leftMune ul.leftmune li.navActived:hover {
+  background: #141413;
+}
+
+#leftMune ul.leftmune li:hover {
+  background: #333335;
+}
+
+#muneMainNav {
+  position: absolute;
+  left: 60px;
+  right: 0px;
+  top: 0px;
+  overflow:auto;
+  height:100%;
+}
+
+#muneMainNav ul.muneMainNav.hidden {
+  display: none;
+}
+
+#muneMainNav ul.muneMainNav li {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  color: #303030;
+  cursor: default;
+}
+
+#muneMainNav ul.muneMainNav li.listActived:hover,
+#muneMainNav ul.muneMainNav li.listActived {
+  /*background: #407af5;*/
+  background:#141414;
+  color: #fff;
+}
+
+#muneMainNav ul.muneMainNav li:hover {
+  background: #f0f0f0;
+}
+
+#muneMainNav ul.muneMainNav li.listActived:hover span.arrow_icon,
+#muneMainNav ul.muneMainNav li.listActived span.arrow_icon {
+  background: url(../images/MoZihometop/leftNav/leftarrow2.png) no-repeat center;
+  background-size: 100% 100%;
+}
+#muneMainNav div.menuPanel.hide{
+  display: none;
+}
+div.nav_icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 6px;
+  font-size: 0px;
+}
+
+span.arrow_icon {
+  display: inline-block;
+  background: url(../images/MoZihometop/leftNav/leftarrow.png) no-repeat center;
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+  background-size: 100% 100%;
+  zoom: 1;
+  *display: inline;
+}
+
+div.arrow_icon_div {
+  float: right;
+  clear: both;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+}
+
+#leftNavFoldIcon {
+  height: 43px;
+  padding: 0 20px;
+  line-height: 43px;
+  text-align: left;
+  padding-right: 28px;
+  background: #4E4E50;
+  color: #fff;
+  position: relative;
+  font-size:16px;
+  font-weight:800;
+}
+
+.fold {
+  float: right;
+  line-height: 43px;
+}
+
+#leftNavFoldIcon span.foldIcon {
+  display: inline-block;
+  *display: inline;
+  height: 10px;
+  width: 14px;
+  background: url(../images/MoZihometop/leftNav/pickup2.png) no-repeat center center;
+}
+
+#leftNavFoldIcon span.foldIcon.expandIcon {
+  background: url(../images/MoZihometop/leftNav/expand2.png) no-repeat left center;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  margin-top: -5px;
+}
+
+.hiddenImg {
+  display: none;
+}
+
+#foldBorder {
+  width: 6px;
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #4E4E50;
+}
+#verisonNum{
+  position:absolute;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  width:60px;
+  background:#232325;
+  z-index:1;
+}
+#verlinkbox{
+  font-size:14px;
+  cursor:pointer;
+  position:absolute;
+  bottom:10px;
+  left:0px;
+  color:#fff;
+  width:60px;
+  text-align:center;
+}
+#verlinkbox:hover{
+  text-decoration:underline;
+}
+/*左侧导航自适应*/
+.screenl1600  #leftMune ul.leftmune li{
+  height:66px;
+  padding:12px 0px 10px;
+}
+.screenl1600 div.nav_icon{
+  margin-bottom:0px;
+}
+.screenl1400 #leftMune ul.leftmune li{
+  height:58px;
+  padding:8px 0px 6px;
+}
+.screenl1400 div.nav_icon{
+  margin-bottom:0px;
+}

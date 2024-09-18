@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>智邦国际帮助中心</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<script type="text/javascript" src="../js/commscript.ashx"></script>
+	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+</head>
+<body style="overflow: auto;">
+	<!-- Top start -->
+	<div class="top">
+        <div class="top_center">
+            <a href="http://www.zbintel.com.cn/" target="_blank"><div class="top_banner"></div></a>
+            <div class="top_title">帮助中心</div>
+            <div class="top_search">
+                <div class="search_select">
+                    <span>标题</span>
+                    <ul class="select_option">
+                        <li>标题</li>
+                        <li>内容</li>
+                    </ul>
+                </div>
+                <div class="search_input">
+                    <input type='text' name="input" value='请输入问题关键词' />
+                </div>
+                <div class="search_btn"></div>
+            </div>
+            <a href="http://www.zbintel.com/product/advice_cus.asp?uid=87f468788f927878ba6c39a7dbea1d96" target="_blank">
+                <div class="top_leavemes">
+                    <div class="mess_logo"></div>
+                    <div class="mess_title">我要留言</div>
+                </div>
+            </a>
+            <a href="javascript:void(0);" >
+                <div class="top_service">
+                    <div class="serv_logo"></div>
+                    <div class="serv_title">服务中心</div>
+                </div>
+            </a>
+        </div>
+	</div>
+	<!-- Top End -->
+	
+	<!-- Content Start -->
+	<div class="content search">
+		<div class="nav">
+			<div class="nav_title">操作导航</div>
+			<ul class="nav_list">
+				<script>
+					var fb = window.location.href.indexOf("nofb=1")>0
+					if(window.location.href.indexOf("http:")>-1){
+						document.write("<scri" + "pt src=\"http://work.zbintel.com/help_a/dbtree.asp?" + (fb?"nofb=1&":"nofb=0") + "ver=3176(bate)&sn=87f468788f927878ba6c39a7dbea1d96&ver=3176(bate)\"></sc" + "ript>")
+					}else{
+					    document.write("<scri" + "pt src=\"https://www.zbintel.com/help_a/dbtree.asp?" + (fb ? "nofb=1&" : "nofb=0") + "ver=3176(bate)&sn=87f468788f927878ba6c39a7dbea1d96&ver=3176(bate)\"></sc" + "ript>")
+					}
+				</script>
+				<!--<li>
+					销售管理<p></p>
+					<ul class="nav_list_wrap">
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+						<li>销售管理</li>
+					</ul>
+				</li>
+				<li>销售管理<p></p></li>
+				<li>销售管理<p></p></li>
+				<li>销售管理<p></p></li>
+				<li>销售管理<p></p></li>
+				<li>销售管理<p></p></li>
+				<li>销售管理<p></p></li>
+				<li>销售管理<p></p></li>
+				<li>销售管理<p></p></li>-->
+			</ul>
+		</div>
+		<div class="r_content">
+			<!-- 帮助首页 -->
+			<div class="con_title">
+				<span>常用自助服务</span>
+			</div>
+			<script>
+				var main_id=0;
+				for(var i=0;i<treedata.length;i++){
+					if(treedata[i].text.indexOf("系统引导")!=-1){
+						main_id=treedata[i].children[0].id;
+					}
+				}
+				if(window.location.href.indexOf("http:")>-1){
+					document.write("<scri" + "pt src=\"http://work.zbintel.com/help_a/dblist.asp?sort2=" + main_id + "&ver=3176(bate)&sn=87f468788f927878ba6c39a7dbea1d96&ver=3176(bate)\"></sc" + "ript>")
+				}else{
+				    document.write("<scri" + "pt src=\"https://www.zbintel.com/help_a/dblist.asp?sort2=" + main_id + "&ver=3176(bate)&sn=87f468788f927878ba6c39a7dbea1d96&ver=3176(bate)\"></sc" + "ript>")
+				}
+			</script>
+			<div class="con_view">
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d1.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="正确而快速的启用系统能让您的工作事半功倍"><a href="help_content.html?one=0">正确而快速的启用系统能让您的工作事半功倍</a></dd>
+				</dl>
+				<dl class="con_viewarrow">
+					<dt><img src="../img/longarrow.png"></dt>
+				</dl>
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d2.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="严格的权限划分以防资料外泄"><a href="help_content.html?one=1">严格的权限划分以防资料外泄</a></dd>
+				</dl>
+				<dl class="con_viewarrow">
+					<dt><img src="../img/longarrow.png"></dt>
+				</dl>
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d3.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="统一设置参数减少手动录入的麻烦"><a href="help_content.html?one=2">统一设置参数减少手动录入的麻烦</a></dd>
+				</dl>
+				<dl class="con_viewarrow">
+					<dt><img src="../img/longarrow.png"></dt>
+				</dl>
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d4.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="快速进入常用界面，提高工作效率"><a href="help_content.html?one=3">快速进入常用界面，提高工作效率</a></dd>
+				</dl>
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d5.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="录入基础数据，以便快速应用系统"><a href="help_content.html?one=4">录入基础数据，以便快速应用系统</a></dd>
+				</dl>
+				<dl class="con_viewarrow">
+					<dt><img src="../img/longarrow.png"></dt>
+				</dl>
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d6.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="第一时间获得最新信息"><a href="help_content.html?one=5">第一时间获得最新信息</a></dd>
+				</dl>
+				<dl class="con_viewarrow">
+					<dt><img src="../img/longarrow.png"></dt>
+				</dl>
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d7.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="多维统计分析，满足不同需求"><a href="help_content.html?one=6">多维统计分析，满足不同需求</a></dd>
+				</dl>
+				<dl class="con_viewarrow">
+					<dt><img src="../img/longarrow.png"></dt>
+				</dl>
+				<dl class="con_viewcont">
+					<dt>
+						<a href="help_content.html"><img src="../img/index_d8.png"></a>
+					</dt>
+					<dd class="con_view_title"><a href="help_content.html"></a></dd>
+					<dd class="con_view_cont" title="多重加密及备份，保证数据安全性"><a href="help_content.html?one=7">多重加密及备份，保证数据安全性</a></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<!-- Content End -->
+	
+	<!-- Bottom Start -->
+	<div class="bottom">
+		<div class="bottom_center">
+			北京智邦国际软件技术有限公司 | COPYRIGHT&copy; 2003-2022 智邦国际版权所有
+		</div>
+	</div>
+	<!-- Bottom End -->
+	
+	<!-- Turn Top -->
+	<div class="turn_top">
+		<span class="tt_logo"></span>
+		<span class="tt_tle">返回顶部</span>
+	</div>
+	<!-- Turn Top -->
+</body>
+<script src="../js/index.js" type="text/javascript"></script>
+<script src="../js/main.js" type="text/javascript"></script>
+</html>

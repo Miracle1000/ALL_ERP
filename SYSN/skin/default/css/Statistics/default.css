@@ -1,0 +1,369 @@
+﻿html{padding:0 10px;background:#EFEFEF;}
+body {
+overflow:visible;
+background:#FFF;
+}
+
+div.clear{clear:both;}
+
+div.HeadBg {
+	height: 64px;
+	line-height: 64px;
+	color: #000;
+	font-weight: bold;
+	background:#EFEFEF;
+}
+
+div.HeadBg2 {
+	height:64px;
+	box-sizing:border-box;
+	overflow:hidden;
+	padding-left:30px;
+}
+
+div.HeadTabCaption:before {
+	content: '当前位置：';
+	color: #999;
+	font-weight: 600;
+}
+
+div.HeadTabCaption {
+	position:absolute;
+	top:0px;
+	left:30px;
+	height:64px;
+	box-sizing:border-box;
+	overflow:hidden;
+	color: #000;
+	overflow:hidden;
+	font-weight:bold;
+	font-size:14px;
+	line-height:64px;
+}
+
+div.HeadTabCaption2, div.HeadTabCaption2sel {
+	float:left;
+	margin:7px 0px 0px 0px;
+	box-sizing:border-box;
+	line-height:28px;
+	font-size:14px;
+	font-family:微软雅黑,黑体;
+	padding:0 6px;
+	background:#EFEFEF;
+}
+div.HeadTabCaption2 a {
+	color : #000;
+	font-size:14px;
+	font-family:微软雅黑,黑体;
+}
+div.HeadTabCaption2sel {
+	color:#FFF;
+	font-weight:bold;
+	background:@zbvar.leftbgcolor;
+}
+
+div.HeadSplit  {
+	height:16px;width:1px;
+	overflow:hidden;
+	background-color:#A5B4CB;
+	margin-top:13px;
+	float:left;
+	display:none;
+}
+div.selsign {
+	height:3px;overflow:hidden;
+	background-color:red;
+	display:inline-block;
+}
+
+#currseldivsign {
+	position:absolute;
+	width:10px;
+	height:8px;
+    *width:0px;
+    *height:0px;
+	top:70px;
+    *top:73px;
+	border-left:5px solid transparent;
+	border-right:5px solid transparent;
+	border-bottom:5px solid #94A9C8;
+	display:none;
+   /*带星号的为了让箭头兼容ie7*/
+}
+
+#bodytitle {
+	text-align:  center;
+	font-weight:bold;
+	font-family: 微软雅黑, 黑体;
+	padding-top: 32px;
+	padding-bottom:15px;
+	font-size:16px;
+	line-height:16px;
+	color:#000000;
+}
+#bodydescription {
+	color:#7A7e81;
+	text-align:  center;
+	font-family: 微软雅黑, 黑体;
+}
+
+#linkbody {
+	margin: 0px auto;
+	clear:both;
+}
+
+div.lnkgp {
+	float:left;
+	width:200px;
+	overflow:hidden;
+	margin-right:1px;
+}
+
+#linkbody div.bg0 { background-color: #E1EAF3; }
+#linkbody div.bg1 { background-color: #F8F9FB; }
+
+div.lnkgptit, div.lnkgptitlast {
+	text-align:center;
+	background-color:#0874cc;
+	color:white;
+	height:37px;
+	line-height:37px;
+	padding:0px;
+	overflow:hidden;
+	font-family:微软雅黑;
+	font-size:15px;
+    font-weight:bold;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 4px 18px;  
+	-moz-box-shadow: rgba(0,0,0,0.3)  0px 4px 18px;  
+	box-shadow: rgba(0,0,0,0.3) 0px 4px 18px; 
+	filter: shadow(Color=red,Direction=225);
+
+}
+div.lnkgptit {
+	width:199px;
+}
+div.lnkgptitlast {
+	width:200px;
+}
+div.lnkgptit a, div.lnkgptitlast a{
+    color:white;    
+}
+div.lnkgptit a:hover, div.lnkgptitlast a:hover{
+    text-decoration:underline;  
+}
+div.lnk {
+	text-align:center;
+	padding:0px;
+	overflow:hidden;
+	width:200px;
+	background-color:transparent;
+	line-height:29px;
+	color:#000000;
+	font-family:微软雅黑;
+}
+div.lnk a:hover {
+	 text-decoration:underline;  
+	 color:red;
+}
+div.lnkgpspliter {
+	height:15px;
+	overflow:hidden;
+}
+
+
+/*统计报表总导航 样式*/
+div.lnkgp_nav {
+	width:900px;
+	overflow:visible;
+	padding-bottom:10px; 
+    border:solid #C0CBDD 1px;   
+}
+
+div.lnkgptit_nav a {
+	position:relative;
+	display:block;
+	float:left;
+	margin-top:-5px;
+}
+
+div.lnkgptit_nav, div.lnkgptitlast_nav {
+	text-align:center;
+	background-color:#0874cc;    
+	color:white;
+	height:37px;
+	line-height:37px;
+	padding:0px;
+	overflow:hidden;
+	font-family:微软雅黑;
+	font-size:16px;
+    font-weight:bold;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0px 4px 18px;  
+	-moz-box-shadow: rgba(0,0,0,0.3)  0px 4px 18px;  
+	box-shadow: rgba(0,0,0,0.3) 0px 4px 18px; 
+	filter: shadow(Color=red,Direction=225);
+
+}
+div.lnkgptit_nav {
+	width:899px;
+}
+div.lnkgptitlast_nav {
+	width:900px;
+}
+div.lnkgpheader{
+    width:95%;
+    margin:0 auto;
+    padding-bottom:10px;
+    border-bottom:solid #D9DDE6 1px;
+    color:#0075CE;
+    font-size:14px;
+    font-weight:bold;
+}
+
+div.lnkgplnks{
+    width:95%;
+    margin:0 auto;
+    margin-left:20px;
+}
+
+div.lnkgplnks .lnk{
+    float:left;
+    width:150px; 
+    text-align:left;
+    margin-left:20px;
+    margin-bottom:5px;
+}
+body.mi_1 #bodytitle {
+   width:900px;
+   margin:0px auto;
+}
+body.mi_1 #bodydescription {
+  width:900px;
+  margin:0px auto;
+}
+
+body.mi_1 #linkbody {
+  margin:0px auto;
+}
+
+#clssearchbar {
+	position:absolute;
+	top:10px;
+	left:700px;
+	width:200px;
+	margin-top:14px;
+}
+ #clssearchbarLabelT {
+	line-height:20px;
+	font-family:微软雅黑, 黑体;
+	font-size:14px;
+	color:#000;
+}
+#clssearchbarLabel, #clssearchbarbox {
+	float:left;
+}
+#clssearchbarbox{
+	margin-top:-2px;
+}
+#clssearchbarlist {
+	position:absolute;
+	top:22px;
+	background-color:white;
+	border:1px solid #c0ccdc;
+	padding:5px 5px;
+	left:0px;
+	display:none;
+}
+#clssearchbarlist div {
+	font-family:微软雅黑, 黑体;
+	font-size:13px;
+	line-height:25px;
+	padding:0px 10px;
+	color:#000;
+	cursor:pointer;
+}
+
+#clssearchbarlist div.sell {
+	background-color: #0874cc;
+	color: white;
+}
+
+#clssrcbox {
+	width:90px;
+	border:1px solid #ccc;
+	line-height:19px;
+	border-radius:2px;
+	padding-right:16px;
+	box-sizing:content-box;
+	background: white url(../../img/search.gif) no-repeat right center;
+	height:20px;
+	font-family:微软雅黑, 黑体;
+	padding-left:2px;
+	margin-left:4px;
+}
+div.serlnk {
+	float:left;
+	width:200px;
+	margin:10px 0px 0px 10px; 
+	overflow:hidden;
+	height:22px;
+}
+
+div.serlnk a {
+	font-family:微软雅黑, 黑体;
+	text-align:center;
+	font-size:14px;
+}
+
+div.serlnk a:hover {
+	color:red;
+	text-decoration:underline;
+}
+
+#searcmsg {
+	font-size:14px;
+	padding-top:10px;
+	padding-left:10px;
+	font-family:微软雅黑, 黑体;
+}
+
+
+#menugrouplink {
+	width:50px;
+	position:fixed;
+	_position:absolute;
+	right:20px;
+	top:200px;
+	border:1px solid #edefee;
+	box-shadow: 0px 0px 10px #edefee;  
+    background:#fff;
+}
+
+#menugrouplink div.item , #menugrouplink div.itemsel {
+	padding:10px 10px;
+	overflow:hidden;
+	text-align:center;
+	box-sizing:border-box;
+}
+
+#menugrouplink div.itemsel {
+	background-color:#0874cc;
+}
+
+#menugrouplink div.item a {
+	font-size:12px;
+	font-weight:bold;
+	color:#666;
+}
+
+#menugrouplink div.itemsel a {
+	font-size:12px;
+	font-weight:bold;
+	color:white;
+}
+
+div.splkitem {
+	height:1px;
+	overflow:hidden;
+	width:30px;margin:0 auto;
+	background-color:#f1f1f1;
+}

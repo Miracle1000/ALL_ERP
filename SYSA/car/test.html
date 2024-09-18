@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+body{
+	font-size:12px;
+	background-color: #FFFFFF;
+}
+.redDiv{
+width:12px;
+height:12px;
+background-color:#FF0000;
+vertical-align:middle;
+float:left;
+}
+.greenDiv{
+width:12px;
+height:12px;
+background-color:#00FF00;
+vertical-align:middle;
+float:left;
+}
+.origenDiv{
+width:12px;
+height:12px;
+background-color:#FFCC00;
+vertical-align:middle;
+float:left;
+}
+.red{
+width:12px;
+height:12px;
+background-color:#FF0000;
+vertical-align:middle;
+}
+.green{
+width:12px;
+height:12px;
+background-color:#00FF00;
+vertical-align:middle;
+}
+.origen{
+width:12px;
+height:12px;
+background-color:#FFCC00;
+vertical-align:middle;
+}
+-->
+</style>
+<script type="text/javascript" language="javascript" src="Calendar.js"></script>
+<script type="text/javascript" language="javascript" src="Calendar1.js"></script>
+<script language="javascript">
+
+</script>
+</head>
+<body>
+前一天<input name="nowdate" size="9" readonly="true" id="daysOfMonthPos" onmouseup="toggleDatePicker('daysOfMonth','date.nowdate');"><DIV id=daysOfMonth style="POSITION: absolute;z-index:10"></DIV>后一天
+<br />
+<br />
+<input name="txt" value="点击选择时间" size="19" style="color:#CCCCCC;" readonly="true" onclick="setday(this)">
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<table border="0" cellpadding="1" cellspacing="1" width="100%" bgcolor="#FF0000">
+	<tr>
+		<td height="20" bgcolor="#FFFFFF"><div align="center">车辆\时间</div></td>
+		<td bgcolor="#FFFFFF"><div align="center">每天时间</div></td>
+		<td colspan="6" bgcolor="#FFFFFF"><div class="redDiv"></div>红色代表占用</td>
+	    <td colspan="6" bgcolor="#FFFFFF"><div class="greenDiv"></div>
+        绿色代表空闲</td>
+	    <td colspan="6" bgcolor="#FFFFFF"><div class="origenDiv"></div>
+        橙色代表待审批</td>
+	    <td colspan="9" bgcolor="#FFFFFF"><div align="center">前一天 &nbsp;&nbsp;后一天</div></td>
+    </tr>
+	<tr>
+		<td height="20" bgcolor="#FFFFFF"><div align="center">车牌号</div></td>
+		<td height="20" bgcolor="#FFFFFF"><div align="center">0:00-7:59</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">08</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">09</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">10</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">11</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">12</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">13</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">14</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">15</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">16</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">17</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">18</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">19</div></td>
+		<td width="4%" colspan="2" bgcolor="#FFFFFF"><div align="center">20</div></td>
+		<td bgcolor="#FFFFFF"><div align="center">9:00-23:59</div></td>
+	</tr>
+	<tr>
+		<td height="20" bgcolor="#FFFFFF">&nbsp;</td>
+		<td height="20" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="origen"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="origen"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="red"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="origen"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="origen"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="red"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="red"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="red"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"><div class="origen"></div></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+		<td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+	    <td width="2%" bgcolor="#FFFFFF"><div align="center"></div></td>
+	    <td bgcolor="#FFFFFF"><div align="center"></div></td>
+	</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

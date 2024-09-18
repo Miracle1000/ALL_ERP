@@ -1,0 +1,238 @@
+﻿/*
+    备注：回收站样式
+    添加出处：SYSC/view/comm/RecycleBin.ashx
+    使用源：SYSN/skin/script/comm/recyclebin.js 
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    background:#EFEFEF;
+}
+
+div.lnkgp_nav {
+    width: 100%;
+    overflow: visible;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    background:#EFEFEF;
+}
+
+div.lnkgp_cont {
+    overflow: hidden;
+    background:#FFF;
+    padding:0px 30px;
+}
+
+div.lnkgptit_nav a {
+    position: relative;
+    display: block;
+    float: left;
+    margin-top: -5px;
+}
+
+div.lnkgptit_nav, div.lnkgptitlast_nav {
+    text-align: center;
+    background-color: #0874cc;
+    color: white;
+    height: 37px;
+    line-height: 37px;
+    padding: 0px;
+    overflow: hidden;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-box-shadow: rgba(0,0,0,0.3) 0px 4px 18px;
+    -moz-box-shadow: rgba(0,0,0,0.3) 0px 4px 18px;
+    box-shadow: rgba(0,0,0,0.3) 0px 4px 18px;
+    filter: shadow(Color=red,Direction=225);
+}
+
+div.lnkgptit_nav {
+    width: 899px;
+}
+
+div.lnkgptitlast_nav {
+    width: 900px;
+}
+
+div.lnkgpheader {
+    width: 100%;
+    color: #0075CE;
+    padding-left: 14px;
+    height: 60px;
+    line-height: 59px;
+    border-bottom: 1px solid #CECECE;
+    background: #FFF;
+    font-size: 14px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.group-fold {
+    float: left;
+    padding: 0px 1px 0px 3px;
+    *padding-top: 9px;
+    box-sizing: border-box;
+    margin-left:8px;
+}
+
+    .group-fold img {
+        cursor: pointer;
+        vertical-align: middle;
+        height: 5px;
+    }
+
+.group-title {
+    color: #000;
+    font-weight: bold;
+    float: left;
+    padding-left: 3px;
+    padding-top: 2px;
+    z-index: 2;
+    margin: 0;
+    box-sizing: border-box;
+    position:relative;
+}
+.group-title::before{
+    position:absolute;
+    left:-14px;
+    top:50%;
+    margin-top:-6px;
+    width:2px;
+    height:12px;
+    background:#000;
+    content:'';
+    margin-top:-6px;
+}
+
+.group-title.billGroupTabTitle {
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    height: 24px;
+    line-height: 24px;
+    width: 100px;
+    border: 1px solid #dbdbdb;
+    background-color: #dae3f4;
+    text-align: center;
+}
+
+
+div.lnkgplnks {
+    width: 100%;
+    overflow: hidden;
+    border-top: none;
+    background:#fff;
+    padding:20px 0px;
+}
+
+
+div.lnkgplnks .lnk{
+    float: left;
+    margin-left: 80px;
+    height: 46px;
+    line-height: 46px;
+    text-align: left;
+    width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #000;
+    font-size:14px;
+}
+
+div.lnkgplnks .lnk a{
+    color: #000;
+    text-decoration:none;
+}
+
+div.lnkgplnks .lnk a:hover, div.lnkgplnks .lnk:hover a {
+    color: #2f79fe;
+    text-decoration: underline;
+}
+
+input::-webkit-input-placeholder {
+    color: #aab2bd;
+    font-size: 12px;
+    position: relative;
+    left: 20px;
+}
+#comm_itembarICO{
+    height:64px;
+}
+
+/*顶部搜索*/
+#comm_itembarText{
+    height:64px;
+    line-height:64px;
+    padding-left:26px;
+    box-sizing:border-box;
+    color:#333;
+    font-weight:bold;
+}
+#comm_itembarspc{
+    height:64px;
+}
+#searchText,#searchedBtn{
+    height: 36px;
+    line-height:36px;
+    border:1px solid #dbdbdb;
+    box-sizing:border-box;
+    vertical-align:middle;
+}
+#searchText{
+    width: 250px;
+    margin-left:10px;
+    padding-left:30px;
+}
+#searchedBtn{
+    width:80px;
+    border:1px solid #9FA3BC;
+    color:#FFF;
+    transition:all 0.2s ease-in-out;
+    -webkit-transition:all 0.2s ease-in-out;
+    background-size:100% 100%;
+    margin-left:10px;
+    border-radius:3px;
+    cursor:pointer;
+}
+a.searchIco{
+    position: absolute;
+    left: 12px; 
+    top:0px; 
+    color:#aab2bd;
+    cursor:pointer;
+    height:24px;
+    box-sizing:border-box;
+    padding:10px 0px 0px 4px;
+}
+#menugrouplink{
+    width: 50px;
+    position: fixed;
+    _position: absolute;
+    right: 0px;
+    top: 200px;
+    border: 1px solid #eee;
+    border-top:0px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    background:#fff;
+    border-top-left-radius:3px;
+    border-bottom-left-radius:3px;
+}
+#menugrouplink .item{
+    padding: 10px 10px;
+    overflow: hidden;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight:500;
+    border-top:1px solid #eee;
+    cursor:pointer;
+}
+#menugrouplink .item:hover{
+    background:#1176FF;
+    color:#fff;
+}

@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../skin/default/css/busiMarket.css">
+</head>
+
+<body>
+  <div class="topContainer">
+    <div id="chengeTime" class="left">
+      <span><input name="tjTime" type="radio" checked onclick="changeTimeDim(this)" value="本年" /> 本年</span>
+      <span><input name="tjTime" type="radio" onclick="changeTimeDim(this)" value="本月" /> 本月</span>
+    </div>
+    <div id="setComponent" class="right">
+      <span>最近刷新：<span id="lastRefreshTime"></span></span>
+      <span class="fullscreen" id="conFulScrebtn" onclick="changeScreen()"></span>
+      <span onclick="setRefime()" class="setRefreshTime"></span>
+    </div>
+    <div id="dpTitle">
+      <div class="title"></div>
+    </div>
+  </div>
+  <div id="setTimeLayer">
+    <div class="setTitle"><span>刷新时间设置</span><span onclick="this.parentNode.parentNode.style.display='none'" class="close right">✖</span></div>
+    <div class="setDetail">
+      间隔： <input id="rTime" type="text" oninput="checkValue(this)" onpropertychange="checkValue(this)"> 分钟获取数据（1-60分钟） 
+      <span class="exTips" style="color: red;"></span>
+    </div>
+    <div class="setBtn">
+      <input type="button" onclick="saveRefTime()" value="保存">
+      <input type="button" onclick="this.parentNode.parentNode.style.display='none'" value="取消">
+    </div>
+  </div>
+  <!-- areas -->
+  <div class="areasContainer clearfix">
+    <div class="blank left"></div>
+    <div class="areaboxs left">
+      <div class="clearfix">
+        <div class="area left">
+          <div class="customer areaBorder">
+            <div class="title">
+              <div class="contentc clearfix">
+                <b class="left">客</b>
+                <span class="text right">销售总额&nbsp;<span id="saleTotal" class="totalNums"></span>&nbsp;<span class="units">万元</span></span>
+              </div>
+            </div>
+            <div  class="contentc">
+              <div class="chart">
+                <div class="chartTitInfo clearfix">
+                  <h1 class="chartTitle left">销售业绩区域对比</h1>
+                  <div class="changeCus right">
+                    <span style="margin-right: 36px;"><input name="customer" type="radio" checked value="区域" onclick="changeDim(this)" /> 区域</span>
+                    <span><input name="customer" type="radio" value="行业" onclick="changeDim(this)" /> 行业</span>
+                  </div>
+                </div>
+                <div id="chartContainer" style="height:270px">
+  
+                </div>
+              </div>
+              <div class="list">
+                <div class="listTitle">销售业绩贡献最大客户<span style="color: #ca7434;">TOP3</span></div>
+                <table id="customRank" class="rankTop3" style="width: 100%;">
+                </table>
+              </div>
+            </div>
+            <div class="degree dlt"></div>
+            <div class="degree drt"></div>
+            <div class="degree dlb"></div>
+            <div class="degree drb"></div>
+          </div>
+          <div class="personnels areaBorder">
+            <div class="title">
+              <div class="contentc clearfix">
+                <b class="left">人</b>
+                <span class="text right">本年销售总额&nbsp;<span id="perSaleTotal" class="totalNums"></span>&nbsp;<span class="units">万元</span></span>
+              </div>
+            </div>
+            <div class="contentc clearfix">
+              <div class="yearSaleTol left">
+                <p class="yearsaleTit">本年销售总额</p>
+                <p class="yearMoney"><span id="perSaleTotal2" class="blue"></span>&nbsp;<span class="unit blue">万元</span></p>
+                <p class="personTotal">总人数&nbsp;<span id="peopleTol"></span></p>
+                <p class="averageEff">平均人效&nbsp;<span id="average" class="blue"></span>&nbsp;<span class="blue">万元</span></p>
+              </div>
+              <div class="list right">
+                <div class="listTitle">销售业绩贡献最大员工<span style="color: #ca7434;">TOP3</span></div>
+                <table id="personRank" class="rankTop3" style="width:100%">
+                </table>
+              </div>
+            </div>
+            <div class="degree dlt"></div>
+            <div class="degree drt"></div>
+            <div class="degree dlb"></div>
+            <div class="degree drb"></div>
+          </div>
+        </div>
+        <div class="gap left"></div>
+        <div class="area left">
+          <div class="finance areaBorder">
+            <div class="title">
+              <div class="contentc clearfix">
+                <b class="left">财</b>
+                <span class="text right">现金银行总额&nbsp;<span id="cashBankTotal" class="totalNums"></span>&nbsp;<span class="units">万元</span></span>
+              </div>
+            </div>
+            <div class="contentc">
+              <div class="lastThreemons clearfix">
+                <div class="left" id="receivable">
+                  <div class="receivcon">
+                    <p class="reTitle">近三月应收总额</p>
+                    <p><span id="receivableTotal" class="blue"></span><span class="blue">万元</span></p>
+                  </div>
+                </div>
+                <div class="right" id="payable">
+                  <div class="receivcon">
+                    <p class="pyTitle">近三月应付总额</p>
+                    <p><span id="payableTotal" class="pink"></span><span class="pink">万元</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="cashFlowTrend">
+                <div class="chart">
+                  <div class="chartTitInfo clearfix">
+                    <h1 class="chartTitle">现金流走势</h1>
+                  </div>
+                  <div id="chartContainer_cash" style="height:250px">
+  
+                  </div>
+                </div>
+              </div>
+              <div class="costDistri">
+                <div class="chart">
+                  <div class="chartTitInfo clearfix">
+                    <h1 class="chartTitle left">费用分布</h1>
+                    <div class="changeCus right">
+                      <span style="margin-right: 36px;"><input name="cost" checked onclick="changeCost(this)" type="radio" value="费用" /> 费用</span>
+                      <span style="margin-right: 36px;"><input name="cost" onclick="changeCost(this)" type="radio" value="收入" /> 收入</span>
+                      <span><input name="cost" onclick="changeCost(this)" type="radio" value="支出" /> 支出</span>
+                    </div>
+                  </div>
+                  <div id="chartContainer_cost" style="height:222px">
+  
+                  </div>
+                </div>
+              </div>
+              <div class="profitAnalysis">
+                <div class="chartTitInfo clearfix">
+                  <h1 class="chartTitle">利润分析</h1>
+                </div>
+                <table class="profitAnalysisTable">
+                </table>
+              </div>
+            </div>
+            <div class="degree dlt"></div>
+            <div class="degree drt"></div>
+            <div class="degree dlb"></div>
+            <div class="degree drb"></div>
+          </div>
+        </div>
+        <div class="gap left"></div>
+        <div class="area left">
+          <div class="goods areaBorder">
+            <div class="title">
+              <div class="contentc clearfix">
+                <b class="left">货</b>
+                <span class="goodsStoreCost text right">&nbsp;&nbsp;&nbsp;库存周转率&nbsp;<span id="stockTurnover" class="totalNums"></span>&nbsp;<span class="units">天/次</span></span>
+                <span class="stockTotalCost text right">存货总成本&nbsp;<span id="storeTotalCost" class="totalNums"></span>&nbsp;<span class="units">万元</span></span>
+              </div>
+            </div>
+            <div  class="contentc">
+              <div class="chart">
+                <div class="chartTitInfo clearfix">
+                  <h1 class="chartTitle">库存成分分布</h1>
+                </div>
+                <div id="chartContainer_goods" style="height:270px">
+  
+                </div>
+              </div>
+              <div class="list">
+                <div class="listTitle">畅销品<span style="color: #ca7434;">TOP3</span></div>
+                <table id="goodsTop" class="rankTop3" style="width: 100%;">
+                </table>
+              </div>
+            </div>
+            <div class="degree dlt"></div>
+            <div class="degree drt"></div>
+            <div class="degree dlb"></div>
+            <div class="degree drb"></div>
+          </div>
+          <div class="product areaBorder">
+            <div class="title">
+              <div class="contentc clearfix">
+                <b>产</b>
+              </div>
+            </div>
+            <div class="contentc clearfix">
+              <div class="orders left">
+                <p class="urgentOrder" title="15天内紧急订单">15天内紧急订单</p>
+                <p class="orderNum blue2" id="urgetOrdNum"></p>
+                <p class="overdueOrder" title="逾期交付订单">逾期交付订单</p>
+                <p class="orderNum orange" id="overOrdNum"></p>
+              </div>
+              <div class="productTrend right">
+                <div id="productChart" style="height:160px">
+  
+                </div>
+              </div>
+            </div>
+            <div class="degree dlt"></div>
+            <div class="degree drt"></div>
+            <div class="degree dlb"></div>
+            <div class="degree drb"></div>
+          </div>
+        </div>
+      </div>
+      <div class="manageWarn areaBorder">
+        <div class="title">
+          <div class="contentc clearfix">
+            <b class="left">经营预警</b>
+            <span class="text right"><a href="../../SYSN/view/comm/MoziBoard/AlarmSetting.ashx" target="_blank" class="mangeTarget">经营目标设置</a></span>
+            <div class="warnLegend right">
+              <span class="legend" style="background: #12B8FC;"></span> 大于目标值 &nbsp;&nbsp;
+              <span class="legend" style="background: #12F81F;"></span> 正常 &nbsp;&nbsp;
+              <span class="legend" style="background: #FA4214;"></span> 小于目标值 &nbsp;&nbsp;
+            </div>
+          </div>
+        </div>
+        <div id="warnShow" class="manageStatus clearfix">
+        </div>
+        <div class="degree dlt"></div>
+        <div class="degree drt"></div>
+        <div class="degree dlb"></div>
+        <div class="degree drb"></div>
+      </div>
+    </div>
+    <div class="blank left"></div>
+  </div>
+</body>
+<script src="../inc/jQuery-1.7.2.min.js"></script>
+<script src="../inc/echarts4.9.min.js"></script>
+<script src="../skin/default/js/busiMarket.js"></script>
+<script>
+    var slaeChart = echarts.init(document.getElementById('chartContainer'));
+    if (getBrowerVer() < 9) { saleOption.color = ['#017EFF']; saleOption.series[0].itemStyle = {}; }
+      slaeChart.setOption(saleOption);
+      slaeChart.showLoading({text: '数据加载中...',color: '#042B5B',textColor: '#bbb',maskColor: 'rgba(7, 10, 43,0)'});
+  var fCashChart = echarts.init(document.getElementById('chartContainer_cash'));
+      fCashChart.setOption(fCashOption);
+      fCashChart.showLoading({ text: '数据加载中...', color: '#042B5B', textColor: '#bbb', maskColor: 'rgba(7, 10, 43,0)' });
+  var fCostChart = echarts.init(document.getElementById('chartContainer_cost'));
+      fCostChart.setOption(fCostOption);
+      fCostChart.showLoading({ text: '数据加载中...', color: '#042B5B', textColor: '#bbb', maskColor: 'rgba(7, 10, 43,0)' });
+  var goodsChart = echarts.init(document.getElementById('chartContainer_goods'));
+      goodsChart.setOption(goodsOption);
+      goodsChart.showLoading({ text: '数据加载中...', color: '#042B5B', textColor: '#bbb', maskColor: 'rgba(7, 10, 43,0)' });
+  var productChart = echarts.init(document.getElementById('productChart'));
+      productChart.setOption(productOPtion);
+      productChart.showLoading({ text: '数据加载中...', color: '#042B5B', textColor: '#bbb', maskColor: 'rgba(7, 10, 43,0)' });
+</script>
+</html>

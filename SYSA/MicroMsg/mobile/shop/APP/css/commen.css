@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+/*****共通部分****/
+
+/*html5*/
+article,aside,dialog,footer,header,section,nav,figure,menu{display:block; margin: 0; padding: 0;}
+footer{-webkit-user-select:none;}
+ html, body, ul, li, ol, dl, dd, dt,figure,figcaption, p,input, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+ body,html{ width:100%;overflow-x:hidden;font-size:12px; line-height:20px;font-family:"微软雅黑","SimSun","Arial Narrow",HELVETICA;}
+ html{height: 100%; }
+ ul li{ list-style:none;}
+ .pst{ position:relative;}
+.clearF{ clear:both}
+input{
+	word-break:break-all;
+}
+/*改变placeholder字体颜色*/
+	::-webkit-input-placeholder { /* WebKit browsers */
+　　color:#000 !important;
+　　}
+	:-webkit-input-placeholder { /* WebKit browsers */
+　　color:#000 !important;
+　　}
+　　:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+　　color:#000 !important;
+　　}
+　　::-moz-placeholder { /* Mozilla Firefox 19+ */
+　　color:#000 !important;
+　　}
+　　:-ms-input-placeholder { /* Internet Explorer 10+ */
+　　color:#000 !important;
+　　}
+/*将滚动条设为隐藏*/
+::-webkit-scrollbar{width:0;}
+/*****超链接共通****/
+a{text-decoration:none;font-size:12px;font-weight:100; outline:none; color:#000;}
+a img{ border:none;}
+
+/*****浮动共通****/
+.cb{clear:both;overflow:hidden;} 
+.fl{float:left;}
+.fr{float:right;}
+.wrap{ width:100%; height:auto; }
+/*确认弹框*/
+/*确认收货*/
+#confirmDiv{
+	position: fixed;
+	z-index:9999999;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background:rgba(0,0,0,0.7);
+	font-size: 14px;
+}
+#confirmDiv div{
+	margin:150px auto;
+	text-align: center;
+	width: 75%;
+	border-radius: 5px;
+	background: #fff;
+	padding:35px 10px 20px 10px;
+}
+#confirmDiv div .btnGroups{
+	padding:20px 30px 10px 30px;
+}
+
+#confirmDiv .btn{
+	padding:10px 25px;
+}
+
+/*****媒体查询部分******/
+@media screen and  (min-width:768px){
+	html,body{
+ 	font-size:24px;
+ }
+}
+
+@media screen and  (min-width:720px) and (max-width:767px){
+	html,body{
+ 	font-size:22px;	
+ }
+}
+@media screen and  (min-width:680px) and (max-width:719px) {
+	html,body{
+ 	font-size:20px;	
+ }
+}
+
+@media screen and  (min-width:600px) and (max-width:679px) {
+	html,body{
+ 	font-size:18px;	
+ }
+}
+
+
+@media screen and (max-width:480px) and (min-width:519px){
+	html,body{
+ 	font-size:16px;
+ }
+
+}
+@media screen and (max-width:414px) and (min-width:479px){
+	html,body{
+ 	font-size:14px;
+ }
+}
+@media screen and (min-width:360px) and (max-width:413px) {
+	html,body{
+ 	font-size:12px;
+ }
+ @-webkit-keyframes addCarPlay{
+	0%{transform: translate(-8rem,-10rem);}
+	100%{ 
+		transform: translate(14.3rem,0rem);
+		width:1rem;}
+}
+}
+
+@media screen and (min-width:320px) and (max-width:359px){
+	html,body{
+ 	font-size:10px;
+ }
+}

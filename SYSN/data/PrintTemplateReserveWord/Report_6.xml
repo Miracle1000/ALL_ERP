@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--入库打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="6" DBViewName="P_KuinTemplatePrint" DBDetailViewName="P_KuinlistTemplatePrint" >
+  <Items Title="公共字段">
+    <Items Title="入库信息">
+      <Column Name="入库主题" dbName="zb_rk_title" Description="入库主题" LocationType="All"/>
+      <Column Name="入库编号" dbName="zb_rkbh" Description="入库编号" LocationType="All"/>
+      <Column Name="申请日期" dbName="zb_apdate" Description="申请日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="申请时间" dbName="zb_sqdate" Description="申请时间" LocationType="All" ValueType="time|HH:mm:ss" />
+      <Column Name="申请人员" dbName="zb_sqperson" Description="申请人员" LocationType="All"/>
+      <Column Name="入库状态" dbName="zb_state" Description="入库状态" LocationType="All"/>
+      <Column Name="入库库管" dbName="zb_kgperson" Description="入库库管" LocationType="All"/>
+      <Column Name="确认日期" dbName="zb_qrdate" Description="确认日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="确认时间" dbName="zb_spdate" Description="确认时间" LocationType="All" ValueType="time|HH:mm:ss" />
+      <Column Name="当前审批人" dbName="cur_person" Description="当前审批人" LocationType="All"/>
+      <Column Name="最后审批人" dbName="last_person" Description="最后审批人" LocationType="All"/>
+      <Column Name="库管意见" dbName="zb_spintro" Description="库管意见" LocationType="All"/>
+      <Column Name="入库类别" dbName="zb_incategory" Description="入库类别" LocationType="All"/>
+      <Column Name="入库概要" dbName="zb_rk_intro" Description="入库概要" LocationType="All" IsHtml="true"/>
+      <Column Name="自定义1" dbName="zb_zdy1" Description="自定义1" LocationType="All"/>
+      <Column Name="自定义2" dbName="zb_zdy2" Description="自定义2" LocationType="All"/>
+      <Column Name="自定义3" dbName="zb_zdy3" Description="自定义3" LocationType="All"/>
+      <Column Name="自定义4" dbName="zb_zdy4" Description="自定义4" LocationType="All"/>
+      <Column Name="自定义5" dbName="zb_zdy5" Description="自定义5" LocationType="All"/>
+      <Column Name="自定义6" dbName="zb_zdy6" Description="自定义6" LocationType="All"/>
+    </Items>
+    <Items Title="关联采购">
+      <Column Name="采购主题" dbName="po_title" Description="采购主题" LocationType="All"/>
+      <Column Name="采购编号" dbName="po_bh" Description="采购编号" LocationType="All"/>
+      <Column Name="采购分类" dbName="po_sort" Description="采购分类" LocationType="All"/>
+      <Column Name="采购员" dbName="po_person" Description="采购员" LocationType="All"/>
+      <Column Name="采购日期" dbName="po_date" Description="采购日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="采购金额" dbName="po_money" Description="采购金额" LocationType="All" ValueType="number||" />
+      <Column Name="采购概要" dbName="po_intro" Description="采购概要" LocationType="All"/>
+      <Column Name="采购添加时间" dbName="zb_timetj" Description="采购添加时间" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="自定义1" dbName="po_zdy1" Description="自定义1" LocationType="All"/>
+      <Column Name="自定义2" dbName="po_zdy2" Description="自定义2" LocationType="All"/>
+      <Column Name="自定义3" dbName="po_zdy3" Description="自定义3" LocationType="All"/>
+    </Items>
+    <Items Title="采购扩展自定义">
+      <Column Name="产品型号" dbName="Caigou_Extended_" Description="产品型号" LocationType="All"/>
+    </Items>
+    <Items Title="关联供应商">
+      <Column Name="供应商名称" dbName="gys_titile" Description="供应商名称" LocationType="All"/>
+      <Column Name="供应商编号" dbName="gys_bh" Description="供应商编号" LocationType="All"/>
+      <Column Name="供应商单位电话" dbName="gys_tel" Description="供应商单位电话" LocationType="All"/>
+      <Column Name="对方代表" dbName="gys_person" Description="对方代表" LocationType="All"/>
+      <Column Name="供应商地址" dbName="gys_addr" Description="供应商地址" LocationType="All"/>
+      <Column Name="供应商传真" dbName="gys_fax" Description="供应商传真" LocationType="All"/>
+      <Column Name="联系人QQ" dbName="person_qq" Description="联系人QQ" LocationType="All"/>
+      <Column Name="开户银行1" dbName="bank_1" Description="开户银行1" LocationType="All"/>
+      <Column Name="开户名称1" dbName="account_1" Description="开户名称1" LocationType="All"/>
+      <Column Name="银行行号1" dbName="bank_num1" Description="银行行号1" LocationType="All"/>
+      <Column Name="开户银行2" dbName="bank_2" Description="开户银行2" LocationType="All"/>
+      <Column Name="开户名称2" dbName="account_2" Description="开户名称2" LocationType="All"/>
+      <Column Name="银行行号2" dbName="bank_num2" Description="银行行号2" LocationType="All"/>
+      <Column Name="税号1" dbName="tax_1" Description="税号1" LocationType="All"/>
+      <Column Name="税号2" dbName="tax_2" Description="税号2" LocationType="All"/>
+      <Column Name="银行账号1" dbName="acc_num1" Description="银行账号1" LocationType="All"/>
+      <Column Name="银行账号2" dbName="acc_num2" Description="银行账号2" LocationType="All"/>
+      <Column Name="联系人手机" dbName="preson_phone" Description="联系人手机" LocationType="All"/>
+      <Column Name="联系人电话" dbName="person_tel" Description="联系人电话" LocationType="All"/>
+      <Column Name="联系人传真" dbName="person_fax" Description="联系人传真" LocationType="All"/>
+    </Items>
+    <Items Title="销售退货">
+      <Column Name="退货主题" dbName="resale_titile" Description="退货主题" LocationType="All"/>
+      <Column Name="退货编号" dbName="resale_bh" Description="退货编号" LocationType="All"/>
+      <Column Name="退货日期" dbName="resale_date" Description="退货日期" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="退货分类" dbName="resale_sort" Description="退货分类" LocationType="All"/>
+      <Column Name="退货金额" dbName="resale_cost" Description="退货金额" LocationType="All" ValueType="number||" />
+      <Column Name="退货状态" dbName="resale_state" Description="退货状态" LocationType="All"/>
+      <Column Name="退货概要" dbName="resale_reason" Description="退货概要" LocationType="All"/>
+      <Column Name="销售人员" dbName="resale_person" Description="销售人员" LocationType="All"/>
+    </Items>
+    <Items Title="入库明细汇总">
+      <Column Name="付款方式" dbName="zb_pintro3" Description="付款方式" LocationType="All"/>
+      <Column Name="交货地址" dbName="zb_pintro4" Description="交货地址" LocationType="All"/>
+      <Column Name="交货方式" dbName="zb_pintro5" Description="交货方式" LocationType="All"/>
+      <Column Name="交货时间" dbName="zb_pintro6" Description="交货时间" LocationType="All" ValueType="date|yyyy-MM-dd" />
+      <Column Name="配件" dbName="zb_pj" Description="配件" LocationType="All"/>
+      <Column Name="备注" dbName="zb_allintro" Description="备注" LocationType="All"/>
+    </Items>
+    <Items Title="账号信息">
+      <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+      <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" ValueType="date|yyyy-MM-dd" />
+      <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" ValueType="time|HH:mm:ss" />
+    </Items>
+    <Items Title="扩展自定义" Extended="22">
+      <Column Name="Caigou_Extended_#ID" dbName="Caigou_Extended_" Description="扩展自定义" LocationType="All"/>
+    </Items>
+  </Items>
+  <Items Title="表头表尾字段">
+    <Items Title="合计小计">
+      <Column Name="申请数量小计" dbName="SUM_PAGE([num_sq])" Description="申请数量小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="申请数量合计" dbName="SUM_ALL([num_sq])" Description="申请数量合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="入库数量小计" dbName="SUM_PAGE([num_rk])" Description="入库数量小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="入库数量合计" dbName="SUM_ALL([num_rk])" Description="入库数量合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="成本总价小计" dbName="SUM_PAGE([pro_price_cb1])" Description="成本总价小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="成本总价合计" dbName="SUM_ALL([pro_price_cb1])" Description="成本总价合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="总价小计" dbName="SUM_PAGE([pro_total])" Description="总价小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="总价合计" dbName="SUM_ALL([pro_total])" Description="总价合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="件数小计" dbName="SUM_PAGE([pro_js])" Description="件数小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="件数合计" dbName="SUM_ALL([pro_js])" Description="件数合计" LocationType="All" IsFunction="true" ValueType="number||" />
+    </Items>
+    <Items Title="采购入库类别的合计小计">
+      <Column Name="未税总价小计" dbName="SUM_PAGE([pro_price_ws1])" Description="未税总价小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="未税总价合计" dbName="SUM_ALL([pro_price_ws1])" Description="未税总价合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="含税总价小计" dbName="SUM_PAGE([pro_price_hs1])" Description="含税总价小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="含税总价合计" dbName="SUM_ALL([pro_price_hs1])" Description="含税总价合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="未税折后总价小计" dbName="SUM_PAGE([pro_price_zh1])" Description="未税折后总价小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="未税折后总价合计" dbName="SUM_ALL([pro_price_zh1])" Description="未税折后总价合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="含税折后总价小计" dbName="SUM_PAGE([pro_price_hszh1])" Description="含税折后总价小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="含税折后总价合计" dbName="SUM_ALL([pro_price_hszh1])" Description="含税折后总价合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="费用分摊小计" dbName="SUM_PAGE([pro_pay])" Description="费用分摊小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="费用分摊合计" dbName="SUM_ALL([pro_pay])" Description="费用分摊合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="金额小计" dbName="SUM_PAGE([pro_amount])" Description="金额小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="金额合计" dbName="SUM_ALL([pro_amount])" Description="金额合计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="税额小计" dbName="SUM_PAGE([pro_tax])" Description="税额小计" LocationType="All" IsFunction="true" ValueType="number||" />
+      <Column Name="税额合计" dbName="SUM_ALL([pro_tax])" Description="税额合计" LocationType="All" IsFunction="true" ValueType="number||" />
+    </Items>
+  </Items>
+  <Items Title="表格明细字段">
+    <Items Title="产品明细">
+      <Column Name="序号" dbName="sortnum" Description="序号" LocationType="Detail" OrderNum="true"  />
+      <!--
+			<Column Name="产品图片100px" dbName="pro_img_100" Description="产品图片100px" Type="Image" LocationType="Detail"  />
+			<Column Name="产品图片200px" dbName="pro_img_200" Description="产品图片200px" Type="Image" LocationType="Detail"  />
+			<Column Name="产品图片300px" dbName="pro_img_300" Description="产品图片300px" Type="Image" LocationType="Detail"  />
+			-->
+      <Column Name="产品图片自定义" dbName="pro_img_300" Description="产品图片自定义" Type="Image" LocationType="Detail"  />
+      <Column Name="产品名称" dbName="pro_name" Description="产品名称" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="产品编号" dbName="pro_code" Description="产品编号" LocationType="Detail" GroupBy="true"  IsEnableDepth="true" />
+      <Column Name="产品型号" dbName="pro_type" Description="产品型号" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="产品说明" dbName="pro_introductions" Description="产品说明" LocationType="Detail" IsEnableDepth="true"  />
+      <Column Name="产品参数" dbName="pro_parameter" Description="产品参数" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="产品分类" dbName="pro_sort1" Description="产品分类" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="产品分类(全路径)" dbName="pro_sort2" Description="产品分类(全路径)" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="图片与附件" dbName="pro_accessoryfj" Description="图片与附件" LocationType="Detail" IsHtml="true"/>
+      <Column Name="产品二维码" dbName="pro_url_qr" Description="产品二维码" Type="Image" LocationType="Detail"  />
+      <Column Name="产品条形码（图文）" dbName="Bar_code_pro" Description="产品条形码（图文）" Type="Image" LocationType="Detail"  />
+      <Column Name="产品条形码（数字）" dbName="peo_bar" Description="产品条形码（数字）" LocationType="Detail"  />
+      <Column Name="产品自定义4" dbName="zb_cp_zdy4" Description="产品自定义4" LocationType="Detail"  />
+      <Column Name="产品自定义5" dbName="zb_cp_zdy5" Description="产品自定义5" LocationType="Detail"  />
+      <Column Name="产品单位" dbName="pro_unit" Description="产品单位" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="产品属性(汇总)" dbName="ProductAttr" Description="产品属性(汇总)" Type="ProductAttr" LocationType="Detail" SumaryCalculate="true"  />
+      <Column Name="产品属性1" dbName="ProductAttr1" Description="产品属性1" Type="ProductAttr" LocationType="Detail" SumaryCalculate="true"  />
+      <Column Name="产品属性2" dbName="ProductAttr2" Description="产品属性2" Type="ProductAttr" LocationType="Detail" SumaryCalculate="true"  />
+      <Column Name="产品批号（数字）" dbName="pro_ph" Description="产品批号（数字）" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="产品批号（条码）" dbName="Bar_code_pro_ph" Description="产品批号（条码）" LocationType="Detail" IsEnableDepth="true"  />
+      <Column Name="产品批号（二维码）" dbName="Qr_code_ph" Description="产品批号（二维码）" LocationType="Detail" IsEnableDepth="true"  />
+      <Column Name="产品序列号（数字）" dbName="pro_xlh" Description="产品序列号（数字）" GroupBy="true"  LocationType="Detail" IsEnableDepth="true"  />
+      <Column Name="产品序列号（条码）" dbName="Bar_code_pro_xlh" Description="产品序列号（条码）" LocationType="Detail" IsEnableDepth="true"  />
+      <Column Name="产品序列号（二维码）" dbName="Qr_code_xlh" Description="产品序列号（二维码）" LocationType="Detail" IsEnableDepth="true"  />
+      <Column Name="生产日期" dbName="pro_datesc" Description="生产日期" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="date|yyyy-MM-dd" />
+      <Column Name="有效日期" dbName="pro_dateyx" Description="有效日期" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="date|yyyy-MM-dd" />
+      <Column Name="到货日期" dbName="pro_datedh" Description="到货日期" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="date|yyyy-MM-dd" />
+      <Column Name="仓库" dbName="warehouse" Description="仓库" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="仓库(带路径)" dbName="wh_path" Description="仓库(带路径)" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="包装" dbName="pro_bz" Description="包装" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="件数" dbName="pro_js" Description="件数" LocationType="Detail" SumaryCalculate="true" ValueType="number||" />
+      <Column Name="备注" dbName="pro_allintro" Description="备注" LocationType="Detail" IsEnableDepth="true" />
+      <Column Name="产品明细自定义1" dbName="zb_xs_zdy1" Description="产品明细自定义1" LocationType="Detail" IsEnableDepth="true"  />
+      <Column Name="入库数量" dbName="num_rk" Description="入库数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="成本单价" dbName="pro_price_cb" Description="成本单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||"/>
+      <Column Name="成本总价" dbName="pro_price_cb1" Description="成本总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="单价" dbName="pro_price" Description="单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="总价" dbName="pro_total" Description="总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="申请入库数量" dbName="num_sq" Description="申请入库数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="入库明细二维码" dbName="zb_xs_url_qr" Description="入库明细二维码" LocationType="Detail"  IsEnableDepth="true"  />
+      <Column Name="辅助单位" dbName="pro_unit2" Description="辅助单位" LocationType="Detail" GroupBy="true" IsEnableDepth="true"  />
+      <Column Name="辅助数量" dbName="num_unit2" Description="辅助数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+    </Items>
+    <Items Title="采购入库类别的入库单">
+      <Column Name="未税单价" dbName="pro_price_ws" Description="未税单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="未税总价" dbName="pro_price_ws1" Description="未税总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="含税单价" dbName="pro_price_hs" Description="含税单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="含税总价" dbName="pro_price_hs1" Description="含税总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="未税折后单价" dbName="pro_price_zh" Description="未税折后单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="未税折后总价" dbName="pro_price_zh1" Description="未税折后总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="含税折后单价" dbName="pro_price_hszh" Description="含税折后单价" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="含税折后总价" dbName="pro_price_hszh1" Description="含税折后总价" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="金额" dbName="pro_amount" Description="金额" LocationType="Detail" IsEnableDepth="true" SumaryCalculate="true" ValueType="number||" />
+      <Column Name="税额" dbName="pro_tax" Description="税额" LocationType="Detail" IsEnableDepth="true" SumaryCalculate="true" ValueType="number||" />
+      <Column Name="折扣" dbName="pro_zk" Description="折扣" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="费用分摊金额" dbName="pro_pay" Description="费用分摊金额" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="采购数量" dbName="num_po" Description="采购数量" LocationType="Detail" SumaryCalculate="true" IsEnableDepth="true" ValueType="number||" />
+      <Column Name="发票类型" dbName="Invoice_type" Description="发票类型" LocationType="Detail" IsEnableDepth="true" GroupBy="true" />
+      <Column Name="税率" dbName="pro_sl" Description="税率" LocationType="Detail" GroupBy="true" IsEnableDepth="true" ValueType="number||"/>
+    </Items>
+  </Items>
+</Report>

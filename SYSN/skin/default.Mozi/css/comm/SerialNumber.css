@@ -1,0 +1,15 @@
+﻿#showNumber li {
+    border: 1px solid #C0CCDD;
+    line-height: 26px;
+    margin: 2px;
+    float: left;
+    height: 26px;
+    text-align: center;
+    list-style-type: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 2px;
+    display: list-item;
+}
+

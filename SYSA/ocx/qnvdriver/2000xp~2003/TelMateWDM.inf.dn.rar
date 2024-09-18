@@ -1,0 +1,77 @@
+; Installation inf for the Intel 82930 USB Bulk IO Test Board
+;
+; (c) Copyright 1999 Microsoft
+;
+
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%MSFT%
+DriverVer=08/05/2009
+
+[SourceDisksNames]
+1="qnvicc Installation Disk",,,
+
+[SourceDisksFiles]
+TelMateWDM.sys = 1
+TelmateWDM.inf = 1
+
+[Manufacturer]
+%MfgName%=icc301
+
+[icc301]
+%USB\VID_1FED&PID_C301.DeviceDesc%=BULKUSB.Dev, USB\VID_1FED&PID_C301
+%USB\VID_4348&PID_5537.DeviceDesc%=BULKUSB.Dev, USB\VID_4348&PID_5537
+%USB\VID_4348&PID_55E0.DeviceDesc%=BULKUSB.Dev, USB\VID_4348&PID_55E0
+
+;[PreCopySection]
+;HKR,,NoSetupUI,,1
+
+[DestinationDirs]
+BULKUSB.Files.Ext = 10,System32\Drivers
+BULKUSB.Files.Inf = 10,INF
+
+[BULKUSB.Dev]
+CopyFiles=BULKUSB.Files.Ext, BULKUSB.Files.Inf
+AddReg=BULKUSB.AddReg
+
+[BULKUSB.Dev.NT]
+CopyFiles=BULKUSB.Files.Ext, BULKUSB.Files.Inf
+AddReg=BULKUSB.AddReg
+
+[BULKUSB.Dev.NT.Services]
+Addservice = BULKUSB, 0x00000002, BULKUSB.AddService
+
+[BULKUSB.AddService]
+DisplayName    = %BULKUSB.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\TelMateWDM.sys
+LoadOrderGroup = Base
+
+[BULKUSB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,TelMateWDM.sys
+HKLM,"System\Currentcontrolset\Services\BulkUsb\Parameters","MaximumTransferSize",0x10001,4096
+HKLM,"System\Currentcontrolset\Services\BulkUsb\Parameters","DebugLevel",0x10001,2
+
+
+[BULKUSB.Files.Ext]
+TelMateWDM.sys
+
+[BULKUSB.Files.Inf]
+TelmateWDM.inf
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+MSFT="icc301"
+MfgName="icc"
+USB\VID_1FED&PID_C301.DeviceDesc="qnv icc301  USB Bulk IO Board"
+USB\VID_4348&PID_5537.DeviceDesc="qnv icc375  USB Bulk IO Board"
+USB\VID_4348&PID_55E0.DeviceDesc="qnv icc372  USB Bulk IO Board"
+BULKUSB.SvcDesc="TelMateWDM.sys Bulk IO driver"
+

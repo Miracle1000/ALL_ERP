@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html style='overflow:auto'>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>我的中心</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/commen.css" />
+	<link rel="stylesheet" href="css/my.css?92" />
+</head>
+	<body style='overflow:auto'>
+	<!--加载页面-->
+	<div id="loadDiv" style="background: #fff;height: 100%;width: 100%;position: fixed;z-index: 9999;">	
+		<img src="img/load.gif" style="display: block;margin: 80px auto; width: 30px;">
+	</div>
+	<div class="alert">
+		<form class="form-horizontal" role="form" id="telForm">
+		  <div class="form-group" style="margin-bottom: 0px !important;">
+		    <label for="tel" class="col-sm-2 control-label">请输入手机号:</label>
+		    <div class="col-sm-10" style="margin-top:1.1rem">
+		      <input type="number" dataType="number" class="form-control" id="tel" placeholder="输入手机号">
+		    </div>
+		    <p class="telerroTg">请输入有效的11位数的手机号码</p>
+		  </div>
+		  <div class="rows" style="margin-top: 20px;">
+			  <p class="col-xs-6 text-center" style="margin-top:10px"><input type="button" value="提交" id="submit" class="btn btn-danger" style="width:6rem"/></p>
+			  <p class="col-xs-6 text-center" style="margin-top:10px"><input type="button" value="返回" id="return" class="btn btn-danger" style="width:6rem"/></p>
+		  </div>
+		</form>
+	</div>
+	<!--头部-->
+	<header class="container">
+		<ul class="row">
+			<li class="col-xs-12 text-center">
+				用户中心
+			</li>		
+		</ul>
+	</header>
+	<!--头像-->
+	<div class="pic pst">
+			<figure>
+				<div id="photo"><img src=""></div>
+				<figcaption id="username">
+				</figcaption>
+			</figure>
+	</div>
+	<div class="order">
+		<div style="padding-left: 0;" class="col-xs-6 text-left" id="myList"><img src="img/list.png" class="listImg" >&nbsp;我的订单</div>
+		<div class="col-xs-6 text-right" id="allList">查看全部订单&nbsp;&nbsp;&nbsp;<img src="img/rtMore.png" class="mpreImg"></div>
+	</div>
+	<!--订单状态-->
+	<div class="container-fluid divConmenCss" style="border: none;">
+		<ul class="cb status">
+			<li class="fl" style="text-align: center;">
+				<p class="number" id="waitPayNum"></p>
+				<figure id="NEED_PAY">
+					<img src="img/wait1.png">
+					<figcaption>待付款</figcaption>
+				</figure>
+			</li>
+			<li class="fl" style="text-align: center;">
+				<p class="number" id="waitSendNum"></p>
+				<figure id="NEED_SEND">
+					<img src="img/wait2.png">
+					<figcaption>待发货</figcaption>
+				</figure>
+			</li>
+			<li class="fl" style="text-align: center;">
+				<p class="number" id="waitReceiveNum"></p>
+				<figure id="NEED_RECEIVE">
+					<img src="img/wait3.png">
+					<figcaption>待收货</figcaption>
+				</figure>
+			</li>
+		</ul>
+	</div>
+	<p class="setting"><img src="img/setting.png">&nbsp;设置</p>
+	<div style="border-bottom: 1px solid #ccc;">
+		<div class="cb " id="userSetting" style="margin: 0 10px;border-bottom: 1px solid #ccc;">
+			<p class="text-indent fl">&nbsp;&nbsp;账户管理</p>
+			<p><img src="img/rtMore.png" class="fr rtMore"></p>
+		</div>
+		<div class="cb" id="addressSetting" style="margin: 0 10px;border-bottom: 1px solid #ccc;">
+			<p class="text-indent fl" >&nbsp;&nbsp;地址管理</p>
+			<p><img src="img/rtMore.png" class="fr rtMore"></p>
+		</div>
+		<div class="cb " id="instructions" style="margin: 0 10px;border-bottom: 1px solid #ccc;">
+			<p class="text-indent fl" >&nbsp;&nbsp;运费说明</p>
+			<p><img src="img/rtMore.png" class="fr rtMore"></p>
+		</div>
+		<div class="cb" id="serviceLink" style="margin: 0 10px;border-bottom: 1px solid #ccc;">
+			<p class="text-indent fl" >&nbsp;&nbsp;售后服务</p>
+			<p><img src="img/rtMore.png" class="fr rtMore"></p>
+		</div>
+		<div>
+			<br><br><br><br>
+		</div>
+	</div>
+	<!--运费说明弹出页面-->
+	<div id="instructionsDiv">
+		<header class="container">
+			<ul class="row">
+				<li class="col-xs-3 hd-back text-center"> <img src="img/back.png" id="wordsback"/>  </li>
+				<li class="col-xs-6 text-center search-li">
+					运费中心
+				</li>
+			</ul>
+		</header>
+		<p class="words"></p>		
+	</div>
+	<!--底部-->
+	 <footer class="footer">
+	 	<ul>
+	 		<li data-src="index.html">
+	 			<figure>
+	 				<img src="img/f01.png">
+	 				<figcaption>首页</figcaption>
+	 			</figure>
+	 		</li>
+	 		<li data-src="classfity.html">
+	 			<figure>
+	 				<img src="img/f02.png">
+	 				<figcaption>分类</figcaption>
+	 			</figure>
+	 		</li>
+	 		<li data-src="car.html">
+	 			<figure  style="position: relative;">
+	 				<img src="img/f03.png">
+	 				<figcaption><span class="carNum">0</span>购物车</figcaption>
+	 			</figure>
+	 		</a></li>
+	 		<li class="Link"  data-src="my.html">
+	 			<figure>
+	 				<img src="img/f4.png">
+	 				<figcaption>我的</figcaption>
+	 			</figure>
+	 		</li>
+	 	</ul>
+	 </footer>
+	</body>
+	<script src="../GlobalSettings.asp"></script>
+	<script src="../../js/jweixin-1.0.0.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/global.js"></script>	
+	<script type="text/javascript" src="js/commen.js" ></script>
+	<script type="text/javascript" src="js/check.js?t112" ></script>
+	<script type="text/javascript" src="js/my.js?9"></script>
+</html>

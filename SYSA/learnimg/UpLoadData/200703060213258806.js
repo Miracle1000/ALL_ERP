@@ -1,0 +1,1 @@
+﻿lngTotalSize=27523;lngReadSize=27523;

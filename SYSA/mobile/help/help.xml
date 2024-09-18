@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="gb2312"?>
+<?xml-stylesheet type="text/xsl" href="help.xsl"?>
+<help title="移动应用接口说明文档">
+	<Models>
+		<Model remark='用户权限' url='UserPower.asmx'>
+			<function name="LoginInit">
+				<remark>登录之前，调用该方法，根据当前移动设备号获取登录前相关的准备参数。</remark>
+				<params>
+					<param name="sn" type="string" remark="移动设备号"/>
+          <param name="phone" type="string" remark="手机号码"/>
+				</params>
+        <result type="对象：MacsnStateData" IsValue="0">
+          <object type="MacsnStateData">
+            <Attribute name="bound" type="bool" remark="表示当前的移动设备号是否已经被绑定，true表示已绑定，false表示未绑定, Json中,1=true,0=false"/>
+            <Attribute name="RndCodeUrl" type="string" remark="登录时图片验证码的加密串，通过该串访问RndCodeImage.aspx?code=RndCodeUrl可获取验证码图片；如果无需验证，则该值为空字符串"/>
+            <Attribute name="BoundUsers" type="string数组" remark="表示当前移动设备号绑定的用户的登录账号集合"/>
+          </object>
+        </result>
+			</function>
+
+      <function name="UserLogin">
+        <remark>用户登录方法，登录返回会话凭证</remark>
+        <params>
+          <param name="username" type="string" remark="用户账号"/>
+          <param name="password" type="string" remark="用户密码，传递的时候采用AES方式加密"/>
+          <param name="mobilesn" type="string" remark="移动设备号"/>
+          <param name="phone" type="string" remark="手机号码"/>
+          <param name="rndCode" type="string" remark="一般首次登录用，断网重连为空：图片验证码，当登录失败次数超过3次，会要求该参数有值，正常登录、断线重登录时该参数为空"/>
+          <param name="Session" type="string" remark="一般断网重连用，首次登录为空：当前客户端的会话凭证，当断线重连时用到该参数，根据该参数，系统将忽略图片验证码不正确的情况"/>
+        </params>
+        <result type="对象：LoginResult" IsValue="0">
+          <object type="LoginResult">
+            <Attribute name="Result" type="string" remark="登录结果错误号，0表示成功，其它表示失败，失败描述见属性ResultText"/>
+            <Attribute name="ResultText" type="string" remark="登录结果描述"/>
+            <Attribute name="Session" type="string" remark="当登录成功后，该值为会话凭证字符串，登录失败的情况下，该值返回空"/>
+            <Attribute name="NewRndCode" type="string" remark="当密码错误、验证码错误的情况下，系统会重新生成验证码，该值表示新生成的验证码的加密串"/>
+			<Attribute name="GlobalData" type="GlobalDataClass" remark="系统运行所需的全局参数对象"/>
+          </object>
+        </result>
+      </function>
+
+      <function name="UserExit">
+        <remark>用户退出登录</remark>
+        <params>
+          <param name="Session" type="string" remark="当前会话凭证"/>
+        </params>
+        <result type="String" remark="用户退出，返回1表示正常退出" IsValue="1">
+        </result>
+      </function>
+
+      <function name="SessionState">
+        <remark>获取会话凭证的状态</remark>
+        <params>
+          <param name="Session" type="string" remark="当前会话凭证"/>
+        </params>
+        <result type="String" remark="返回当前会话凭证的状态，用英文单词表示，如:Normal，目前可能返回以下几种情况：  
+Invalid(0,凭证失效)、Normal(1,正常)、Timeout(2,超时)、IpChane(3,客户端IP已更换)、KickOff(4,被踢下线)、MacInvalid(5,设备号已经无效)" IsValue="1">
+        </result>
+      </function>
+		</Model>
+    <Model remark='销售管理' url='Sale.asmx'>
+		<function name="AddReplyModel">
+          <remark>添加洽谈进展模版</remark>
+          <params>
+            <param name="Session" type="string" remark="会话凭证"/>
+            <param name="newtext" type="string" remark="新的洽谈进展模版内容"/>
+          </params>
+          <result type="对象：SaveResultReport" IsValue="0" remark="返回保存结果对象，保存成功为返回正常，不成功会返回相关信息">
+            <object type="SaveResultReport">
+              <Attribute name="Result" type="int" remark="1表示保存成功，0表示保存失败"/>
+              <Attribute name="Message" type="string" remark="当保存成功时返回字符串“成功”，否则返回保存失败的原因，一般当新增模版内容为空，或者新增的模版内容在数据库中已经存在的情况下，会保存失败。"/>
+            </object>
+          </result>
+        </function>
+
+        <function name="CustomList">
+          <remark>根据检索和排序条件，获取客户列表数据</remark>
+          <params>
+            <param name="Session" type="string" remark="会话凭证"/>
+            <param name="PageIndex" type="int" remark="分页页码"/>
+            <param name="PageSize" type="int" remark="分页每页行数"/>
+            <param name="WhereCol" type="string" remark="检索条件：用“字段=值;字段=值;...”的形式表示，例如“name=张三;phone=13717...”（注意：因为分号和等号被用作特殊分隔符，所以检索内容中不能出现这两个符号，客户端需要提前过滤），目前可识别的字段及含义：name(客户名称)、pym(拼音码)、phone(电话号码)、sort(客户分类，数字集合)、fax（传真）、address（地址）、ly（来源，数字集合）、sort1（跟进程度，数字集合）、zip（邮编）、khid（客户编号）、jz（客户价值，数字集合）、trade（客户行业，数字集合）、intro（客户备注）、url（客户网址），其中数字集合用数字加逗号隔开的形式表示，如：12,556,17。该参数默认为空。"/>
+            <param name="SortCol" type="string" remark="排序条件：用“+字段中文名称1,-字段中文名称2,...”的形式表示，目前可识别的排序列：客户名称、客户编号、领用日期、最近联系、领用人员。该参数默认为空。"/>
+            <param name="IsGeneral" type="bool" remark="是否返回概要列表，概要列表=true, 详情列表=false"/>
+          </params>
+          <result type="对象：PageDataTable" IsValue="0" remark="概要模式下，返回一个7列表格，列名称依次是：ord、客户名称、销售人员、联系人名称、联系人电话、最新跟进、最近联系 。 详情模式下，返回一个13列表格，列名称依次是：ord、客户名称、客户分类、跟进程度、销售人员、联系人名称、部门、职务、联系人电话、联系手机、最新跟进、最近联系、详情权限">
+            <object type="PageDataTable">
+              <Attribute name="PageIndex" type="int" remark="当前数据的页码"/>
+              <Attribute name="PageCount" type="int" remark="当前数据的总页数"/>
+              <Attribute name="PageSize" type="int" remark="当前数据每页行数"/>
+              <Attribute name="RecountCount" type="int" remark="当前数据的总行数"/>
+              <Attribute name="Remark" type="string" remark="当前数据的额外描述，一般为空"/>
+              <Attribute name="Cols" type="string数组" remark="当前数据的列名称集合"/>
+              <Attribute name="Rows" type="DataRow数组" remark="当前页数据的行对象（DataRow）集合，其中每个DataRow又是一个列集合，所以Rows属性类似一个2维数组，以此来表示2维表格数据。"/>
+            </object>
+          </result>
+        </function>
+      <function name="PersonList">
+        <remark>根据检索和排序条件，获取联系人列表数据</remark>
+        <params>
+          <param name="Session" type="string" remark="会话凭证"/>
+          <param name="PageIndex" type="int" remark="分页页码"/>
+          <param name="PageSize" type="int" remark="分页每页行数"/>
+          <param name="WhereCol" type="string" remark="检索条件：用“字段=值;字段=值;...”的形式表示，例如“name=张三;phone=13717...”（注意：因为分号和等号被用作特殊分隔符，所以检索内容中不能出现这两个符号，客户端需要提前过滤），目前可识别的字段及含义：name(客户名称)、pym(拼音码)、phone(联系人电话)、phone2(家庭电话)、mobile(联系人手机)、mobile2(联系人手机2)、fax（传真）、address（地址）、qq（qq号码）、sex（性别）、email（电子邮箱）、msn（msn号码）、birthday（生日），其中数字集合用数字加逗号隔开的形式表示，如：12,556,17。该参数默认为空。"/>
+          <param name="SortCol" type="string" remark="排序条件：用“+字段中文名称1,-字段中文名称2,...”的形式表示，目前可识别的排序列：姓名、来源、所有者。该参数默认为空。"/>
+          <param name="IsGeneral" type="bool" remark="是否返回今日生日列表，今日生日列表=true, 详情列表=false"/>
+        </params>
+        <result type="对象：PageDataTable" IsValue="0" remark="今日生日列表下，返回一个12列表格，列名称依次是：ord、联系人姓名、部门、职位、生日、距离生日、手机、关联客户、销售人员、固定电话、详情权限、客户详情权限 。 详情模式下，返回一个10列表格，列名称依次是：ord、联系人姓名、部门、职位、关联客户、销售人员、联系手机、固定电话、详情权限、客户详情权限">
+          <object type="PageDataTable">
+            <Attribute name="PageIndex" type="int" remark="当前数据的页码"/>
+            <Attribute name="PageCount" type="int" remark="当前数据的总页数"/>
+            <Attribute name="PageSize" type="int" remark="当前数据每页行数"/>
+            <Attribute name="RecountCount" type="int" remark="当前数据的总行数"/>
+            <Attribute name="Remark" type="string" remark="当前数据的额外描述，一般为空"/>
+            <Attribute name="Cols" type="string数组" remark="当前数据的列名称集合"/>
+            <Attribute name="Rows" type="DataRow数组" remark="当前页数据的行对象（DataRow）集合，其中每个DataRow又是一个列集合，所以Rows属性类似一个2维数组，以此来表示2维表格数据。"/>
+          </object>
+        </result>  
+      </function>
+
+      <function name="GetSearchData">
+        <remark>搜索区域信息，客户信息返回</remark>
+        <params>
+          <param name="Session" type="string" remark="会话凭证"/>
+          <param name="SearchID" type="int" remark="0：区域搜索；1：客户搜索"/>
+          <param name="InitValue" type="int" remark="当前类别的默认值，搜索客户信息暂不用；区域时表示父区域的ID"/>
+          <param name="InitText" type="string" remark="查询数据时模糊检索关键字，默认为空"/>
+        </params>
+        <result type="对象：PageDataTable" IsValue="1" remark="PageDataTable结构参见对应接口返回值，SearchID:0时本接口返回表格有3列，列名称依次是：name（区域名）、value(值)、children(子区域数)；SearchID:1时本接口返回表格有2列：name(客户或供应商名称)，ord(系统编号)。">
+        </result>
+      </function>
+
+      <function name="OptionsValues">
+        <remark>获取选项框数据，一般用于高级检索，生成下拉框等，属于多模块公用接口</remark>
+        <params>
+          <param name="Session" type="string" remark="会话凭证"/>
+          <param name="OptionName" type="string" remark="要获取的数据类型，目前定义如下：tel.sort(客户分类)、tel.sort1(跟进程度)、tel.ly(客户来源)、tel.jz(客户价值)、(tel.trade)客户行业。"/>
+          <param name="KeyValue" type="string" remark="查询数据时模糊检索关键字，默认为空，一般不用"/>
+        </params>
+        <result type="对象：PageDataTable" IsValue="1" remark="PageDataTable结构参见CustomtList接口返回值，本接口返回表格有2列，列名称依次是：ID、Text；ID表示内容的内部值,text表示显示值。">
+        </result>
+      </function>
+    </Model>
+	</Models>
+</help>

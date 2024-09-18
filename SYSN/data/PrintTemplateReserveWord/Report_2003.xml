@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--产品打印模板-->
+<!--PrintID:预留字段对应的模板编号-->
+<!--DBViewName:查询基本信息视图名称（即非明细数据）-->
+<!--DBDetailViewName:查询明细视图名称-->
+<!--Title:下拉菜单标题-->
+<!--Name:字段名称-->
+<!--dbName:对应数据库的列名-->
+<!--Description:鼠标悬停时的提示字段-->
+<!--LocationType: All:可拖拽在页面中的所有位置, Detail:只能拖拽在表格中-->
+<!--Type: Image:图片, BarCode:条形码, QrCode:二维码, ProductAttr:产品属性汇总-->
+<!--OrderNum="true": 指定表格循环体是否是序号, 用于汇总打印时重新计算序号-->
+<!--GroupBy="true":  指定汇总打印时的GroupBy字段-->
+<!--SumaryCalculate="true" :  汇总打印时,合并计算的值-->
+<!--IsFunction="true" : 是否是函数-->
+<!--IsEnableDepth="true" : 是否可进行深度打印-->
+<!--TableName="#AccountInfo#" : 指定数据对应的数据表名-->
+<Report PrintID="2003" DBViewName="P_ProductTemplateData" DBDetailViewName="P_ProductJiaDetail" >
+  <Items Title="非循环参数">
+    <Items Title="产品明细">
+      <Group power="{13000}+[21,19]">
+        <Column Name="产品图片" dbName="pro_img_300" Description="产品图片" Type="Image" LocationType="All"/>
+        <Column Name="产品名称" dbName="pro_name" Description="产品名称" LocationType="All" />
+        <Column Name="产品编号" dbName="pro_order1" Description="产品编号" LocationType="All" />
+        <Column Name="产品型号" dbName="pro_type" Description="产品型号" LocationType="All" />
+        <Column Name="产品分类" dbName="pro_classify" Description="产品分类" LocationType="All" />
+      </Group>
+      <Group>
+        <Column Name="产品分类(全路径)" dbname="pro_sort2" Description="产品分类(全路径)" LocationType="All" />
+      </Group>
+      <Group power="{13000}+[21,19]">
+        <Column Name="生产周期" dbName="pro_cycle_sc" Description="生产周期" LocationType="All" />
+        <Column Name="拼音码" dbName="pro_pym" Description="拼音码" LocationType="All" GroupBy="true" />
+        <Column Name="库存上限" dbName="pro_inventory_sx" Description="库存上限" LocationType="All" ValueType="number||number"/>
+        <Column Name="库存下限" dbName="pro_inventory_xx" Description="库存下限" LocationType="All"  ValueType="number||number"/>
+        <Column Name="主供应商" dbName="pro_supplier" Description="主供应商" LocationType="All" />
+        <Column Name="养护周期" dbName="pro_cycle_yh" Description="养护周期" LocationType="All" ValueType="number||" />
+        <Column Name="基本单位" dbName="pro_unit" Description="基本单位" LocationType="All" />
+        <Column Name="辅助单位" dbName="pro_unit_fz" Description="辅助单位" LocationType="All" />
+        <Column Name="产品角色" dbName="pro_attribute" Description="产品角色" LocationType="All" />
+        <Column Name="产品参数" dbName="pro_parameter" Description="产品参数" LocationType="All" />
+        <Column Name="产品说明" dbName="pro_instructions" Description="产品说明" LocationType="All" />
+        <Column Name="图片附件" dbName="pro_accessoryfj" Description="图片附件" IsHtml="true" LocationType="All" />
+        <Column Name="二维码" dbName="Qr_url_code" Description="二维码" Type="QrCode" LocationType="All" />
+      </Group>
+      <Group power="{13000}+[21,19]">
+        <Column Name="自定义1" dbName="zb_cp_zdy1" Description="自定义1" LocationType="All" />
+        <Column Name="自定义2" dbName="zb_cp_zdy2" Description="自定义2" LocationType="All"/>
+        <Column Name="自定义3" dbName="zb_cp_zdy3" Description="自定义3" LocationType="All"/>
+        <Column Name="自定义4" dbName="zb_cp_zdy4" Description="自定义4" LocationType="All"/>
+        <Column Name="自定义5" dbName="zb_cp_zdy5" Description="自定义5" LocationType="All"/>
+        <Column Name="自定义6" dbName="zb_cp_zdy6" Description="自定义6" LocationType="All"/>
+      </Group>
+    </Items>
+    <Items Title="扩展自定义" Extended="21" ExtendType="1" >
+      <Group power="{13000}+[21,19]">
+        <Column Name="Pro_Extended_#ID" dbName="Pro_Extended_" Description="扩展自定义" LocationType="All"/>
+      </Group>
+    </Items>
+    <Items Title="账号信息">
+      <Group power="">
+        <Column Name="姓名" dbName="account_name" Description="姓名" LocationType="All" TableName="#AccountInfo#" />
+        <Column Name="电话" dbName="account_phone" Description="电话" LocationType="All" TableName="#AccountInfo#" />
+        <Column Name="传真" dbName="account_fax" Description="传真" LocationType="All" TableName="#AccountInfo#" />
+        <Column Name="手机" dbName="account_mobile" Description="手机" LocationType="All" TableName="#AccountInfo#" />
+        <Column Name="邮件" dbName="account_email" Description="邮件" LocationType="All" TableName="#AccountInfo#" />
+        <Column Name="所在部门" dbName="account_branch" Description="所在部门" LocationType="All" TableName="#AccountInfo#" />
+        <Column Name="所在小组" dbName="account_team" Description="所在小组" LocationType="All" TableName="#AccountInfo#" />
+        <Column Name="打印日期" dbName="Pr_date" Description="打印日期" LocationType="All" TableName="#AccountInfo#" ValueType="date|yyyy-MM-dd" />
+        <Column Name="打印时间" dbName="Pr_time" Description="打印时间" LocationType="All" TableName="#AccountInfo#" ValueType="datetime|yyyy-MM-dd HH:mm:ss"/>
+        <Column Name="当前页" dbName="第${cur_number}$页" Description="当前页" Type="Text" LocationType="All" />
+        <Column Name="所有页" dbName="共${tot_number}$页" Description="所有页" Type="Text" LocationType="All" />
+      </Group>
+    </Items>
+    <Items Title="签章">
+      <Group power="">
+        <Column Name="电子签章" Type="Seal" Description="电子签章" LocationType="All" />
+      </Group>
+    </Items>
+  </Items>
+  <Items Title="循环参数">
+    <Items Title="价格策略">
+      <Group power="[21,18]">
+        <Column Name="单位" dbName="unit" Description="单位" LocationType="Detail" />
+        <Column Name="条形码" dbName="Bar_code" Description="条形码" LocationType="Detail" Type="BarCode"/>
+      </Group>
+      <Group power="[21,21]+[21,18]">
+        <Column Name="建议进价" dbName="pro_advice" Description="建议进价" LocationType="Detail" ValueType="number||storageprice"/>
+        <Column Name="最高进价" dbName="pro_highest" Description="最高进价" LocationType="Detail" ValueType="number||storageprice"/>
+      </Group>
+      <Group power="[21,22]+[21,18]">
+        <Column Name="建议售价" dbName="pro_advice_sj" Description="建议售价" LocationType="Detail" ValueType="number||saleprice"/>
+        <Column Name="最低售价" dbName="pro_highest_sj" Description="最低售价" LocationType="Detail" ValueType="number||saleprice"/>
+      </Group>
+    </Items>
+  </Items>
+</Report>

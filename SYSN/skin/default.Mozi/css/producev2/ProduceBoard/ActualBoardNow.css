@@ -1,0 +1,166 @@
+﻿@media only screen and (max-width: 1920px){
+    html {
+        font-size: 18px !important;
+        font-family: 宋体;
+    }
+    #tableHeade th{font-size:18px !important;font-family: 宋体;}
+    #tableMain td{font-size:18px !important;font-family: 宋体;}
+    #tableMain td a{font-size:18px !important;font-family: 宋体;}
+    #lastRefreshTd {font-size:12px !important;font-family: 宋体;color:white;float:right;}
+    #lastRefreshTd span {font-size:12px !important;font-family: 宋体;color:white;}
+    #fullScreenTd {width:24px !important;height:24px !important;float:right !important;}
+    #fullScreenTd img{width:22px !important;height:22px !important;}
+    .label {width:400px !important;font-size:12px !important;font-family: 宋体;color:white !important;display: block !important;width: 46px !important;}
+    #searchDiv .searchDiv_title {font-size:18px;font-family: 宋体;color:white;}
+}
+@media screen and (min-width: 1921px){
+    html {
+        font-size: 24px !important;
+        font-family: 宋体;
+    }
+    #tableHeade th{font-size:24px !important;font-family: 宋体;}
+    #tableMain td{font-size:24px !important;font-family: 宋体;}
+    #tableMain td a{font-size:24px !important;font-family: 宋体;}
+    #lastRefreshTd {font-size:18px !important;font-family: 宋体;color:white;float:right;}
+    #lastRefreshTd span{font-size:18px !important;font-family: 宋体;color:white;}
+    #fullScreenTd {width:30px !important;height:30px !important;float:right !important;}
+    #fullScreenTd img{width:26px !important;height:26px !important;}
+    .label {width:400px !important;font-size:24px !important;font-family: 宋体;color:white !important;display: block !important;width: 70px !important;}
+    #searchDiv .searchDiv_title {font-size:24px;font-family: 宋体;color:white;}
+}
+
+/*因为IE9一下的浏览器不支持媒体查询,所以要写一套默认样式*/
+#lastRefreshTd {font-size:18px;font-family: 宋体;color:white;float:right;}
+#lastRefreshTd span {font-size:18px;font-family: 宋体;color:white;}
+#fullScreenTd {width:24px;height:24px;float:right;}
+#fullScreenTd img{width:22px;height:22px;}
+.label {width:400px;font-size:18px;font-family: 宋体;color:white;display: block;width: 46px;}
+
+html,body{width: 100%;height: 100%;position: relative;overflow: hidden;}
+ul,
+p,
+dl,
+dd,
+ol,h1,h2,h3,h4,h5,h6,li{
+    margin: 0;
+    padding: 0;
+}
+ul,li{list-style:none;}
+html,body{
+    margin: 0;
+    padding: 0;
+}
+img,
+a {
+    outline: none;
+    border: 0;
+}
+textarea {
+    resize: none;
+}
+/* clear float */
+.clearfix:after{
+    content: " ";
+    display:block;
+    height:0;
+    clear:both;
+    visibility: hidden;
+}
+/* global */
+/** {*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+/*}*/
+/**:before,*/
+/**:after {*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+/*}*/
+a{text-decoration: none;outline: none;}
+.text-left{text-align: left!important;}
+.text-right{text-align: right!important;}
+.text-center{text-align: center!important;}
+img{vertical-align: middle;}
+.img-circle{border-radius: 50%;}
+blockquote, body, dd, div, dl, dt, fieldset, footer, form, h1, h2, h3, h4, h5, h6, header, input, li, menu, nav, ol, p, pre, section, span, summary, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+/*.testHead {position: absolute;top:0;right: 0;width: 100%;}*/
+/*#searchDomTd {display:flex;height: 100%;}
+#searchDomTd div{padding-left:20px;line-height:45px;}*/
+#searchDiv {height: 100%;width:100%;float:left;}
+#searchDiv .searchDiv_child_left {padding-left:5px;line-height:45px;float:left;}
+#searchDiv .searchDiv_child_right {padding-left:5px;line-height:45px;float:right;}
+#searchDiv .searchDiv_title {width: 100%;text-align: center;}
+#searchDiv .dateTimeDiv input{height:20px;}
+.searchTable {
+    border:none;
+    height:100%;
+    width:100%;
+    table-layout:fixed;
+}
+.testTable{
+    border-collapse:collapse;border-spacing:0;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+}
+.testHead .testTable{margin-bottom: -1px;}
+/*.line1{border-width: 1px 1px 0;border-color: #e6e6e6;border-style: solid;}*/
+.testHead .testTable th{border-width: 0 0 1px 1px;border-style:solid;border-color:#e6e6e6;}
+.testBody .testTable td{border-width: 0 1px 1px 0;border-style:solid;border-color:#e6e6e6;}
+.testTable{table-layout: fixed;}
+#tableMain {overflow-y:hidden;}
+#tableMain .testTable{table-layout: fixed;}
+#tableMain .testTable td{
+    /*width:100%;*/
+    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+.style1{background-color:#393D49;color: #fff;}
+.style1 .testTable {color:#FFE25C;}
+.style1 .testTable tr {background-color:#393D49;}
+.style1 .testTable tr button {background-color:#393D49;}
+.style1 #tableMain .testTable tr:nth-of-type(even) {background-color:#323232;}
+.style1 #tableMain .testTable td{color:#00FF60;}
+.style1 #tableMain .testTable td a{color:#00FF60;}
+.style1 #tableMain .testTable td.other {color:#FFE25C !important;}
+.style1 #tableMain .testTable td.main {background-color:#393D49 !important;}
+
+.style2{background-color:#2F4056;color: #fff;}
+.style2 .testTable {color:#FFE25C;}
+.style2 .testTable tr {background-color:#2F4056;}
+.style2 .testTable tr button {background-color:#2F4056;}
+.style2 #tableMain .testTable tr:nth-of-type(even) {background-color:#073A59;}
+.style2 #tableMain .testTable td{color:white;}
+.style2 #tableMain .testTable td a{color:white;}
+.style2 #tableMain .testTable td.other {color:#FFE25C !important;}
+.style2 #tableMain .testTable td.main {background-color:#2F4056 !important;}
+
+.style3{background-color:#065A8C;color: #fff;}
+.style3 .testTable {color:#18F327;}
+.style3 .testTable tr {background-color:#065A8C;}
+.style3 .testTable tr button {background-color:#065A8C;}
+.style3 #tableMain .testTable tr:nth-of-type(even) {background-color:#0D6EA7;}
+.style3 #tableMain .testTable td{color:white;}
+.style3 #tableMain .testTable td a{color:white;}
+.style3 #tableMain .testTable td.other {color:#18F327 !important;}
+.style3 #tableMain .testTable td.main {background-color:#065A8C !important;}
+
+.style4{background-color:#064DBA;color: #fff;}
+.style4 .testTable {color:#FFE25C;}
+.style4 .testTable tr {background-color:#064DBA;}
+.style4 .testTable tr button {background-color:#064DBA;}
+.style4 #tableMain .testTable tr:nth-of-type(even) {background-color:#063B8B;}
+.style4 #tableMain .testTable td{color:white;}
+.style4 #tableMain .testTable td a{color:white;}
+.style4 #tableMain .testTable td.other {color:#FFE25C !important;}
+.style4 #tableMain .testTable td.main {background-color:#064DBA !important;}

@@ -1,0 +1,57 @@
+﻿Sub Main	'验证待发送的短息的发送状态
+	On Error Resume Next  '防止定时器中断	
+	Dim cn, sn, r, data , i, item, list, ts
+	list=""
+	ts = 5000
+	Set cn = app.getConnection
+	set rs=cn.execute("select top 100 ord from logmessage where stact1=908 and datediff(d,addtime,getdate())<10 order by addtime desc")
+	if not rs.eof then 
+		while not rs.eof
+			list=list &","&rs("ord")	
+			rs.movenext
+		wend
+		list=right(list,len(list)-1)
+	end if 
+	rs.close
+	if list<>"" then
+		sn = app.AppSettings("smssn") '短信账号
+		set net = App.getHttpRequest(1)
+		net.encode = "gb2312"
+		net.open "messageServer/sms/smsstate.asp"
+		net.regEvent "getsmsstate"
+		net.addparam "regcode", sn
+		net.addparam "pwd", app.getsmspw(sn)
+		net.addparam "list", list
+		r =  net.send()
+		r =  Replace(Replace(r, "<response><result>",""), "</result></response>","")
+		If Len(r) > 0 And InStr(r,"error")<>1 Then
+			data = Split(r,"|")
+			For i = 0 To ubound(data)
+				item = Split(data(i),",")
+				If ubound(item) =3 Then
+					cn.execute "update logmessage set stact1=" & item(1) & ",sendmoney="&item(2) &" ,sendnum="&item(3)&"  where ord=" & item(0)
+				End if
+			Next
+		Else
+			If InStr(r,"error")=1 Then
+				ts = 30000  '服务器C出错的情况下30s检测一次
+			End if
+		End If
+	End If 
+	'还需要验证待发送
+	cn.execute("update logmessage set stact1=911 where stact1=908 and datediff(d,addtime,getdate())>=10")
+	'If cn.execute("select top 1 1 from logmessage where stact1=908 and datediff(d,addtime,getdate())<10").eof = false Then
+		'状态等于908表示需要验证待发送的短息的状态
+		Call App.setTimeOut( "smsstate" , ts , "Main") '5s确认一次短息状态
+		app("smsstateTask") = "1"
+	'Else
+		'app("smsstateTask") = "0"
+	'End If
+	'还需要进行接收短信
+	If cn.execute("select top 1 1 from logmessage where stact1=0 and needrec=1").eof = false Then
+		If app("recsmsTask") = "0" then
+			Call App.setTimeOut( "recsms" , 5000 , "Main") '5s开始接收短信
+			app("recsmsTask") = "1"
+		End if
+	End if
+End sub

@@ -1,0 +1,20 @@
+﻿<body style='margin:0px;background:#fff url(../images/m_table_b.jpg) repeat-x'>
+<pre style='padding-left:10px;font-size:12px'>
+<br><br><br>
+<h3>1. Jet.Oledb.4.0无效</h3>
+此方法的前提是， 你书写的 ConnectionString 是正确的， 形如：
+Provider=microsoft.Jet.Oledb.4.0;Data Source=;Jet Oledb:Database Password=xxx;
+如果此时，提示 “找不到提供者” 或 “未正确安装”， 原因是JET 4.0的 DLL在注册表中的信息， 由于某种原因被损坏或丢失，解决方法如下：
+   开始--->运行， 输入 regsvr32 msjetoledb40.dll， 回车。
+
+建议重启一下IIS，问题即可解决。
+
+
+<h3>ADODB.stream无效</h3>
+开始--->运行， 输入  regsvr32 'C:\Program Files\Common Files\System\ado\msado15.dll'， 回车。
+建议重启一下IIS，问题即可解决。
+
+
+注意:<b style='color:red'>64位操作系统下相关的文件所在的目录可能和上述不一致</b>
+</pre>
+</body>

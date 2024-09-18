@@ -1,0 +1,20 @@
+﻿{
+	"skins": [
+		{
+			"name": "默认",
+			"key": "default",
+			"inherit": ""
+		},
+		{
+			"name": "深沉",
+			"key": "dark",
+			"inherit": "default"
+		}
+		,
+		{
+			"name": "鲜亮",
+			"key": "Bright",
+			"inherit": "default"
+		}
+	]
+}

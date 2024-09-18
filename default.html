@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html style="width:100%;height:100%;overflow:hidden;margin:0px">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE =edge,chrome=1">
+    <script>
+        function iframeLoad(ifra) {
+            var win = (ifra.contentWindow || ifra.window);
+            document.title = win.document.title;
+            var url = win.location.href.toLowerCase();
+            if (url.indexOf("sysn/view/init/default.ashx") > 0) {
+                if (!win.createPage) {
+                    if (document.title.indexOf("404") >= 0) {
+                        document.getElementById("ERR404").style.display = "block";
+                        HiddenAllDiv();
+						document.getElementById("msg1").style.display = "block";
+                        return;
+                    }
+          
+                    if (win.document.body.innerHTML.indexOf("targetFramework") > 0) {
+                        document.getElementById("ERR404").style.display = "block";
+                        HiddenAllDiv();
+						document.getElementById("msg2").style.display = "block";
+                        return;
+                    }
+                }
+            }
+        }
+        function closeError404() {
+            document.getElementById("ERR404").style.display = "none";
+        }
+
+        function parentPathLoad(ifra) {
+            var win = (ifra.contentWindow || ifra.window);
+			var s = win.document.body.innerHTML.replace(/\s/g,"");
+            if (win.document.body.innerHTML == "ERROR") {
+                document.getElementById("ERR404").style.display = "block";
+                HiddenAllDiv();
+                document.getElementById("msg3").style.display = "block";
+				return;
+            }
+			if (win.document.body.innerHTML == "DLLERR") {
+                document.getElementById("ERR404").style.display = "block";
+                HiddenAllDiv();
+                document.getElementById("msg4").style.display = "block";
+				return;
+            }
+
+			if (win.document.body.innerHTML == "CHACEER") {
+                document.getElementById("ERR404").style.display = "block";
+                HiddenAllDiv();
+                document.getElementById("msg5").style.display = "block";
+				return;
+            }
+        }
+		function HiddenAllDiv() {
+			document.getElementById("msg1").style.display = "none";
+            document.getElementById("msg2").style.display = "none";
+			document.getElementById("msg3").style.display = "none";
+			document.getElementById("msg4").style.display = "none";
+		}
+		window.isHomeFrame = 1; 
+    </script>
+</head>
+<body style="width:100%;height:100%;overflow:hidden;margin:0px">
+    <iframe onload="iframeLoad(this)" style="width:100%;height:100%;overflow:hidden" scrolling="no" frameborder="0" src="sysn/view/init/default.ashx"></iframe>
+    <iframe src="SYSA/parentPath.asp" style="position:absolute;top:300px;left:0px;width:1px;height:1px" frameborder="0" onload="parentPathLoad(this)"></iframe>
+    <div style="width:100%;height:100%;position:absolute;top:0px;left:0px;display:none;background-color:white" id="ERR404">
+        <img src="SYSA/images/zbintelsng.png" style="position:absolute;top:20px;left:20px;" width="215">
+        <div style="position:absolute;top:45px;left:300px;font-family:微软雅黑,黑体;font-size:22px;color:red">提示您：系统无法正常运行！</div>
+        <div style="height:100px;background-color:#e2e2ec;border-bottom:1px solid #aababc">&nbsp;</div>
+        <div style="padding:60px 120px;font-family:微软雅黑,宋体;font-size:16px;line-height:34px" id="msg1">
+            很抱歉，系统无法正常运行，请您检查服务器上以下两点环境要求是否满足：
+            <div style="height:20px">&nbsp;</div>
+            <span style="color:red">
+                一、服务器上是否已经正常安装了 Microsoft.Net 4.0 框架。<br>
+                二、IIS中【系统站点】所对应的【应用程序池】的.Net框架是否为4.0版本。<br><br>
+            </span>
+            相关链接：<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://rj.baidu.com/soft/detail/15910.html" target="_blank">.Net 4.0框架下载参考地址</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="closeError404()">查看原始错误信息</a>
+        </div>
+        <div style="padding:60px 120px;font-family:微软雅黑,宋体;font-size:16px;line-height:34px;display:none" id="msg2">
+            很抱歉，系统无法正常运行，请您检查IIS中【系统站点】所对应的【应用程序池】的.Net框架是否为4.0版本。<br><br>
+            相关链接：<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://rj.baidu.com/soft/detail/15910.html" target="_blank">.Net 4.0框架下载参考地址</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="closeError404()">查看原始错误信息</a>
+        </div>
+        <div style="padding:60px 120px;font-family:微软雅黑,宋体;font-size:16px;line-height:34px;display:none" id="msg3">
+            很抱歉，系统无法正常运行，请您开启IIS父路径设置。<br><br>
+            相关链接：<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://jingyan.baidu.com/article/e4511cf31b33ba2b855eaf51.html" target="_blank">IIS6.0如何启用父路径</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://jingyan.baidu.com/article/1e5468f9ce4524484961b72b.html" target="_blank">IIS7.0+如何启用父路径</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="closeError404()">查看原始错误信息</a>
+		</div>
+		<div style="padding:60px 120px;font-family:微软雅黑,宋体;font-size:16px;line-height:34px;display:none" id="msg4">
+            很抱歉，系统无法正常运行，加载ZBRLi3175.dll组件失败。<br><br>
+            解决方案：<br>
+			 一、 检查SYSA\DLL目录ZBRLib3175.DLL文件是否存在。<span style='font-size:14px;color:blue'>（可能存在360误删情况）</span><br>
+			 二、 如果是64位操作系统，请开启IIS应用程序池中32位设置。<br>
+			 三、 手动运行SYSA\DLL目录下的“注册组件.bat”或“regdll.bat”批处理文件进行注册。<span style='font-size:14px;color:blue'>（Win7以上版本系统请以管理员模式运行）</span><br>
+			 相关链接：<br>
+			 &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://work.zbintel.com/shwz/822287.htm" target="_blank">如何开启IIS32位设置</a><br>
+			 &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="closeError404()">查看原始错误信息</a>
+		</div>
+
+		<div style="padding:60px 120px;font-family:微软雅黑,宋体;font-size:16px;line-height:34px;display:none" id="msg5">
+            很抱歉，系统无法正常运行，请您开启IIS缓冲功能。<br><br>
+		</div>
+    </div>
+</body>
+</html>

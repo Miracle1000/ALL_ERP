@@ -1,0 +1,128 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family:微软雅黑;
+}
+.edit-body{
+    min-width:1000px;
+}
+.left_part{
+    float: left; 
+	width: 75%; 
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box; /* Safari */
+	border-right:1px solid #ddd;
+}
+
+.left_part>p,.right_part>p{
+	padding:15px 0 7px 30px;
+	font-weight: bold;
+    font-size:14px;
+}
+.right_part{
+    float: right;
+	width: 25%;
+}
+#menu {
+	font-size: 12px;
+	font-weight: bolder;
+}
+#menu dl{
+	float: left;
+	height:200px;
+	width: 22%;
+	border-radius: 15px;
+    margin: 10px 1% 30px;
+    border:1px solid;
+}
+#menu dl:nth-child(1){
+	margin-left: 27px
+}
+#menu dl dt{
+	height: 50px;
+	border-radius: 15px 15px 0 0;
+}
+#menu dl dt img{
+     padding:12px 0 0 20px;
+}
+#menu dl dd{
+	height: 150px;
+	font-size: 14px;
+	text-align: center;
+	color:#fff;
+	border-radius: 0 0 15px 15px;
+}
+#menu dl dd p{
+	/*padding:40px 0px 40px 55px;*/
+	padding-top:30px;
+	line-height: 50px;
+}
+#menu dl dd p:first-child+p{
+	padding-bottom: 20px;
+	padding-top: 0px;
+    font-size:20px;
+}
+#menu dl dd p span:first-child{
+	font-size: 34px;
+    color:#fff;
+    font-weight:bold;
+}
+.right_top_part dl{
+	height: 100px;
+	padding-left: 10%;
+	border-bottom: 1px solid #ddd;
+}
+.right_top_part dl dt{
+	float: left;
+}
+.right_top_part dl dt img{
+     padding: 15px 30px 0px 0px;
+}
+.right_top_part dl dd{
+	float: left;
+	padding-top: 15px;
+	font-size: 14px;
+    font-weight:bold;
+}
+.right_top_part dl dd p span{
+	font-size: 34px;
+    font-weight:bold;
+}
+.right_bottom_part dl{
+	float: left;
+	width: 48%;
+	font-size: 14px;
+}
+.right_bottom_part dl dt img{
+	padding: 20px 0 7px 35px;
+}
+.right_bottom_part dl dd{
+	font-size: 14px;
+    font-weight:bold;
+    margin-left:35px;
+    white-space:nowrap;
+}
+.right_bottom_part dl dd p span{
+	font-size: 34px;
+    font-weight:bold;
+}
+.left_part dl dd p span:first-child+span{
+    color:#fff;
+	font-size: 20px;
+}
+.right_part dl dd p span:first-child+span{
+	font-size: 20px;
+}
+
+#editbody {
+    min-width:1200px;
+}
+
+.bottom_p {
+    padding:20px 0px 20px 30px;
+    font-size:14px;
+    font-weight:bold;
+    color:#585858;
+}

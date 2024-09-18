@@ -1,0 +1,486 @@
+html,
+body ,#navContain{
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Han Sans","PingFangSC", "Microsoft Yahei", "微软雅黑", "Arial","宋体";
+  font-size:14px;
+}
+body{
+  background: white;
+}
+ul,
+li,
+h1 {
+  list-style: none;
+  font-size: 14px;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+#navContain{
+    position:relative;
+    overflow:hidden;
+}
+
+#navTitle {
+    margin-left: 6px;
+    background: url(../images/l_t_bg.png) repeat-x center;
+}
+#navTitle ul,#navTitle li{
+  height: 43px;
+  line-height: 43px;
+}
+#navTitle li{
+  float: left;
+  width: 50%;
+  *width:49.5%;
+  text-align: center;
+  color: #345593;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  height: 42px;
+  position:relative;
+  white-space:nowrap;
+  overflow:hidden;
+}
+#navTitle li span{
+  display: inline-block;
+  padding-left: 20px;
+}
+#navTitle li.standardNav span{
+  background: url(../images/lmt1.gif) no-repeat left;
+}
+#navTitle li.standardNav span.border{
+    height:42px;
+    width:1px;
+    background:#A1D1FB;
+    position:absolute;
+    top:0px;
+    right:0px;
+    padding:0px;
+}
+#navTitle li.myNav span{
+  background: url(../images/lmt3.gif) no-repeat left;
+}
+#navTitle li.actived{
+  background: #fff;
+}
+
+#leftMuneNav {
+  height: 100%;
+  position: relative;
+}
+
+#leftMune {
+  position: absolute;
+  width: 92px;
+  top: 0px;
+  text-align: center;
+  color: #fff;
+  overflow:hidden;
+  *overflow:auto;
+  bottom:0px;
+  background:@zbvar.leftbgcolor;
+  z-index:2;
+}
+#leftMune::-webkit-scrollbar-thumb {
+background-color: #ccc;
+border-radius: 3px;
+-webkit-box-shadow: inset 0 0 6px RGBA(0,0,0,0.2);
+}
+#leftMune::-webkit-scrollbar-track {
+  background-color: #eee;
+  -webkit-box-shadow: inset 0 0 6px rgb(255 255 255 / 20%);
+  border-radius: 3px;
+}
+#leftMune ul.leftmune.hide{
+  display: none;
+}
+#leftMune ul.leftmune li {
+  padding: 10px 0px 10px 18px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: @zbvar.leftbgcolor;
+  line-height: 24px;
+}
+#leftMune ul.leftmune li:hover{
+    background:rgba(255,255,255,0.15);
+}
+#leftMune ul.leftmune li h1{
+    text-align:left;
+}
+#leftMune ul.leftmune .nav_icon,#commUsed .nav_icon{
+    box-sizing:border-box;
+    width:18px;
+    height:18px;
+    float:left;
+    margin-top:2px;
+    margin-right:8px;
+    overflow:hidden;
+}
+#leftMune ul.leftmune .nav_icon2 img{
+    width:100%;
+}
+#leftMune ul.leftmune .nav_icon2 img.hiddenImg{
+    display:none;
+}
+body.screenl1400 #leftMune ul.leftmune li {
+    padding: 6px 7px;
+}
+#leftMune ul.leftmune li.navActived,
+#leftMune ul.leftmune li.navActived:hover {
+  background: white;
+}
+#leftMune ul.leftmune li.navActived h1,
+#leftMune ul.leftmune li.navActived:hover h1{
+  color: #000;
+}
+#commUsed{
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    height:44px;
+    width:92px;
+    z-index:2;
+    padding:10px 18px;
+    box-sizing:border-box;
+    overflow:hidden;
+    line-height:24px;
+    color:#fff;
+    background:@zbvar.topbgcolor;
+    cursor:pointer;
+}
+#muneMainNav {
+    position: absolute;
+    left: 92px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    overflow: auto;
+    background: #fff;
+}
+#muneMainNav div.menuPanel.hide{
+  display: none;
+}
+
+#muneMainNav ul.muneMainNav.hidden {
+  display: none;
+}
+#muneMainNav ul.muneMainNav{
+ width:120px;
+}
+#muneMainNav ul.muneMainNav h1{
+    line-height:1.2;
+}
+#muneMainNav ul.muneMainNav li {
+  padding:14px 20px 14px 22px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  font-size: 14px;
+  background:#fff url(../images/leftnav/more.png) no-repeat 98px center
+}
+
+#muneMainNav ul.muneMainNav li.listActived:hover,
+#muneMainNav ul.muneMainNav li.listActived {
+  background:#EFEFEF url(../images/leftnav/more.png) no-repeat 98px center;
+  color:@zbvar.leftbgcolor;
+}
+
+#muneMainNav ul.muneMainNav li:hover {
+  background: #f0f0f0 url(../images/leftnav/more.png) no-repeat 98px center;
+}
+
+#muneMainNav ul.muneMainNav li.listActived:hover span.arrow_icon,
+#muneMainNav ul.muneMainNav li.listActived span.arrow_icon {
+  background: url(../images/MoZihometop/leftNav/leftarrow2.png) no-repeat center;
+  background-size: 100% 100%;
+}
+
+span.arrow_icon {
+  display: inline-block;
+  background: url(../images/MoZihometop/leftNav/leftarrow.png) no-repeat center;
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+  background-size: 100% 100%;
+  zoom: 1;
+  *display: inline;
+}
+
+div.arrow_icon_div {
+  float: right;
+  clear: both;
+  text-align: center;
+  line-height: 36px;
+  height: 36px;
+}
+
+#leftNavFoldIcon {
+  height: 44px;
+  margin: 0 auto;
+  line-height: 30px;
+  text-align: center;
+  color: #345593;
+  font-size:14px;
+  font-weight:800;
+  overflow:hidden;
+}
+
+.fold {
+  float: left;
+  height:44px;
+  line-height: 44px;
+  margin-left:24px;
+}
+
+#leftNavFoldIcon span.foldIcon {
+    display: inline-block;
+    *display: inline;
+    height: 44px;
+    width: 18px;
+    background: url(../images/leftNav/shink.png) no-repeat center center;
+    transition:all 0.3s;
+    cursor:pointer;
+}
+
+#leftNavFoldIcon span.foldIcon:hover{
+    background:url(../images/leftNav/shink_s.png) no-repeat center center;
+}
+
+#leftNavFoldIcon span.foldIcon.expandIcon {
+  background: url(../images/MoZihometop/leftNav/expand2.png) no-repeat left center;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  margin-top: -5px;
+}
+
+.hiddenImg {
+  display: none;
+}
+
+#foldBorder {
+  width: 6px;
+  display: none;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #4E4E50;
+}
+
+#navContain .munePage {
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    bottom: 0px;
+    transition: top 0.2s ease-in-out;
+    width: 212px;
+    height: 100%;
+    background: @zbvar.leftbgcolor;
+    z-index: 2
+}
+
+#commUsedNavBar {
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    padding: 0px 30px 0px 18px;
+    box-sizing: border-box;
+    clear: both;
+    line-height: 50px;
+}
+
+#commUsedNavBar .barTitle {
+    float: left;
+    padding-left:24px;
+    background:url(../images/leftnav/cused.png) no-repeat left center;
+}
+#commUsedNavBar .setIcon{
+    float:right;
+    cursor:pointer;
+    width:18px;
+    height:30px;
+    background:url(../images/leftnav/set.png) no-repeat center center;
+    margin:10px 0px;
+}
+#commUsedNavBar .setIcon:hover{
+    opacity:0.5;
+    filter: alpha(opacity=50);
+}
+
+#goBackNav{
+    text-align:center;
+    height:44px;
+    line-height:44px;
+    box-sizing:border-box;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    cursor:pointer;
+}
+#goBackNav, #commUsedNavBar {
+    background: @zbvar.leftbgcolor;
+    color: #fff;
+    font-size: 14px;
+}
+#goBackNav span, #commUsedNavBar span{
+    font-size: 14px;
+}
+#goBackNav {
+    box-shadow: 0px -1px 0px 0px @zbvar.topbgcolor;
+}
+#commUsedNavBar {
+    box-shadow: 0px 1px 0px 0px @zbvar.topbgcolor;
+}
+#goBackNav .gobacktext{
+    display:inline-block;
+    *display:inline;
+    padding-left:24px;
+    line-height:;
+    background:url(../images/leftnav/goback.png) no-repeat left center;
+}
+#commUsedNavTree{
+    position:absolute;
+    left:0px;
+    top:50px;
+    bottom:44px;
+    right:0px;
+    overflow:auto;
+}
+#commUsedNavTree::-webkit-scrollbar{
+    width:8px;
+    border-radius:4px;
+}
+#commUsedNavTree::-webkit-scrollbar-thumb{
+    background: rgba(205,205,205,0.3);
+    border-radius:4px;
+    transition:all .2s linear;
+}
+#commUsedNavTree::-webkit-scrollbar-thumb:hover{
+    background: rgba(205,205,205,0.5);
+}
+/*左侧导航自适应*/
+.secondBarTitle {
+    color: #345593;
+    text-decoration: none;
+}
+.myNavTree .noInfo{
+    background:url(../../default/images/leftnav/note.png) no-repeat center;
+    height:62px;
+    margin-bottom:18px;
+}
+.myNavTree span{
+  font-size: 14px;
+  color: #fff;
+}
+.myNavTree{
+    text-align: center;
+}
+.myNavTree .noInfo{
+    margin-top:90%;
+}
+.myNavTree a.add {
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    color: #FFF;
+    width: 72px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: @zbvar.topbgcolor;
+    margin: 26px auto 0px;
+    border-radius:1.5px;
+}
+.myNavTree a:hover{
+  text-decoration: underline;
+}
+.myNavTree ul.tree_view a.tvw_pnode_close,.myNavTree ul.tree_view a.tvw_pnode_open{
+    color:#fff;
+}
+.getInfoTips {
+    margin-top: 90%;
+    text-align: center;
+    color: #fff;
+}
+.onRunTime{
+    width:35px;
+    height:33px;
+    margin:0px auto 10px;
+    background:url(../images/proc.gif) no-repeat center;
+}
+/**常用导航*/
+.myNavTree ul.tree_view div.title {
+    margin: 0px;
+}
+.myNavTree div.my_nav_tree_view {
+    padding: 0px;
+}
+.myNavTree div.my_nav_tree_view div.title {
+    padding-left: 40px;
+    padding-right: 28px;
+}
+.myNavTree ul.tree_view .title span.tvw_icon.leaf, .myNavTree ul.tree_view .shink span.tvw_icon,
+.myNavTree ul.tree_view span.tvw_icon {
+    background: #fff;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.myNavTree ul.tree_view span.tvw_icon.icon_n0, .myNavTree ul.tree_view .aspectSpace {
+    display: none;
+}
+.myNavTree ul.tree_view span.tvw_icon {
+    height: 44px;
+    width: 14px;
+}
+.myNavTree ul.tree_view a.text {
+    line-height: 44px;
+    font-family: "Source Han Sans","PingFangSC", "Microsoft Yahei", "微软雅黑", "Arial","宋体";
+    font-size: 14px;
+    vertical-align: middle;
+    width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.myNavTree ul.tree_view span.tvw_icon {
+    margin-right: 0px;
+}
+.myNavTree ul.tree_view a.tvw_pnode_open {
+    font-weight: 400;
+}
+.myNavTree .tree_view1 span.node_handle {
+    display: none;  
+}
+.myNavTree ul.tree_view span.node_handle {
+    margin-right: 0px;
+    cursor:pointer;
+}
+.myNavTree .title:hover  {
+    background:rgba(255,255,255,0.1)
+}
+.myNavTree ul.tree_view a.text:hover {
+    text-decoration: none;
+}
+.myNavTree .title.actived {
+    background: rgba(255,255,255,0.2);
+}
+.title.pTitle span.node_handle .toggleBtn {
+    display: inline-block;
+    height: 44px;
+    width: 18px;
+    background: url("../images/leftnav/up.png") no-repeat center center;
+}
+.title.pTitle.shink span.node_handle .toggleBtn {
+    background: url("../images/leftnav/down.png") no-repeat center center;
+}

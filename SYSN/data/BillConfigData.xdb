@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bills xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BillItem>
+    <BillType>Undefined</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="序号" width="" />
+          <BListColItem dbname="" title="全选" width="" />
+          <BListColItem dbname="" title="产品名称" width="220" />
+          <BListColItem dbname="" title="产品编号" width="" />
+          <BListColItem dbname="" title="产品型号" width="" />
+          <BListColItem dbname="" title="产品图片" width="" />
+          <BListColItem dbname="" title="*单位" width="" />
+          <BListColItem dbname="" title="单位属性" width="" />
+          <BListColItem dbname="" title="件数" width="" />
+          <BListColItem dbname="" title="批号" width="" />
+          <BListColItem dbname="" title="序列号" width="" />
+          <BListColItem dbname="" title="数量" width="80" />
+          <BListColItem dbname="" title="*单价" width="" />
+          <BListColItem dbname="" title="折扣" width="" />
+          <BListColItem dbname="" title="税率" width="" />
+          <BListColItem dbname="" title="*总价" width="" />
+		  <BListColItem dbname="" title="备注" width="200" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B41001_付款信息</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B41002_收票信息</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="本币金额" width="300" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B41003_费用报销</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B41004_报销出账</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B41005_报销抵扣</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B41006_费用借款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B41007_借款返还</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B42001_财务账套</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B42002_会计科目</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B42003_凭证信息</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B42004_财务报表</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B43001_预收款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B43002_退预收款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B43003_直接收款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B43004_直接退款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B43006_预收款抵扣</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B43008_退款转预收款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B44001_预付款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B44002_退预付款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B44003_直接付款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B44005_直接收票</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B44006_预付款抵扣</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B44007_预付款发票抵扣</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B44008_退款转预付款</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B45001_直接入账</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B45002_直接出账</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B45003_账间转账</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B46001_财务工资</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="摘要" width="200" />
+          <BListColItem dbname="" title="现金流量项目" width="300" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51001_生产设备信息</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>mhlvw</DBName>
+        <Cols>
+          <BListColItem dbname="xlh" title="设备序列号" width="200" />
+          <BListColItem dbname="company" title="设备厂商信息" width="200" />
+          <BListColItem dbname="buydate" title="购置日期" width="150" />
+          <BListColItem dbname="timeNumber" title="每日运转时长" width="150" />
+          <BListColItem dbname="RatedCapacity" title="定额能力(h)" width="150" />
+          <BListColItem dbname="LoadCapacity" title="最大能力(h)" width="150" />
+          <BListColItem dbname="Crashtxt" title="设备状态" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51002_生产工序信息</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="序号" width="" />
+          <BListColItem dbname="" title="岗位" width="" />
+          <BListColItem dbname="" title="设备名称" width="" />
+          <BListColItem dbname="" title="设备型号" width="" />
+          <BListColItem dbname="" title="设备规格" width="" />
+          <BListColItem dbname="" title="设备数量" width="" />
+          <BListColItem dbname="" title="定额能力" width="" />
+          <BListColItem dbname="" title="作业人数" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51003_生产工艺流程</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>Product</DBName>
+        <Cols>
+          <BListColItem dbname="name" title="产品名称" width="250" />
+          <BListColItem dbname="bh" title="产品编号" width="150" />
+          <BListColItem dbname="xinhao" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+          <BListColItem dbname="" title="备注&amp;" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName>Doway</DBName>
+        <Cols>
+          <BListColItem dbname="ord" title="加工次序" width="60" />
+          <BListColItem dbname="GXname" title="工序名称" width="250" />
+          <BListColItem dbname="GXbh" title="工序编号" width="150" />
+          <BListColItem dbname="isOut" title="加工类型" width="" />
+          <BListColItem dbname="result" title="是否质检" width="" />
+          <BListColItem dbname="rptime" title="准备时间" width="" />
+          <BListColItem dbname="wtime" title="最大批量_加工工时" width="100" />
+          <BListColItem dbname="wnum" title="最大批量_加工数量" width="100" />
+          <BListColItem dbname="mtime" title="最大批量_搬运工时" width="100" />
+          <BListColItem dbname="mNum" title="最大批量_搬运数量" width="100" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51004_生产车间信息</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>wcenter</DBName>
+        <Cols>
+          <BListColItem dbname="WCName" title="产线名称" width="100" />
+          <BListColItem dbname="WCBH" title="产线编号" width="" />
+          <BListColItem dbname="WCstatus" title="启用状态" width="" />
+          <BListColItem dbname="operate" title="操作" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51005_生产物料清单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>childlvw</DBName>
+        <Cols>
+          <BListColItem dbname="protitle" title="产品名称" width="320" />
+          <BListColItem dbname="ChildTxt" title="引用BOM" width="150" />
+          <BListColItem dbname="order1" title="产品编码" width="" />
+          <BListColItem dbname="type1" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="bl" title="产品比例" width="" />
+          <BListColItem dbname="Num" title="数量" width="" />
+          <BListColItem dbname="Role" title="产品角色" width="" />
+          <BListColItem dbname="WPROCTxt" title="工艺流程" width="150" />
+          <BListColItem dbname="PCWastage" title="损耗率" width="110" />
+          <BListColItem dbname="Mtype" title="领料方式" width="110" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51006_生产产线信息</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>Product</DBName>
+        <Cols>
+          <BListColItem dbname="title" title="工序绑定" width="500" />
+          <BListColItem dbname="Machinexlh" title="设备序列号" width="250" />
+          <BListColItem dbname="Person" title="人员姓名" width="250" />
+          <BListColItem dbname="GXmainbody" title="产能主体" width="175" />
+          <BListColItem dbname="operate" title="工位详情" width="175" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51007_生产物料清单备份</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="替代优先级" width="600" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51008_生产工位信息</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>Machile</DBName>
+        <Cols>
+          <BListColItem dbname="xlh" title="设备序列号" width="" />
+          <BListColItem dbname="name" title="设备名称" width="" />
+          <BListColItem dbname="company" title="设备厂商信息" width="" />
+          <BListColItem dbname="buydate" title="购置日期" width="" />
+          <BListColItem dbname="RatedCapacity" title="定额能力(h)" width="" />
+          <BListColItem dbname="LoadCapacity" title="最大能力(h)" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName>Employee</DBName>
+        <Cols>
+          <BListColItem dbname="Empbh" title="员工编号" width="100" />
+          <BListColItem dbname="Empname" title="员工姓名" width="" />
+          <BListColItem dbname="Emposition" title="员工岗位" width="" />
+          <BListColItem dbname="Empsex" title="员工性别" width="" />
+          <BListColItem dbname="Deptgroup" title="部门小组" width="" />
+          <BListColItem dbname="Capacity" title="能力系数" width="" />
+          <BListColItem dbname="SumCapacity" title="定额能力(h)" width="150" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B51012_生产工序汇报</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B52001_生产预计划单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>prolvw</DBName>
+        <Cols>
+          <BListColItem dbname="title" title="产品名称" width="200" />
+          <BListColItem dbname="order1" title="编号" width="100" />
+          <BListColItem dbname="type1" title="型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="100" />
+          <BListColItem dbname="NumPlan" title="数量" width="" />
+          <BListColItem dbname="planNum" title="生产计划量" width="" />
+          <BListColItem dbname="DateDelivery" title="交货日期" width="130" />
+          <BListColItem dbname="intro" title="备注" width="" />
+          <BListColItem dbname="planstate" title="生产计划状态" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B52002_生产主计划单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>prolvw</DBName>
+        <Cols>
+          <BListColItem dbname="title" title="产品名称" width="250" />
+          <BListColItem dbname="order1" title="编号" width="" />
+          <BListColItem dbname="type1" title="型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="100" />
+          <BListColItem dbname="NumPlan" title="数量" width="" />
+          <BListColItem dbname="BOMTxt" title="物料清单" width="150" />
+          <BListColItem dbname="DateBegin" title="计划开工期" width="140" />
+          <BListColItem dbname="DateEnd" title="计划完工期" width="140" />
+          <BListColItem dbname="DateDelivery" title="交货日期" width="140" />
+          <BListColItem dbname="intro" title="备注" width="" />
+          <BListColItem dbname="billname" title="关联预计划" width="" />
+          <BListColItem dbname="" title="单位" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="单位属性" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B53001_生产物料分析单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>M2_MaterialAnalysisList</DBName>
+        <Cols>
+          <BListColItem dbname="title" title="产品名称" width="200" />
+          <BListColItem dbname="order1" title="编号" width="" />
+          <BListColItem dbname="type1" title="型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="currnum" title="需求数量" width="" />
+          <BListColItem dbname="role" title="类型" width="1000" />
+          <BListColItem dbname="DateStart" title="采购日期/建议开工日期" width="150" />
+          <BListColItem dbname="DateEnd" title="到货日期/建议完工日期" width="150" />
+          <BListColItem dbname="DateDelivery" title="交货日期" width="" />
+          <BListColItem dbname="intro" title="备注" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B53002_生产排产计划单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="产品名称" width="150" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54001_生产订单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>lvProductDetail</DBName>
+        <Cols>
+          <BListColItem dbname="protitle" title="产品名称" width="" />
+          <BListColItem dbname="order1" title="编号" width="" />
+          <BListColItem dbname="type1" title="型号" width="" />
+          <BListColItem dbname="sort1" title="单位" width="" />
+          <BListColItem dbname="Num" title="核定数量" width="" />
+          <BListColItem dbname="pgww" title="已派工量/已委外量" width="150" />
+          <BListColItem dbname="zz" title="送检数量" width="" />
+          <BListColItem dbname="hg" title="合格数量" width="" />
+          <BListColItem dbname="fg" title="返工数量" width="" />
+          <BListColItem dbname="bf" title="报废数量" width="" />
+          <BListColItem dbname="rk" title="入库数量" width="" />
+          <BListColItem dbname="Role" title="类型" width="" />
+          <BListColItem dbname="DateBegin" title="计划开工期" width="" />
+          <BListColItem dbname="DateEnd" title="计划完工期" width="" />
+          <BListColItem dbname="DateDelivery" title="交货日期" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+          <BListColItem dbname="bom" title="物料清单" width="" />
+          <BListColItem dbname="pwwstatus" title="状态" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54002_生产派工单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>MaterialRegister</DBName>
+        <Cols>
+          <BListColItem dbname="name" title="产品名称" width="200" />
+          <BListColItem dbname="bh" title="产品编号" width="150" />
+          <BListColItem dbname="xinhao" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="100" />
+          <BListColItem dbname="bl" title="产品比例" width="" />
+          <BListColItem dbname="num1" title="所需数量" width="" />
+          <BListColItem dbname="DateDelivery" title="到货日期" width="" />
+          <BListColItem dbname="intro" title="备注" width="150" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName>workflowf</DBName>
+        <Cols>
+          <BListColItem dbname="ord" title="执行顺序" width="100" />
+          <BListColItem dbname="WCname" title="生产产线" width="150" />
+          <BListColItem dbname="WPname" title="工序名称" width="250" />
+          <BListColItem dbname="isOut" title="加工类型" width="" />
+          <BListColItem dbname="cateid" title="生产人员" width="150" />
+          <BListColItem dbname="NumMake" title="加工数量" width="80" />
+          <BListColItem dbname="hgsl" title="合格数量" width="" />
+          <BListColItem dbname="hgl" title="合格率" width="" />
+          <BListColItem dbname="fgsl" title="返工数量" width="" />
+          <BListColItem dbname="fgl" title="返工率" width="" />
+          <BListColItem dbname="bfsl" title="报废数量" width="" />
+          <BListColItem dbname="bfl" title="报废率" width="" />
+          <BListColItem dbname="truedatestart" title="实际开工期" width="140" />
+          <BListColItem dbname="truedateend" title="实际完工期" width="140" />
+          <BListColItem dbname="wtime" title="计划总时间" width="" />
+          <BListColItem dbname="DateStart" title="实际开工期" width="140" />
+          <BListColItem dbname="DateEnd" title="实际完工期" width="140" />
+          <BListColItem dbname="GXstatus" title="工序状态" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="工时单位" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54003_整单委外</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>wwcpDataList</DBName>
+        <Cols>
+          <BListColItem dbname="productName" title="产品名称" width="" />
+          <BListColItem dbname="productOrder" title="产品编号" width="" />
+          <BListColItem dbname="productType" title="产品型号" width="" />
+          <BListColItem dbname="unit1" title="单位" width="" />
+          <BListColItem dbname="ddnum" title="订单数量" width="60" />
+          <BListColItem dbname="num1" title="委外数量" width="80" />
+          <BListColItem dbname="qcnum" title="质检数量" width="60" />
+          <BListColItem dbname="hgnum" title="合格数量" width="60" />
+          <BListColItem dbname="nhgnum" title="不合格数量" width="80" />
+          <BListColItem dbname="applykuin" title="申请入库" width="" />
+          <BListColItem dbname="factkuin" title="实际入库" width="" />
+          <BListColItem dbname="price1" title="委外单价" width="" />
+          <BListColItem dbname="priceAfterTax" title="委外含税单价" width="90" />
+          <BListColItem dbname="invoiceType" title="票据类型" width="110" />
+          <BListColItem dbname="taxRate" title="税率" width="120" />
+          <BListColItem dbname="money1" title="金额" width="" />
+          <BListColItem dbname="taxValue" title="税额" width="" />
+          <BListColItem dbname="moneyAfterTax" title="总价" width="" />
+          <BListColItem dbname="DateDelivery" title="交货日期" width="150" />
+          <BListColItem dbname="remark" title="备注" width="" />
+          <BListColItem dbname="manuorder" title="关联订单" width="" />
+          <BListColItem dbname="qcststus" title="质检状态" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName>sxwlDataList</DBName>
+        <Cols>
+          <BListColItem dbname="productName" title="产品名称" width="" />
+          <BListColItem dbname="productOrder" title="产品编号" width="" />
+          <BListColItem dbname="productType" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="num" title="所需数量" width="60" />
+          <BListColItem dbname="kuoutnum" title="出库数量" width="60" />
+          <BListColItem dbname="registernum" title="登记数量" width="60" />
+          <BListColItem dbname="returnnum" title="退料数量" width="60" />
+          <BListColItem dbname="scrapnum" title="报废数量" width="60" />
+          <BListColItem dbname="restnum" title="剩余数量" width="60" />
+          <BListColItem dbname="remark" title="备注" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="操作" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54004_生产质检单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>detaillvf</DBName>
+        <Cols>
+          <BListColItem dbname="productName" title="产品名称" width="" />
+          <BListColItem dbname="productBH" title="产品编号" width="" />
+          <BListColItem dbname="SerialNumber" title="送检数量" width="" />
+          <BListColItem dbname="NumTesting" title="质检数量" width="" />
+          <BListColItem dbname="QTConform" title="合格数量" width="200" />
+          <BListColItem dbname="NumScrap" title="返工数量" width="" />
+          <BListColItem dbname="NumBF" title="报废数量" width="" />
+          <BListColItem dbname="QTResult" title="质检结果" width="" />
+          <BListColItem dbname="bhgOpinion" title="不合格原因" width="" />
+          <BListColItem dbname="BFOpinion" title="报废原因" width="" />
+          <BListColItem dbname="QualityLevel" title="质检等级" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+          <BListColItem dbname="ph" title="批号" width="" />
+          <BListColItem dbname="xlh" title="序列号" width="" />
+          <BListColItem dbname="datesc" title="生产日期" width="" />
+          <BListColItem dbname="dateyx" title="有效日期" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54005_生产返工单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>MaterialRegister</DBName>
+        <Cols>
+          <BListColItem dbname="name" title="产品名称" width="200" />
+          <BListColItem dbname="bh" title="产品编号" width="80" />
+          <BListColItem dbname="xinhao" title="产品型号" width="80" />
+          <BListColItem dbname="unit" title="单位" width="100" />
+          <BListColItem dbname="bl" title="产品比例" width="" />
+          <BListColItem dbname="num1" title="所需数量" width="" />
+          <BListColItem dbname="DateDelivery" title="到货日期" width="150" />
+          <BListColItem dbname="intro" title="备注" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName>workflowf</DBName>
+        <Cols>
+          <BListColItem dbname="ord" title="执行顺序" width="80" />
+          <BListColItem dbname="WCname1" title="生产产线" width="" />
+          <BListColItem dbname="WPname" title="工序名称" width="250" />
+          <BListColItem dbname="isOut" title="加工类型" width="" />
+          <BListColItem dbname="cateid" title="生产人员" width="" />
+          <BListColItem dbname="NumMake" title="加工数量" width="" />
+          <BListColItem dbname="hgsl" title="合格数量" width="" />
+          <BListColItem dbname="hgl" title="合格率" width="" />
+          <BListColItem dbname="fgsl" title="返工数量" width="" />
+          <BListColItem dbname="fgl" title="返工率" width="" />
+          <BListColItem dbname="bfsl" title="报废数量" width="" />
+          <BListColItem dbname="bfl" title="报废率" width="" />
+          <BListColItem dbname="truedatestart" title="实际开工期" width="" />
+          <BListColItem dbname="truedateend" title="实际完工期" width="" />
+          <BListColItem dbname="wtime" title="计划总时间" width="" />
+          <BListColItem dbname="DateStart" title="实际开工期" width="170" />
+          <BListColItem dbname="DateEnd" title="实际完工期" width="170" />
+          <BListColItem dbname="GXstatus" title="工序状态" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="工时单位" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54006_生产工序委外单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>outprocedurea</DBName>
+        <Cols>
+          <BListColItem dbname="proname" title="产品名称" width="200" />
+          <BListColItem dbname="procedurename" title="工序名称" width="" />
+          <BListColItem dbname="num1" title="委外数量" width="" />
+          <BListColItem dbname="price1" title="委外单价" width="" />
+          <BListColItem dbname="priceAfterTax" title="委外含税单价" width="100" />
+          <BListColItem dbname="invoiceType" title="票据类型" width="" />
+          <BListColItem dbname="taxRate" title="税率" width="120" />
+          <BListColItem dbname="money1" title="金额" width="" />
+          <BListColItem dbname="taxValue" title="税额" width="" />
+          <BListColItem dbname="moneyAfterTax" title="总价" width="" />
+          <BListColItem dbname="DateDelivery" title="完工期" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+          <BListColItem dbname="probh" title="产品编号" width="" />
+          <BListColItem dbname="prosn" title="产品型号" width="" />
+          <BListColItem dbname="unitname" title="单位" width="" />
+          <BListColItem dbname="title" title="关联单据" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName>OutOrderWLdata</DBName>
+        <Cols>
+          <BListColItem dbname="name" title="产品名称" width="" />
+          <BListColItem dbname="bh" title="产品编号" width="" />
+          <BListColItem dbname="xinghao" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="num" title="所需数量" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="不合格数量" width="" />
+          <BListColItem dbname="" title="质检人员" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54007_生产工序汇报单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="加工工序" width="200" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54008_生产工序质检单</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B54009_生产委外质检单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>detaillvf</DBName>
+        <Cols>
+          <BListColItem dbname="productName" title="产品名称" width="" />
+          <BListColItem dbname="SerialNumber" title="送检数量" width="" />
+          <BListColItem dbname="NumTesting" title="质检数量" width="" />
+          <BListColItem dbname="QTConform" title="合格数量" width="" />
+          <BListColItem dbname="NumBF" title="不合格数量" width="80" />
+          <BListColItem dbname="QTResult" title="质检结果" width="" />
+          <BListColItem dbname="bhgOpinion" title="不合格原因" width="" />
+          <BListColItem dbname="QualityLevel" title="质检等级" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+          <BListColItem dbname="ph" title="批号" width="" />
+          <BListColItem dbname="xlh" title="序列号" width="" />
+          <BListColItem dbname="datesc" title="生产日期" width="" />
+          <BListColItem dbname="dateyx" title="有效日期" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="质检人员" width="200" />
+          <BListColItem dbname="" title="" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54010_生产序列号</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="序号" width="" />
+          <BListColItem dbname="" title="序列号" width="300" />
+          <BListColItem dbname="" title="" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B54011_生产工序替代</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B54012_生产订单物料需求</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>wlDetail</DBName>
+        <Cols>
+          <BListColItem dbname="order1" title="编号" width="" />
+          <BListColItem dbname="type1" title="型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="ptitle" title="父件产品" width="" />
+          <BListColItem dbname="pnum" title="父件核定量" width="" />
+          <BListColItem dbname="bl" title="用量比例（父：子）" width="150" />
+          <BListColItem dbname="NeedNum" title="需求数量" width="" />
+          <BListColItem dbname="WastAge" title="损耗率" width="" />
+          <BListColItem dbname="CrossNum" title="毛需求" width="" />
+          <BListColItem dbname="kykunum" title="可用库存" width="" />
+          <BListColItem dbname="kunum" title="库存数量" width="" />
+          <BListColItem dbname="ztnum" title="在途数量" width="" />
+          <BListColItem dbname="ydnum" title="预订数量" width="" />
+          <BListColItem dbname="SafeNum" title="安全库存" width="" />
+          <BListColItem dbname="CurrNum" title="核定数量" width="" />
+          <BListColItem dbname="sygnum" title="剩余预购量" width="" />
+          <BListColItem dbname="DateStart" title="建议采购日期" width="" />
+          <BListColItem dbname="DateEnd" title="建议到货日期" width="" />
+          <BListColItem dbname="remark" title="备注" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B55001_生产领料单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>lllvw</DBName>
+        <Cols>
+          <BListColItem dbname="protitle" title="产品名称" width="250" />
+          <BListColItem dbname="order1" title="产品编号" width="" />
+          <BListColItem dbname="type1" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="num1" title="领料数量" width="" />
+          <BListColItem dbname="applynum" title="申请数量" width="60" />
+          <BListColItem dbname="kuoutnum" title="出库数量" width="" />
+          <BListColItem dbname="registernum" title="登记数量" width="" />
+          <BListColItem dbname="returnnum" title="退料数量" width="" />
+          <BListColItem dbname="wastenum" title="废料数量" width="" />
+          <BListColItem dbname="DateDelivery" title="交货日期" width="150" />
+          <BListColItem dbname="intro" title="备注" width="" />
+          <BListColItem dbname="MType" title="领料方式" width="" />
+          <BListColItem dbname="billtitle" title="关联单据" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B55002_生产退料单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>wllvw</DBName>
+        <Cols>
+          <BListColItem dbname="protitle" title="产品名称" width="250" />
+          <BListColItem dbname="order1" title="产品编号" width="" />
+          <BListColItem dbname="type1" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="num1" title="退料数量" width="80" />
+          <BListColItem dbname="kuinapply" title="入库申请" width="" />
+          <BListColItem dbname="kuinnum" title="实际入库" width="" />
+          <BListColItem dbname="kt" title="可退数量" width="" />
+          <BListColItem dbname="reason" title="退料原因" width="" />
+          <BListColItem dbname="intro" title="备注" width="" />
+          <BListColItem dbname="ph" title="批次" width="" />
+          <BListColItem dbname="xlh" title="序列号" width="" />
+          <BListColItem dbname="datesc" title="生产日期" width="" />
+          <BListColItem dbname="dateyx" title="有效日期" width="" />
+          <BListColItem dbname="ck" title="出库仓库" width="" />
+          <BListColItem dbname="lltitle" title="领料主题" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B55003_生产废料单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>wllvw</DBName>
+        <Cols>
+          <BListColItem dbname="protitle" title="产品名称" width="250" />
+          <BListColItem dbname="order1" title="产品编号" width="120" />
+          <BListColItem dbname="type1" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="num1" title="废料数量" width="100" />
+          <BListColItem dbname="kuinapply" title="入库申请" width="" />
+          <BListColItem dbname="kuinnum" title="实际入库" width="" />
+          <BListColItem dbname="kt" title="可废数量" width="" />
+          <BListColItem dbname="reason" title="废料原因" width="" />
+          <BListColItem dbname="intro" title="备注" width="" />
+          <BListColItem dbname="ph" title="批次" width="" />
+          <BListColItem dbname="xlh" title="序列号" width="" />
+          <BListColItem dbname="datesc" title="生产日期" width="" />
+          <BListColItem dbname="dateyx" title="有效日期" width="" />
+          <BListColItem dbname="ck" title="出库仓库" width="" />
+          <BListColItem dbname="lltitle" title="领料主题" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B55004_生产物料登记</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>rglvw</DBName>
+        <Cols>
+          <BListColItem dbname="protitle" title="物料名称" width="250" />
+          <BListColItem dbname="order1" title="物料编号" width="" />
+          <BListColItem dbname="type1" title="物料型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="sx" title="所需数量" width="" />
+          <BListColItem dbname="cbc" title="除本次已登记" width="" />
+          <BListColItem dbname="num1" title="本次登记数量" width="90" />
+          <BListColItem dbname="cbprice" title="成本单价" width="" />
+          <BListColItem dbname="cbmoney" title="成本总价" width="" />
+          <BListColItem dbname="ky" title="可用数量" width="" />
+          <BListColItem dbname="zy" title="分配方式" width="120" />
+          <BListColItem dbname="intro" title="备注" width="" />
+          <BListColItem dbname="ph" title="批号" width="" />
+          <BListColItem dbname="xlh" title="序列号" width="" />
+          <BListColItem dbname="datesc" title="生产日期" width="" />
+          <BListColItem dbname="dateyx" title="有效日期" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B55005_生产物料替代</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>OldWLData</DBName>
+        <Cols>
+          <BListColItem dbname="proname" title="产品名称" width="250" />
+          <BListColItem dbname="probh" title="产品编号" width="" />
+          <BListColItem dbname="protype" title="型号" width="" />
+          <BListColItem dbname="prounit" title="单位" width="" />
+          <BListColItem dbname="zsl" title="总需求数量" width="" />
+          <BListColItem dbname="ztdnum" title="总替代数量" width="" />
+          <BListColItem dbname="syjgnum" title="剩余需求数量" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName>SubstitutionWLData</DBName>
+        <Cols>
+          <BListColItem dbname="proname" title="产品名称" width="250" />
+          <BListColItem dbname="probh" title="产品编号" width="" />
+          <BListColItem dbname="protype" title="型号" width="" />
+          <BListColItem dbname="prounit" title="单位" width="150" />
+          <BListColItem dbname="sl" title="数量" width="300" />
+          <BListColItem dbname="kynum" title="可用库存" width="" />
+          <BListColItem dbname="ord" title="替代优先级" width="300" />
+          <BListColItem dbname="tdbl" title="替代比例" width="" />
+          <BListColItem dbname="tdsl" title="替代数量" width="300" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="适用物料清单" width="200" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B56001_生产工价单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>GJdetail</DBName>
+        <Cols>
+          <BListColItem dbname="sn" title="工价编码" width="" />
+          <BListColItem dbname="WPName" title="工序名称" width="200" />
+          <BListColItem dbname="proname" title="产品名称" width="200" />
+          <BListColItem dbname="probh" title="产品编号" width="150" />
+          <BListColItem dbname="protype" title="产品型号" width="" />
+          <BListColItem dbname="unit" title="单位" width="100" />
+          <BListColItem dbname="price" title="单价(元)" width="" />
+          <BListColItem dbname="remark" title="工价备注" width="200" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B56002_生产奖惩单</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B48001_成本分析</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>CostComputationList</DBName>
+        <Cols>
+          <BListColItem dbname="PartID" title="部门名称" width="" />
+          <BListColItem dbname="MOID" title="生产订单编号" width="" />
+          <BListColItem dbname="title" title="产品名称" width="" />
+          <BListColItem dbname="order1" title="产品编号" width="" />
+          <BListColItem dbname="unit" title="单位" width="" />
+          <BListColItem dbname="MaterialMoney" title="直接材料_材料" width="" />
+          <BListColItem dbname="outMoney" title="直接材料_委外" width="" />
+          <BListColItem dbname="LaborMoney" title="直接人工" width="" />
+          <BListColItem dbname="InPartMoney" title="订单费用" width="" />
+          <BListColItem dbname="OutPartMoney" title="部门间费用" width="" />
+          <BListColItem dbname="CashNum" title="完工数量" width="" />
+          <BListColItem dbname="CostMoney" title="成本金额" width="" />
+          <BListColItem dbname="OneMaterialMoney" title="单位材料" width="" />
+          <BListColItem dbname="OneLaborMoney" title="单位人工" width="" />
+          <BListColItem dbname="OneInPartMoney" title="单位订单费用" width="100" />
+          <BListColItem dbname="OneOutPartMoney" title="单位部门间费用" width="" />
+          <BListColItem dbname="CostPrice" title="成本单价" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B56004_生产计件工资</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>JJdetail</DBName>
+        <Cols>
+          <BListColItem dbname="PRSN" title="工价编码" width="250" />
+          <BListColItem dbname="CateID" title="生产人员" width="200" />
+          <BListColItem dbname="ptitle" title="产品名称" width="200" />
+          <BListColItem dbname="produceNum" title="生产数量" width="" />
+          <BListColItem dbname="NumTesting" title="计件数量" width="" />
+          <BListColItem dbname="price1" title="单价" width="130" />
+          <BListColItem dbname="money1" title="总价" width="" />
+          <BListColItem dbname="bonus" title="奖罚金额" width="" />
+          <BListColItem dbname="WPName" title="工序名称" width="" />
+          <BListColItem dbname="remark" title="工价备注" width="150" />
+          <BListColItem dbname="watitle" title="关联单据" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B56005_部门间费用</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B56006_计件工资明细</BillType>
+    <ListViews />
+  </BillItem>
+  <BillItem>
+    <BillType>B56007_计时工价单</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>TWmessage</DBName>
+        <Cols>
+          <BListColItem dbname="ptcode" title="工价编码" width="250" />
+          <BListColItem dbname="price1" title="单价(元)" width="150" />
+          <BListColItem dbname="twtype" title="计时单位" width="100" />
+          <BListColItem dbname="gwid" title="岗位名称" width="120" />
+          <BListColItem dbname="gxname" title="工序名称" width="200" />
+          <BListColItem dbname="remark1" title="备注" width="400" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+  <BillItem>
+    <BillType>B56008_生产计时工资</BillType>
+    <ListViews>
+      <BillListViewItem>
+        <DBName>MXlist</DBName>
+        <Cols>
+          <BListColItem dbname="Twid" title="工价编码" width="" />
+          <BListColItem dbname="MID" title="生产人员" width="150" />
+          <BListColItem dbname="Tlong" title="时长" width="" />
+          <BListColItem dbname="Tlunit" title="计时单位" width="100" />
+          <BListColItem dbname="price1" title="单价（元）" width="150" />
+          <BListColItem dbname="money1" title="总价（元）" width="" />
+          <BListColItem dbname="RaPmoney" title="奖罚金额" width="" />
+          <BListColItem dbname="Gwid" title="岗位名称" width="" />
+          <BListColItem dbname="Wfid" title="工序名称" width="150" />
+          <BListColItem dbname="remark1" title="备注" width="" />
+          <BListColItem dbname="Billid" title="关联单据" width="" />
+        </Cols>
+      </BillListViewItem>
+      <BillListViewItem>
+        <DBName />
+        <Cols>
+          <BListColItem dbname="" title="工价主题" width="" />
+        </Cols>
+      </BillListViewItem>
+    </ListViews>
+  </BillItem>
+</Bills>

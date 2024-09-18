@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StatisticMenus>
+  <Page1>
+    <groups name="" >
+      <group name="设备管理" power="({18900}|{218940})+[5021,19]+([5021,1]|[5021,13])">
+        <item type="link" title="设备添加" url="/SYSN/view/produceV2/Machine/MachineAdd.ashx" power="[5021,13]" checkPower="1"/>
+        <item type="link" title="设备列表" url="/SYSN/view/produceV2/Machine/MachineList.ashx" power="[5021,1]" checkPower="1"/>
+        <item type="link" title="设备明细表" url="/SYSN/view/produceV2/Machine/MachineDetailList.ashx" power="[5021,1]" checkPower="1"/>
+        <item type="link" title="设备日历" url="/SYSN/view/produceV2/Machine/MachineCalendarList.ashx" power="[5021,1]" checkPower="1"/>
+      </group>
+      <group name="工序管理" power="({18900}|{218950})+[68,19]">
+        <item type="link" title="工序添加" url="/SYSN/view/ProduceV2/workflow/AddWorkingProcedure.ashx" power="[68,13]" checkPower="1"/>
+        <item type="link" title="工序列表" url="/SYSN/view/ProduceV2/workflow/WorkingProceduresList.ashx" checkPower="0"/>
+      </group>
+      <group name="工艺流程" power="({18900}|{218960})+[59,19]">
+        <item type="link" title="工艺流程添加" url="/SYSN/view/ProduceV2/workflow/AddWorkingFlow.ashx" power="[59,13]" checkPower="1"/>
+        <item type="link" title="工艺流程列表" url="/SYSN/view/ProduceV2/workflow/WorkingFlowList.ashx" checkPower="0"/>
+      </group>
+      <group name="车间产线" power="({18900}|{218970})+[5018,19]">
+        <item type="link" title="车间管理" url="/SYSN/view/ProduceV2/MenuDepartment/MenuDepartmentTree.ashx" checkPower="0"/>
+        <item type="link" title="产线添加" url="/SYSN/view/ProduceV2/Workcenter/AddWorkingCenter.ashx" power="[5018,13]" checkPower="1"/>
+        <item type="link" title="产线列表" url="/SYSN/view/ProduceV2/Workcenter/WorkingCenterList.ashx" checkPower="0"/>
+        <item type="link" title="生产一览表" url="/SYSN/view/ProduceV2/Workcenter/produceAllReport.ashx" power="[5018,1]" checkPower="1"/>
+      </group>
+      <group name="物料清单" power="{18002}+[56,19]">
+        <item type="link" title="物料清单添加" url="/SYSN/view/produceV2/BOM/BOMAdd.ashx?sort=1" power="[56,13]" checkPower="1"/>
+        <item type="link" title="物料清单列表" url="/SYSN/view/produceV2/BOM/BOMList.ashx" power="[56,19]" checkPower="1"/>
+        <item type="link" title="清单多维查询" url="/SYSN/view/produceV2/BOM/ManyDimensions.ashx" power="[56,14]" checkPower="1"/>
+      </group>
+      <group name="物料替代" power="{18002}+[56,19]">
+        <item type="link" title="物料替代添加" url="/SYSN/view/produceV2/MaterialSubstitution/SubstitutionAdd.ashx" power="[56,13]" checkPower="1"/>
+        <item type="link" title="物料替代列表" url="/SYSN/view/produceV2/MaterialSubstitution/SubstitutionList.ashx" checkPower="0"/>
+      </group>
+      <group name="序列号管理" power="({18600}|{17000}|{18700})+[5036,19]">
+        <item type="link" title="序列号生成" url="/SYSN/view/store/SerialNumber/serialnumber.ashx"  checkPower="1" power="[5036,13]" />
+        <item type="link" title="序列号列表" url="/SYSN/view/store/SerialNumber/List.ashx" checkPower="0"/>
+      </group>
+    </groups>
+  </Page1>
+  <Page2>
+    <groups name="" >
+      <group name="物料清单设置" power="{18002}+[56,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/BOM/BOMAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=51005&#38;title=%u7269%u6599%u6E05%u5355" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/BOM/BOMAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/BOMApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=51005" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/BOM/BOMControl.ashx" checkPower="0"/>
+      </group>
+      <group name="预生产计划设置" power="{18100}+[52,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/ManuPlansPre/ManuPlansPreAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=52001&#38;title=%u9884%u8BA1%u5212" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/ManuPlansPre/ManuPlansPreAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/ManuPlansPreApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=52001" checkPower="0"/>
+      </group>
+      <group name="生产计划设置" power="{18110}+[50,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/ManuPlans/ManuPlansAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=52002&#38;title=%u751F%u4EA7%u8BA1%u5212" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/ManuPlans/ManuPlansAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="关联物料清单明细自定义" url="/SYSN/view/produceV2/BOM/BOMHistory.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/ManuPlansApproval.ashx" checkPower="0"/>
+		<item type="link" title="策略设置" url="/SYSN/view/produceV2/ManuPlans/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="物料分析设置" power="{18400}+[63,12]">
+        <item type="link" title="物料分析策略" url="/SYSN/view/produceV2/MaterialAnalysis/RuleList.ashx" checkPower="0"/>
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/MaterialAnalysis/MRP.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/MaterialAnalysis/MRP.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=2" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=53001&#38;title=%u7269%u6599%u5206%u6790" checkPower="0"/>
+      </group>
+      <group name="生产排产设置" power="{18400}+[64,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/APS/Add.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=53002&#38;title=%e7%94%9f%e4%ba%a7%e6%8e%92%e4%ba%a7" checkPower="0"/>
+      </group>
+      <group name="生产订单设置" power="{18500}+[51,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/ManuOrders/ManuOrdersAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54001&#38;title=%u751F%u4EA7%u8BA2%u5355" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/ManuOrders/ManuOrdersAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/ManuOrdersApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54001" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/ManuOrders/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="生产派工设置" power="{18600}+[54,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/WorkAssign/WorkAssignDetail.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54002&#38;title=%u751f%u4ea7%u6d3e%u5de5" checkPower="0"/>
+        <item type="link" title="派工产品自定义" url="/SYSN/view/produceV2/WorkAssign/AddWorkAssign.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=-1101" checkPower="0"/>
+        <item type="link" title="派工物料明细自定义" url="/SYSN/view/produceV2/WorkAssign/AddWorkAssign.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=2" checkPower="0"/>
+        <item type="link" title="派工执行工序自定义" url="/SYSN/view/produceV2/WorkAssign/AddWorkAssign.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=4" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/WorkAssignApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54002" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/WorkAssign/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="工序汇报设置" power="{18610}+[5031,12]">
+        <item type="link" title="汇报结果条码" url="/SYSN/view/produceV2/ProcedureProgres/ReportResult.ashx" checkPower="0"/>
+        <item type="link" title="报废原因设置" url="/SYSA/sort3/edit.asp?ord=100" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54007" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/ProcedureProgres/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="生产领料设置" power="{18620}+[57,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/Material/OrdersAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=55001&#38;title=%u751F%u4EA7%u9886%u6599" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/Material/OrdersAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/MaterialApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=55001" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/Material/MaterialConfig.ashx" checkPower="0"/>
+      </group>
+      <group name="生产补料设置" power="{18620}+[57,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/Material/SupplementsAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=55006&#38;title=%u751F%u4EA7%u8865%u6599" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/Material/SupplementsAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/SupplementsApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=55006" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/Material/SupplementsConfig.ashx" checkPower="0"/>
+      </group>
+      <group name="生产退料设置" power="{18620}+[57,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/ReturnMaterial/ReturnMaterialAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=55002&#38;title=%u751F%u4EA7%u9000%u6599" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/ReturnMaterial/ReturnMaterialAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/ReturnMaterialApproval.ashx" checkPower="0"/>
+        <item type="link" title="退料原因设置" url="/SYSA/sort3/edit.asp?ord=157" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=55002" checkPower="0"/>
+		<item type="link" title="策略设置" url="/SYSN/view/produceV2/ReturnMaterial/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="生产废料设置" power="{18620}+[57,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/Waste/WasteAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=55003&#38;title=%u751F%u4EA7%u5E9F%u6599" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/Waste/WasteAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/WasteApproval.ashx" checkPower="0"/>
+        <item type="link" title="废料原因设置" url="/SYSA/sort3/edit.asp?ord=158" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=55003" checkPower="0"/>
+		<item type="link" title="策略设置" url="/SYSN/view/produceV2/ReturnMaterial/SettingStrategy.ashx?type=1" checkPower="0"/>
+      </group>
+      <group name="物料登记设置" power="{18620}+[61,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/MaterialRegisters/RegistersAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=55004&#38;title=%u7269%u6599%u767B%u8BB0" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/MaterialRegisters/RegistersAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/RegisterApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=55004" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/MaterialRegisters/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="生产返工设置" power="{18800}+[62,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/Rework/AddRework.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54005&#38;title=%u751f%u4ea7%u8fd4%u5de5" checkPower="0"/>
+        <item type="link" title="返工产品自定义" url="/SYSN/view/produceV2/Rework/AddRework.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=-1101" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/Rework/AddRework.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54005" checkPower="0"/>
+      </group>
+      <group name="整单委外设置" power="{18700}+[5025,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/ProductionOutsource/ProOutsourceAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54003&#38;title=%u6574%u5355%u59D4%u5916" checkPower="0"/>
+        <item type="link" title="委外产品明细自定义" url="/SYSN/view/produceV2/ProductionOutsource/ProOutsourceAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="委外物料明细自定义" url="/SYSN/view/produceV2/ProductionOutsource/ProOutsourceAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=2" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/ProOutsourceApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54003" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/ProductionOutsource/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="工序委外设置" power="{18700}+{18610}+[5026,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/OutProcedure/AddOutProcedure.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54006&#38;title=%u5DE5%u5E8F%u59D4%u5916" checkPower="0"/>
+        <item type="link" title="委外产品明细自定义" url="/SYSN/view/produceV2/OutProcedure/AddOutProcedure.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="委外物料明细自定义" url="/SYSN/view/produceV2/OutProcedure/AddOutProcedure.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=2" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/OutProcedureApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54006" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/ProductionOutsource/SettingStrategy.ashx?type=1" checkPower="0"/>
+      </group>
+      <group name="委外收货设置" power="{18700}+[5060,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/ReceivingGoods/ReceivingGoodsAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=58002&#38;title=%u59D4%u5916%u6536%u8D27" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/ReceivingGoods/ReceivingGoodsAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+      </group>
+      <group name="委外送检设置" power="{18700}+[5061,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/OutsourceInspection/AddInspection.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=58003&#38;title=%u59D4%u5916%u9001%u68C0" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/OutsourceInspection/AddInspection.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=58003" checkPower="0"/>
+      </group>
+      <group name="委外返工设置" power="{18700}+[5059,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/QualityControl/OutSource/AddRework.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=58001&#38;title=%u59D4%u5916%u8FD4%u5DE5" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/QualityControl/OutSource/AddRework.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=58001" checkPower="0"/>
+      </group>
+      <group name="工序质检设置" power="{18610}+[5058,12]">
+        <item type="link" title="送检编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54014&#38;title=%u5DE5%u5E8F%u9001%u68C0" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=57004&#38;title=%u5DE5%u5E8F%u8D28%u68C0" checkPower="0"/>
+        <item type="link" title="不合格原因" url="/SYSA/sort3/edit.asp?ord=57005" checkPower="0"/>
+        <item type="link" title="报废原因" url="/SYSA/sort3/edit.asp?ord=57006" checkPower="0"/>
+        <item type="link" title="质检等级" url="/SYSA/sort3/edit.asp?ord=57007" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=57004" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/QualityControl/Procedure/SettingStrategy.ashx" checkPower="0"/>
+      </group>
+      <group name="派工质检设置" power="{18600}+[58,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/QualityControl/WorkOrder/QualityWorkOrderAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54004&#38;title=%u6D3E%u5DE5%u8D28%u68C0" checkPower="0"/>
+        <item type="link" title="派工送检编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54013&#38;title=%u6D3E%u5DE5%u8D28%u68C0" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/QualityControl/WorkOrder/QualityWorkOrderAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="不合格原因" url="/SYSA/sort3/edit.asp?ord=54001" checkPower="0"/>
+        <item type="link" title="报废原因" url="/SYSA/sort3/edit.asp?ord=54002" checkPower="0"/>
+        <item type="link" title="质检等级" url="/SYSA/sort3/edit.asp?ord=54003" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54004" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/QualityControl/WorkOrder/WorkOrderStrateConfig.ashx" checkPower="0"/>
+      </group>
+      <group name="委外质检设置" power="{18700}+[5027,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/QualityControl/OutSource/QualityOutSourceAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=54009&#38;title=%u59D4%u5916%u8D28%u68C0" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/QualityControl/OutSource/QualityOutSourceAdd.ashx?index=0&#38;__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="不合格原因" url="/SYSA/sort3/edit.asp?ord=54004" checkPower="0"/>
+        <item type="link" title="质检等级" url="/SYSA/sort3/edit.asp?ord=54005" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=54009" checkPower="0"/>
+        <item type="link" title="策略设置" url="/SYSN/view/produceV2/QualityControl/OutSource/QCstrateConfig.ashx" checkPower="0"/>
+      </group>
+      <group name="质检设置" power="({17900}|{18610})+[5057,12]">
+        <item type="link" title="质检项分组设置" url="/SYSA/sort3/edit.asp?ord=57000" power="{17900}" checkPower="1"/>
+        <item type="link" title="质检项单位设置" url="/SYSA/sort3/edit.asp?ord=57010" power="{17900}" checkPower="1"/>
+        <item type="link" title="方案编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=57002&#38;title=%u8D28%u68C0%u65B9%u6848" power="{17900}" checkPower="1"/>
+        <item type="link" title="流程方案编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=57003&#38;title=%u5DE5%u827A%u6D41%u7A0B%u65B9%u6848" power="{18610}" checkPower="1"/>
+      </group>
+      <group name="计件工价设置" power="({18900}|{218920})+[5023,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/workflow/AddPriceRate.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <!--<item type="link" title="工价编号设置" url="/SYSA/sort3/set_khbh.asp?sort1=56001&#38;title=%u5DE5%u4EF7" checkPower="0"/>-->
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/workflow/AddPriceRate.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/PriceRateApproval.ashx" checkPower="0"/>
+      </group>
+      <group name="计件工资设置" power="({18900}|{218910})+[60,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/CountPay/CountPayAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=56004&#38;title=%u8BA1%u4EF6" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/CountPay/CountPayAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/CountPayApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=56004" checkPower="0"/>
+      </group>
+      <group name="计时工价设置" power="({18900}|{218920})+[5023,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/TimeWages/TimeWagesitem.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/TimeWages/TimeWagesitem.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/TimeWagesApproval.ashx" checkPower="0"/>
+      </group>
+      <group name="计时工资设置" power="({18900}|{218910})+[70,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/Wage_JS/Wage_JSItem.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=56008&#38;title=%u8BA1%u65F6" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/Wage_JS/Wage_JSItem.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/Wage_JSApproval.ashx" checkPower="0"/>
+        <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=56008" checkPower="0"/>
+      </group>     
+      <group name="奖罚设置" power="({18900}|{218930})+[69,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/rewardpunish/RewardPunishAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="奖罚分类设置" url="/SYSA/sort3/edit.asp?ord=85" checkPower="0"/>
+      </group>
+        <group name="设备管理设置" power="({18900}|{218940})+[5021,12]">
+          <item type="link" title="字段自定义" url="/SYSN/view/produceV2/Machine/MachineAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+          <item type="link" title="明细自定义" url="/SYSN/view/produceV2/Machine/MachineAdd.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        </group>
+      <group name="工序管理设置" power="({18900}|{218950})+[68,12]">
+		      <item type="link" title="字段自定义" url="/SYSN/view/produceV2/workflow/AddworkingProcedure.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+          <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=51002&#38;title=%u5DE5%u5E8F" checkPower="0"/>
+          <item type="link" title="工序分类设置" url="/SYSA/sort3/edit.asp?ord=99" checkPower="0"/>
+          <item type="link" title="打印模板设置" url="/SYSN/view/comm/PrintTemplateList.ashx?sort=51002" checkPower="0"/>
+      </group>
+      <group name="工艺流程设置" power="({18900}|{218960})+[59,12]">
+		    <item type="link" title="字段自定义" url="/SYSN/view/produceV2/workflow/AddWorkingFlow.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=51003&#38;title=%u5DE5%u827A%u6D41%u7A0B" checkPower="0"/>
+        <item type="link" title="明细自定义" url="/SYSN/view/produceV2/workflow/AddWorkingFlow.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage&#38;listtype=1" checkPower="0"/>
+        <item type="link" title="审批流程设置" url="/SYSN/view/Approve/produceV2/WorkingFlowApproval.ashx" checkPower="0"/>
+      </group>
+      <group name="车间管理设置" power="({18900}|{218970})+[5018,12]">
+        <item type="link" title="字段自定义" url="/SYSN/view/produceV2/MenuDepartment/DepartmentList.ashx?AddType=0&#38;__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+        <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=51004&#38;title=%u8F66%u95F4" checkPower="0"/>
+      </group>
+      <group name="产线管理设置" power="({18900}|{218970})+[5018,12]">
+		      <item type="link" title="字段自定义" url="/SYSN/view/produceV2/workcenter/AddWorkingCenter.ashx?__sys_msgid=sdk_sys_ShowCustomFieldConfigPage" checkPower="0"/>
+          <item type="link" title="编号自定义" url="/SYSA/sort3/set_khbh.asp?sort1=51006&#38;title=%u4EA7%u7EBF" checkPower="0"/>
+      </group>
+    </groups>
+  </Page2>
+</StatisticMenus>

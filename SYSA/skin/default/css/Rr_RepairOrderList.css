@@ -1,0 +1,15 @@
+﻿.box{position:absolute; background:#FFF; display:none; z-index:9999; zoom:1; top:60px; right:35px;}
+.box table{border-collapse:collapse; width:400px;}
+.box table,.box td,.box th{border:#c0ccdd 1px solid; height:28px; position:static;}
+.box th{background:#f0f6ff;}
+.box td{padding:0 4px; text-align:center;}
+.box .anybutton {
+	background-image: url(../images/anybutton_bg.gif);
+	background-repeat: repeat-x;
+	border: 1px solid #9FA3BC;
+	height: 20px;
+	color: #486D9E;
+	font-size: 12px;
+	margin:0 5px;
+	padding-top: 3px;
+}

@@ -1,0 +1,204 @@
+﻿#CostMainAnalysisDlg {
+	width: 800px;
+	height: 560px;
+	top: 50%;
+	margin-top: -280px;
+	left: 50%;
+	margin-left: -400px;
+	background-color: white;
+	position: absolute;
+	z-index: 10000;
+	-moz-box-shadow: 0px 0px 20px #333333;
+	-webkit-box-shadow: 0px 0px 20px #333333;
+	box-shadow: 0px 0px 20px #333333;
+	box-sizing:border-box;
+
+}
+
+.CostMainAnalysisDlgOldIe {
+	filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=135, Strength=5);
+}
+
+#CostMainAnalysisDlgOldIe {
+	border:1px solid #999;
+}
+
+#CostMainAnalysisDlg_topbtn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+}
+
+#CostMainAnalysisDlg_topbtn a {
+	color:white;
+}
+
+#CostMainAnalysisDlg_topbtn a.cmin {
+	font-size:14px;
+	font-weight:bold;
+	position:relative;
+	top:-3px;
+}
+
+#CostMainAnalysisDlg_topbtn a.cclose {
+	font-size:24px;
+}
+
+#CostMainAnalysisDlg .TopTitleCss {
+	height: 60px;
+	text-align: center;
+	color: white;
+	line-height: 60px;
+	font-size: 17px;
+}
+
+#CostMainAnalysisDlg .LeftMenuItemCss {
+	height: 50px;
+	clear: both;
+	width: 100%;
+	overflow:hidden;
+}
+
+#CostMainAnalysisDlg .LeftMenuSign,
+#CostMainAnalysisDlg .LeftMenuRSign,
+#CostMainAnalysisDlg .LeftMenuPSign
+ {
+	line-height: 50px;
+	height: 100%;
+	text-align:left;
+	color:#F0F0F0;
+	float: left;
+}
+
+#CostMainAnalysisDlg .LeftMenuItemCss.Accomplish.baseFontColorAll .LeftMenuSign{
+	color:#F0F0F0!important;
+}
+#CostMainAnalysisDlg .LeftMenuPSign {
+	color: #0052c2;
+}
+
+#CostMainAnalysisDlg .LeftMenuSign {
+	width: 30px;
+	font-size:18px;
+}
+
+#CostMainAnalysisDlg .LeftMenuRSign {
+	width: 40px;
+	font-size:36px;
+	-webkit-transform:scale(0.6,1)
+}
+#CostMainAnalysisDlg .LeftMenuPSign{
+	width: 24px;
+	font-size:20px;
+}
+#CostMainAnalysisDlg .LeftMenuText {
+	line-height: 50px;
+	height: 100%;
+	float: left;
+	font-size: 14px;
+	color: #999999;
+	line-height: 50px;
+	width:110px;
+}
+
+#CostMinAnalysisDlg {
+	width: 232px;
+	height: 63px;
+	background-color: #0070EB;
+	border:1px solid #0070EB;
+	position: absolute;
+	z-index: 100000;
+	-moz-box-shadow: 0px 0px 20px #666666;
+	-webkit-box-shadow: 0px 0px 20px #666666;
+	box-shadow: 0px 0px 20px #666666;
+	box-sizing:border-box;
+	right:60px;
+	bottom:120px;
+}
+#CostMinAnalysisDlg.CostCheckexcept{	
+    background-color: #f55607;
+	border:1px solid #f55607;
+}
+#CostMinAnalysisDlg.abnormal{background-color: #EB4400;border:1px solid #EB4400;}
+.CostMinAnalysisDlgOldIe {
+	filter: progid:DXImageTransform.Microsoft.Shadow(color='#969696', Direction=135, Strength=5);
+}
+
+#CostAnalysisMinTitle {
+	color:white;
+	font-size:14px;
+	padding-left:5px;
+}
+
+#CostminAnalysisDlgtopbtn a {
+	color:white;
+}
+
+#CostminAnalysisDlgtopbtn a.cmin {
+    background:url(../../../../img/checkcost/wbig.png) no-repeat center center;
+    position:absolute;
+    top:6px;
+    width:10px;
+    height:10px;
+    background-size:100% 100%;
+}
+
+#CostminAnalysisDlgtopbtn a.cclose {
+    background:url(../../../../img/checkcost/close.png) no-repeat center center;
+    position:absolute;
+    top:6px;
+    width:10px;
+    height:10px;
+    left:24px;
+    background-size:100% 100%;
+}
+
+.CurrActiveMenu {
+	background-color:white;
+}
+
+#CostMainAnalysisDlg div.LeftMenuItemCss div.LeftMenuPSign,
+#CostMainAnalysisDlg div.LeftMenuItemCss.Accomplish div.LeftMenuRSign{display:none;}
+#CostMainAnalysisDlg div.LeftMenuItemCss div.LeftMenuRSign,
+#CostMainAnalysisDlg div.LeftMenuItemCss.Accomplish div.LeftMenuPSign{display:block}
+a.analysisierrlink { color:blue;line-height:30px; color:blue; text-decoration:underline; font-size:14px; }
+table#MainAnalysisinittb span.testResult{display:inline-block;width:58px;text-align:left;}
+
+span.testResult.fault{color:red;}
+span.testResult.pass{color:#333;}
+span.testResult.warn{color:#FF9400;}
+span.testResult.fault span.costiconfont{ color:red;font-size:12px;font-weight:800;margin-right:4px;}
+span.testResult.pass span.costiconfont{color:#333;font-size:13px;font-weight:800;margin-right:4px;}
+span.testResult.warn span.costiconfont{color:#FF9400;font-size:15px;font-weight:800;margin-right:4px;}
+span.handleIcon.costiconfont{color:#0052c2;font-size:12px;margin-left:5px;}
+
+div.waittingHandle{width:90px;margin:0 auto;text-align:left;clear:both;height:16px;box-sizing:border-box;padding-top:1px;}
+div.waittingHandle span.num{color:#000;float:left;}
+a.goHandleBill{transition:all 0.3s;cursor:pointer;color:#0052c2;border-bottom:1px solid #fff}
+a.goHandleBill:hover{border-bottom:1px solid #0052c2;}
+div.waittingHandle a.goHandleBill{float:right}
+
+div#CostAnalysisMainBody{height:500px;overflow:auto;position:relative;}
+#MainAnalysisinittb,#MainAnalysisSpeedBodyTb { width:540px;  margin:0 auto; table-layout:fixed; border-collapse:collapse;margin-top: 30px;}
+#MainAnalysisinittb td,#MainAnalysisSpeedBodyTb td { border:1px solid 	#DDD; height:30px;text-align:center;padding:0px; color:#000;}
+#MainAnalysisinittb tr.h25 td { height:25px;}
+#CAnalysisStartButton,#CAnalysisCancleButton {width:120px;height:30px;color:white;font-size:14px;border:0px; cursor:pointer;}
+#CAnalysisStartButton.bomCheckNoShow{background-color:#CCCCCC}
+div.CAnalysisStartDiv{position:absolute;left:0px;width:100%;bottom:24px;text-align:center;height:70px;}
+/*进度条*/
+div.CAnalysisProgress{height:16px;width:540px;background:#EEEEEE;margin:0 auto 24px;position:relative;}
+div.CAnalysisProgressInnerBar{
+    width:0px;height:100%;
+    background-image: linear-gradient(to right, #6092F5, #0067C2);
+    transition:width 0.3s;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6092F5', endColorstr='#0067C2',GradientType=1 );
+}
+div.CAnalysisProgresstxt{position:absolute;height:100%;top:19px;left:4px;width: 404px;white-space: nowrap;text-overflow: ellipsis; overflow: hidden;line-height:16px;text-align:left;}
+div#CostMinAnalysisProgress{width:200px;height:8px;margin:0 auto;border-radius:4px;background:#cdd6e1;}/*小窗口进度条*/
+div#CostMinAnalysisProgress div.ProgressActiveBar{background:#1870e3;width:0%;height:100%;border-radius:4px;}
+#CostMinAnalysisDlg.CostCheckexcept div#CostMinAnalysisProgress{background:#f8dcce;}
+#CostMinAnalysisDlg.CostCheckexcept div#CostMinAnalysisProgress div.ProgressActiveBar{background:#f55607;}
+#CostMinWindowHandle{position:relative;height:100%;}
+#CostAnalysisMinProgressDiv{font-size:14px;color:#fff;}
+.noselect{
+}
